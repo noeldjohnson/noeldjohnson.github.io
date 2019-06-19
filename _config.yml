@@ -12,11 +12,11 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "default" #  ,"air"  "dark", "aqua" "contrast", , "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Noel D. Johnson's Webpage"
+title                    : "Noel D. Johnson"
 title_separator          : "-"
 name                     : "Noel D. Johnson"
 description              : "This is where the content of the website goes."
@@ -24,7 +24,7 @@ url                      : "https://noeldjohnson.github.io" # the base hostname 
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/Johnson_Headshot_Sp17.jpg" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     :  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -107,26 +107,26 @@ analytics:
 # Site Author
 author:
   name             : "Noel D. Johnson"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I’m an Associate Professor of Economics at George Mason University.  I’m also a Research Fellow at the Mercatus Center and a faculty member at the Center for the Study of Public Choice."
-  location         : "Somewhere"
+  avatar           : "/assets/images/Johnson_Headshot_Sp17.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "I’m an Associate Professor of Economics at George Mason University.  I’m also a Research Fellow at the Mercatus Center, a faculty member at the Center for the Study of Public Choice, and an Affiliate Member of the CESifo Research Network."
+  location         : "Bethesda, MD"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
+      url: mailto:noeldjohnson@mac.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
+      url: "https://twitter.com/ndjohnson"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/noeldjohnson"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
