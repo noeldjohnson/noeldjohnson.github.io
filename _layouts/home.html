@@ -2,14 +2,11 @@
 layout: archive
 ---
 
-This is some content.
+<p> This is some content. </p>
 
-{{ content }}
+<p> Explain what you do. </p>
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+<p>Here's a <a href="http://kramdown.gettalong.org">hyperlink</a>
+to another page.</p>
 
-{% for post in paginator.posts %}
-  {% include archive-single.html %}
-{% endfor %}
-
-{% include paginator.html %}
+List your recent activity.
