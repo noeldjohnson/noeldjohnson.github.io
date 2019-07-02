@@ -47,8 +47,8 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Jewish Communities and City Growth in Pre-industrial Europe**\\
 (joint with Mark Koyama)\\
 *Journal of Development Economics, 2017*\\
-Download Paper\\
-Download Presentation\\
+[Download Paper](https://www.dropbox.com/s/st0rjv6t2gt7m53/2017%20Jews%20City%20Growth%20JDE.pdf?dl=0)\\
+[Download Presentation](https://www.dropbox.com/s/jva0lrhyp4ig1h5/EHA%20Presentation.pdf?dl=0)\\
 Replication Files
 
 **Jewish Persecutions and Weather Shocks: 1100-1800**\\
