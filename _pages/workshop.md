@@ -1,69 +1,11 @@
 ---
-title: "Economic History and Development Workshop"
+title: "Economic History & Development Workshop"
 permalink: /workshop/
 ---
-
-This is some content.
 \\
-\\
-Some more content.
-
-# Here's a first level header
+![factory](/assets/images/factory.png)
 
 
-## And here's a second level header
+The Economic History & Development Workshop for Fall 2019 will be held on Friday August 23 at Georgetown University. It is being hosted by [Jenny Guardado.](https://sites.google.com/site/jennyguardado/)
 
-Here are *italics*.
-
-Here is a word in **bold**.
-
-    To write a code block use four spaces at the beginning.
-
-~~~
-you can also write code using tildas.
-~~~
-
-\\
-Lists are easy:
-
-1. a thing
-
-2. another thing
-
-3. etc...
-
-\\
-Can also make a list like this:
-
-* one
-
-* two
-
-* three
-
-
-A [link](http://kramdown.gettalong.org) to the kramdown homepage.
-
-
-You can also insert images:
-
-An image: ![headshot](/assets/images/Johnson_Headshot_Sp17.jpg)  ⁨
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-End File
+The purpose of the Workshop is to provide a low pressure environment for scholars to present early versions of their research.  Junior faculty and graduate students are especially encouraged to participate.  Please contact [Noel Johnson](mailto:noeldjohnson@mac.com) or [Mark Koyama](mailto:mark.koyama@gmail.com) or [Jenny Guardado](mailto:jennyguardado@gmail.com) if you’re interested in presenting.
