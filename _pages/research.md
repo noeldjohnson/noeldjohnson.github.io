@@ -31,17 +31,25 @@ You can purchase my book (written with Mark Koyama) here: [Persecution and Toler
 
 ## Refereed Publications
 
-“Negative Shocks and Mass Persecutions: Evidence from the Black Death” (with Remi Jedwab and Mark Koyama). Journal of Economic Growth, Forthcoming
-Download Draft
-Download Web Appendix
-Download Presentation
+**Negative Shocks and Mass Persecutions: Evidence from the Black Death**\\
+(joint with Remi Jedwab and Mark Koyama)\\
+*Journal of Economic Growth, Forthcoming, 2019*\\
+Download Manuscript\\
+Download Web Appendix\\
+Download Presentation\\
+Replication Files
 
-“States and Economic Growth: Capacity and Constraint” (with Mark Koyama). Explorations in Economic History, Forthcoming.
+**States and Economic Growth: Capacity and Constraint**\\
+(joint with Mark Koyama)\\
+*Explorations in Economic History, 2017*\\
 Download Paper
 
-“Jewish Communities and City Growth in Pre-industrial Europe” (with Mark Koyama). Journal of Development Economics, Forthcoming.
-Download Paper
-Download Presentation
+**Jewish Communities and City Growth in Pre-industrial Europe**\\
+(joint with Mark Koyama)\\
+*Journal of Development Economics, 2017*\\
+Download Paper\\
+Download Presentation\\
+Replication Files
 
 “Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878-1902” (With Raphaël Franck).  The Economic History Review, Forthcoming.
 Download Paper
