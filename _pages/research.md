@@ -5,7 +5,7 @@ permalink: /research/
 
 ![books](/assets/images/books.jpg)
 
-Here is a A [link to my CV.](https://github.com/noeldjohnson/Current_CV/raw/master/Johnson%20CV_Current.pdf)
+Here is a [link to my CV.](https://github.com/noeldjohnson/Current_CV/raw/master/Johnson%20CV_Current.pdf)
 
 You can purchase my book (written with Mark Koyama) here: [Persecution and Toleration: The Long Road to Religious Freedom.](https://www.amazon.com/gp/product/1108441165/ref=dbs_a_def_rwt_bibl_vppi_i0) Here is a link to the [book's webpage.](https://persecutionandtoleration.com/) Here is a [short presentation](https://www.dropbox.com/s/eguyx1z3x9ykd0i/PPE.pdf?dl=0) of the book's main ideas. Here is a [more in-depth presentation.](https://www.dropbox.com/s/br6433n8pb3imly/Paris%20Lectures.pdf?dl=0)
 
