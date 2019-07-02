@@ -34,10 +34,10 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Negative Shocks and Mass Persecutions: Evidence from the Black Death**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 *Journal of Economic Growth, Forthcoming, 2019*\\
-Download Manuscript\\
-Download Web Appendix\\
-Download Presentation\\
-Replication Files
+[Download Manuscript](https://www.dropbox.com/s/jhquij62js66p55/2019_NegativeShocksAndMassPersecuti.pdf?dl=0)\\
+[Download Web Appendix](https://www.dropbox.com/s/5qqeu94hyc08xk3/JJK2018_Web_Appx_JEG_Final.pdf?dl=0)\\
+[Download Presentation](https://www.dropbox.com/s/epn8z3bmw8m2glh/EHA_2018_Presentation.pdf?dl=0)\\
+[Replication Files](https://github.com/noeldjohnson/JOEG_2019_Replication.git)
 
 **States and Economic Growth: Capacity and Constraint**\\
 (joint with Mark Koyama)\\
