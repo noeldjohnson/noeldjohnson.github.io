@@ -49,7 +49,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 *Journal of Development Economics, 2017*\\
 [Download Paper](https://www.dropbox.com/s/st0rjv6t2gt7m53/2017%20Jews%20City%20Growth%20JDE.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/jva0lrhyp4ig1h5/EHA%20Presentation.pdf?dl=0)\\
-Replication Files
+[Replication Files](https://github.com/noeldjohnson/JDE_2017_Replication.git)
 
 **Jewish Persecutions and Weather Shocks: 1100-1800**\\
 (joint with Warren Anderson and Mark Koyama)\\
