@@ -42,7 +42,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **States and Economic Growth: Capacity and Constraint**\\
 (joint with Mark Koyama)\\
 *Explorations in Economic History, 2017*\\
-Download Paper
+[Download Paper](https://www.dropbox.com/s/ae33e0z9fp4godx/2017%20State%20Capacity%20Survey%20EEH.pdf?dl=0)
 
 **Jewish Communities and City Growth in Pre-industrial Europe**\\
 (joint with Mark Koyama)\\
