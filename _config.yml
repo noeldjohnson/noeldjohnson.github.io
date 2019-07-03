@@ -103,6 +103,8 @@ analytics:
     tracking_id          :
     anonymize_ip         : # true, false (default)
 
+# Google Analytics
+google_analytics: UA-3185761-2
 
 # Site Author
 author:
