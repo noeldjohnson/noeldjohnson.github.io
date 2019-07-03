@@ -150,45 +150,39 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with Mark Koyama)\\
 *In Iyer, L., Rubin, J., and Carvalho, J.-P., editors, Advances in the Economics of
 Religion. Palgrave MacMillan, 2018*\\
-Download Manuscript
+[Download Manuscript](https://www.dropbox.com/s/cmm7biqvgbprg4z/StateTolerationFreedom.pdf?dl=0)
 
 **Geospatial information systems**\\
 *In Blum, M. and Colvin, C. L., editors, An Economist’s Guide to Economic History. Palgrave MacMillan, 2018*\\
-Download Manuscript
+[Download Final Draft](https://www.dropbox.com/s/z0is1s0nyuozhy3/Johnson%20GIS%20and%20Econ%20History_draft2.pdf?dl=0)
 
 **Review of Vincent J. Pitts, ‘Embezzlement and High Treason in Louis XIV’s France: The Trial of Nicolas Fouquet’**\\
 *EH.net Economic History Services, 2016*\\
-Download Manuscript
+[Download Final Draft](https://www.dropbox.com/s/3xe55ukj2s84zbl/Pitts%20Review.pdf?dl=0)
 
 **Establishing a new order: The growth of the state and the decline of witch trials in France**\\
 (joint with Koyama, M. and Nye, J. V. C.)\\
 *In Greif, A., Kiesling, L., and Nye, J. V. C., editors, Institutions, Innovation, and Industrialization. Princeton University Press, 2015*\\
-Download Manuscript
+[Download Manuscript](https://www.dropbox.com/s/lfi3psaf6kyw3ey/EstablishingNewOrder.pdf?dl=0)
 
 **Review of Guy Rowlands, ‘The financial decline of a great power: War, influence, and money in Louis XIV’s France’**\\
 *Journal of Economic History, 2014*\\
-Download Manuscript
 
 **Review of Jan Luiten Van Zanden, ‘The long road to the industrial revolution: The european economy in a global perspective, 1000-1800’**\\
 *Journal of Economic History, 2012*\\
-Download Manuscript
 
 **Review of Mark Dincecco, ‘Political transformations and public finances: Europe, 1650-1913'**\\
 *Journal of Economic History, 2012*\\
-Download Manuscript
 
 **Review of James Simpson, ‘creating wine: The emergence of a world industry, 1840-1914’**\\
 *EH.net Economic History Services, 2012*\\
-Download Manuscript
 
 **Review of Jeff Horn, ‘The path not taken: French industrialization in the age of revolution’**\\
 *EH.net Economic History Services, 2007*\\
-Download Manuscript
 
 **Banking on bureaucrats: The emergence of bureaucracy in old regime france**\\
 *In Proceedings of the National Tax Association, 2003*\\
-Download Manuscript
 
 **Committing to civil service reform: The performance of pre-shipment inspection under differing institutional regimes**\\
 *World Bank Policy Research Paper No. 2594, 2001*\\
-Download Manuscript
+[Download Manuscript](https://www.dropbox.com/s/ojzi35gooj3tvfy/CommittingReform.pdf?dl=0)
