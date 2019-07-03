@@ -1,6 +1,6 @@
 ---
 title: "Teaching"
-permalink: /teaching/
+permalink: /classes/
 ---
 
 # This page is under construction...
