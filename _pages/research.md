@@ -68,6 +68,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with Mark Koyama)\\
 *Journal of Law & Economics, 2014*\\
 [Download Paper](https://www.dropbox.com/s/7a7fvrgh3nn2lqc/2014%20Witches_JLE.pdf?dl=0)\\
+[Download Presentation](https://www.dropbox.com/s/a9xlsqdnng5ncv8/witchpresentation3.pdf?dl=0)\\
 [Replication Files](https://github.com/noeldjohnson/JLE_2014_Replication.git)
 
 **Tax Farming and the Origins of State Capacity in England and France**\\
@@ -93,6 +94,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with Mark Koyama)\\
 *Journal of Comparative Economics, 2013*\\
 [Download Paper](https://www.dropbox.com/s/4kbwb8qftihtfcs/2013%20Legal%20Centralization%20JCE.pdf?dl=0)\\
+[Download Presentation](https://www.dropbox.com/s/paee4zhkuz14noe/Heresy%20Presentation%209-25-12.pdf?dl=0)
 
 **How Much Should We Trust the World Values Survey Trust Question?**\\
 (joint with Alexandra A. Mislin)\\
@@ -110,7 +112,6 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with John V.C. Nye)\\
 *Journal of Economic Behavior and Organization, 2011*\\
 [Download Paper](https://www.dropbox.com/s/ypiz9zt5mxg81r0/2011%20Fortune%20Favor%20Dragons%20JEBO.pdf?dl=0)\\
-Download Presentation\\
 [Link to Freakonomics Podcast Discussing the Paper](http://freakonomics.com/podcast/dragon-child/)
 
 **Corruption is Bad for Growth (Even in the United States)**\\
@@ -133,7 +134,7 @@ Download Data
 (joint with Eliana Balla)\\
 *Journal of Economic History, 2009*\\
 [Download Paper](https://www.dropbox.com/s/567mgpjgz4k4w3j/2009%20Fiscal%20Crisis%20JEH.pdf?dl=0)\\
-Download Presentation
+[Download Presentation](https://www.dropbox.com/s/72x87c8u1n8zhku/Johnson_Ottoman_Present-1.pdf?dl=0)
 
 **Banking on the King: The Evolution of The Royal Revenue Farms in Old Regime France**\\
 *Journal of Economic History, 2006*\\
