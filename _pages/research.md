@@ -81,13 +81,13 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with William Ruger, Jason Sorens, and Steven Yamarik)\\
 *Economics of Governance, 2014*\\
 [Download Paper](https://www.dropbox.com/s/qyqit5rzcglj1fv/2013%20Corruption%26Regulation%20EOGO.pdf?dl=0)\\
-Replication Files
+[Replication Files](https://github.com/noeldjohnson/EoG_2014_Replication.git)
 
 **From Internal Taxes to National Regulation:  Evidence from a French Wine Tax Reform at the turn of the Twentieth Century**\\
 (joint with Raphaël Franck, Noel D. Johnson, and John V.C. Nye)\\
 *Explorations in Economic History, 2014*\\
 [Download Paper](https://www.dropbox.com/s/v0v1qfcmz2n1oz3/2013%20Internal%20Taxes%20EEH.pdf?dl=0)\\
-Download Presentation
+[Download Presentation](https://www.dropbox.com/s/uay9cfmq8cq7n7b/Octrois_ISNIE_Presentation.pdf?dl=0)
 
 **Legal Centralization and the Birth of the Secular State**\\
 (joint with Mark Koyama)\\
@@ -98,13 +98,13 @@ Download Presentation
 (joint with Alexandra A. Mislin)\\
 *Economics Letters, 2012*\\
 [Download Paper](https://www.dropbox.com/s/en2jixzp0xxhmtq/2012%20WVS%20Trust%20Econ%20Letters.pdf?dl=0)\\
-Download Data
+[Download Data](https://github.com/noeldjohnson/EL_2012_Replication.git)
 
 **Trust Games: A Meta-Analysis**\\
 (joint with Alexandra A. Mislin)\\
 *Journal of Economic Psychology, 2011*\\
 [Download Paper](https://www.dropbox.com/s/1umlbuz3ket8chg/2011%20Trust%20MetaAnalysis%20JEconPsych.pdf?dl=0)\\
-Download Data
+[Download Data](https://github.com/noeldjohnson/JoEP_2011_Replication.git)
 
 **Does Fortune Favor Dragons?**\\
 (joint with John V.C. Nye)\\
