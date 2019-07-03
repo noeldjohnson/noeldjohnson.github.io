@@ -118,7 +118,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with Courtney LaFountain and Steven Yamarik)\\
 *Public Choice, 2011*\\
 [Download Paper](https://www.dropbox.com/s/vspbliutt5ik870/2011%20Corruption%20Growth%20PubChoice.pdf?dl=0)\\
-Download Data
+[Replication Files](https://github.com/noeldjohnson/PC_2011_Replication.git)
 
 **War! What is It Good For?**\\
 (joint with Steven Yamarik and Ryan Compton)\\
