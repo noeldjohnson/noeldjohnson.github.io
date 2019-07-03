@@ -54,91 +54,95 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Jewish Persecutions and Weather Shocks: 1100-1800**\\
 (joint with Warren Anderson and Mark Koyama)\\
 *The Economic Journal, 2017*\\
-Download Paper\\
-Download Presentation\\
-Replication Files
+[Download Paper](https://www.dropbox.com/s/5pqbm5ajy1nit2a/2017%20Jewish%20Persecution%20Weather%20EJ.pdf?dl=0)\\
+[Download Presentation](https://www.dropbox.com/s/nbgjyb0mg00zuya/Pers%20Presentation%20UMD%209-15.pdf?dl=0)\\
+[Replication Files](https://github.com/noeldjohnson/EJ_2017_Replication.git)
 
 **Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878-1902**\\
 (joint with Raphaël Franck)\\
 *The Economic History Review, 2016*\\
-Download Paper\\
-Replication Files
+[Download Paper](https://www.dropbox.com/s/qsyzci2c27lxc2f/2016%20Public%20Policies%20Religiosity%20EHR.pdf?dl=0)\\
+[Data Sets](https://github.com/noeldjohnson/EHR_2016_Data_Sets.git)
 
 **Taxes, Lawyers, and the Decline of Witch Trials in France**\\
 (joint with Mark Koyama)\\
 *Journal of Law & Economics, 2014*\\
-Download Paper\\
+[Download Paper](https://www.dropbox.com/s/7a7fvrgh3nn2lqc/2014%20Witches_JLE.pdf?dl=0)\\
 Download Presentation\\
 Replication Files
 
 **Tax Farming and the Origins of State Capacity in England and France**\\
 (joint with Mark Koyama)\\
 *Explorations in Economic History, 2014*\\
-Download Paper\\
-Download Appendices
+[Download Paper](https://www.dropbox.com/s/c36i42t589hwm9t/2013TaxFarmingEEH.pdf?dl=0)\\
+[Download Appendix 1](https://www.dropbox.com/s/vfryaac9lc87r3g/2013%20Tax%20Farming%20Appendix%201.pdf?dl=0)\\
+[Download Appendix 2](https://www.dropbox.com/s/izfbvimd8yo2phj/2013%20Tax%20Farming%20Appendix%202.pdf?dl=0)
 
 **Corruption, Regulation, and Growth:  An Empirical  Study of the United States**\\
 (joint with William Ruger, Jason Sorens, and Steven Yamarik)\\
 *Economics of Governance, 2014*\\
-Download Paper\\
+[Download Paper](https://www.dropbox.com/s/qyqit5rzcglj1fv/2013%20Corruption%26Regulation%20EOGO.pdf?dl=0)\\
 Replication Files
 
 **From Internal Taxes to National Regulation:  Evidence from a French Wine Tax Reform at the turn of the Twentieth Century**\\
 (joint with Raphaël Franck, Noel D. Johnson, and John V.C. Nye)\\
 *Explorations in Economic History, 2014*\\
-Download Paper\\
+[Download Paper](https://www.dropbox.com/s/v0v1qfcmz2n1oz3/2013%20Internal%20Taxes%20EEH.pdf?dl=0)\\
 Download Presentation
 
 **Legal Centralization and the Birth of the Secular State**\\
 (joint with Mark Koyama)\\
 *Journal of Comparative Economics, 2013*\\
-Download Paper\\
+[Download Paper](https://www.dropbox.com/s/4kbwb8qftihtfcs/2013%20Legal%20Centralization%20JCE.pdf?dl=0)\\
 Download Presentation
 
 **How Much Should We Trust the World Values Survey Trust Question?**\\
 (joint with Alexandra A. Mislin)\\
 *Economics Letters, 2012*\\
-Download Paper
+[Download Paper](https://www.dropbox.com/s/en2jixzp0xxhmtq/2012%20WVS%20Trust%20Econ%20Letters.pdf?dl=0)\\
+Download Data
 
 **Trust Games: A Meta-Analysis**\\
 (joint with Alexandra A. Mislin)\\
 *Journal of Economic Psychology, 2011*\\
-Download Paper
+[Download Paper](https://www.dropbox.com/s/1umlbuz3ket8chg/2011%20Trust%20MetaAnalysis%20JEconPsych.pdf?dl=0)\\
+Download Data
 
 **Does Fortune Favor Dragons?**\\
 (joint with John V.C. Nye)\\
 *Journal of Economic Behavior and Organization, 2011*\\
-Download Paper\\
+[Download Paper](https://www.dropbox.com/s/ypiz9zt5mxg81r0/2011%20Fortune%20Favor%20Dragons%20JEBO.pdf?dl=0)\\
 Download Presentation
 
 **Corruption is Bad for Growth (Even in the United States)**\\
 (joint with Courtney LaFountain and Steven Yamarik)\\
 *Public Choice, 2011*\\
-Download Paper
+[Download Paper](https://www.dropbox.com/s/vspbliutt5ik870/2011%20Corruption%20Growth%20PubChoice.pdf?dl=0)\\
+Download Data
 
 **War! What is It Good For?**\\
 (joint with Steven Yamarik and Ryan Compton)\\
 *BE Press: Peace Economics, Peace Science, and Public Policy, 2010*\\
-Download Paper
+[Download Paper](https://www.dropbox.com/s/h05ji693maolr0i/2010%20War%20What%20Good%20For%20PEPSPP.pdf?dl=0)
 
 **Investing in Institutions**\\
 (joint with Ryan Compton and Daniel Giedeman)\\
 *Economics and Politics, 2010*\\
-Download Paper
+[Download Paper](https://www.dropbox.com/s/i8r7ctmi915go6u/2010%20Invest%20Institutions%20EconPolitics.pdf?dl=0)
 
 **Fiscal Crisis and Institutional Change in the Ottoman Empire and France**\\
 (joint with Eliana Balla)\\
 *Journal of Economic History, 2009*\\
-Download Paper\\
+[Download Paper](https://www.dropbox.com/s/567mgpjgz4k4w3j/2009%20Fiscal%20Crisis%20JEH.pdf?dl=0)\\
 Download Presentation
 
 **Banking on the King: The Evolution of The Royal Revenue Farms in Old Regime France**\\
 *Journal of Economic History, 2006*\\
-Download Paper
+[Download Paper](https://www.dropbox.com/s/7n6doh79fqf8ti8/2006%20Banking%20on%20King%20JEH.pdf?dl=0)
 
 **The Cost of Credibility: The Company of General Farms and Fiscal Stagnation in Eighteenth Century France**\\
 *Essays in Economic and Business History, 2006*\\
-Download Paper
+[Download Paper](https://www.dropbox.com/s/5ctih9ethue9d6q/2006%20Cost%20of%20Credibility%20EBHS.pdf?dl=0)
 
 ## Other Publications
 
