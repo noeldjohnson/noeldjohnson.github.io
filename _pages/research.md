@@ -68,8 +68,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with Mark Koyama)\\
 *Journal of Law & Economics, 2014*\\
 [Download Paper](https://www.dropbox.com/s/7a7fvrgh3nn2lqc/2014%20Witches_JLE.pdf?dl=0)\\
-Download Presentation\\
-Replication Files
+[Replication Files](https://github.com/noeldjohnson/JLE_2014_Replication.git)
 
 **Tax Farming and the Origins of State Capacity in England and France**\\
 (joint with Mark Koyama)\\
@@ -94,7 +93,6 @@ Download Presentation
 (joint with Mark Koyama)\\
 *Journal of Comparative Economics, 2013*\\
 [Download Paper](https://www.dropbox.com/s/4kbwb8qftihtfcs/2013%20Legal%20Centralization%20JCE.pdf?dl=0)\\
-Download Presentation
 
 **How Much Should We Trust the World Values Survey Trust Question?**\\
 (joint with Alexandra A. Mislin)\\
@@ -112,7 +110,8 @@ Download Data
 (joint with John V.C. Nye)\\
 *Journal of Economic Behavior and Organization, 2011*\\
 [Download Paper](https://www.dropbox.com/s/ypiz9zt5mxg81r0/2011%20Fortune%20Favor%20Dragons%20JEBO.pdf?dl=0)\\
-Download Presentation
+Download Presentation\\
+[Link to Freakonomics Podcast Discussing the Paper](http://freakonomics.com/podcast/dragon-child/)
 
 **Corruption is Bad for Growth (Even in the United States)**\\
 (joint with Courtney LaFountain and Steven Yamarik)\\
