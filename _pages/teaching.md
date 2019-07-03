@@ -3,4 +3,4 @@ title: "Teaching"
 permalink: /teaching/
 ---
 
-# This page is under construction...
+# This page is under construction.
