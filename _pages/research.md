@@ -14,19 +14,25 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **The Effects of Land Redistribution: Evidence from the French Revolution**\\
 (joint with Theresa Finley and Raphaël Franck)\\
 [Download Draft](https://www.dropbox.com/s/hfo62xyn55b4bu3/Draft34_JLE_Rev.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/cdlg28b0dbixlb8/Paris1%20Confiscations%20Presentation.pdf?dl=0)
+[Download Presentation](https://www.dropbox.com/s/cdlg28b0dbixlb8/Paris1%20Confiscations%20Presentation.pdf?dl=0)\\
+[A discussion of the paper on the Economics Detective podcast](https://economicsdetective.com/2017/07/french-revolution-property-rights-coase-theorem-noel-johnson/)\\
+[An article about the paper on Quartz](https://qz.com/1031013/two-centuries-later-researchers-say-the-french-revolution-was-an-act-of-radical-privatization/)\\
+[A Voxeu piece on the paper](https://voxeu.org/article/economic-consequences-revolutions)
 
 **Pandemics, Places, and Populations:  The Effects of the Black Death on Urban Development**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 [Download Draft](https://www.dropbox.com/s/ja0zbsiu0f9eyt4/JJK_Draft_02092019.pdf?dl=0)\\
 [Download Appendix](https://www.dropbox.com/s/w6b2w4pmsi5odda/JJK_WebAppx_02092019.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/wf5yrsagpzq2ghs/BD_Bocconi.pdf?dl=0)
+[Download Presentation](https://www.dropbox.com/s/wf5yrsagpzq2ghs/BD_Bocconi.pdf?dl=0)\\
+[A Voxeu piece on the paper](https://voxeu.org/article/how-black-death-changed-europes-cities)
+
 
 **Taxes, National Identity, and Nation Building:  Evidence from France**\\
 [Download Draft](https://www.dropbox.com/s/vtdek1ym584dww7/CTR_AbuDhabi_March_2019.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
 
-**Global Supply Shocks and Market Disruption: The Tambora Volcanic Eruption of 1815**\\ (joint with Trey Dudley)\\
+**Global Supply Shocks and Market Disruption: The Tambora Volcanic Eruption of 1815**\\
+(joint with Trey Dudley)\\
 [Download Very Preliminary Presentation](https://www.dropbox.com/s/z7hoaun4mud5zs3/Tambora%20Class%20Presentation.pdf?dl=0)
 
 ## Refereed Publications
@@ -56,7 +62,8 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 *The Economic Journal, 2017*\\
 [Download Paper](https://www.dropbox.com/s/5pqbm5ajy1nit2a/2017%20Jewish%20Persecution%20Weather%20EJ.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/nbgjyb0mg00zuya/Pers%20Presentation%20UMD%209-15.pdf?dl=0)\\
-[Replication Files](https://github.com/noeldjohnson/EJ_2017_Replication.git)
+[Replication Files](https://github.com/noeldjohnson/EJ_2017_Replication.git)\\
+[A Voxeu piece on the paper](https://voxeu.org/article/persecuting-protective-state-jewish-expulsions-and-weather-shocks-1100-1800)
 
 **Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878-1902**\\
 (joint with Raphaël Franck)\\
