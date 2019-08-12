@@ -63,7 +63,8 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Paper](https://www.dropbox.com/s/5pqbm5ajy1nit2a/2017%20Jewish%20Persecution%20Weather%20EJ.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/nbgjyb0mg00zuya/Pers%20Presentation%20UMD%209-15.pdf?dl=0)\\
 [Replication Files](https://github.com/noeldjohnson/EJ_2017_Replication.git)\\
-[A Voxeu piece on the paper](https://voxeu.org/article/persecuting-protective-state-jewish-expulsions-and-weather-shocks-1100-1800)
+[A Voxeu piece on the paper](https://voxeu.org/article/persecuting-protective-state-jewish-expulsions-and-weather-shocks-1100-1800)\\
+[Coverage in The Economist](https://www.economist.com/finance-and-economics/2017/07/27/the-link-between-poor-harvests-and-violence)
 
 **Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878-1902**\\
 (joint with Raphaël Franck)\\
