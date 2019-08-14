@@ -2,7 +2,7 @@
 title: "Teaching"
 permalink: /classes/
 ---
-![chalkboard_big](/assets/images/chalkboard_big.jpeg)
+![cat_smbc](/assets/images/cat_smbc.gif)
 
 I'm teaching two classes this semester: [American Economic History](https://noeldjohnson.github.io/aeh/) and [Spatial Techniques](https://noeldjohnson.github.io/spatial/) in Empirical Economics.
 
