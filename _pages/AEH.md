@@ -3,7 +3,7 @@ title: "American Economic History"
 permalink: /aeh/
 ---
 
-![Last_Spike_1869](/assets/images/Last_Spike_1869.jpg)
+![Last_Spike_1869_cropped](/assets/images/Last_Spike_1869_cropped.jpg)
 
 This is the webpage for the Fall 2019 iteration of American Economic History.
 
