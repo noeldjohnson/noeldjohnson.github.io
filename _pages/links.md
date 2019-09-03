@@ -68,7 +68,6 @@ permalink: /links/
 * [The Daily](https://www.nytimes.com/column/the-daily)
 
 * [Board With Life Adventures](https://imboardwithlife.libsyn.com/pod)
-(DnD is awesome!---Contact me if you're in the DC area and want to get into a game: email: noeldjohnson@mac.com.)
 
 * [80,000 Hours Podcast](https://80000hours.org/podcast/)
 
