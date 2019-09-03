@@ -4,22 +4,44 @@ permalink: /gis_links/
 ---
 ![gis_data](/assets/images/gis_data.png)
 
-* Satellite images:
+* Climate Data
 
-Night lights (NOAA DMSP or VIIRs)
+[NOAA](https://data.noaa.gov/datasetsearch/)
 
-Daytime images (Landsat, EOS/Modis, NOAA/AVHRR)
+[Historical NOAA Data](https://www.ncdc.noaa.gov/data-access/paleoclimatology-data/datasets/historical)
 
-* Modern and historical maps:
+* Night lights
 
-New borders (GADM) or old borders (libraries)
+[NOAA DMSP](https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html)
 
-Ethnic homelands (Murdock or Atlas Narodov Mira)
+[VIIRs](https://earthdata.nasa.gov/earth-observation-data/near-real-time/download-nrt-data/viirs-nrt)
 
-Model-based maps (GAEZ crop suitability)
+* Daytime images
+
+[Landsat](https://landsat.gsfc.nasa.gov/data/)
+
+[EOS/Modis](https://worldview.earthdata.nasa.gov/)
+
+[NOAA/AVHRR](https://earth.esa.int/web/guest/missions/3rd-party-missions/current-missions/noaa-avhrr)
+
+* Modern Maps:
+
+[GADM](https://gadm.org/)
+
+[Ethnic homelands: Murdock](https://github.com/sboysel/murdock)
+
+[Ethnic Homelands: Atlas Narodov Mira](https://www.arcgis.com/home/item.html?id=bd3193cf9c5248b6889e1eee273ff70b)
+
+[GAEZ crop suitability](http://www.fao.org/nr/gaez/en/)
+
+* Historic Maps (and check the library!!!)
+
+[Euratlas](https://www.euratlas.net/index_en.html)
 
 * Geocoded data:
 
-Chinese development projects (AidData)
+[Asian development projects: AidData](https://www.aiddata.org/)
 
-Conflict (UCDP, ACLED)
+[Conflict: UCDP](https://ucdp.uu.se/)
+
+[Conflict: ACLED](https://www.acleddata.com/)
