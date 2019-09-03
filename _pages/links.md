@@ -20,7 +20,11 @@ permalink: /links/
 
 ## R links
 
+I'll update this later...
+
 ## Latex and Beamer Templates
+
+I'll update this later...
 
 ## My ArcGIS tutorials
 
