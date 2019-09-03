@@ -3,7 +3,7 @@ title: "Links"
 permalink: /links/
 ---
 
-![links_unified](/assets/images/links_unified.pdf)
+![links_unified](/assets/images/links_unified.jpg)
 
 ## Here's a second level header
 
