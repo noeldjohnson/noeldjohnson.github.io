@@ -18,35 +18,35 @@ permalink: /links/
 
 ## Setting up Git
 
-[Happy Git and GitHub for the useR](https://happygitwithr.com/)
+* [Happy Git and GitHub for the useR](https://happygitwithr.com/)
 
 ## R links
 
-[Nick Huntington-Klein's Resource Are Awesome](http://nickchk.com/econometrics.html)
+* [Nick Huntington-Klein's Resources Are Awesome](http://nickchk.com/econometrics.html)
 
-[R For Data Science](https://r4ds.had.co.nz/)
+* [R For Data Science](https://r4ds.had.co.nz/)
 
-[A Source for the new sf GIS paradigm in R](https://geocompr.robinlovelace.net/)
+* [A Source for the new sf GIS paradigm in R](https://geocompr.robinlovelace.net/)
 
 
 ## Latex and Beamer Templates
 
-[Here is one source to get you going with LaTeX](http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/)
+* [Here is one source to get you going with LaTeX](http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/)
 
-[Here is another one](https://www.tug.org/begin.html)
+* [Here is another one](https://www.tug.org/begin.html)
 
-[And one more](https://www.researchgate.net/publication/280050294_Template-based_introductory_guide_to_LaTeX_for_Economics_Instructional_Guide_Version_2)
+* [And one more](https://www.researchgate.net/publication/280050294_Template-based_introductory_guide_to_LaTeX_for_Economics_Instructional_Guide_Version_2)
 
-[Here are some sample Beamer slides](https://www.dropbox.com/sh/hnccpxpzmqjn55d/AACvkPZ25DxR5hhGrURXR91Ea?dl=0)
+* [Here are some sample Beamer slides](https://www.dropbox.com/sh/hnccpxpzmqjn55d/AACvkPZ25DxR5hhGrURXR91Ea?dl=0)
 
 
 ## My ArcGIS tutorials
 
-Arc sucks. But if you insist, my tutorials on basic usage of ArcGIS, can be downloaded [here.](https://github.com/noeldjohnson/ArcGIS-Tutorial.git)
+* Arc sucks. But if you insist, my tutorials on basic usage of ArcGIS, can be downloaded [here.](https://github.com/noeldjohnson/ArcGIS-Tutorial.git)
 
 ## Awesome Podcasts and Other links
 
-* [Arsecast](https://arseblog.com/arsecast/)
+* [Arsenal Football Team is Awesome: Listen to Arsecast](https://arseblog.com/arsecast/)
 
 * [Conversations With Tyler](https://conversationswithtyler.com/)
 
