@@ -4,19 +4,19 @@ permalink: /gis_links/
 ---
 ![gis_data](/assets/images/gis_data.png)
 
-* Climate Data
+##Climate Data
 
 [NOAA](https://data.noaa.gov/datasetsearch/)
 
 [Historical NOAA Data](https://www.ncdc.noaa.gov/data-access/paleoclimatology-data/datasets/historical)
 
-* Night lights
+##Night lights
 
 [NOAA DMSP](https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html)
 
 [VIIRs](https://earthdata.nasa.gov/earth-observation-data/near-real-time/download-nrt-data/viirs-nrt)
 
-* Daytime images
+##Daytime images
 
 [Landsat](https://landsat.gsfc.nasa.gov/data/)
 
@@ -24,7 +24,7 @@ permalink: /gis_links/
 
 [NOAA/AVHRR](https://earth.esa.int/web/guest/missions/3rd-party-missions/current-missions/noaa-avhrr)
 
-* Modern Maps:
+##Modern Maps:
 
 [GADM](https://gadm.org/)
 
@@ -34,11 +34,11 @@ permalink: /gis_links/
 
 [GAEZ crop suitability](http://www.fao.org/nr/gaez/en/)
 
-* Historic Maps (and check the library!!!)
+##Historic Maps (and check the library!!!)
 
 [Euratlas](https://www.euratlas.net/index_en.html)
 
-* Geocoded data:
+##Geocoded data:
 
 [Asian development projects: AidData](https://www.aiddata.org/)
 
