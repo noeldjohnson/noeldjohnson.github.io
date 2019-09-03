@@ -10,7 +10,7 @@ permalink: /student_advice/
 
 * [The Harvard Sophomore Writing Economics Guide](https://github.com/noeldjohnson/student_resources/blob/9e6e2a1f25cf6aa9e2cc5f6307cc0f81185661fc/Harvard%20Sophomore%20Writing%20Economics.pdf)
 
-* [Henry Miller's Advice on 20Writing](https://github.com/noeldjohnson/student_resources/blob/9e6e2a1f25cf6aa9e2cc5f6307cc0f81185661fc/Henry_Miller)
+* [Henry Miller's Advice on Writing](https://github.com/noeldjohnson/student_resources/blob/9e6e2a1f25cf6aa9e2cc5f6307cc0f81185661fc/Henry_Miller)
 
 ## I suggest these books:
 
