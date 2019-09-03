@@ -22,11 +22,23 @@ permalink: /links/
 
 ## R links
 
-I'll update this later...
+[Nick Huntington-Klein's Resource Are Awesome](http://nickchk.com/econometrics.html)
+
+[R For Data Science](https://r4ds.had.co.nz/)
+
+[A Source for the new sf GIS paradigm in R](https://geocompr.robinlovelace.net/)
+
 
 ## Latex and Beamer Templates
 
-I'll update this later...
+[Here is one source to get you going with LaTeX](http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/)
+
+[Here is another one](https://www.tug.org/begin.html)
+
+[And one more](https://www.researchgate.net/publication/280050294_Template-based_introductory_guide_to_LaTeX_for_Economics_Instructional_Guide_Version_2)
+
+[Here are some sample Beamer slides](https://www.dropbox.com/sh/hnccpxpzmqjn55d/AACvkPZ25DxR5hhGrURXR91Ea?dl=0)
+
 
 ## My ArcGIS tutorials
 
@@ -42,4 +54,4 @@ Arc sucks. But if you insist, my tutorials on basic usage of ArcGIS, can be down
 
 * [A Guide to Punching People](https://www.expertboxing.com/johnnys-punching-combinations-list)
 
-* 
+*
