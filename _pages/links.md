@@ -5,7 +5,7 @@ permalink: /links/
 
 ![links_unified](/assets/images/links_unified.jpg)
 
-## [Advice for Students](noeldjohnson.github.io/Student_Advice)
+## [Advice for Students](https://noeldjohnson.github.io/student_advice/)
 
 ## GIS Data Sources
 
