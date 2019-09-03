@@ -17,4 +17,6 @@ permalink: /links/
 
 ## My ArcGIS tutorials
 
+## Latex and Beamer Templates
+
 Arc sucks. But if you insist, my tutorials on basic usage of ArcGIS, can be downloaded [here.](https://github.com/noeldjohnson/ArcGIS-Tutorial.git)
