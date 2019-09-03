@@ -9,8 +9,7 @@ permalink: /links/
 
 ## [GIS Data Sources](https://noeldjohnson.github.io/gis_links/)
 
-## Setting up a webpage using Jekyll and Github pages
-(Such as this webpage)
+## Setting up a webpage using Jekyll and Github pages (Such as this webpage)
 
 * [Getting started](https://programminghistorian.org/en/lessons/building-static-sites-with-jekyll-github-pages)
 
