@@ -9,14 +9,19 @@ permalink: /links/
 
 ## [GIS Data Sources](https://noeldjohnson.github.io/gis_links/)
 
-## Building this webpage
+## Setting up a webpage using Jekyll and Github pages
+(Such as this webpage)
+
+* [Getting started](https://programminghistorian.org/en/lessons/building-static-sites-with-jekyll-github-pages)
+
+* [The minimal-mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/)
 
 ## Git Links
 
 ## R links
 
-## My ArcGIS tutorials
-
 ## Latex and Beamer Templates
+
+## My ArcGIS tutorials
 
 Arc sucks. But if you insist, my tutorials on basic usage of ArcGIS, can be downloaded [here.](https://github.com/noeldjohnson/ArcGIS-Tutorial.git)
