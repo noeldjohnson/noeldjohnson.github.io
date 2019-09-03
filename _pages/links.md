@@ -16,7 +16,9 @@ permalink: /links/
 
 * [The minimal-mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/)
 
-## Git Links
+## Setting up Git
+
+[Happy Git and GitHub for the useR](https://happygitwithr.com/)
 
 ## R links
 
@@ -29,3 +31,15 @@ I'll update this later...
 ## My ArcGIS tutorials
 
 Arc sucks. But if you insist, my tutorials on basic usage of ArcGIS, can be downloaded [here.](https://github.com/noeldjohnson/ArcGIS-Tutorial.git)
+
+## Awesome Podcasts and Other links
+
+* [Arsecast](https://arseblog.com/arsecast/)
+
+* [Conversations With Tyler](https://conversationswithtyler.com/)
+
+* [Heavy Hands](https://www.patreon.com/user?u=2439474)
+
+* [A Guide to Punching People](https://www.expertboxing.com/johnnys-punching-combinations-list)
+
+* 
