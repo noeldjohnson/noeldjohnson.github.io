@@ -4,6 +4,8 @@ permalink: /student_advice/
 ---
 ![studentadvice](/assets/images/studentadvice.GIF)
 
+## Some Writing Advice
+
 * [David Weil's Peptalk on Research](https://github.com/noeldjohnson/student_resources/blob/9e6e2a1f25cf6aa9e2cc5f6307cc0f81185661fc/1_Weil%20Peptalk.pdf)
 
 * [John Cochrane's Writing Tips for Ph.D Students](https://github.com/noeldjohnson/student_resources/blob/9e6e2a1f25cf6aa9e2cc5f6307cc0f81185661fc/Cochrane%20Writing%20Tips%20PhD%20Students.pdf)
