@@ -1,5 +1,5 @@
 ---
 title: "Advice for Students"
-permalink: /Student_Advice/
+permalink: /student_advice/
 ---
 ![studentadvice](/assets/images/studentadvice.GIF)
