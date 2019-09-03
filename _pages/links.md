@@ -51,7 +51,7 @@ permalink: /links/
 
 * [The Browser](https://thebrowser.com/)
 
-* [Heavy Hands](https://www.patreon.com/user?u=2439474)
+* [Heavy Hands (punching people is complicated)](https://www.patreon.com/user?u=2439474)
 
 * [A Guide to Punching People](https://www.expertboxing.com/johnnys-punching-combinations-list)
 
