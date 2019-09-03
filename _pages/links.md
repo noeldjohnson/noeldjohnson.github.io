@@ -1,5 +1,5 @@
 ---
-title: "Links"
+title: "Decide Where You Want To Go..."
 permalink: /links/
 ---
 
@@ -7,7 +7,7 @@ permalink: /links/
 
 ## [Advice for Students](https://noeldjohnson.github.io/student_advice/)
 
-## GIS Data Sources
+## [GIS Data Sources](https://noeldjohnson.github.io/gis_links/)
 
 ## Building this webpage
 
