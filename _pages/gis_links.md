@@ -45,3 +45,23 @@ permalink: /gis_links/
 [Conflict: UCDP](https://ucdp.uu.se/)
 
 [Conflict: ACLED](https://www.acleddata.com/)
+
+## Miscellaneous Vector Data
+
+[rnaturalearth (countries, rivers, roads, etc...)](https://cran.r-project.org/web/packages/rnaturalearth/README.html)
+
+[U.S. Census Data: tidycensus](https://walkerke.github.io/tidycensus/)
+
+[U.S. Census Data: tigris](https://github.com/walkerke/tigris)
+
+[Open Street Maps: osmdata](https://cran.r-project.org/web/packages/osmdata/vignettes/osmdata.html)
+
+[Eurostat Data and Maps](https://cran.r-project.org/package=eurostat)
+
+## Other Pages with Links to GIS Data
+
+[Free GIS Data](http://freegisdata.rtwilson.com/)
+
+[The Humanitarian Data Exchange](https://data.humdata.org/)
+
+[Google Data Search](https://toolbox.google.com/datasetsearch)

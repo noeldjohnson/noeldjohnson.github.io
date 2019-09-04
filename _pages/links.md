@@ -9,6 +9,14 @@ permalink: /links/
 
 ## [GIS Data Sources](https://noeldjohnson.github.io/gis_links/)
 
+## Economic History links
+
+* [The Economic History Association](https://eh.net/eha/)
+
+* [EH.net](https://eh.net/)
+
+* [Washington Area Economic History Seminar](https://www.american.edu/cas/economics/waehs.cfm)
+
 ## Setting up a webpage using Jekyll and Github pages (Such as this webpage)
 
 * [Getting started](https://programminghistorian.org/en/lessons/building-static-sites-with-jekyll-github-pages)
