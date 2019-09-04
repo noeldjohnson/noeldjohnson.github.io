@@ -23,7 +23,7 @@ permalink: /links/
 
 * [The minimal-mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/)
 
-## Setting up Git
+## Setting up Git to work with R
 
 * [Happy Git and GitHub for the useR](https://happygitwithr.com/)
 
