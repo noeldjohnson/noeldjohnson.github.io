@@ -46,6 +46,8 @@ permalink: /gis_links/
 
 [Conflict: ACLED](https://www.acleddata.com/)
 
+[Highly disaggregated on Indian viallages :SHRUG](http://www.devdatalab.org/shrug)
+
 ## Miscellaneous Vector Data
 
 [rnaturalearth (countries, rivers, roads, etc...)](https://cran.r-project.org/web/packages/rnaturalearth/README.html)
