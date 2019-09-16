@@ -174,22 +174,22 @@ Religion. Palgrave MacMillan, 2018*\\
 [Download Manuscript](https://www.dropbox.com/s/lfi3psaf6kyw3ey/EstablishingNewOrder.pdf?dl=0)
 
 **Review of Guy Rowlands, ‘The financial decline of a great power: War, influence, and money in Louis XIV’s France’**\\
-*Journal of Economic History, 2014*\\
+*Journal of Economic History, 2014*
 
 **Review of Jan Luiten Van Zanden, ‘The long road to the industrial revolution: The european economy in a global perspective, 1000-1800’**\\
-*Journal of Economic History, 2012*\\
+*Journal of Economic History, 2012*
 
 **Review of Mark Dincecco, ‘Political transformations and public finances: Europe, 1650-1913'**\\
-*Journal of Economic History, 2012*\\
+*Journal of Economic History, 2012*
 
 **Review of James Simpson, ‘creating wine: The emergence of a world industry, 1840-1914’**\\
-*EH.net Economic History Services, 2012*\\
+*EH.net Economic History Services, 2012*
 
 **Review of Jeff Horn, ‘The path not taken: French industrialization in the age of revolution’**\\
-*EH.net Economic History Services, 2007*\\
+*EH.net Economic History Services, 2007*
 
 **Banking on bureaucrats: The emergence of bureaucracy in old regime france**\\
-*In Proceedings of the National Tax Association, 2003*\\
+*In Proceedings of the National Tax Association, 2003*
 
 **Committing to civil service reform: The performance of pre-shipment inspection under differing institutional regimes**\\
 *World Bank Policy Research Paper No. 2594, 2001*\\
