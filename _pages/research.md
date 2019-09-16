@@ -31,9 +31,6 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Draft](https://www.dropbox.com/s/vtdek1ym584dww7/CTR_AbuDhabi_March_2019.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
 
-**Global Supply Shocks and Market Disruption: The Tambora Volcanic Eruption of 1815**\\
-(joint with Trey Dudley)\\
-[Download Very Preliminary Presentation](https://www.dropbox.com/s/z7hoaun4mud5zs3/Tambora%20Class%20Presentation.pdf?dl=0)
 
 ## Refereed Publications
 
