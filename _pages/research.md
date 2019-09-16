@@ -26,7 +26,6 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Presentation](https://www.dropbox.com/s/wf5yrsagpzq2ghs/BD_Bocconi.pdf?dl=0)\\
 [A Voxeu piece on the paper](https://voxeu.org/article/how-black-death-changed-europes-cities)
 
-
 **Taxes, National Identity, and Nation Building:  Evidence from France**\\
 [Download Draft](https://www.dropbox.com/s/vtdek1ym584dww7/CTR_AbuDhabi_March_2019.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
