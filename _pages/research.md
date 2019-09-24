@@ -14,7 +14,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **The Effects of Land Redistribution: Evidence from the French Revolution**\\
 (joint with Theresa Finley and Raphaël Franck)\\
 [Download Draft](https://www.dropbox.com/s/hfo62xyn55b4bu3/Draft34_JLE_Rev.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/cdlg28b0dbixlb8/Paris1%20Confiscations%20Presentation.pdf?dl=0)\\
+[Download Presentation](https://www.dropbox.com/s/ckf2pd492e5nce5/PSE%20Confiscations%20Presentation.pdf?dl=0)\\
 [A discussion of the paper on the Economics Detective podcast](https://economicsdetective.com/2017/07/french-revolution-property-rights-coase-theorem-noel-johnson/)\\
 [An article about the paper on Quartz](https://qz.com/1031013/two-centuries-later-researchers-say-the-french-revolution-was-an-act-of-radical-privatization/)\\
 [A Vox piece on the paper](https://voxeu.org/article/economic-consequences-revolutions)
