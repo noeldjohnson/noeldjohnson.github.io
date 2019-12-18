@@ -53,7 +53,7 @@ permalink: /links/
 
 ## Awesome Podcasts and Other links
 
-* [Arsenal Football Team is Awesome: Listen to Arsecast](https://arseblog.com/arsecast/)
+* [Arsenal Football Club is Awesome: Listen to Arsecast](https://arseblog.com/arsecast/)
 
 * [Conversations With Tyler](https://conversationswithtyler.com/)
 
