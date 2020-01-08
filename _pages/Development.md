@@ -3,7 +3,7 @@ title: "Economic Growth and Development"
 permalink: /dev/
 ---
 
-![Last_Spike_1869_cropped](/assets/images/Last_Spike_1869_cropped.jpg)
+![fighting_temaraire](/assets/images/fighting_temaraire.png)
 
 <!-- This is the webpage for the Fall 2019 iteration of American Economic History. -->
 
