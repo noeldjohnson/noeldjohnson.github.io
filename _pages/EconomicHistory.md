@@ -3,7 +3,7 @@ title: "Economic History"
 permalink: /eeh/
 ---
 
-![Last_Spike_1869_cropped](/assets/images/Last_Spike_1869_cropped.jpg)
+![Henry_VII_Juden](/assets/images/Henry_VII_Juden.png)
 
 <!-- This is the webpage for the Fall 2019 iteration of American Economic History.
 
