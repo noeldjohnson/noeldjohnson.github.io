@@ -5,7 +5,7 @@ permalink: /dev/
 
 ![Last_Spike_1869_cropped](/assets/images/Last_Spike_1869_cropped.jpg)
 
-This is the webpage for the Fall 2019 iteration of American Economic History.
+<!-- This is the webpage for the Fall 2019 iteration of American Economic History. -->
 
 <!-- You can download the syllabus [here.](https://www.dropbox.com/s/glrqc2180v11tzi/AEH%20Syllabus%20Fall19.pdf?dl=0)
 
