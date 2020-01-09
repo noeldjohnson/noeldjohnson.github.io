@@ -3,7 +3,7 @@ title: "Text as Data"
 permalink: /tad/
 ---
 
-![tad](/assets/images/tad.png)
+![tad_small](/assets/images/tad_small.png)
 
 This is the webpage for the Spring 2020 informal seminar on Text as Data.
 
