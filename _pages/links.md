@@ -35,6 +35,8 @@ permalink: /links/
 
 * [A Source for the new sf GIS paradigm in R](https://geocompr.robinlovelace.net/)
 
+* [Mellisa Dell's notes on ggplot2](https://www.dropbox.com/s/iz6ejq6p9nemhbi/Dell%20-%202016%20-%20Notes%20on%20ggplot2.pdf?dl=0)
+
 
 ## Latex and Beamer Templates
 
