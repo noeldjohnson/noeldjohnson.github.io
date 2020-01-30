@@ -12,3 +12,5 @@ You can download the syllabus [here.](https://www.dropbox.com/s/jeu28blcv0lluxr/
 You can download the course readings [here.](https://www.dropbox.com/sh/3502mc9h32kgvz8/AADALieXuWVKxJLk1wvmHcUda?dl=0)
 
 You can download the course slides [here.](https://www.dropbox.com/sh/tbs0gdeni64dnny/AADu8bVeOHLvGjdWs_ng_oRCa?dl=0)
+
+You can download the course homework assignments [here.](https://www.dropbox.com/sh/27idjdrjg28y0d9/AABoXkXdlP7zPbF_HIguzFoga?dl=0)
