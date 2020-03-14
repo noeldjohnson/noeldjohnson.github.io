@@ -2,7 +2,7 @@
 title: "Advice for Students"
 permalink: /student_advice/
 ---
-![studentadvice](/assets/images/studentadvice.GIF)
+![studentadvice](/assets/images/instremail.png)
 
 ## Some Writing Advice
 
