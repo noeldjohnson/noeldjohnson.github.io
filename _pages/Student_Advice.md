@@ -3,7 +3,7 @@ title: "Advice for Students"
 permalink: /student_advice/
 ---
 
-\\
+\
 
 ![studentadvice](/assets/images/instremail.png)
 
