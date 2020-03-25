@@ -17,7 +17,9 @@ To view the lecture, click on the file and then click on the download button (ab
 
 * I have posted the lecture for week 6 (EH_wk6.mp4).
 
-* I have posted part one of the lecture for week 7 (EH_wk7_pt1.mp4). Part 2 is coming wednesday morning.
+* I have posted part one of the lecture for week 7 (EH_wk7_pt1.mp4).
+
+* I have posted part two of the lecture for week 7 (EH_wk7_pt2.mp4).
 
 * I have elimated or made optional (starred) the following reading from the syllabus:
   * Ogilvie, S. and Carus, A. W. (2014). Institutions and economic growth in historical perspective. (starred)
