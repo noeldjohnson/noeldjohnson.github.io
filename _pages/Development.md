@@ -9,7 +9,7 @@ This is the webpage for the Spring 2020 iteration of Economic Growth and Develop
 
 **New material due to the Corona Virus shutdown is here:**
 
-Videos of Lectures are downloadable [here](https://github.com/noeldjohnson/Economic-Growth-and-Development-Lectures/tree/80d6b93c138a013d6379a62d2cbe79e6505c48a7)
+Videos of Lectures are downloadable [here](https://github.com/noeldjohnson/Economic-Growth-and-Development-Lectures)
 
 To view the lecture, click on the file and then click on the download button (above and to the right).
 
