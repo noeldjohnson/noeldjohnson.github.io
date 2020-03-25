@@ -9,7 +9,7 @@ This is the webpage for the Spring 2020 iteration of Economic History (undergrad
 
 **New material due to the Corona Virus shutdown is here:**
 
-Videos of Lectures are downloadable [here](https://github.com/noeldjohnson/Economic-History-Lectures/tree/29326c8ff29289afc5109f8f8665b3d3b9e26458)
+Videos of Lectures are downloadable [here](https://github.com/noeldjohnson/Economic-History-Lectures)
 
 To view the lecture, click on the file and then click on the download button (above and to the right).
 
