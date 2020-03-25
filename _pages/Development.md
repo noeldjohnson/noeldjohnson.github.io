@@ -15,7 +15,7 @@ To view the lecture, click on the file and then click on the download button (ab
 
 **Some Announcements**
 
-* I have posted part 1 of the lecture for week 7 (growth_wk7_pt1.mp4). I'll post part 2 wendesday morning.
+* I have posted part 1 of the lecture for week 7 (growth_wk7_pt1.mp4). I'll post part 2 wednesday morning.
 
 * I have elimated the following reading from the syllabus:
   * Guriev, S. (2019). Gorbachev versus deng
