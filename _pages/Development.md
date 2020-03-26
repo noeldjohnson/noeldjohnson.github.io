@@ -15,6 +15,8 @@ To view the lecture, click on the file and then click on the download button (ab
 
 **Some Announcements**
 
+* I'm now holding virtual office hours on Thursdays from 3:00 to 4:00.
+
 * Here are the changes I've made to dates on the syllabus:
   * I have moved the midterm exam to April 8. It will be a take-home exam. I will distribute it by noon on April 8 and it will be due by midnight on April 10.
   * The last day of class for us is now May 6. I will send out a recurring Zoom invitation for the virtual class sessions.
