@@ -15,7 +15,7 @@ To view the lecture, click on the file and then click on the download button (ab
 
 **Some Announcements**
 
-* I'm now holding virtual office hours on Thursdays from 3:00 to 4:00.
+* I'm now holding virtual office hours on Thursdays from 3:00 to 4:00.  I sent you all an email on 3/26 with the link and password to join the office hours.
 
 * Here are the changes I've made to dates on the syllabus:
   * I have moved the midterm exam to April 8. It will be a take-home exam. I will distribute it by noon on April 8 and it will be due by midnight on April 10.
