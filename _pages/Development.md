@@ -15,6 +15,12 @@ To view the lecture, click on the file and then click on the download button (ab
 
 **Some Announcements**
 
+* Here are the changes I've made to dates on the syllabus:
+  * I have moved the midterm exam to April 8. It will be a take-home exam. I will distribute it by noon on April 8 and it will be due by midnight on April 10.
+  * The last day of class for us is now May 6. I will send out a recurring Zoom invitation for the virtual class sessions.
+  * These Zoom class sessions will be for you to ask questions about the lectures I post online. Please try and show up for the beginning of the virtual class session as I will close the session if there are no students around after 10 minutes or so.
+  * The paper assignment is due by midnight on May 13.
+
 * I have posted part 1 of the lecture for week 7 (growth_wk7_pt1.mp4).
 
 * I have posted part 2 of the lecture for week 7 (growth_wk7_pt2.mp4).
