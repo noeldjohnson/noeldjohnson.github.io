@@ -15,6 +15,12 @@ To view the lecture, click on the file and then click on the download button (ab
 
 **Some Announcements**
 
+* I have posted part one of the lecture for week 8 (EH_wk8_pt1.mp4).
+
+* I have posted part two of the lecture for week 8 (EH_wk8_pt2.mp4).
+
+* I have posted part three of the lecture for week 8 (EH_wk8_pt3.mp4).
+
 * I'm now holding virtual office hours on Thursdays from 3:00 to 4:00. I sent you all an email on 3/26 with the link and password to join the office hours.
 
 * Here are the changes I've made to dates on the syllabus:
