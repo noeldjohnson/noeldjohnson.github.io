@@ -9,17 +9,17 @@ This is the webpage for the Spring 2020 iteration of Economic History (undergrad
 
 **New material due to the Corona Virus shutdown is here:**
 
-Videos of Lectures are downloadable [here](https://github.com/noeldjohnson/Economic-History-Lectures)
+Videos of Lectures are downloadable [here](https://github.com/noeldjohnson/Economic-History-Lectures). Or, you can click on the individual files below to view or download them from Dropbox.
 
 To view the lecture, click on the file and then click on the download button (above and to the right).
 
 **Some Announcements**
 
-* I have posted part one of the lecture for week 8 (EH_wk8_pt1.mp4).
+* I have posted part one of the lecture for week 8 ([EH_wk8_pt1.mp4](https://www.dropbox.com/s/9z8p00n4z81l5hg/EH_wk8_pt1.mp4?dl=0)).
 
-* I have posted part two of the lecture for week 8 (EH_wk8_pt2.mp4).
+* I have posted part two of the lecture for week 8 ([EH_wk8_pt2.mp4](https://www.dropbox.com/s/f5znzj3kf8mow96/EH_wk8_pt2.mp4?dl=0)).
 
-* I have posted part three of the lecture for week 8 (EH_wk8_pt3.mp4).
+* I have posted part three of the lecture for week 8 ([EH_wk8_pt3.mp4](https://www.dropbox.com/s/pi3qhwrnocef5rt/EH_wk8_pt3.mp4?dl=0)).
 
 * I'm now holding virtual office hours on Thursdays from 3:00 to 4:00. I sent you all an email on 3/26 with the link and password to join the office hours.
 
@@ -29,11 +29,11 @@ To view the lecture, click on the file and then click on the download button (ab
   * These Zoom class sessions will be for you to ask questions about the lectures I post online. Please try and show up for the beginning of the virtual class session as I will close the session if there are no students around after 10 minutes or so.
   * The paper assignment is due by midnight on May 13.
 
-* I have posted the lecture for week 6 (EH_wk6.mp4).
+* I have posted the lecture for week 6 ([EH_wk6.mp4](https://www.dropbox.com/s/uaml6wd6oc8mx12/EH_wk6.mp4?dl=0)).
 
-* I have posted part one of the lecture for week 7 (EH_wk7_pt1.mp4).
+* I have posted part one of the lecture for week 7 ([EH_wk7_pt1.mp4](https://www.dropbox.com/s/c7isokqnbj8g47v/EH_wk7_pt1.mp4?dl=0)).
 
-* I have posted part two of the lecture for week 7 (EH_wk7_pt2.mp4).
+* I have posted part two of the lecture for week 7 ([EH_wk7_pt2.mp4](https://www.dropbox.com/s/0n8evbkjaocfbn3/EH_wk7_pt2.mp4?dl=0)).
 
 * I have elimated or made optional (starred) the following reading from the syllabus:
   * Ogilvie, S. and Carus, A. W. (2014). Institutions and economic growth in historical perspective. (starred)
