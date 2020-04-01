@@ -22,6 +22,7 @@ To view the lecture, click on the file and then click on the download button (ab
 * I'm now holding virtual office hours on Thursdays from 3:00 to 4:00.  I sent you all an email on 3/26 with the link and password to join the office hours.
 
 * Here are the changes I've made to dates on the syllabus:
+  * Homework 2 is due April 15. You'll need to scan it or take pictures on your phone and then email the files.
   * I have moved the midterm exam to April 8. It will be a take-home exam. I will distribute it by noon on April 8 and it will be due by midnight on April 10.
   * The last day of class for us is now May 6. I will send out a recurring Zoom invitation for the virtual class sessions.
   * These Zoom class sessions will be for you to ask questions about the lectures I post online. Please try and show up for the beginning of the virtual class session as I will close the session if there are no students around after 10 minutes or so.
