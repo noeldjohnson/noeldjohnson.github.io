@@ -16,6 +16,12 @@ Or, you can click on the individual files below to view or download them from Dr
 
 **Some Announcements**
 
+* I have posted part one of the lecture for week 9 (colonialism) ([EH_Lecture9_part1.mp4](https://www.dropbox.com/s/dshq4x20w44guwt/EH_Lecture9_part1.mp4?dl=0)).
+
+* I have posted part two of the lecture for week 9 (colonialism) ([EH_Lecture9_part2.mp4](https://www.dropbox.com/s/zqajcqk1iph2juy/EH_Lecture9_part2.mp4?dl=0)).
+
+* I have posted part three of the lecture for week 9 (colonialism) ([EH_Lecture9_part3.mp4](https://www.dropbox.com/s/7d3ksg0qlhj5act/EH_Lecture9_part3.mp4?dl=0)).
+
 * I've made a video explaining exponential growth rates and pandemics. You can download or view it [here](https://zoom.us/rec/share/7PZWDuvUzXtJaIHR6Uf1fPN-E6bMX6a8hiEcrKIKzE_VrOotYsrTinvI7ccKYTAB). You should also check out [this video](https://youtu.be/Kas0tIxDvrg) and [this one](https://www.youtube.com/watch?v=gxAaO2rsdIs&feature=emb_logo). Here's a [very useful webpage](https://ourworldindata.org/coronavirus) with up to date information on COVID-19.
 
 * I have posted part one of the lecture for week 8 ([EH_wk8_pt1.mp4](https://www.dropbox.com/s/9z8p00n4z81l5hg/EH_wk8_pt1.mp4?dl=0)).
