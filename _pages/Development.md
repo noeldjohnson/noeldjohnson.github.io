@@ -16,6 +16,10 @@ Or, you can click on the individual files below to view or download them from Dr
 
 **Some Announcements**
 
+* I have posted part 1 of the lecture for week 11 (inequality) ([Dev_Lecture11-Inequality_part_1.mp4](https://www.dropbox.com/s/tja4ov0e7lqduvk/Dev_Lecture11-Inequality_part_1.mp4?dl=0)).
+
+* I have posted part 2 of the lecture for week 11 (inequality) ([Dev_Lecture11-Inequality_part_2.mp4](https://www.dropbox.com/s/e7g56zw6eq4sj4a/Dev_Lecture11-Inequality_part_2.mp4?dl=0)).
+
 * I've made a video explaining exponential growth rates and pandemics. You can download or view it [here](https://zoom.us/rec/share/7PZWDuvUzXtJaIHR6Uf1fPN-E6bMX6a8hiEcrKIKzE_VrOotYsrTinvI7ccKYTAB). You should also check out [this video](https://youtu.be/Kas0tIxDvrg) and [this one](https://www.youtube.com/watch?v=gxAaO2rsdIs&feature=emb_logo). Here's a [very useful webpage](https://ourworldindata.org/coronavirus) with up to date information on COVID-19.
 
 * I have posted part 1 of the lecture for week 8 ([growth_wk8_pt1.mp4](https://www.dropbox.com/s/rgi00e19a644390/growth_wk8_pt1.mp4?dl=0)).
