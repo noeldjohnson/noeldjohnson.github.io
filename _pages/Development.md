@@ -16,6 +16,8 @@ Or, you can click on the individual files below to view or download them from Dr
 
 **Some Announcements**
 
+* I have posted a video discussing the answers and my grading of the midterm ([Dev_Midterm_Review.mp4](https://www.dropbox.com/s/rnvstgtfjeo4w9p/Dev_Midterm_Review.mp4?dl=0)).
+
 * I have posted part 1 of the lecture for week 11 (inequality) ([Dev_Lecture11-Inequality_part_1.mp4](https://www.dropbox.com/s/tja4ov0e7lqduvk/Dev_Lecture11-Inequality_part_1.mp4?dl=0)).
 
 * I have posted part 2 of the lecture for week 11 (inequality) ([Dev_Lecture11-Inequality_part_2.mp4](https://www.dropbox.com/s/e7g56zw6eq4sj4a/Dev_Lecture11-Inequality_part_2.mp4?dl=0)).
