@@ -16,6 +16,12 @@ Or, you can click on the individual files below to view or download them from Dr
 
 **Some Announcements**
 
+* I have posted part 1 of the lecture for week 12 (culture) ([Dev_Culture_part1.mp4](https://www.dropbox.com/s/63wpf82bmjq2yxa/Dev_Culture_part1.mp4?dl=0)).
+
+* I have posted part 2 of the lecture for week 12 (culture) ([Dev_Culture_part2.mp4](https://www.dropbox.com/s/8tn3dxukh66qe3r/Dev_Culture_part2.mp4?dl=0)).
+
+* I have posted part 3 of the lecture for week 12 (culture) ([Dev_Culture_part3.mp4](https://www.dropbox.com/s/7q8mfipm7jwhsvy/Dev_Culture_part3.mp4?dl=0)).
+
 * I have posted a video discussing the answers and my grading of the midterm ([Dev_Midterm_Review.mp4](https://www.dropbox.com/s/rnvstgtfjeo4w9p/Dev_Midterm_Review.mp4?dl=0)).
 
 * I have posted part 1 of the lecture for week 11 (inequality) ([Dev_Lecture11-Inequality_part_1.mp4](https://www.dropbox.com/s/tja4ov0e7lqduvk/Dev_Lecture11-Inequality_part_1.mp4?dl=0)).
