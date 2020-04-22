@@ -16,6 +16,12 @@ Or, you can click on the individual files below to view or download them from Dr
 
 **Some Announcements**
 
+* I have posted part one of the lecture for week 10 (Technology and the Industrial Revolution) ([EH_Lecture10_part1.mp4](https://www.dropbox.com/s/wmx9r397oxwelaf/EH_Lecture10_part1.mp4?dl=0)).
+
+* I have posted part two of the lecture for week 10 (Technology and the Industrial Revolution) ([EH_Lecture10_part2.mp4](https://www.dropbox.com/s/poh8cb6s83u3ohx/EH_Lecture10_part2.mp4?dl=0)).
+
+* I have posted part three of the lecture for week 10 (Technology and the Industrial Revolution) ([EH_Lecture10_part3.mp4](https://www.dropbox.com/s/nn5og0eq68hr1tv/EH_Lecture10_part3.mp4?dl=0)).
+
 * I have posted part one of the lecture for week 9 (colonialism) ([EH_Lecture9_part1.mp4](https://www.dropbox.com/s/dshq4x20w44guwt/EH_Lecture9_part1.mp4?dl=0)).
 
 * I have posted part two of the lecture for week 9 (colonialism) ([EH_Lecture9_part2.mp4](https://www.dropbox.com/s/zqajcqk1iph2juy/EH_Lecture9_part2.mp4?dl=0)).
