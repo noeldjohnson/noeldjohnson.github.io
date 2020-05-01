@@ -16,6 +16,12 @@ Or, you can click on the individual files below to view or download them from Dr
 
 **Some Announcements**
 
+* I have posted part one of the lecture for week 11 (Income Distribution and Wages) ([EH_Lecture_11_pt1.mp4](https://www.dropbox.com/s/z5hnuj6932kd3mv/EH_Lecture_11_pt1.mp4?dl=0)).
+
+* I have posted part two of the lecture for week 11 (Income Distribution and Wages) ([EH_Lecture_11_pt2.mp4](https://www.dropbox.com/s/hgnk2tr2ulxfx6g/EH_Lectture_11_pt2.mp4?dl=0)).
+
+* I have posted part three of the lecture for week 11 (Income Distribution and Wages) ([EH_Lecture_11_pt3.mp4](https://www.dropbox.com/s/remtvixd47op6wk/EH_Lecture_11_pt3.mp4?dl=0)).
+
 * I have posted part one of the lecture for week 10 (Technology and the Industrial Revolution) ([EH_Lecture10_part1.mp4](https://www.dropbox.com/s/wmx9r397oxwelaf/EH_Lecture10_part1.mp4?dl=0)).
 
 * I have posted part two of the lecture for week 10 (Technology and the Industrial Revolution) ([EH_Lecture10_part2.mp4](https://www.dropbox.com/s/poh8cb6s83u3ohx/EH_Lecture10_part2.mp4?dl=0)).
