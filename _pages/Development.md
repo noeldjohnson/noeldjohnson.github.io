@@ -16,6 +16,12 @@ Or, you can click on the individual files below to view or download them from Dr
 
 **Some Announcements**
 
+* I have posted part 1 of the lecture for week 13 (geography) ([Dev_Lecture13_pt1.mp4](https://www.dropbox.com/s/h8dahvz67cbcy5n/Dev_Lecture13_pt1.mp4?dl=0)).
+
+* I have posted part 2 of the lecture for week 13 (geography) ([Dev_Lecture13_pt2.mp4](https://www.dropbox.com/s/d2umj7knfquwb2z/Dev_Lecture13_pt2.mp4?dl=0)).
+
+* I have posted part 3 of the lecture for week 13 (geography) ([Dev_Lecture13_pt3.mp4](https://www.dropbox.com/s/4b116yu5y0vgvc5/Dev_Lecture13_pt3.mp4?dl=0)).
+
 * I have posted part 1 of the lecture for week 12 (culture) ([Dev_Culture_part1.mp4](https://www.dropbox.com/s/63wpf82bmjq2yxa/Dev_Culture_part1.mp4?dl=0)).
 
 * I have posted part 2 of the lecture for week 12 (culture) ([Dev_Culture_part2.mp4](https://www.dropbox.com/s/8tn3dxukh66qe3r/Dev_Culture_part2.mp4?dl=0)).
