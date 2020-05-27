@@ -1,6 +1,6 @@
 ---
 title: "Economic Growth and Development"
-permalink: /dev/
+permalink: /dev_spring/
 ---
 
 ![fighting_temaraire](/assets/images/fighting_temaraire.png)
