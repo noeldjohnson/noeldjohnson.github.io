@@ -7,9 +7,10 @@ permalink: /dev/
 
 This is the webpage for the Summer 2020 iteration of Economic Growth and Development.
 
-<!---
-* The syllabus is available [here.](https://www.dropbox.com/s/eq3c35fyfto2ogh/Dev_Su20_webpage.pdf?dl=0) If you have a question about the course, an assignment, due dates, etc... PLEASE CHECK THE SYLLABUS AS WELL AS THE ANNOUNCEMENTS BELOW BEFORE SENDING ME AN EMAIL!
 
+* The syllabus is available [here.](https://www.dropbox.com/s/tvza0zf55greix1/Dev_Su20_webpage.pdf?dl=0) If you have a question about the course, an assignment, due dates, etc... PLEASE CHECK THE SYLLABUS AS WELL AS THE ANNOUNCEMENTS BELOW BEFORE SENDING ME AN EMAIL!
+
+<!---
 
 * You can download the course readings [here.]() You should have received the dropbox folder password in an email from me.
 
