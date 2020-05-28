@@ -10,14 +10,11 @@ This is the webpage for the Summer 2020 iteration of Economic Growth and Develop
 
 * The syllabus is available [here.](https://www.dropbox.com/s/tvza0zf55greix1/Dev_Su20_webpage.pdf?dl=0) If you have a question about the course, an assignment, due dates, etc... PLEASE CHECK THE SYLLABUS AS WELL AS THE ANNOUNCEMENTS BELOW BEFORE SENDING ME AN EMAIL!
 
-<!---
+* You can download the course readings [here.](https://www.dropbox.com/sh/zvm69x14dy7735t/AAA_00pDvTh9AIJdMajA3ntSa?dl=0) You should have received the dropbox folder password in an email from me.
 
-* You can download the course readings [here.]() You should have received the dropbox folder password in an email from me.
+* You can download the course video lectures [here.](https://www.dropbox.com/sh/k11t3wafszcgp74/AADNtQRMxEkyECyL4l6wetNja?dl=0) You should have received the dropbox folder password in an email from me.  I'll post the first video lecture on June 1 or 2 (I'll notify you with an email when I post lectures).
 
-* You can download the course video lectures [here.]() You should have received the dropbox folder password in an email from me.
-
-* You can download the course homework assignments [here.]() I will post the first homework assignment on June 8. You should have received the dropbox folder password in an email from me.
--->
+* You can download the course homework assignments [here.](https://www.dropbox.com/sh/9xw47rsxqhov36l/AABCKZdv4jw890-adRrYEu_8a?dl=0) I will post the first homework assignment on June 8. You should have received the dropbox folder password in an email from me.
 
 **Some Announcements**
 
