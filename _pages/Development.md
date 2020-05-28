@@ -18,4 +18,4 @@ This is the webpage for the Summer 2020 iteration of Economic Growth and Develop
 
 **Some Announcements**
 
-* I've made a video explaining exponential growth rates and pandemics. You can download or view it [here](https://zoom.us/rec/share/7PZWDuvUzXtJaIHR6Uf1fPN-E6bMX6a8hiEcrKIKzE_VrOotYsrTinvI7ccKYTAB). You should also check out [this video](https://youtu.be/Kas0tIxDvrg) and [this one](https://www.youtube.com/watch?v=gxAaO2rsdIs&feature=emb_logo). Here's a [very useful webpage](https://ourworldindata.org/coronavirus) with up to date information on COVID-19.
+* I've made a video explaining exponential growth rates and pandemics. You can download or view it [here](https://zoom.us/rec/share/7PZWDuvUzXtJaIHR6Uf1fPN-E6bMX6a8hiEcrKIKzE_VrOotYsrTinvI7ccKYTAB) (if you watch closely you can see me making a mistake when pulling a growth rate off the web---the math is correct though). You should also check out [this video](https://youtu.be/Kas0tIxDvrg) and [this one](https://www.youtube.com/watch?v=gxAaO2rsdIs&feature=emb_logo). Here's a [very useful webpage](https://ourworldindata.org/coronavirus) with up to date information on COVID-19.
