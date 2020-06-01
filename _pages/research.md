@@ -11,6 +11,10 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers
 
+**Medieval Cities Through the Lens of Urban Economic Theories**\\
+(joint with Remi Jedwab and Mark Koyama)\\
+[Download Draft](https://www.dropbox.com/s/so7lcevh69ctq7w/CEPR-DP14828.pdf?dl=0)
+
 **The Effects of Land Redistribution: Evidence from the French Revolution**\\
 (joint with Theresa Finley and Raphaël Franck)\\
 [Download Draft](https://www.dropbox.com/s/hfo62xyn55b4bu3/Draft34_JLE_Rev.pdf?dl=0)\\
