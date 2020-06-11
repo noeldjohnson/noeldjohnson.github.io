@@ -20,8 +20,8 @@ This is the webpage for the Summer 2020 iteration of Economic Growth and Develop
 
 * If you're not able to make it to the Wednesday 5pm live Zoom meetings, I'm recording them. Here they are:
 
-[June 3](https://gmu.zoom.us/rec/share/_PJqD7D8yWlOaKPs72KEGagbOr31X6a80yhM8_JYzkZoSBXGWdk6wpUn0eJqhX8m?startTime=1591217917000)
+[Recording of June 3 Meeting](https://gmu.zoom.us/rec/share/_PJqD7D8yWlOaKPs72KEGagbOr31X6a80yhM8_JYzkZoSBXGWdk6wpUn0eJqhX8m?startTime=1591217917000)
 
-[June 10](https://gmu.zoom.us/rec/share/3dBXIorsqXNJaZ3z53z5VqIdTq38T6a80SQfqfIMy0s_BxGf4Q_J3V1o1_OeaMvy?startTime=1591822253000)
+[Recording of June 10 Meeting](https://gmu.zoom.us/rec/share/3dBXIorsqXNJaZ3z53z5VqIdTq38T6a80SQfqfIMy0s_BxGf4Q_J3V1o1_OeaMvy?startTime=1591822253000)
 
 * I've made a video explaining exponential growth rates and pandemics. You can download or view it [here](https://zoom.us/rec/share/7PZWDuvUzXtJaIHR6Uf1fPN-E6bMX6a8hiEcrKIKzE_VrOotYsrTinvI7ccKYTAB) (if you watch closely you can see me making a mistake when pulling a growth rate off the web---the math is correct though). You should also check out [this video](https://youtu.be/Kas0tIxDvrg) and [this one](https://www.youtube.com/watch?v=gxAaO2rsdIs&feature=emb_logo). Here's a [very useful webpage](https://ourworldindata.org/coronavirus) with up to date information on COVID-19.
