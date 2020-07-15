@@ -11,6 +11,10 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers
 
+**The Effects of Historical Pandemics: The Black Death**\\
+(joint with Remi Jedwab and Mark Koyama)\\
+Part of a four-paper symposium on The Effects of Historical Pandemics for *The Journal of Economic Literature*\\
+
 **Medieval Cities Through the Lens of Urban Economic Theories**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 [Download Draft](https://www.dropbox.com/s/so7lcevh69ctq7w/CEPR-DP14828.pdf?dl=0)
