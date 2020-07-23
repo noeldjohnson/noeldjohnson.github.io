@@ -32,4 +32,6 @@ This is the webpage for the Summer 2020 iteration of Economic Growth and Develop
 
 [Recording of July 15 Meeting](https://gmu.zoom.us/rec/share/9MxKMbr9035JHbfEq0L1VZN-B6jBX6a82nUcrPsEmE44sQUo_ZuQMIYAhRmpujK5)
 
+[Recording of July 22 Meeting](https://gmu.zoom.us/rec/share/4s0vIJ_q0WhIaJXGzm6HS68cN7zgT6a8hHce-PpexE4dBp4R-TgKf1Ip39w1XhzQ)
+
 * I've made a video explaining exponential growth rates and pandemics. You can download or view it [here](https://zoom.us/rec/share/7PZWDuvUzXtJaIHR6Uf1fPN-E6bMX6a8hiEcrKIKzE_VrOotYsrTinvI7ccKYTAB) (if you watch closely you can see me making a mistake when pulling a growth rate off the web---the math is correct though). You should also check out [this video](https://youtu.be/Kas0tIxDvrg) and [this one](https://www.youtube.com/watch?v=gxAaO2rsdIs&feature=emb_logo). Here's a [very useful webpage](https://ourworldindata.org/coronavirus) with up to date information on COVID-19.
