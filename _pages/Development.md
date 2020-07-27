@@ -18,6 +18,8 @@ This is the webpage for the Summer 2020 iteration of Economic Growth and Develop
 
 **Some Announcements**
 
+* Here is the [link to the lecture slides for Week 9 (Inequality)](https://www.dropbox.com/s/9bvrzjstq7e8f0t/Wk9_Growth.pdf?dl=0). You will need the slides to have access to the links to the embedded videos.
+
 * If you're not able to make it to the Wednesday 5pm live Zoom meetings, I'm recording them. Here they are:
 
 [Recording of June 3 Meeting](https://gmu.zoom.us/rec/share/_PJqD7D8yWlOaKPs72KEGagbOr31X6a80yhM8_JYzkZoSBXGWdk6wpUn0eJqhX8m?startTime=1591217917000)
