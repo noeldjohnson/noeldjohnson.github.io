@@ -5,8 +5,6 @@ permalink: /links/
 
 ![links_unified](/assets/images/links_unified.jpg)
 
-* test
-
 ## [Advice on Writing and Other Things for Students](https://noeldjohnson.github.io/student_advice/)
 
 ## [GIS Data Sources](https://noeldjohnson.github.io/gis_links/)
