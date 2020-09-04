@@ -5,7 +5,6 @@ permalink: /links/
 
 ![links_unified](/assets/images/links_unified.jpg)
 
-## Test
 
 ## [Advice on Writing and Other Things for Students](https://noeldjohnson.github.io/student_advice/)
 
