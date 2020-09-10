@@ -52,7 +52,7 @@ permalink: /links/
 
 ## My ArcGIS tutorials
 
-* Arc sucks. But if you insist, my tutorials on basic usage of ArcGIS, can be downloaded [here.](https://github.com/noeldjohnson/ArcGIS-Tutorial.git)
+* Arc << R. But if you insist, my tutorials on basic usage of ArcGIS, can be downloaded [here.](https://github.com/noeldjohnson/ArcGIS-Tutorial.git)
 
 ## Awesome Podcasts and Other links
 
