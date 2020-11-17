@@ -39,7 +39,8 @@ Part of a four-paper symposium on The Effects of Historical Pandemics for *The J
 [Download Presentation](https://www.dropbox.com/s/ckf2pd492e5nce5/PSE%20Confiscations%20Presentation.pdf?dl=0)\\
 [A discussion of the paper on the Economics Detective podcast](https://economicsdetective.com/2017/07/french-revolution-property-rights-coase-theorem-noel-johnson/)\\
 [An article about the paper on Quartz](https://qz.com/1031013/two-centuries-later-researchers-say-the-french-revolution-was-an-act-of-radical-privatization/)\\
-[A Vox piece on the paper](https://voxeu.org/article/economic-consequences-revolutions)
+[A Vox piece on the paper](https://voxeu.org/article/economic-consequences-revolutions)\\
+[Replication Files](https://github.com/noeldjohnson/JLE_2020_Replication.git)
 
 **Negative Shocks and Mass Persecutions: Evidence from the Black Death**\\
 (joint with Remi Jedwab and Mark Koyama)\\
