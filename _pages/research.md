@@ -33,12 +33,12 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 *The Journal of Economic Literature, Forthcoming, 2021*\\
 [Download Paper](https://www.dropbox.com/s/8x6mx4bd28fq4lw/JEL_Black_Death_FINAL_October12.pdf?dl=0)\\
 [Download Presentation (for undergrad students)](https://www.dropbox.com/s/o23jzdw2wa257e4/Black%20Death.pdf?dl=0)\\
-[Replication Files](https://github.com/noeldjohnson/JEL_2020_Replication)\\
+[Replication Files](https://github.com/noeldjohnson/JEL_2020_Replication)
 
 **Medieval Cities Through the Lens of Urban Economic Theories**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 *Regional Science and Urban Economics, Forthcoming, 2021*\\
-[Download Paper](https://www.dropbox.com/s/so7lcevh69ctq7w/CEPR-DP14828.pdf?dl=0)\\
+[Download Paper](https://www.dropbox.com/s/so7lcevh69ctq7w/CEPR-DP14828.pdf?dl=0)
 
 **The Effects of Land Redistribution: Evidence from the French Revolution**\\
 (joint with Theresa Finley and Raphaël Franck)\\
