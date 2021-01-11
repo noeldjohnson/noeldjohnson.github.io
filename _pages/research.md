@@ -22,7 +22,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
 
 **Markets & Minorities: Jewish Persecution and Market Access, 1100–1850**\\
-(Joint with Hillel Rapoport)\\
+(Joint with Hillel Rapoport)
 
 
 ## Refereed Publications
