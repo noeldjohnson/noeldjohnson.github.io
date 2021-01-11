@@ -31,12 +31,20 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **The Effects of Historical Pandemics: The Black Death**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 *The Journal of Economic Literature, Forthcoming, 2021*\\
-[Download Draft](https://www.dropbox.com/s/8x6mx4bd28fq4lw/JEL_Black_Death_FINAL_October12.pdf?dl=0)\\
+[Download Paper](https://www.dropbox.com/s/8x6mx4bd28fq4lw/JEL_Black_Death_FINAL_October12.pdf?dl=0)\\
+[Download Presentation (for undergrad students)](https://www.dropbox.com/s/o23jzdw2wa257e4/Black%20Death.pdf?dl=0)\\
+[Replication Files](https://github.com/noeldjohnson/JEL_2020_Replication)\\
+
+**Medieval Cities Through the Lens of Urban Economic Theories**\\
+(joint with Remi Jedwab and Mark Koyama)\\
+*Regional Science and Urban Economics, Forthcoming, 2021*\\
+[Download Paper](https://www.dropbox.com/s/so7lcevh69ctq7w/CEPR-DP14828.pdf?dl=0)\\
 
 **The Effects of Land Redistribution: Evidence from the French Revolution**\\
 (joint with Theresa Finley and Raphaël Franck)\\
 *Journal of Law and Economics, Forthcoming, 2021*\\
-[Download Draft](https://www.dropbox.com/s/hfo62xyn55b4bu3/Draft34_JLE_Rev.pdf?dl=0)\\
+[Download Paper](https://www.dropbox.com/s/rdpt7qk7r6hq4xy/JLE%20Manuscript%20for%20Submission%20Final.pdf?dl=0)\\
+[Download the Online Appendix](https://www.dropbox.com/s/bahxgdvys8cmu5n/Online%20Appendix.pdf?dl=0)
 [Download Presentation](https://www.dropbox.com/s/ckf2pd492e5nce5/PSE%20Confiscations%20Presentation.pdf?dl=0)\\
 [A discussion of the paper on the Economics Detective podcast](https://economicsdetective.com/2017/07/french-revolution-property-rights-coase-theorem-noel-johnson/)\\
 [An article about the paper on Quartz](https://qz.com/1031013/two-centuries-later-researchers-say-the-french-revolution-was-an-act-of-radical-privatization/)\\
