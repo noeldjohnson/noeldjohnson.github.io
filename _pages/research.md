@@ -11,10 +11,6 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
-**Medieval Cities Through the Lens of Urban Economic Theories**\\
-(joint with Remi Jedwab and Mark Koyama)\\
-[Download Draft](https://www.dropbox.com/s/so7lcevh69ctq7w/CEPR-DP14828.pdf?dl=0)
-
 **Pandemics, Places, and Populations:  The Effects of the Black Death on Urban Development**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 [Download Draft](https://www.dropbox.com/s/riwnl83k9k90vxx/BBB_May2020_Web.pdf?dl=0)\\
