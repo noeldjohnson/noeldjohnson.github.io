@@ -9,11 +9,7 @@ Here is a [link to my CV.](https://github.com/noeldjohnson/Current_CV/raw/master
 
 You can purchase my book (written with Mark Koyama) here: [Persecution & Toleration: The Long Road to Religious Freedom.](https://www.amazon.com/gp/product/1108441165/ref=dbs_a_def_rwt_bibl_vppi_i0) Here is a link to the [book's webpage.](https://persecutionandtoleration.com/) Here is a [short presentation](https://www.dropbox.com/s/eguyx1z3x9ykd0i/PPE.pdf?dl=0) of the book's main ideas. Here is a [more in-depth presentation.](https://www.dropbox.com/s/br6433n8pb3imly/Paris%20Lectures.pdf?dl=0)
 
-## Working Papers
-
-**The Effects of Historical Pandemics: The Black Death**\\
-(joint with Remi Jedwab and Mark Koyama)\\
-Part of a four-paper symposium on The Effects of Historical Pandemics for *The Journal of Economic Literature*
+## Working Papers and Research in Progress
 
 **Medieval Cities Through the Lens of Urban Economic Theories**\\
 (joint with Remi Jedwab and Mark Koyama)\\
@@ -32,9 +28,14 @@ Part of a four-paper symposium on The Effects of Historical Pandemics for *The J
 
 ## Refereed Publications
 
+**The Effects of Historical Pandemics: The Black Death**\\
+(joint with Remi Jedwab and Mark Koyama)\\
+*The Journal of Economic Literature, Forthcoming, 2021*\\
+[Download Draft](https://www.dropbox.com/s/8x6mx4bd28fq4lw/JEL_Black_Death_FINAL_October12.pdf?dl=0)\\
+
 **The Effects of Land Redistribution: Evidence from the French Revolution**\\
 (joint with Theresa Finley and Raphaël Franck)\\
-*Journal of Law and Economics (conditionally accepted)*\\
+*Journal of Law and Economics, Forthcoming, 2021*\\
 [Download Draft](https://www.dropbox.com/s/hfo62xyn55b4bu3/Draft34_JLE_Rev.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/ckf2pd492e5nce5/PSE%20Confiscations%20Presentation.pdf?dl=0)\\
 [A discussion of the paper on the Economics Detective podcast](https://economicsdetective.com/2017/07/french-revolution-property-rights-coase-theorem-noel-johnson/)\\
