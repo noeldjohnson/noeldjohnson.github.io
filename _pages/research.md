@@ -33,6 +33,9 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Trust Games: An Updated Meta-Analysis**\\
 (joint with Federica Farolfi, Frank Krueger, and Alexandra Mislin)
 
+**Disease and State Capacity in Colonial India**\\
+(joint with Malik Altaf and Alex Tabarrok)
+
 ## Refereed Publications
 
 **The Effects of Historical Pandemics: The Black Death**\\
