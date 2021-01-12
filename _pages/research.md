@@ -24,6 +24,14 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Markets & Minorities: Jewish Persecution and Market Access, 1100–1850**\\
 (Joint with Hillel Rapoport)
 
+**The Black Death and Guild Survival**\\
+(joint with Remi Jedwab and Mark Koyama)
+
+**The Black Death and State Formation**\\
+(joint with Remi Jedwab and Mark Koyama)
+
+**Trust Games: An Updated Meta-Analysis**\\
+(joint with Federica Farolfi, Frank Krueger, and Alexandra Mislin)
 
 ## Refereed Publications
 
