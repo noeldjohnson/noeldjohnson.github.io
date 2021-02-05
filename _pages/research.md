@@ -138,7 +138,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with Alexandra A. Mislin)\\
 *Journal of Economic Psychology, 2011*\\
 [Download Paper](https://www.dropbox.com/s/1umlbuz3ket8chg/2011%20Trust%20MetaAnalysis%20JEconPsych.pdf?dl=0)\\
-[Download Data](https://github.com/noeldjohnson/JoEP_2011_Replication.git)
+[Replication Files](https://github.com/noeldjohnson/JoEP_2011_Replication.git)
 
 **Does Fortune Favor Dragons?**\\
 (joint with John V.C. Nye)\\
