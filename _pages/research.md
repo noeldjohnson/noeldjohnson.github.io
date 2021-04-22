@@ -22,7 +22,8 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
 
 **Demographic Shocks and Technology Adoption: Evidence from the Black Death**\\
-(Joint with Andrew Thomas)
+(Joint with Andrew Thomas)\\
+test
 
 **Markets & Minorities: Jewish Persecution and Market Access, 1100–1850**\\
 (Joint with Hillel Rapoport)
