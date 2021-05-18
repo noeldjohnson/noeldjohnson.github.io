@@ -14,7 +14,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Pandemics, Places, and Populations:  The Effects of the Black Death on Urban Development**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 [Download Draft](https://www.dropbox.com/s/riwnl83k9k90vxx/BBB_May2020_Web.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/cfnc7j5ty5lzf18/BD_Tulane.pdf?dl=0)\\
+[Download Presentation](https://www.dropbox.com/s/5vcq7868ejexoxf/BD_Colorado.pdf?dl=0)\\
 [A Vox piece on the paper](https://voxeu.org/article/how-black-death-changed-europes-cities)
 
 **Taxes, National Identity, and Nation Building:  Evidence from France**\\
