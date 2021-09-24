@@ -4,7 +4,7 @@ permalink: /classes/
 ---
 ![cat_smbc](/assets/images/cat_smbc.gif)
 
-I'm teaching two sections of undergraduate economic history (Econ 365) this semester. If you're enrolled in either of these and are looking for class materials, they should be on your Blackboard account. The syllabus is [here](https://www.dropbox.com/s/5pqdd7rk7uvs77s/EH%20Syllabus%20Spring%202021.pdf?dl=0).
+[//]: # (I'm teaching two sections of undergraduate economic history (Econ 365) this semester. If you're enrolled in either of these and are looking for class materials, they should be on your Blackboard account. The syllabus is [here](https://www.dropbox.com/s/5pqdd7rk7uvs77s/EH%20Syllabus%20Spring%202021.pdf?dl=0).)
 
 If you're a GMU graduate student and wondering when I'll next teach spatial econometrics, hopefully this Fall (2021). The syllabus from Fall 2019 is [here](https://www.dropbox.com/s/s2hdgkqjwjl13kf/Spatial%20Syllabus%20Fall19.pdf?dl=0).
 
