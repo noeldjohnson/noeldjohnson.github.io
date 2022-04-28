@@ -21,23 +21,17 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Draft](https://www.dropbox.com/s/vtdek1ym584dww7/CTR_AbuDhabi_March_2019.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
 
-**Demographic Shocks and Technology Adoption: Evidence from the Black Death**\\
-(Joint with Andrew Thomas)
+**The Impact of the Black Death on the Adoption of the Printing Press**\\
+(Joint with Alexander Taylor and Andrew Thomas)
 
-**Markets & Minorities: Jewish Persecution and Market Access, 1100–1850**\\
-(Joint with Hillel Rapoport)
+**Smallpox in Colonial India**\\
+(joint with Malik Altaf Hussain)
 
 **The Black Death and Guild Survival**\\
-(joint with Remi Jedwab and Mark Koyama)
+(joint with Eric Wilhelm and Mark Koyama)
 
 **The Black Death and State Formation**\\
-(joint with Remi Jedwab and Mark Koyama)
-
-**Trust Games: An Updated Meta-Analysis**\\
-(joint with Federica Farolfi, Frank Krueger, and Alexandra Mislin)
-
-**Disease and State Capacity in Colonial India**\\
-(joint with Malik Altaf and Alex Tabarrok)
+(joint with Mark Koyama)
 
 ## Refereed Publications
 
