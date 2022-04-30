@@ -38,7 +38,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **The Effects of Historical Pandemics: The Black Death**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 *The Journal of Economic Literature, Forthcoming, 2021*\\
-[Download Paper](https://www.dropbox.com/s/8x6mx4bd28fq4lw/JEL_Black_Death_FINAL_October12.pdf?dl=0)\\
+[Download Paper](https://www.dropbox.com/s/u5zp8rnbvhn27b2/2021%20Journal%20of%20Economic%20Literature%20Black%20Death.pdf?dl=0)\\
 [Download Presentation (for undergrad students)](https://www.dropbox.com/s/o23jzdw2wa257e4/Black%20Death.pdf?dl=0)\\
 [Replication Files](https://github.com/noeldjohnson/JEL_2020_Replication)
 
@@ -50,7 +50,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **The Effects of Land Redistribution: Evidence from the French Revolution**\\
 (joint with Theresa Finley and Raphaël Franck)\\
 *Journal of Law and Economics, Forthcoming, 2021*\\
-[Download Paper](https://www.dropbox.com/s/rdpt7qk7r6hq4xy/JLE%20Manuscript%20for%20Submission%20Final.pdf?dl=0)\\
+[Download Paper](https://www.dropbox.com/s/2bdsunic7nqxajj/2021%20Journal%20of%20Law%20and%20Economics%20French%20Land%20Redistribution.pdf?dl=0)\\
 [Download the Online Appendix](https://www.dropbox.com/s/bahxgdvys8cmu5n/Online%20Appendix.pdf?dl=0)
 [Download Presentation](https://www.dropbox.com/s/ckf2pd492e5nce5/PSE%20Confiscations%20Presentation.pdf?dl=0)\\
 [A discussion of the paper on the Economics Detective podcast](https://economicsdetective.com/2017/07/french-revolution-property-rights-coase-theorem-noel-johnson/)\\
