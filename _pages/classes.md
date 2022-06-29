@@ -14,5 +14,3 @@ Click [here](https://noeldjohnson.github.io/student_advice/) for links on writin
 
 Click [here](https://noeldjohnson.github.io/gis_links/) for links to GIS data.
 
-
-[//]: # (I'm teaching two sections of undergraduate economic history (Econ 365) this semester. If you're enrolled in either of these and are looking for class materials, they should be on your Blackboard account. The syllabus is [here](https://www.dropbox.com/s/5pqdd7rk7uvs77s/EH%20Syllabus%20Spring%202021.pdf?dl=0).)
