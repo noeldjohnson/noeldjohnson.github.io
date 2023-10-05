@@ -11,21 +11,21 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
-**Pandemics, Places, and Populations:  The Effects of the Black Death on Urban Development**\\
-(joint with Remi Jedwab and Mark Koyama)\\
-[Download Draft](https://www.dropbox.com/s/riwnl83k9k90vxx/BBB_May2020_Web.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/5vcq7868ejexoxf/BD_Colorado.pdf?dl=0)\\
-[A Vox piece on the paper](https://voxeu.org/article/how-black-death-changed-europes-cities)
+**The Impact of the Black Death on the Adoption of the Printing Press**\\
+(Joint with Alexander Taylor and Andrew Thomas)
+[Download Draft](https://www.dropbox.com/scl/fi/bfcfgd24kejjk3ll7nd5y/BDPress_10-5-23.pdf?rlkey=eley6qre8lgmlfvsn4851rkww&dl=0)\\
+[Download Presentation](https://www.dropbox.com/scl/fi/xy46x1yx91o81tl9150s0/BDPress_EHA.pdf?rlkey=mm9tkkaoznnrqnqm47821gdvi&dl=0)
+
+**The Great Revolt and Medical Mistrust in Colonial India: Evidence from the Smallpox Vaccination Campaign**\\
+(joint with Malik Altaf Hussain)
+
+**The Varieties of Printed Material in Europe between 1450 and 1650: A Title Embeddings Approach**\\
+(joint with Alexander Taylor)
+[Download Presentation](https://www.dropbox.com/scl/fi/67abzyhoidszvwjc4caan/USTC_Embeddings_PhDGroup.pdf?rlkey=x8ig4wrf5wdr6skgiotunlj7y&dl=0)
 
 **Taxes, National Identity, and Nation Building:  Evidence from France**\\
 [Download Draft](https://www.dropbox.com/s/vtdek1ym584dww7/CTR_AbuDhabi_March_2019.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
-
-**The Impact of the Black Death on the Adoption of the Printing Press**\\
-(Joint with Alexander Taylor and Andrew Thomas)
-
-**Smallpox in Colonial India**\\
-(joint with Malik Altaf Hussain)
 
 **The Black Death and Guild Survival**\\
 (joint with Eric Wilhelm and Mark Koyama)
@@ -35,9 +35,16 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Refereed Publications
 
+**Pandemics, Places, and Populations:  The Effects of the Black Death on Urban Development**\\
+(joint with Remi Jedwab and Mark Koyama)\\
+*The Journal of Urban Economics, Forthcoming, 2023*\\
+[Download Draft](https://www.dropbox.com/s/riwnl83k9k90vxx/BBB_May2020_Web.pdf?dl=0)\\
+[Download Presentation](https://www.dropbox.com/s/5vcq7868ejexoxf/BD_Colorado.pdf?dl=0)\\
+[A Vox piece on the paper](https://voxeu.org/article/how-black-death-changed-europes-cities)
+
 **The Effects of Historical Pandemics: The Black Death**\\
 (joint with Remi Jedwab and Mark Koyama)\\
-*The Journal of Economic Literature, Forthcoming, 2021*\\
+*The Journal of Economic Literature, 2022*\\
 [Download Paper](https://www.dropbox.com/s/u5zp8rnbvhn27b2/2021%20Journal%20of%20Economic%20Literature%20Black%20Death.pdf?dl=0)\\
 [Download Presentation (for undergrad students)](https://www.dropbox.com/s/o23jzdw2wa257e4/Black%20Death.pdf?dl=0)\\
 [Replication Files](https://github.com/noeldjohnson/JEL_2020_Replication)
