@@ -12,7 +12,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 ## Working Papers and Research in Progress
 
 **The Impact of the Black Death on the Adoption of the Printing Press**\\
-(Joint with Alexander Taylor and Andrew Thomas)
+(Joint with Alexander Taylor and Andrew Thomas)\\
 [Download Draft](https://www.dropbox.com/scl/fi/bfcfgd24kejjk3ll7nd5y/BDPress_10-5-23.pdf?rlkey=eley6qre8lgmlfvsn4851rkww&dl=0)\\
 [Download Presentation](https://www.dropbox.com/scl/fi/xy46x1yx91o81tl9150s0/BDPress_EHA.pdf?rlkey=mm9tkkaoznnrqnqm47821gdvi&dl=0)
 
@@ -20,7 +20,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with Malik Altaf Hussain)
 
 **The Varieties of Printed Material in Europe between 1450 and 1650: A Title Embeddings Approach**\\
-(joint with Alexander Taylor)
+(joint with Alexander Taylor)\\
 [Download Presentation](https://www.dropbox.com/scl/fi/67abzyhoidszvwjc4caan/USTC_Embeddings_PhDGroup.pdf?rlkey=x8ig4wrf5wdr6skgiotunlj7y&dl=0)
 
 **Taxes, National Identity, and Nation Building:  Evidence from France**\\
