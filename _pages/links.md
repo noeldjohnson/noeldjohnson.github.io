@@ -52,33 +52,3 @@ permalink: /links/
 ## My ArcGIS tutorials
 
 * Arc << R. But if you insist, my tutorials on basic usage of ArcGIS, can be downloaded [here.](https://github.com/noeldjohnson/ArcGIS-Tutorial.git)
-
-## Awesome Podcasts and Other links
-
-* [Arsenal Football Club is Awesome: Listen to Arsecast](https://arseblog.com/arsecast/)
-
-* [Conversations With Tyler](https://conversationswithtyler.com/)
-
-* [The Browser](https://thebrowser.com/)
-
-* [Heavy Hands (punching people is complicated)](https://www.patreon.com/user?u=2439474)
-
-* [XKCD](https://xkcd.com/)
-
-* [SMBC (I apologize for stealing several comics from the site)](http://www.smbc-comics.com/)
-
-* [Marginal Revolution---Always Good](https://marginalrevolution.com/)
-
-* [Centuries Past---Also Consistently Enlightening](https://centuriespast.tumblr.com/)
-
-* [In Our Time](https://www.bbc.co.uk/programmes/b006qykl)
-
-* [The Daily](https://www.nytimes.com/column/the-daily)
-
-* [Board With Life Adventures---DnD is Awesome](https://imboardwithlife.libsyn.com/pod)
-
-* [80,000 Hours Podcast](https://80000hours.org/podcast/)
-
-* [EconTalk](https://podcasts.apple.com/us/podcast/econtalk/id135066958)
-
-* [Francais Facile](https://savoirs.rfi.fr/fr/apprendre-enseigner/langue-francaise/journal-en-francais-facile)
