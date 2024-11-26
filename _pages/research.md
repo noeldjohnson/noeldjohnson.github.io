@@ -54,12 +54,12 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 **Medieval Cities Through the Lens of Urban Economic Theories**\\
 (joint with Remi Jedwab and Mark Koyama)\\
-*Regional Science and Urban Economics, Forthcoming, 2021*\\
+*Regional Science and Urban Economics, 2021*\\
 [Download Paper](https://www.dropbox.com/s/kfzngu7dxvqtpbj/2021%20RSUE%20Medieval%20Cities.pdf?dl=0)
 
 **The Effects of Land Redistribution: Evidence from the French Revolution**\\
 (joint with Theresa Finley and Raphaël Franck)\\
-*Journal of Law and Economics, Forthcoming, 2021*\\
+*Journal of Law and Economics, 2021*\\
 [Download Paper](https://www.dropbox.com/s/2bdsunic7nqxajj/2021%20Journal%20of%20Law%20and%20Economics%20French%20Land%20Redistribution.pdf?dl=0)\\
 [Download the Online Appendix](https://www.dropbox.com/s/bahxgdvys8cmu5n/Online%20Appendix.pdf?dl=0)
 [Download Presentation](https://www.dropbox.com/s/ckf2pd492e5nce5/PSE%20Confiscations%20Presentation.pdf?dl=0)\\
@@ -70,7 +70,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 **Negative Shocks and Mass Persecutions: Evidence from the Black Death**\\
 (joint with Remi Jedwab and Mark Koyama)\\
-*Journal of Economic Growth, Forthcoming, 2019*\\
+*Journal of Economic Growth, 2019*\\
 [Download Manuscript](https://www.dropbox.com/s/jhquij62js66p55/2019_NegativeShocksAndMassPersecuti.pdf?dl=0)\\
 [Download Web Appendix](https://www.dropbox.com/s/5qqeu94hyc08xk3/JJK2018_Web_Appx_JEG_Final.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/epn8z3bmw8m2glh/EHA_2018_Presentation.pdf?dl=0)\\
