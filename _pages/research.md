@@ -24,6 +24,9 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with Alexander Taylor)\\
 [Download Presentation](https://www.dropbox.com/scl/fi/67abzyhoidszvwjc4caan/USTC_Embeddings_PhDGroup.pdf?rlkey=x8ig4wrf5wdr6skgiotunlj7y&dl=0)
 
+**Plague, Print, and Persecution: The Role of Print Media in Shaping Social Responses to Epidemics in Early-Modern Europe**\\
+(joint with Alexander Taylor)\\
+
 **Taxes, National Identity, and Nation Building:  Evidence from France**\\
 [Download Draft](https://www.dropbox.com/s/vtdek1ym584dww7/CTR_AbuDhabi_March_2019.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
@@ -37,8 +40,8 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 **Pandemics, Places, and Populations:  The Effects of the Black Death on Urban Development**\\
 (joint with Remi Jedwab and Mark Koyama)\\
-*The Journal of Urban Economics, Forthcoming, 2023*\\
-[Download Draft](https://www.dropbox.com/s/riwnl83k9k90vxx/BBB_May2020_Web.pdf?dl=0)\\
+*The Journal of Urban Economics, 2024*\\
+[Download Draft](https://www.dropbox.com/scl/fi/z0rt7x91azv33lbqgff20/BBB_JUE.pdf?rlkey=v46ztzx04kr2gi46we7jg34qx&dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/5vcq7868ejexoxf/BD_Colorado.pdf?dl=0)\\
 [A Vox piece on the paper](https://voxeu.org/article/how-black-death-changed-europes-cities)
 
