@@ -13,11 +13,12 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 **The Impact of the Black Death on the Adoption of the Printing Press**\\
 (Joint with Alexander Taylor and Andrew Thomas)\\
-[Download Draft](https://www.dropbox.com/scl/fi/bfcfgd24kejjk3ll7nd5y/BDPress_10-5-23.pdf?rlkey=eley6qre8lgmlfvsn4851rkww&dl=0)\\
+[Download Draft](https://www.dropbox.com/scl/fi/tcvkyqbzkhq6elxr7x9xo/BDPress_11-7-24.pdf?rlkey=r0bww4tm7yceekmx8wu3n8y5g&dl=0)\\
 [Download Presentation](https://www.dropbox.com/scl/fi/xy46x1yx91o81tl9150s0/BDPress_EHA.pdf?rlkey=mm9tkkaoznnrqnqm47821gdvi&dl=0)
 
 **The Great Revolt and Medical Mistrust in Colonial India: Evidence from the Smallpox Vaccination Campaign**\\
-(joint with Malik Altaf Hussain)
+(joint with Malik Altaf Hussain)\\
+[Download Presentation](https://www.dropbox.com/scl/fi/2gt1hph1e8zhp7m68ei9r/india_1857_MarketsSociety-Noel-Johnson-s-conflicted-copy-2024-10-13.pdf?rlkey=84hrbt3j01502xxp78bezsz0y&dl=0)
 
 **The Varieties of Printed Material in Europe between 1450 and 1650: A Title Embeddings Approach**\\
 (joint with Alexander Taylor)\\
@@ -27,11 +28,10 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Draft](https://www.dropbox.com/s/vtdek1ym584dww7/CTR_AbuDhabi_March_2019.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
 
-**The Black Death and Guild Survival**\\
-(joint with Eric Wilhelm and Mark Koyama)
+**Craft Guilds & City Growth in Western Europe, 1000-1800 AD**\\
+(joint with Eric Wilhelm)\\
+[Download Paper](https://www.dropbox.com/scl/fi/28dxzcj2qt3j6ro55u86q/Craft-Guilds-City-Growth.pdf?rlkey=2t6rz0gib1pote3d47qccqplc&dl=0)
 
-**The Black Death and State Formation**\\
-(joint with Mark Koyama)
 
 ## Refereed Publications
 
