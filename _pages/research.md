@@ -31,9 +31,6 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Draft](https://www.dropbox.com/s/vtdek1ym584dww7/CTR_AbuDhabi_March_2019.pdf?dl=0)\\
 [Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
 
-**Craft Guilds & City Growth in Western Europe, 1000-1800 AD**\\
-(joint with Eric Wilhelm)\\
-[Download Paper](https://www.dropbox.com/scl/fi/28dxzcj2qt3j6ro55u86q/Craft-Guilds-City-Growth.pdf?rlkey=2t6rz0gib1pote3d47qccqplc&dl=0)
 
 
 ## Refereed Publications
