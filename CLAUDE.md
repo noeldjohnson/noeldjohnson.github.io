@@ -48,6 +48,26 @@ If Jekyll errors about `webrick` (Ruby 3+), add it: `bundle add webrick`.
 - `_includes/`, `_layouts/`, `_sass/` — theme internals; rarely edited directly.
 - `docs/` and `_site/` — theme docs and the built output; **do not hand-edit** (`_site` is generated).
 
+## Working papers / PDFs
+
+Papers are hosted **in this repo** under `assets/papers/` with **stable, dateless
+filenames** (e.g. `market-for-ideas.pdf`, `market-for-ideas-presentation.pdf`) so the
+links on the site never break when a draft is updated.
+
+Noel's current drafts live in `/Users/noeljohnson/Dropbox/circulating/` (dated filenames).
+To update a paper: copy the newest dated file from there over the stable-named file in
+`assets/papers/`, keeping the same destination name. No research-page edit needed unless the
+title/authors change. Read the PDF's first page to confirm the exact title/authors/abstract
+before writing entries or news blurbs.
+
+Older papers still link to Dropbox URLs; migrate them to `assets/papers/` opportunistically.
+
+## Home page news
+
+The "What's New?" feed lives in `index.html` (newest first). Keep only the most recent
+item(s) there; move older ones into `_pages/news.html` (the `/news/` archive), preserving
+reverse-chronological order. Entry format: `<p> <strong>M-D-YYYY</strong>: … </p>`.
+
 ## Conventions
 
 - Adding a page: create `_pages/Name.md` with front matter (`title`, `permalink`), then add

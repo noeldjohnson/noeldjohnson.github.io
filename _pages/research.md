@@ -14,6 +14,11 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
+**Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach**\\
+(joint with Alexander Taylor)\\
+[Download Draft](/assets/papers/market-for-ideas.pdf)\\
+[Download Presentation](/assets/papers/market-for-ideas-presentation.pdf)
+
 **The Impact of the Black Death on the Adoption of the Printing Press**\\
 (Joint with Alexander Taylor and Andrew Thomas)\\
 [Download Draft](https://www.dropbox.com/scl/fi/tcvkyqbzkhq6elxr7x9xo/BDPress_11-7-24.pdf?rlkey=r0bww4tm7yceekmx8wu3n8y5g&dl=0)\\
@@ -22,10 +27,6 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **The Great Revolt and Medical Mistrust in Colonial India: Evidence from the Smallpox Vaccination Campaign**\\
 (joint with Malik Altaf Hussain)\\
 [Download Presentation](https://www.dropbox.com/scl/fi/2gt1hph1e8zhp7m68ei9r/india_1857_MarketsSociety-Noel-Johnson-s-conflicted-copy-2024-10-13.pdf?rlkey=84hrbt3j01502xxp78bezsz0y&dl=0)
-
-**The Varieties of Printed Material in Europe between 1450 and 1650: A Title Embeddings Approach**\\
-(joint with Alexander Taylor)\\
-[Download Presentation](https://www.dropbox.com/scl/fi/67abzyhoidszvwjc4caan/USTC_Embeddings_PhDGroup.pdf?rlkey=x8ig4wrf5wdr6skgiotunlj7y&dl=0)
 
 **Plague, Print, and Persecution: The Role of Print Media in Shaping Social Responses to Epidemics in Early-Modern Europe**\\
 (joint with Alexander Taylor)
