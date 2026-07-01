@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Noel D. Johnson"
 title_separator          : "-"
 name                     : "Noel D. Johnson"
-description              : "This is where the content of the website goes."
+description              : "Noel D. Johnson is a Professor of Economics at George Mason University studying economic history, state capacity, and the historical roots of religious freedom and long-run development."
 url                      : "https://noeldjohnson.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -98,13 +98,13 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
+    tracking_id          : "G-S9976Q8MZ9"
+    anonymize_ip         : true # true, false (default)
 
-# Google Analytics
-google_analytics: UA-3185761-2
+# Google Analytics (legacy Universal Analytics — retired, replaced by GA4 above)
+# google_analytics: UA-3185761-2
 
 # Site Author
 author:
@@ -121,11 +121,14 @@ author:
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
     - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/ndjohnson"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
+      icon: "fab fa-fw fa-x-twitter"
+      url: "https://x.com/noeldjohnson"
+    - label: "Bluesky"
+      icon: "fab fa-fw fa-bluesky"
+      url: "https://bsky.app/profile/ndjohnson.bsky.social"
+    - label: "Google Scholar"
+      icon: "ai ai-fw ai-google-scholar"
+      url: "https://scholar.google.com/citations?user=kAtFl5EAAAAJ&hl=en"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/noeldjohnson"
