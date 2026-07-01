@@ -2,7 +2,7 @@
 
 This is the personal/academic website of **Noel D. Johnson**, Professor of Economics
 at George Mason University (also Mercatus Center, Center for the Study of Public Choice,
-CESifo affiliate).
+Center for the Study of Public Choice).
 
 ## Stack & hosting
 
