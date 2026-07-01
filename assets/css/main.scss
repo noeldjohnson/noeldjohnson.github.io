@@ -31,3 +31,10 @@ html {
   object-fit: cover;
   object-position: 50% 10%; // horizontal center, biased toward the top (keeps head/cap fully in frame)
 }
+
+// Slightly smaller body text in the main content column. The left sidebar is a
+// separate element (.sidebar) with its own font size, so it is unaffected.
+.page__content,
+.archive {
+  font-size: 0.9em;
+}

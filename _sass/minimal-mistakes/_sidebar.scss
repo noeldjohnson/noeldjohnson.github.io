@@ -8,7 +8,7 @@
 
 .sidebar {
   @include clearfix();
-  @include breakpoint(max-width $large) {
+  @include breakpoint(max-width $medium) {
     /* fix z-index order of follow links */
     position: relative;
     z-index: 10;
@@ -16,7 +16,7 @@
     transform: translate3d(0, 0, 0);
   }
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     float: left;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
     opacity: 0.75;
@@ -74,7 +74,7 @@
 .sidebar__right {
   margin-bottom: 1em;
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     position: absolute;
     top: 0;
     right: 0;
@@ -99,7 +99,7 @@
 }
 
 .splash .sidebar__right {
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     position: relative;
     float: right;
     margin-right: 0;
@@ -120,7 +120,7 @@
   width: 36px;
   height: 36px;
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     display: block;
     width: auto;
     height: auto;
@@ -130,7 +130,7 @@
     max-width: 110px;
     border-radius: 50%;
 
-    @include breakpoint($large) {
+    @include breakpoint($medium) {
       padding: 5px;
       border: 1px solid $border-color;
     }
@@ -144,7 +144,7 @@
   padding-right: 25px;
   line-height: 1;
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     display: block;
     width: 100%;
     padding-left: 0;
@@ -160,7 +160,7 @@
 .author__name {
   margin: 0;
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -173,7 +173,7 @@
 .author__bio {
   margin: 0;
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     margin-top: 10px;
     margin-bottom: 20px;
   }
@@ -194,14 +194,14 @@
     }
   }
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     display: block;
   }
 
   button {
     margin-bottom: 0;
 
-    @include breakpoint($large) {
+    @include breakpoint($medium) {
       display: none;
     }
   }
@@ -225,7 +225,7 @@
     display: block;
   }
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     display: block;
     position: relative;
     margin: 0;
@@ -247,7 +247,7 @@
     border-color: $border-color transparent;
     z-index: 0;
 
-    @include breakpoint($large) {
+    @include breakpoint($medium) {
       display: none;
     }
   }
@@ -264,7 +264,7 @@
     border-color: $background-color transparent;
     z-index: 1;
 
-    @include breakpoint($large) {
+    @include breakpoint($medium) {
       display: none;
     }
   }
@@ -296,7 +296,7 @@
 .wide .sidebar__right {
   margin-bottom: 1em;
 
-  @include breakpoint($large) {
+  @include breakpoint($medium) {
     position: initial;
     top: initial;
     right: initial;
