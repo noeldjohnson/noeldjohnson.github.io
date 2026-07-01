@@ -74,5 +74,9 @@ never fires during local `jekyll serve`. The old Universal Analytics id is retir
 - ~~Site description placeholder~~ — fixed.
 - ~~Social links (X, Bluesky, Google Scholar)~~ — added to `author.links`.
 - ~~Dead Universal Analytics~~ — migrated to GA4.
-- SEO metadata (Open Graph / Twitter cards / structured data) — theme supports it; needs
-  real values filled in (`_config.yml`: `og_image`, `social`, `twitter.username`, etc.).
+- ~~SEO metadata~~ — filled in: `og_image` (headshot), `twitter.username`, `social.links`
+  (populates JSON-LD `sameAs`). Theme's `_includes/seo.html` renders the tags.
+- Optional future add: **ORCID** — add to `author.links` (icon `ai ai-fw ai-orcid`) and to the
+  `social.links` list once Noel provides an iD.
+- Consider a landscape `og_image` (~1200×630) + `twitter:card: summary_large_image` for bigger
+  link-preview cards (current is `summary` with the portrait headshot).
