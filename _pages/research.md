@@ -19,14 +19,15 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Draft](/assets/papers/market-for-ideas.pdf)\\
 [Download Presentation](/assets/papers/market-for-ideas-presentation.pdf)
 
+**The Great Revolt and its Legacy: Understanding Vaccine Hesitancy in Colonial India**\\
+(joint with Malik Altaf Hussain)\\
+[Download Draft](/assets/papers/great-revolt.pdf)\\
+[Download Presentation](/assets/papers/great-revolt-presentation.pdf)
+
 **The Impact of the Black Death on the Adoption of the Printing Press**\\
 (Joint with Alexander Taylor and Andrew Thomas)\\
 [Download Draft](https://www.dropbox.com/scl/fi/tcvkyqbzkhq6elxr7x9xo/BDPress_11-7-24.pdf?rlkey=r0bww4tm7yceekmx8wu3n8y5g&dl=0)\\
 [Download Presentation](https://www.dropbox.com/scl/fi/xy46x1yx91o81tl9150s0/BDPress_EHA.pdf?rlkey=mm9tkkaoznnrqnqm47821gdvi&dl=0)
-
-**The Great Revolt and its Legacy: Understanding Vaccine Hesitancy in Colonial India**\\
-(joint with Malik Altaf Hussain)\\
-[Download Draft](/assets/papers/great-revolt.pdf)
 
 **Plague, Print, and Persecution: The Role of Print Media in Shaping Social Responses to Epidemics in Early-Modern Europe**\\
 (joint with Alexander Taylor)
