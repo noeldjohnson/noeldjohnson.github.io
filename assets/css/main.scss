@@ -8,18 +8,18 @@
 @import "minimal-mistakes"; // main partials
 
 html {
-  font-size: 8px; // change to whatever 16
+  font-size: 16px; // base size on phones (was 8px — far too small)
 
   @include breakpoint($medium) {
-    font-size: 18px; // change to whatever 18
+    font-size: 18px;
   }
 
   @include breakpoint($large) {
-    font-size: 16px; // change to whatever 20
+    font-size: 16px;
   }
 
   @include breakpoint($x-large) {
-    font-size: 22px; // change to whatever 22
+    font-size: 22px;
   }
 }
 
