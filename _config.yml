@@ -88,7 +88,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : "/assets/images/Johnson_Headshot_Sp17.jpg" # Open Graph/Twitter default site image
+og_image                 : "/assets/images/headshot-7-1-2026.png" # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -113,7 +113,7 @@ analytics:
 # Site Author
 author:
   name             : "Noel D. Johnson"
-  avatar           : "/assets/images/Johnson_Headshot_Sp17.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/headshot-7-1-2026.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I’m a Professor of Economics at George Mason University.  I’m also a Research Fellow at the Mercatus Center, a faculty member at the Center for the Study of Public Choice, and an Affiliate Member of the CESifo Research Network."
   location         : "Bethesda, MD"
   email            :

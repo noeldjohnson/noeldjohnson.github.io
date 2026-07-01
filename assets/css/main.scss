@@ -22,3 +22,12 @@ html {
     font-size: 22px; // change to whatever 22
   }
 }
+
+// Author avatar: render a true circle framed on the face instead of an oval
+// that clips the top of a tall portrait photo.
+.author__avatar img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  object-position: 50% 10%; // horizontal center, biased toward the top (keeps head/cap fully in frame)
+}
