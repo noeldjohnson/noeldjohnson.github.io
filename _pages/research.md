@@ -30,10 +30,6 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Plague, Print, and Persecution: The Role of Print Media in Shaping Social Responses to Epidemics in Early-Modern Europe**\\
 (joint with Alexander Taylor)
 
-**Taxes, National Identity, and Nation Building:  Evidence from France**\\
-[Download Draft](https://www.dropbox.com/s/vtdek1ym584dww7/CTR_AbuDhabi_March_2019.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/vkd3wlwoirgiv5i/CTR_Presentation_NYUAbuDhabi.pdf?dl=0)
-
 
 
 ## Refereed Publications
