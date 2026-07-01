@@ -24,9 +24,9 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Draft](https://www.dropbox.com/scl/fi/tcvkyqbzkhq6elxr7x9xo/BDPress_11-7-24.pdf?rlkey=r0bww4tm7yceekmx8wu3n8y5g&dl=0)\\
 [Download Presentation](https://www.dropbox.com/scl/fi/xy46x1yx91o81tl9150s0/BDPress_EHA.pdf?rlkey=mm9tkkaoznnrqnqm47821gdvi&dl=0)
 
-**The Great Revolt and Medical Mistrust in Colonial India: Evidence from the Smallpox Vaccination Campaign**\\
+**The Great Revolt and its Legacy: Understanding Vaccine Hesitancy in Colonial India**\\
 (joint with Malik Altaf Hussain)\\
-[Download Presentation](https://www.dropbox.com/scl/fi/2gt1hph1e8zhp7m68ei9r/india_1857_MarketsSociety-Noel-Johnson-s-conflicted-copy-2024-10-13.pdf?rlkey=84hrbt3j01502xxp78bezsz0y&dl=0)
+[Download Draft](/assets/papers/great-revolt.pdf)
 
 **Plague, Print, and Persecution: The Role of Print Media in Shaping Social Responses to Epidemics in Early-Modern Europe**\\
 (joint with Alexander Taylor)
