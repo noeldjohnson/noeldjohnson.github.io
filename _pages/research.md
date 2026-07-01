@@ -1,6 +1,9 @@
 ---
 title: "Research"
 permalink: /research/
+toc: true
+toc_label: "Jump to"
+toc_sticky: true
 ---
 
 ![books](/assets/images/books.jpg)
