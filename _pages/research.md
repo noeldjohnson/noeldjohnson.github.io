@@ -122,7 +122,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Replication Files](https://github.com/noeldjohnson/EoG_2014_Replication.git)
 
 **From Internal Taxes to National Regulation:  Evidence from a French Wine Tax Reform at the turn of the Twentieth Century**\\
-(joint with Raphaël Franck, Noel D. Johnson, and John V.C. Nye)\\
+(joint with Raphaël Franck and John V.C. Nye)\\
 *Explorations in Economic History, 2014*\\
 [Download Paper](/assets/papers/from-internal-taxes-to-national-regulation-evidence-paper.pdf)\\
 [Download Presentation](/assets/papers/from-internal-taxes-to-national-regulation-evidence-presentation.pdf)

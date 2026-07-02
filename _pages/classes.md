@@ -2,7 +2,7 @@
 title: "Teaching"
 permalink: /classes/
 ---
-![cat_smbc](/assets/images/cat_smbc.gif)
+![A cartoon of a professor lecturing on the parts of a cat](/assets/images/cat_smbc.gif)
 
 In Summer 2026 I am teaching Econ 360 Development Economics. It is an online asynchronous course. Here is the [syllabus](/assets/syllabi/dev-economics-syllabus.pdf).
 

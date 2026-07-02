@@ -3,7 +3,7 @@ title: "Decide Where You Want To Go..."
 permalink: /links/
 ---
 
-![links_unified](/assets/images/links_unified.jpg)
+![Noel Johnson hiking in the mountains with his daughter](/assets/images/links_unified.jpg)
 
 ## [Advice on Writing and Other Things for Students](https://noeldjohnson.github.io/student_advice/)
 
@@ -35,7 +35,7 @@ permalink: /links/
 
 * [A Source for the new sf GIS paradigm in R](https://r.geocompx.org/)
 
-* [Mellisa Dell's notes on ggplot2](https://www.dropbox.com/s/iz6ejq6p9nemhbi/Dell%20-%202016%20-%20Notes%20on%20ggplot2.pdf?dl=0)
+* [Melissa Dell's notes on ggplot2](/assets/papers/dell-ggplot2-notes.pdf)
 
 
 ## Causal Inference

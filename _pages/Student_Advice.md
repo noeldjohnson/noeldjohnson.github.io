@@ -5,7 +5,7 @@ permalink: /student_advice/
 
 <p> </p>
 
-![studentadvice](/assets/images/instremail.png)
+![A PhD Comics strip on how to write an email to your instructor](/assets/images/instremail.png)
 
 ## Some Writing Advice
 

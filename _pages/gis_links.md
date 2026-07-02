@@ -2,7 +2,7 @@
 title: "Sources for GIS Data"
 permalink: /gis_links/
 ---
-![gis_data](/assets/images/gis_data.png)
+![A dot map of Europe showing spatial data points](/assets/images/gis_data.png)
 
 ## Climate Data
 
@@ -46,7 +46,7 @@ permalink: /gis_links/
 
 [Conflict: ACLED](https://www.acleddata.com/)
 
-[Highly disaggregated on Indian viallages :SHRUG](http://www.devdatalab.org/shrug)
+[Highly disaggregated data on Indian villages (SHRUG)](http://www.devdatalab.org/shrug)
 
 ## Miscellaneous Vector Data
 
