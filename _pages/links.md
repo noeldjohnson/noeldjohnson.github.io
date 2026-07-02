@@ -31,11 +31,27 @@ permalink: /links/
 
 * [Nick Huntington-Klein's Resources Are Awesome](http://nickchk.com/econometrics.html)
 
-* [R For Data Science](https://r4ds.had.co.nz/)
+* [R for Data Science (2nd edition)](https://r4ds.hadley.nz/)
 
-* [A Source for the new sf GIS paradigm in R](https://geocompr.robinlovelace.net/)
+* [A Source for the new sf GIS paradigm in R](https://r.geocompx.org/)
 
 * [Mellisa Dell's notes on ggplot2](https://www.dropbox.com/s/iz6ejq6p9nemhbi/Dell%20-%202016%20-%20Notes%20on%20ggplot2.pdf?dl=0)
+
+
+## Causal Inference
+
+* [The Effect by Nick Huntington-Klein](https://theeffectbook.net)
+
+* [Causal Inference: The Mixtape by Scott Cunningham](https://mixtape.scunning.com)
+
+
+## Text as Data
+
+* [Text as Data by Grimmer Roberts and Stewart](https://press.princeton.edu/books/paperback/9780691207551/text-as-data)
+
+* [Arthur Spirling's Text as Data course materials](https://github.com/ArthurSpirling/UTokyo-TextAsData)
+
+* [quanteda R package for text analysis](https://quanteda.io)
 
 
 ## Latex and Beamer Templates

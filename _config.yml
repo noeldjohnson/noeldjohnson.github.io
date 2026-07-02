@@ -99,6 +99,7 @@ social:
     - "https://bsky.app/profile/ndjohnson.bsky.social"
     - "https://scholar.google.com/citations?user=kAtFl5EAAAAJ&hl=en"
     - "https://github.com/noeldjohnson"
+    - "https://orcid.org/0009-0003-9156-7722"
 
 # Analytics
 analytics:
@@ -133,6 +134,9 @@ author:
     - label: "Google Scholar"
       icon: "ai ai-fw ai-google-scholar"
       url: "https://scholar.google.com/citations?user=kAtFl5EAAAAJ&hl=en"
+    - label: "ORCID"
+      icon: "ai ai-fw ai-orcid"
+      url: "https://orcid.org/0009-0003-9156-7722"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/noeldjohnson"
