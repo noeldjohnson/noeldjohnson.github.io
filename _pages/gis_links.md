@@ -32,7 +32,7 @@ permalink: /gis_links/
 
 [Ethnic Homelands: Atlas Narodov Mira](https://www.arcgis.com/home/item.html?id=bd3193cf9c5248b6889e1eee273ff70b)
 
-[GAEZ crop suitability](http://www.fao.org/nr/gaez/en/)
+[GAEZ crop suitability](https://gaez.fao.org/)
 
 ## Historic Maps (and check the library!!!)
 
@@ -50,7 +50,7 @@ permalink: /gis_links/
 
 ## Miscellaneous Vector Data
 
-[rnaturalearth (countries, rivers, roads, etc...)](https://cran.r-project.org/web/packages/rnaturalearth/README.html)
+[rnaturalearth (countries, rivers, roads, etc...)](https://docs.ropensci.org/rnaturalearth/)
 
 [U.S. Census Data: tidycensus](https://walkerke.github.io/tidycensus/)
 
