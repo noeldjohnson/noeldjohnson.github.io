@@ -10,7 +10,7 @@ toc_sticky: true
 
 Here is a [link to my CV.](https://github.com/noeldjohnson/Current_CV/raw/master/Johnson%20CV_Current.pdf)
 
-You can purchase my book (written with Mark Koyama) here: [Persecution & Toleration: The Long Road to Religious Freedom.](https://www.amazon.com/gp/product/1108441165/ref=dbs_a_def_rwt_bibl_vppi_i0)  Here is a [short presentation](https://www.dropbox.com/s/eguyx1z3x9ykd0i/PPE.pdf?dl=0) of the book's main ideas. Here is a [more in-depth presentation.](https://www.dropbox.com/s/br6433n8pb3imly/Paris%20Lectures.pdf?dl=0)
+You can purchase my book (written with Mark Koyama) here: [Persecution & Toleration: The Long Road to Religious Freedom.](https://www.amazon.com/gp/product/1108441165/ref=dbs_a_def_rwt_bibl_vppi_i0)  Here is a [short presentation](/assets/papers/book-short-presentation.pdf) of the book's main ideas. Here is a [more in-depth presentation.](/assets/papers/book-in-depth-presentation.pdf)
 
 ## Working Papers and Research in Progress
 
@@ -26,8 +26,8 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 **The Impact of the Black Death on the Adoption of the Printing Press**\\
 (Joint with Alexander Taylor and Andrew Thomas)\\
-[Download Draft](https://www.dropbox.com/scl/fi/tcvkyqbzkhq6elxr7x9xo/BDPress_11-7-24.pdf?rlkey=r0bww4tm7yceekmx8wu3n8y5g&dl=0)\\
-[Download Presentation](https://www.dropbox.com/scl/fi/xy46x1yx91o81tl9150s0/BDPress_EHA.pdf?rlkey=mm9tkkaoznnrqnqm47821gdvi&dl=0)
+[Download Draft](/assets/papers/the-impact-of-the-black-death-on-draft.pdf)\\
+[Download Presentation](/assets/papers/the-impact-of-the-black-death-on-presentation.pdf)
 
 **Plague, Print, and Persecution: The Role of Print Media in Shaping Social Responses to Epidemics in Early-Modern Europe**\\
 (joint with Alexander Taylor)
@@ -39,28 +39,28 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Pandemics, Places, and Populations:  The Effects of the Black Death on Urban Development**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 *The Journal of Urban Economics, 2024*\\
-[Download Draft](https://www.dropbox.com/scl/fi/z0rt7x91azv33lbqgff20/BBB_JUE.pdf?rlkey=v46ztzx04kr2gi46we7jg34qx&dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/5vcq7868ejexoxf/BD_Colorado.pdf?dl=0)\\
+[Download Draft](/assets/papers/pandemics-places-and-populations-the-effects-of-draft.pdf)\\
+[Download Presentation](/assets/papers/pandemics-places-and-populations-the-effects-of-presentation.pdf)\\
 [A Vox piece on the paper](https://voxeu.org/article/how-black-death-changed-europes-cities)
 
 **The Effects of Historical Pandemics: The Black Death**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 *The Journal of Economic Literature, 2022*\\
-[Download Paper](https://www.dropbox.com/s/u5zp8rnbvhn27b2/2021%20Journal%20of%20Economic%20Literature%20Black%20Death.pdf?dl=0)\\
-[Download Presentation (for undergrad students)](https://www.dropbox.com/s/o23jzdw2wa257e4/Black%20Death.pdf?dl=0)\\
+[Download Paper](/assets/papers/the-effects-of-historical-pandemics-the-black-paper.pdf)\\
+[Download Presentation (for undergrad students)](/assets/papers/the-effects-of-historical-pandemics-the-black-presentation-undergrad.pdf)\\
 [Replication Files](https://github.com/noeldjohnson/JEL_2020_Replication)
 
 **Medieval Cities Through the Lens of Urban Economic Theories**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 *Regional Science and Urban Economics, 2021*\\
-[Download Paper](https://www.dropbox.com/s/kfzngu7dxvqtpbj/2021%20RSUE%20Medieval%20Cities.pdf?dl=0)
+[Download Paper](/assets/papers/medieval-cities-through-the-lens-of-urban-paper.pdf)
 
 **The Effects of Land Redistribution: Evidence from the French Revolution**\\
 (joint with Theresa Finley and Raphaël Franck)\\
 *Journal of Law and Economics, 2021*\\
-[Download Paper](https://www.dropbox.com/s/2bdsunic7nqxajj/2021%20Journal%20of%20Law%20and%20Economics%20French%20Land%20Redistribution.pdf?dl=0)\\
-[Download the Online Appendix](https://www.dropbox.com/s/bahxgdvys8cmu5n/Online%20Appendix.pdf?dl=0)
-[Download Presentation](https://www.dropbox.com/s/ckf2pd492e5nce5/PSE%20Confiscations%20Presentation.pdf?dl=0)\\
+[Download Paper](/assets/papers/the-effects-of-land-redistribution-evidence-from-paper.pdf)\\
+[Download the Online Appendix](/assets/papers/the-effects-of-land-redistribution-evidence-from-online-appendix.pdf)
+[Download Presentation](/assets/papers/the-effects-of-land-redistribution-evidence-from-presentation.pdf)\\
 [A discussion of the paper on the Economics Detective podcast](https://economicsdetective.com/2017/07/french-revolution-property-rights-coase-theorem-noel-johnson/)\\
 [An article about the paper on Quartz](https://qz.com/1031013/two-centuries-later-researchers-say-the-french-revolution-was-an-act-of-radical-privatization/)\\
 [A Vox piece on the paper](https://voxeu.org/article/economic-consequences-revolutions)\\
@@ -69,28 +69,28 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Negative Shocks and Mass Persecutions: Evidence from the Black Death**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 *Journal of Economic Growth, 2019*\\
-[Download Manuscript](https://www.dropbox.com/s/jhquij62js66p55/2019_NegativeShocksAndMassPersecuti.pdf?dl=0)\\
-[Download Web Appendix](https://www.dropbox.com/s/5qqeu94hyc08xk3/JJK2018_Web_Appx_JEG_Final.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/epn8z3bmw8m2glh/EHA_2018_Presentation.pdf?dl=0)\\
+[Download Manuscript](/assets/papers/negative-shocks-and-mass-persecutions-evidence-from-manuscript.pdf)\\
+[Download Web Appendix](/assets/papers/negative-shocks-and-mass-persecutions-evidence-from-web-appendix.pdf)\\
+[Download Presentation](/assets/papers/negative-shocks-and-mass-persecutions-evidence-from-presentation.pdf)\\
 [Replication Files](https://github.com/noeldjohnson/JOEG_2019_Replication.git)
 
 **States and Economic Growth: Capacity and Constraint**\\
 (joint with Mark Koyama)\\
 *Explorations in Economic History, 2017*\\
-[Download Paper](https://www.dropbox.com/s/ae33e0z9fp4godx/2017%20State%20Capacity%20Survey%20EEH.pdf?dl=0)
+[Download Paper](/assets/papers/states-and-economic-growth-capacity-and-constraint-paper.pdf)
 
 **Jewish Communities and City Growth in Pre-industrial Europe**\\
 (joint with Mark Koyama)\\
 *Journal of Development Economics, 2017*\\
-[Download Paper](https://www.dropbox.com/s/st0rjv6t2gt7m53/2017%20Jews%20City%20Growth%20JDE.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/jva0lrhyp4ig1h5/EHA%20Presentation.pdf?dl=0)\\
+[Download Paper](/assets/papers/jewish-communities-and-city-growth-in-pre-paper.pdf)\\
+[Download Presentation](/assets/papers/jewish-communities-and-city-growth-in-pre-presentation.pdf)\\
 [Replication Files](https://github.com/noeldjohnson/JDE_2017_Replication.git)
 
 **Jewish Persecutions and Weather Shocks: 1100-1800**\\
 (joint with Warren Anderson and Mark Koyama)\\
 *The Economic Journal, 2017*\\
-[Download Paper](https://www.dropbox.com/s/5pqbm5ajy1nit2a/2017%20Jewish%20Persecution%20Weather%20EJ.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/nbgjyb0mg00zuya/Pers%20Presentation%20UMD%209-15.pdf?dl=0)\\
+[Download Paper](/assets/papers/jewish-persecutions-and-weather-shocks-1100-1800-paper.pdf)\\
+[Download Presentation](/assets/papers/jewish-persecutions-and-weather-shocks-1100-1800-presentation.pdf)\\
 [Replication Files](https://github.com/noeldjohnson/EJ_2017_Replication.git)\\
 [A Vox piece on the paper](https://voxeu.org/article/persecuting-protective-state-jewish-expulsions-and-weather-shocks-1100-1800)\\
 [Coverage in The Economist](https://www.economist.com/finance-and-economics/2017/07/27/the-link-between-poor-harvests-and-violence)
@@ -98,88 +98,88 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878-1902**\\
 (joint with Raphaël Franck)\\
 *The Economic History Review, 2016*\\
-[Download Paper](https://www.dropbox.com/s/qsyzci2c27lxc2f/2016%20Public%20Policies%20Religiosity%20EHR.pdf?dl=0)\\
+[Download Paper](/assets/papers/can-public-policies-lower-religiosity-evidence-from-paper.pdf)\\
 [Data Sets](https://github.com/noeldjohnson/EHR_2016_Data_Sets.git)
 
 **Taxes, Lawyers, and the Decline of Witch Trials in France**\\
 (joint with Mark Koyama)\\
 *Journal of Law & Economics, 2014*\\
-[Download Paper](https://www.dropbox.com/s/7a7fvrgh3nn2lqc/2014%20Witches_JLE.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/a9xlsqdnng5ncv8/witchpresentation3.pdf?dl=0)\\
+[Download Paper](/assets/papers/taxes-lawyers-and-the-decline-of-witch-paper.pdf)\\
+[Download Presentation](/assets/papers/taxes-lawyers-and-the-decline-of-witch-presentation.pdf)\\
 [Replication Files](https://github.com/noeldjohnson/JLE_2014_Replication.git)
 
 **Tax Farming and the Origins of State Capacity in England and France**\\
 (joint with Mark Koyama)\\
 *Explorations in Economic History, 2014*\\
-[Download Paper](https://www.dropbox.com/s/c36i42t589hwm9t/2013TaxFarmingEEH.pdf?dl=0)\\
-[Download Appendix 1](https://www.dropbox.com/s/vfryaac9lc87r3g/2013%20Tax%20Farming%20Appendix%201.pdf?dl=0)\\
-[Download Appendix 2](https://www.dropbox.com/s/izfbvimd8yo2phj/2013%20Tax%20Farming%20Appendix%202.pdf?dl=0)
+[Download Paper](/assets/papers/tax-farming-and-the-origins-of-state-paper.pdf)\\
+[Download Appendix 1](/assets/papers/tax-farming-and-the-origins-of-state-appendix-1.pdf)\\
+[Download Appendix 2](/assets/papers/tax-farming-and-the-origins-of-state-appendix-2.pdf)
 
 **Corruption, Regulation, and Growth:  An Empirical  Study of the United States**\\
 (joint with William Ruger, Jason Sorens, and Steven Yamarik)\\
 *Economics of Governance, 2014*\\
-[Download Paper](https://www.dropbox.com/s/qyqit5rzcglj1fv/2013%20Corruption%26Regulation%20EOGO.pdf?dl=0)\\
+[Download Paper](/assets/papers/corruption-regulation-and-growth-an-empirical-study-paper.pdf)\\
 [Replication Files](https://github.com/noeldjohnson/EoG_2014_Replication.git)
 
 **From Internal Taxes to National Regulation:  Evidence from a French Wine Tax Reform at the turn of the Twentieth Century**\\
 (joint with Raphaël Franck, Noel D. Johnson, and John V.C. Nye)\\
 *Explorations in Economic History, 2014*\\
-[Download Paper](https://www.dropbox.com/s/v0v1qfcmz2n1oz3/2013%20Internal%20Taxes%20EEH.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/uay9cfmq8cq7n7b/Octrois_ISNIE_Presentation.pdf?dl=0)
+[Download Paper](/assets/papers/from-internal-taxes-to-national-regulation-evidence-paper.pdf)\\
+[Download Presentation](/assets/papers/from-internal-taxes-to-national-regulation-evidence-presentation.pdf)
 
 **Legal Centralization and the Birth of the Secular State**\\
 (joint with Mark Koyama)\\
 *Journal of Comparative Economics, 2013*\\
-[Download Paper](https://www.dropbox.com/s/4kbwb8qftihtfcs/2013%20Legal%20Centralization%20JCE.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/paee4zhkuz14noe/Heresy%20Presentation%209-25-12.pdf?dl=0)
+[Download Paper](/assets/papers/legal-centralization-and-the-birth-of-the-paper.pdf)\\
+[Download Presentation](/assets/papers/legal-centralization-and-the-birth-of-the-presentation.pdf)
 
 **How Much Should We Trust the World Values Survey Trust Question?**\\
 (joint with Alexandra A. Mislin)\\
 *Economics Letters, 2012*\\
-[Download Paper](https://www.dropbox.com/s/en2jixzp0xxhmtq/2012%20WVS%20Trust%20Econ%20Letters.pdf?dl=0)\\
+[Download Paper](/assets/papers/how-much-should-we-trust-the-world-paper.pdf)\\
 [Download Data](https://github.com/noeldjohnson/EL_2012_Replication.git)
 
 **Trust Games: A Meta-Analysis**\\
 (joint with Alexandra A. Mislin)\\
 *Journal of Economic Psychology, 2011*\\
-[Download Paper](https://www.dropbox.com/s/1umlbuz3ket8chg/2011%20Trust%20MetaAnalysis%20JEconPsych.pdf?dl=0)\\
+[Download Paper](/assets/papers/trust-games-a-meta-analysis-paper.pdf)\\
 [Replication Files](https://github.com/noeldjohnson/JoEP_2011_Replication.git)
 
 **Does Fortune Favor Dragons?**\\
 (joint with John V.C. Nye)\\
 *Journal of Economic Behavior and Organization, 2011*\\
-[Download Paper](https://www.dropbox.com/s/ypiz9zt5mxg81r0/2011%20Fortune%20Favor%20Dragons%20JEBO.pdf?dl=0)\\
+[Download Paper](/assets/papers/does-fortune-favor-dragons-paper.pdf)\\
 [Link to Freakonomics Podcast Discussing the Paper](http://freakonomics.com/podcast/dragon-child/)
 
 **Corruption is Bad for Growth (Even in the United States)**\\
 (joint with Courtney LaFountain and Steven Yamarik)\\
 *Public Choice, 2011*\\
-[Download Paper](https://www.dropbox.com/s/vspbliutt5ik870/2011%20Corruption%20Growth%20PubChoice.pdf?dl=0)\\
+[Download Paper](/assets/papers/corruption-is-bad-for-growth-even-in-paper.pdf)\\
 [Replication Files](https://github.com/noeldjohnson/PC_2011_Replication.git)
 
 **War! What is It Good For?**\\
 (joint with Steven Yamarik and Ryan Compton)\\
 *BE Press: Peace Economics, Peace Science, and Public Policy, 2010*\\
-[Download Paper](https://www.dropbox.com/s/h05ji693maolr0i/2010%20War%20What%20Good%20For%20PEPSPP.pdf?dl=0)
+[Download Paper](/assets/papers/war-what-is-it-good-for-paper.pdf)
 
 **Investing in Institutions**\\
 (joint with Ryan Compton and Daniel Giedeman)\\
 *Economics and Politics, 2010*\\
-[Download Paper](https://www.dropbox.com/s/i8r7ctmi915go6u/2010%20Invest%20Institutions%20EconPolitics.pdf?dl=0)
+[Download Paper](/assets/papers/investing-in-institutions-paper.pdf)
 
 **Fiscal Crisis and Institutional Change in the Ottoman Empire and France**\\
 (joint with Eliana Balla)\\
 *Journal of Economic History, 2009*\\
-[Download Paper](https://www.dropbox.com/s/567mgpjgz4k4w3j/2009%20Fiscal%20Crisis%20JEH.pdf?dl=0)\\
-[Download Presentation](https://www.dropbox.com/s/72x87c8u1n8zhku/Johnson_Ottoman_Present-1.pdf?dl=0)
+[Download Paper](/assets/papers/fiscal-crisis-and-institutional-change-in-the-paper.pdf)\\
+[Download Presentation](/assets/papers/fiscal-crisis-and-institutional-change-in-the-presentation.pdf)
 
 **Banking on the King: The Evolution of The Royal Revenue Farms in Old Regime France**\\
 *Journal of Economic History, 2006*\\
-[Download Paper](https://www.dropbox.com/s/7n6doh79fqf8ti8/2006%20Banking%20on%20King%20JEH.pdf?dl=0)
+[Download Paper](/assets/papers/banking-on-the-king-the-evolution-of-paper.pdf)
 
 **The Cost of Credibility: The Company of General Farms and Fiscal Stagnation in Eighteenth Century France**\\
 *Essays in Economic and Business History, 2006*\\
-[Download Paper](https://www.dropbox.com/s/5ctih9ethue9d6q/2006%20Cost%20of%20Credibility%20EBHS.pdf?dl=0)
+[Download Paper](/assets/papers/the-cost-of-credibility-the-company-of-paper.pdf)
 
 ## Other Publications
 
@@ -187,20 +187,20 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 (joint with Mark Koyama)\\
 *In Iyer, L., Rubin, J., and Carvalho, J.-P., editors, Advances in the Economics of
 Religion. Palgrave MacMillan, 2018*\\
-[Download Manuscript](https://www.dropbox.com/s/cmm7biqvgbprg4z/StateTolerationFreedom.pdf?dl=0)
+[Download Manuscript](/assets/papers/the-state-toleration-and-religious-freedom-manuscript.pdf)
 
 **Geospatial information systems**\\
 *In Blum, M. and Colvin, C. L., editors, An Economist’s Guide to Economic History. Palgrave MacMillan, 2018*\\
-[Download Final Draft](https://www.dropbox.com/s/z0is1s0nyuozhy3/Johnson%20GIS%20and%20Econ%20History_draft2.pdf?dl=0)
+[Download Final Draft](/assets/papers/geospatial-information-systems-final-draft.pdf)
 
 **Review of Vincent J. Pitts, ‘Embezzlement and High Treason in Louis XIV’s France: The Trial of Nicolas Fouquet’**\\
 *EH.net Economic History Services, 2016*\\
-[Download Final Draft](https://www.dropbox.com/s/3xe55ukj2s84zbl/Pitts%20Review.pdf?dl=0)
+[Download Final Draft](/assets/papers/review-of-vincent-j-pitts-embezzlement-and-final-draft.pdf)
 
 **Establishing a new order: The growth of the state and the decline of witch trials in France**\\
 (joint with Koyama, M. and Nye, J. V. C.)\\
 *In Greif, A., Kiesling, L., and Nye, J. V. C., editors, Institutions, Innovation, and Industrialization. Princeton University Press, 2015*\\
-[Download Manuscript](https://www.dropbox.com/s/lfi3psaf6kyw3ey/EstablishingNewOrder.pdf?dl=0)
+[Download Manuscript](/assets/papers/establishing-a-new-order-the-growth-of-manuscript.pdf)
 
 **Review of Guy Rowlands, ‘The financial decline of a great power: War, influence, and money in Louis XIV’s France’**\\
 *Journal of Economic History, 2014*
@@ -222,4 +222,4 @@ Religion. Palgrave MacMillan, 2018*\\
 
 **Committing to civil service reform: The performance of pre-shipment inspection under differing institutional regimes**\\
 *World Bank Policy Research Paper No. 2594, 2001*\\
-[Download Manuscript](https://www.dropbox.com/s/ojzi35gooj3tvfy/CommittingReform.pdf?dl=0)
+[Download Manuscript](/assets/papers/committing-to-civil-service-reform-the-performance-manuscript.pdf)
