@@ -38,3 +38,30 @@ html {
 .archive {
   font-size: 0.9em;
 }
+
+// Minimal Mistakes reserves 200–300px of right padding on every .page and
+// .archive to leave room for a table-of-contents sidebar. Only the research
+// page renders a TOC, so everywhere else (including the home/splash page, which
+// uses the .archive wrapper) that reserved strip shows up as empty white space
+// on the right. Reclaim it whenever no right sidebar (TOC) is actually present.
+.page:not(:has(.sidebar__right)) {
+  @include breakpoint($medium) {
+    padding-right: 0;
+  }
+
+  @include breakpoint($x-large) {
+    padding-right: 0;
+  }
+}
+
+// The home/splash page keeps a small comfortable buffer on the right rather than
+// running fully flush to the edge.
+.archive:not(:has(.sidebar__right)) {
+  @include breakpoint($medium) {
+    padding-right: 2em;
+  }
+
+  @include breakpoint($x-large) {
+    padding-right: 3em;
+  }
+}
