@@ -4,15 +4,15 @@ permalink: /classes/
 ---
 ![cat_smbc](/assets/images/cat_smbc.gif)
 
-In the Fall Semester I'm teaching Graduate U.S. Economic History ([syllabus](https://www.dropbox.com/scl/fi/to39rv6qaknyvv047e0e6/AEH-Syllabus-Fall24.pdf?rlkey=zyeanw9gjsrqquyiolmdf2zbo&dl=0)) and Undergraduate Economic History ([syllabus](https://www.dropbox.com/scl/fi/bvht3zvjurd5760xjt8fk/EH-Syllabus-Fall-2024.pdf?rlkey=h1k6xvbp6p0fqzfb628vogggb&dl=0)).
+In Summer 2026 I am teaching Econ 360 Development Economics. It is an online asynchronous course. Here is the [syllabus](/assets/syllabi/dev-economics-syllabus.pdf).
 
-In Spring 2023 I taught Text as Data and Maching Learning. The [syllabus for that class is here](https://www.dropbox.com/s/o7qcvt9vbmni3gz/TaD_Sp23.pdf?dl=0).
+In Fall 2026 I am teaching two courses.
 
-I teach Spatial Techniques in Empirical Economics routinely. Here is the [syllabus for that class](https://www.dropbox.com/scl/fi/2jahnlqg73btcuc0k5rmi/Spatial-Syllabus-Fall22.pdf?rlkey=dqpg8wu07zdkb8mnvnacvbo7i&dl=0)
+- Spatial Techniques in Empirical Economics. Here is the [syllabus from the previous iteration of the course (Fall 2022)](/assets/syllabi/spatial-techniques-syllabus.pdf). I am revising it to bring large language models and AI into the course.
+- American Economic History. Here is the [syllabus from the previous iteration of the course (Fall 2025)](/assets/syllabi/american-economic-history-syllabus.pdf).
 
-If you're looking for my tutorials on basic usage of ArcGIS, you can download them [here.](https://github.com/noeldjohnson/ArcGIS-Tutorial.git)
+If you want my tutorials on basic ArcGIS usage you can download them [here](https://github.com/noeldjohnson/ArcGIS-Tutorial.git).
 
-Click [here](https://noeldjohnson.github.io/student_advice/) for links on writing and other advice for students.
+For links on writing and other advice for students click [here](/student_advice/).
 
-Click [here](https://noeldjohnson.github.io/gis_links/) for links to GIS data.
-
+For links to GIS data click [here](/gis_links/).
