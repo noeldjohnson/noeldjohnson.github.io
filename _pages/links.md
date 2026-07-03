@@ -62,7 +62,7 @@ permalink: /links/
 
 * [And one more](https://www.researchgate.net/publication/280050294_Template-based_introductory_guide_to_LaTeX_for_Economics_Instructional_Guide_Version_2)
 
-* [Here are some sample Beamer slides](https://www.dropbox.com/sh/hnccpxpzmqjn55d/AACvkPZ25DxR5hhGrURXR91Ea?dl=0)
+* [Here are some sample Beamer slides](/assets/files/beamer-sample.zip)
 
 
 ## My ArcGIS tutorials
