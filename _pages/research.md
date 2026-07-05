@@ -21,8 +21,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 **The Great Revolt and its Legacy: Understanding Vaccine Hesitancy in Colonial India**\\
 (joint with Malik Altaf Hussain)\\
-[Download Draft](/assets/papers/great-revolt.pdf)\\
-[Download Presentation](/assets/papers/great-revolt-presentation.pdf)
+[Download Draft](/assets/papers/great-revolt.pdf)
 
 **The Impact of the Black Death on the Adoption of the Printing Press**\\
 (Joint with Alexander Taylor and Andrew Thomas)\\
