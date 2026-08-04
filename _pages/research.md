@@ -14,6 +14,9 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
+**Craft Guilds & City Growth in Western Europe, 1000–1800**\\
+(joint with Eric Wilhelm)
+
 **Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach**\\
 (joint with Alexander Taylor)\\
 [Download Draft](/assets/papers/market-for-ideas.pdf)\\
