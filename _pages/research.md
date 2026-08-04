@@ -8,7 +8,7 @@ toc_sticky: true
 
 ![books](/assets/images/books.jpg)
 
-Here is a [link to my CV.](https://github.com/noeldjohnson/Current_CV/raw/master/Johnson%20CV_Current.pdf)
+Here is a [link to my CV.](/assets/Johnson_CV.pdf)
 
 You can purchase my book (written with Mark Koyama) here: [Persecution & Toleration: The Long Road to Religious Freedom.](https://www.amazon.com/gp/product/1108441165/ref=dbs_a_def_rwt_bibl_vppi_i0)  Here is a [short presentation](/assets/papers/book-short-presentation.pdf) of the book's main ideas. Here is a [more in-depth presentation.](/assets/papers/book-in-depth-presentation.pdf)
 
