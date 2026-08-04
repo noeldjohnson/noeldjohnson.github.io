@@ -28,7 +28,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 [Download Draft](/assets/papers/the-impact-of-the-black-death-on-draft.pdf)\\
 [Download Presentation](/assets/papers/the-impact-of-the-black-death-on-presentation.pdf)
 
-**Plague, Print, and Persecution: The Role of Print Media in Shaping Social Responses to Epidemics in Early-Modern Europe**\\
+**Production Is Not Exposure: Plague, Persecution, and the Early Modern Print Market**\\
 (joint with Alexander Taylor)
 
 
