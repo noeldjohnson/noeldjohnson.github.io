@@ -6,7 +6,7 @@ toc_label: "Jump to"
 toc_sticky: true
 ---
 
-These are short data essays drawn from my research in progress. Most run the data behind a working paper to answer a question the paper itself does not take up. The first one is different. It is the central result of a paper with Eric Wilhelm put into plain language.
+These are short data essays drawn from my research in progress. Most run the data behind a working paper to answer a question the paper itself does not take up. The first one is different. It is the central result of a paper with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home) put into plain language.
 
 The essays on early modern print come from the Universal Short Title Catalogue, which records roughly 800,000 editions printed in Europe between 1450 and 1650. With [Alexander Taylor](https://alexntaylor.github.io) I train word embeddings on the titles of these books as part of our paper [Mapping the Market for Ideas in Europe](/research/). The last essay comes from my work with [Malik Hussain](https://malikahussain.github.io) on vaccine hesitancy in colonial India.
 
@@ -22,7 +22,7 @@ A charter exists the moment it is written. The document and the institution are 
 
 The test uses something the guild archive cannot touch. Where notable people were born. Match each guild city to undocumented cities of the same region and size, and guild cities out produce their matches for two or three centuries before their guilds reach the record. Run the identical design around market rights and town charters and that climb is gone. Our reading is that guilds enter the record on the way up while charters enter on the grantor's schedule.
 
-Three caveats matter. The placebo covers German and Austrian cities only, with smaller samples and wider error bars. Notable people databases carry their own survival bias. And the matched premium is an association, so no number here gets the word effect attached to it. This is work with Eric Wilhelm.
+Three caveats matter. The placebo covers German and Austrian cities only, with smaller samples and wider error bars. Notable people databases carry their own survival bias. And the matched premium is an association, so no number here gets the word effect attached to it. This is work with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home).
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
