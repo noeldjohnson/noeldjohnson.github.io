@@ -6,7 +6,11 @@ toc_label: "Jump to"
 toc_sticky: true
 ---
 
-These are short data essays computed from the Universal Short Title Catalogue. The USTC records roughly 800,000 editions printed in Europe between 1450 and 1650. With Alexander Taylor I train word embeddings on the titles of these books as part of our paper [Mapping the Market for Ideas in Europe](/research/). The essays below are things the paper does not show. Each one mines the corpus for a question a general reader might care about. The figures show raw model output. Where a one word label appears it is my interpretation and I say so. Several of these essays are seeds of larger research projects. The last essay draws on a companion project about colonial India.
+These are short data essays drawn from my research in progress. Each one runs the data behind a working paper to answer a question the paper itself does not take up. They are things I found along the way and wanted to share.
+
+Most of them come from the Universal Short Title Catalogue, which records roughly 800,000 editions printed in Europe between 1450 and 1650. With [Alexander Taylor](https://alexntaylor.github.io) I train word embeddings on the titles of these books as part of our paper [Mapping the Market for Ideas in Europe](/research/). The last essay comes from my work with [Malik Hussain](https://malikahussain.github.io) on vaccine hesitancy in colonial India.
+
+The figures show raw output. Where a one word label appears it is my interpretation and I say so. The caveats are stated in the essays rather than hidden. Several of these are seeds of larger projects.
 
 I post these as threads on X and Bluesky. This page collects them in one place. Expand any essay to read the whole thread as it was posted.
 
