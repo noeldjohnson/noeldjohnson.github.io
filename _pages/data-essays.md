@@ -45,12 +45,6 @@ The classic word analogy asks the model for king minus man plus woman. Run on em
 
 </details>
 
-## What melancholy and witchcraft meant in English print
-
-![Nearest neighbors of melancholy and witchcraft](/assets/data-essays/melancholy_witchcraft.png)
-
-The nearest neighbors of a word reconstruct how a concept was framed on title pages. In roughly 50,000 English titles melancholy sits between literature and medicine. Its neighbors mix Elizabethan literary words with the vocabulary of humoral medicine. Witchcraft sits between sin and gender. Its neighbors are disobedience and pride and idolatry alongside women and detect, the vocabulary of the witch detection genre. The tokens keep their early modern spelling because they are the actual model output.
-
 ## The same word, four different fears
 
 ![Witchcraft across languages](/assets/data-essays/witchcraft_across_languages.png)
