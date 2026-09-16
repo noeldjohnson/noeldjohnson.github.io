@@ -6,9 +6,9 @@ toc_label: "Jump to"
 toc_sticky: true
 ---
 
-These are short data essays computed from the Universal Short Title Catalogue. The USTC records roughly 800,000 editions printed in Europe between 1450 and 1650. With Alexander Taylor I train word embeddings on the titles of these books as part of our paper [Mapping the Market for Ideas in Europe](/research/). The essays below are things the paper does not show. Each one mines the corpus for a question a general reader might care about. The figures show raw model output. Where a one word label appears it is my interpretation and I say so. Several of these essays are seeds of larger research projects. The final essay draws on a companion project about colonial India.
+These are short data essays computed from the Universal Short Title Catalogue. The USTC records roughly 800,000 editions printed in Europe between 1450 and 1650. With Alexander Taylor I train word embeddings on the titles of these books as part of our paper [Mapping the Market for Ideas in Europe](/research/). The essays below are things the paper does not show. Each one mines the corpus for a question a general reader might care about. The figures show raw model output. Where a one word label appears it is my interpretation and I say so. Several of these essays are seeds of larger research projects. The last essay draws on a companion project about colonial India.
 
-I post these as threads on X and Bluesky. This page collects the best of them in one place. Where a full thread exists you can expand it and read the whole thing here.
+I post these as threads on X and Bluesky. This page collects them in one place. Expand any essay to read the whole thread as it was posted.
 
 ## The model learns queen from 500 year old titles
 
@@ -16,17 +16,108 @@ I post these as threads on X and Bluesky. This page collects the best of them in
 
 The classic word analogy asks the model for king minus man plus woman. Run on embeddings trained only on early modern Latin book titles the top answer is regina. The queen word also appears in the top ten for English and French and Dutch. The embedding spaces are small and noisy and trained on short titles so personal names bleed in. The point is that the structure is there at all in text this old and this sparse.
 
+<details markdown="1">
+<summary><strong>Read the whole thread</strong></summary>
+
+1/ The most famous party trick in AI: take word vectors and compute "king − man + woman." You (often) get queen — evidence the model learned gender as a direction in space. Could you pull that off using nothing but the titles of books printed in Europe, 1450–1650?
+
+2/ I trained word embeddings on ~800,000 early-modern book titles across seven languages and ran the analogy in each. Latin is textbook-perfect: rex − uir (man) + femina (woman) → regina (queen) — the single closest word. From book titles. From 500 years ago.
+
+![Latin analogy result](/assets/data-essays/analogy_latin_hero.png)
+
+3/ And Latin isn't alone. Queen lands in the top handful in three languages:
+
+- Latin: rex − uir + femina → regina (#1)
+- English: king − man + woman → queene (#3)
+- French: roi − homme + femme → reine (#4)
+
+(Dutch's koninginne sneaks in at #8, just outside.)
+
+![Top analogy results by language](/assets/data-essays/analogy_summary.png)
+
+4/ Where it "fails" is just as revealing. Spanish doesn't return reina — it returns Felipe, Filipe, Phelipe (King Philip) and "III, IV."
+
+5/ And the woman direction keeps surfacing actual women — the neighbors fill up with names: Elisabetha, Christina, Louise, Sybilla — plus French damoiselle (damsel) and veuve (widow).
+
+6/ Caveats for the pedants (I love you): these are small, noisy vector spaces built from short titles — cosine similarities ~0.3–0.5, not modern-LLM clean. Italian even fell over because "re" (king, two letters) got filtered out of the vocabulary.
+
+7/ Still — a gender axis, recoverable from the semantic geometry of 500 year old book titles, cleanly enough that Latin hands you regina. The market for ideas had structure. The vectors can see it. /end
+
+</details>
+
 ## What melancholy and witchcraft meant in English print
 
 ![Nearest neighbors of melancholy and witchcraft](/assets/data-essays/melancholy_witchcraft.png)
 
 The nearest neighbors of a word reconstruct how a concept was framed on title pages. In roughly 50,000 English titles melancholy sits between literature and medicine. Its neighbors mix Elizabethan literary words with the vocabulary of humoral medicine. Witchcraft sits between sin and gender. Its neighbors are disobedience and pride and idolatry alongside women and detect, the vocabulary of the witch detection genre. The tokens keep their early modern spelling because they are the actual model output.
 
+## The same word, four different fears
+
+![Witchcraft across languages](/assets/data-essays/witchcraft_across_languages.png)
+
+Everyone in early modern Europe feared witches and they did not fear the same thing. The word for witchcraft points somewhere different in each language. Latin points at a book, the Malleus Maleficarum and the treatise vocabulary around it. German points at the weather, at hail and tempests. French points at devils and possession. English points at sin and at women. The scholar's witch and the peasant's witch and the exorcist's witch and the preacher's witch. The better part of the finding is where the witch is absent. Italian and Spanish and Dutch have no vernacular witch word that clears the bar, only the devil, which fits a Catholic south where the witch stayed in Latin and in the Inquisition's books.
+
+<details markdown="1">
+<summary><strong>Read the whole thread</strong></summary>
+
+1/ Everyone in early modern Europe feared witches — but they didn't fear the same thing. Feed 200 years of book titles (1450–1650) into a word-embedding model, and each language's word for "witchcraft" points somewhere different.
+
+![Witchcraft across languages](/assets/data-essays/witchcraft_across_languages.png)
+
+2/ Latin (maleficarum): the nearest word is malleus — the Malleus Maleficarum, the 1487 witch-hunting manual. The rest is treatise boilerplate ("divided into parts, tomes"). Witchcraft = a learned book. The scholar's witch.
+
+3/ German (zauberey): hagel (hail), wetter (weather), ungewitter (tempests). Weather magic. The peasant's witch — she conjures the hailstorm that ruins your harvest.
+
+4/ French (sorciers): diables, démons, anges, possession. Pure diabolism. The exorcist's witch — spiritual warfare, the world of the great possession cases.
+
+5/ English (witchcraft): sin, idolatry, pride, disobedience — and women. The preacher's witch: a species of sin, gendered female.
+
+6/ Same word, four fears — a treatise, a storm, a demon, a sin. Each matches what historians know about those regions. The model read it straight off the titles.
+
+![The three regimes](/assets/data-essays/three_regimes.png)
+
+7/ But the best part is where the witch isn't. Italian, Spanish and Dutch titles have no vernacular word for witchcraft that clears the bar — only the devil. In the Catholic south the witch never went vernacular; she stayed in Latin, in the Inquisition's books.
+
+8/ And even the leftover devil differs: in Italy a tempter (hell, temptation), in the Dutch Republic a devotional foe (scripture, flesh, world), in Spain a stage villain (comedia, chivalric romance). In Spain, the devil went to the theater.
+
+![The southern devil](/assets/data-essays/southern_devil.png)
+
+9/ Coda for the curious: the German "weather-witch" isn't just linguistic — economists have shown severe weather actually predicted witch-trial spikes (Oster 2004).
+
+10/ And on why the trials finally ended, Mark Koyama and I have written on France — as the state built fiscal and legal capacity, its courts reined in witch prosecutions. /end
+
+</details>
+
 ## Every city printed something different
 
 ![Map of city print personalities](/assets/data-essays/print_personalities_map.png)
 
 Take the average embedding of everything a city printed in Latin and subtract the European average. The words nearest that distinctive direction are the city's print personality. Lyon was law. Louvain was music. Venice was marketing, in the sense that its distinctive words are the publisher's blurb. Wittenberg was the Reformation and Ingolstadt its Catholic mirror image. This is Latin only so it captures a city's international signature. Some cities returned only generic university vocabulary and are left off the map.
+
+<details markdown="1">
+<summary><strong>Read the whole thread</strong></summary>
+
+1/ Every city that printed books in early-modern Europe had a "personality". A few words that set its output apart from everyone else's. We measured it using word and title embeddings for hundreds of cities, straight from 300,000 Latin book titles between 1450 and 1650. Some are really cool...
+
+![Map of city print personalities](/assets/data-essays/print_personalities_map.png)
+
+2/ Start with Louvain. Average all its Latin titles in "meaning-space," subtract the European average, and the leftover words read like a title page — "motets," "of songs," "the soprano part," "of voices," "for five."
+
+![Louvain's signature](/assets/data-essays/louvain_howto.png)
+
+3/ Why? Louvain was home to the Phalèse press. Pierre Phalèse, one of the 16th century's great music publishers, printing motets and chansons for four, five, and six voices. The model rebuilt his catalog without knowing music exists.
+
+4/ Now Venice. Its signature is stranger. Not a subject at all. "Newly." "Just recently." "With additions." "Most diligently." "A new edition." "With summaries." Venice's fingerprint isn't what it printed. It's the sales pitch.
+
+![Venice's signature](/assets/data-essays/venice_howto.png)
+
+5/ History again. Venice was Europe's most competitive print market and it built the rules to match. It granted the first printing privilege in 1469, an early copyright, and passed Europe's first patent law in 1474. Its title pages read like ads because they were.
+
+6/ The rest of the map tells the story for a few other cities. Lyon prints law. Wittenberg prints the Reformation. Each city's distinctive words are a snapshot of what it sold to Europe.
+
+7/ The Method in one breath. Each title is the average of its word embedding vectors. Then we take the average of the city's titles minus the European average. Then the remaining "unique" city signature is the nearest words. /end
+
+</details>
 
 ## Women in the printing trade
 
