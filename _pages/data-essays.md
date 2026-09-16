@@ -6,13 +6,56 @@ toc_label: "Jump to"
 toc_sticky: true
 ---
 
-These are short data essays drawn from my research in progress. Each one runs the data behind a working paper to answer a question the paper itself does not take up. They are things I found along the way and wanted to share.
+These are short data essays drawn from my research in progress. Most run the data behind a working paper to answer a question the paper itself does not take up. The first one is different. It is the central result of a paper with Eric Wilhelm put into plain language.
 
-Most of them come from the Universal Short Title Catalogue, which records roughly 800,000 editions printed in Europe between 1450 and 1650. With [Alexander Taylor](https://alexntaylor.github.io) I train word embeddings on the titles of these books as part of our paper [Mapping the Market for Ideas in Europe](/research/). The last essay comes from my work with [Malik Hussain](https://malikahussain.github.io) on vaccine hesitancy in colonial India.
+The essays on early modern print come from the Universal Short Title Catalogue, which records roughly 800,000 editions printed in Europe between 1450 and 1650. With [Alexander Taylor](https://alexntaylor.github.io) I train word embeddings on the titles of these books as part of our paper [Mapping the Market for Ideas in Europe](/research/). The last essay comes from my work with [Malik Hussain](https://malikahussain.github.io) on vaccine hesitancy in colonial India.
 
 The figures show raw output. Where a one word label appears it is my interpretation and I say so. The caveats are stated in the essays rather than hidden. Several of these are seeds of larger projects.
 
 I post these as threads on X and Bluesky. This page collects them in one place. Expand any essay to read the whole thread as it was posted.
+
+## Made orders are born legible and grown orders turn legible late
+
+![Event study contrasting guilds with market grants and town charters](/assets/data-essays/guilds_hook.png)
+
+A charter exists the moment it is written. The document and the institution are one act, so first mention dates the founding. A guild ran for years before anyone wrote it down. It enters the record when it becomes worth confirming or taxing or fighting over, which happens once the city is already doing well. So first mention dates the founding of a made order and the ascent of a grown one. Compare the two by first mention and you are comparing different things.
+
+The test uses something the guild archive cannot touch. Where notable people were born. Match each guild city to undocumented cities of the same region and size, and guild cities out produce their matches for two or three centuries before their guilds reach the record. Run the identical design around market rights and town charters and that climb is gone. Our reading is that guilds enter the record on the way up while charters enter on the grantor's schedule.
+
+Three caveats matter. The placebo covers German and Austrian cities only, with smaller samples and wider error bars. Notable people databases carry their own survival bias. And the matched premium is an association, so no number here gets the word effect attached to it. This is work with Eric Wilhelm.
+
+<details markdown="1">
+<summary><strong>Read the whole thread</strong></summary>
+
+1/ Made orders are born legible. Grown orders turn legible late. A charter exists the moment it's written. A guild ran for years before anyone wrote it down. That one difference has warped eight centuries of evidence on institutions and growth — and now we can measure it.
+
+![Event study contrasting guilds with market grants and town charters](/assets/data-essays/guilds_hook.png)
+
+2/ Ghent: 5,000 people in the year 1000, 64,000 by 1300 — only Paris and London were bigger north of the Alps. Its guilds enter the record in the 1200s, near the peak. Over the next three centuries the city lost half its people. Read naively: guilds arrived, growth stopped.
+
+![Ghent population against the date its guilds enter the record](/assets/data-essays/guilds_ghent.png)
+
+3/ But who writes things down? Growing cities. A guild ran for years before anyone recorded it, so its first mention dates the city's success. The post-guild "decline" is mean reversion in disguise: big cities shrank with or without documented guilds.
+
+4/ Eric Wilhelm and I test it with something the guild archive doesn't touch: where notable people were born. Match each guild city to undocumented cities of the same region and size. Guild cities out-produced their matches in notable births for 2–3 centuries BEFORE their guilds reached the record.
+
+![Matched event study of population and notable births around first guild documentation](/assets/data-essays/guilds_panel.png)
+
+5/ Antwerp is a concrete example. Notable people born there: 1 in the 1300s, 17 in the 1400s, 309 in the 1500s. Its guilds enter the record in the 1400s — the exact moment the rise becomes visible.
+
+![Notable births in Antwerp by century against the date its guilds enter the record](/assets/data-essays/guilds_antwerp.png)
+
+6/ Now, look at the same design around orders a ruler made: market rights and town charters. The climb is gone. Before a charter, the city's edge is already shrinking. Our interpretation: guilds enter the record on the way up, charters on the grantor's schedule. (German/Austrian cities; wide CIs.)
+
+7/ That's the result. A made order, like a market grant, is legible by construction: document and institution are one act, so first mention dates the birth. A grown order, like a guild, turns legible once it's worth confirming, taxing, or fighting over, so first mention dates the ascent.
+
+8/ Menger called the two origins organic and pragmatic. Hayek called them grown and made orders. Nobody designs a grown order, so nobody documents its design. Hayek's knowledge problem is an archivist's problem too. Which works better is another question.
+
+9/ Much of economic history dates its treatment by first surviving mention. That date means different things for made and grown orders, so the record is biased against seeing grown institutions early — and blind to them where they succeeded. Ask what the record measures. /end
+
+Method. A panel of 1,754 Western European cities from 1000 to 1800 built on Sheilagh Ogilvie's guild databases. A staggered event study matches guild cities to never documented cities of the same region and similar baseline size. Notable births are the outcome the guild archive does not touch. Market grants and town charters from the Deutsches Städtebuch supply the placebo events.
+
+</details>
 
 ## The model learns queen from 500 year old titles
 
