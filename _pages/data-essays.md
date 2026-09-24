@@ -6,13 +6,60 @@ toc_label: "Jump to"
 toc_sticky: true
 ---
 
-These are short data essays drawn from my research in progress. Most run the data behind a working paper to answer a question the paper itself does not take up. The first one is different. It is the central result of a paper with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home) put into plain language.
+These are short data essays drawn from my research in progress. Most run the data behind a working paper to answer a question the paper itself does not take up. The guilds essay is different. It is the central result of a paper with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home) put into plain language.
 
 The essays on early modern print come from the Universal Short Title Catalogue, which records roughly 800,000 editions printed in Europe between 1450 and 1650. With [Alexander Taylor](https://alexntaylor.github.io) I train word embeddings on the titles of these books as part of our paper [Mapping the Market for Ideas in Europe](/research/). The last essay comes from my work with [Malik Hussain](https://malikahussain.github.io) on vaccine hesitancy in colonial India.
 
 The figures show raw output. Where a one word label appears it is my interpretation and I say so. The caveats are stated in the essays rather than hidden. Several of these are seeds of larger projects.
 
 I post these as threads on X and Bluesky. This page collects them in one place. Expand any essay to read the whole thread as it was posted.
+
+## The word for the state turned political before the state could tax
+
+![Two bar charts of the words following "the state of" in English book titles, personal conditions before 1550 and polities after 1600](/assets/data-essays/state_hook_two_columns.png)
+
+In 1500 the state of something was a condition you were in. The state of matrimony, of grace, of old age. By 1640 it was a kingdom. That crossover is visible on 52,000 English title pages, decade by decade, and it happens while the thing the word came to name is barely moving. Tax revenue per head across five European powers is nearly flat from 1500 to 1700. The vocabulary arrived first.
+
+The part nobody had shown is where it came from. The first eight times an English title called a place a state, between 1570 and 1579, the place was Germany, Holland, France, Flanders or Venice. Every one foreign. England is not named until 1585. The word entered English as news of other people's wars. And the thing itself shows up in print earlier still, because the state was publishing under its own name in the vernacular before the book market was. Royal edicts run 95 to 100 percent vernacular from 1500, when print as a whole was between a third and two thirds Latin.
+
+Two cases cut against any simple reading that the word tracks the thing. Germany has 10,048 ordinances printed in German and seven uses of Staat, which is the apparatus without the word. The Dutch are last to the word and most state-like with it, because their governing body was the States. Spain never crosses at all and was the superpower. So this is a poor gauge of state capacity and a good record of when an abstraction became available. The caveats are thin early cells, 18 English uses before 1550, and an Italian peak that leans on Milan's edicts. Without Milan it falls from 75 percent to 51.
+
+<details markdown="1">
+<summary><strong>Read the whole thread</strong></summary>
+
+1/ State capacity matters. So does language. The early-modern print record shows both changing, through one word. In 1500 "the state of ___" was your condition: matrimony, grace, old age. By 1640 it was the kingdom. 52,000 English title pages, decade by decade.
+
+![Two bar charts of the words that follow "the state of" in English book titles. Before 1550: wedlock, matrimony, men, souls, priests, childhood, grace, all coloured as personal condition, 0 of 18 name a polity. After 1600: kingdome, parliament, kingdom, England, Scotland, church, Holland, coloured as polity, 75 percent of 485 name a polity.](/assets/data-essays/state_hook_two_columns.png)
+
+2/ What the word came to name — a treasury, an army, a debt that outlives the king — was barely moving. Tax revenue per head was nearly flat from 1500 to 1700. The word crossed over in those centuries. You can't fund a perpetual debt until there's a perpetual entity to owe it.
+
+![Line chart of log tax revenues per capita, 1500 to 1910, for England, France, Spain, Austria and Prussia. All five lines sit near the bottom of the axis and are nearly flat from 1500 to about 1700, with a small Spanish bump around 1600. After 1700 England rises first and steeply, and all five climb sharply after 1850.](/assets/data-essays/state_fiscal_capacity.png)
+
+3/ Seven languages, one blank after "state of". Every vernacular flips to polities — French by 1550, English by 1570 — and Latin never does. Yet it's a poor gauge of capacity: Spain, the superpower, never crosses; England crosses before it can tax; the Dutch get both at once.
+
+![Small multiples, one panel per language, showing the share of "state of" complements that name a polity in three periods. French rises from 12 to 82 then 75 percent. English 0 to 56 to 75. Italian 29 to 75 then falls to 44. Spanish 0 to 23 to 46. Dutch 88 percent in the last period only. Latin flat at 43, 43, then 28. A German panel reads that Staat appears 7 times in 139,630 German titles, all after 1600.](/assets/data-essays/state_polity_share.png)
+
+4/ Here's the part nobody had shown. The first eight times an English title called a place a "state" — 1570 to 1579 — it was Germany, Holland, France, Flanders, Venice. Every one foreign. England isn't named until 1585. The word arrived as news of other people's wars.
+
+![Line chart by decade of the share of place-naming "state of" complements that name a foreign polity, with hollow points where a decade holds fewer than 15 uses. English begins in 1570 at about 90 percent foreign, stays between 75 and 90 percent until 1620, then falls steeply to 43 percent by 1640. Spanish stays around 85 to 90 percent foreign throughout. French runs from 6 to 46 percent. Italian stays near zero.](/assets/data-essays/state_foreign_vs_domestic.png)
+
+5/ Where did the *thing* come from? From the state printing under its own name, in the vernacular, before anyone else. Royal edicts were 95–100% vernacular from 1500, when the book market was a third to two-thirds Latin. Latin's own "ratio status" doesn't appear until after 1600.
+
+![Six small panels, one per country, each with two lines across three periods. The share of the state's own ordinances and edicts in a vernacular rather than Latin, and the same share for all print. In France, England, the Dutch Republic and Germany the edicts line sits at 95 to 100 percent in every period while the all-print line starts between 30 and 68 percent and rises. Italy's edicts start at 57 percent and rise to 88. Spain's start at 84 and rise to 96.](/assets/data-essays/state_as_publisher.png)
+
+6/ Language as statecraft. The French king's edicts were 95–100% French from 1500. Villers-Cotterêts (1539) made French the language of law: legal print went from 12% French in the 1530s to 66% by the 1590s, the market 35% to 66%. Taylor & @jrhall97 (2026) show it caused that.
+
+7/ Two cases break "no word, no state". Germany: 10,048 ordinances in German, 7 uses of "Staat" — the apparatus without the word. The Dutch: last to the word and most state-like with it, because their governing body *was* the States. Their 1637 Bible is the Statenvertaling.
+
+8/ And Italy, which rose first and then "fell"? After 1600 the word stops taking a complement and starts standing alone — ragion di stato, governo di stato — while devotional print about the state of souls surges. The word moved on.
+
+9/ Method & caveats. Regex on title pages and hand-coded word lists — no AI, no embeddings; all linked below. Thin early cells: 18 English uses before 1550. Titles aren't prose. Reprints are collapsed. Italy leans on Milan's edicts; without them its peak falls from 75% to 51%.
+
+10/ The lineage: Skinner dated the state from a dozen texts; here it is in 788,000. Koselleck puts German "Staat" in the 17th c.; 7 hits agree. Anderson said print made nations — the state printed first. Kantorowicz's state that outlives the king is the one that can owe. /end
+
+Method. Regular expressions over title pages in the Universal Short Title Catalogue, with hand coded word lists, across seven languages. No embeddings and no AI classification in this one. The fiscal figure is from [Johnson and Koyama (2017)](/research/), drawing on Karaman and Pamuk (2013). The Villers-Cotterêts result is from Taylor and Hall, ["The King's French" (2026)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6740518).
+
+</details>
 
 ## Made orders are born legible and grown orders turn legible late
 
