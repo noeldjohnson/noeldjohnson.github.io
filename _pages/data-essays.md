@@ -57,7 +57,7 @@ Two cases cut against any simple reading that the word tracks the thing. Germany
 
 10/ The lineage: Skinner dated the state from a dozen texts; here it is in 788,000. Koselleck puts German "Staat" in the 17th c.; 7 hits agree. Anderson said print made nations — the state printed first. Kantorowicz's state that outlives the king is the one that can owe. /end
 
-Method. Regular expressions over title pages in the Universal Short Title Catalogue, with hand coded word lists, across seven languages. No embeddings and no AI classification in this one. The fiscal figure is from [Johnson and Koyama (2017)](/research/), drawing on Karaman and Pamuk (2013). The Villers-Cotterêts result is from Taylor and Hall, ["The King's French" (2026)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6740518).
+Method. Regular expressions over title pages in the Universal Short Title Catalogue, with hand coded word lists, across seven languages. No embeddings and no AI classification in this one. The fiscal figure is from [Johnson and Koyama (2017)](/research/), drawing on Karaman and Pamuk (2013). The Villers-Cotterêts result is from Taylor and Hall, ["The King's French" (2026)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6740518). The full write up, the word lists and the figures are [here](https://claude.ai/artifact/NGkyL9R5VPHX924j5hRqUD).
 
 </details>
 
