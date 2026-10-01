@@ -172,7 +172,7 @@ The classic word analogy asks the model for king minus man plus woman. Run on em
 
 ![Witchcraft across languages](/assets/data-essays/witchcraft_across_languages.png)
 
-Everyone in early modern Europe feared witches and they did not fear the same thing. The word for witchcraft points somewhere different in each language. Latin points at a book, the Malleus Maleficarum and the treatise vocabulary around it. German points at the weather, at hail and tempests. French points at devils and possession. English points at sin and at women. Italian and Spanish and Dutch have no vernacular witch word that clears the bar, only the devil. That fits a Catholic south where the witch stayed in Latin and in the Inquisition's books.
+Everyone in early modern Europe feared witches and they did not fear the same thing. The word for witchcraft points somewhere different in each language. Latin points at a book, the Malleus Maleficarum and the treatise vocabulary around it. German points at the weather, at hail and tempests. French points at devils and possession. English points at sin and at women. Italian and Spanish and Dutch have no vernacular witch word that clears the bar, only the devil. In Italy and Spain the witch stayed in Latin and in the Inquisition's books. The Dutch absence needs a different explanation.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
