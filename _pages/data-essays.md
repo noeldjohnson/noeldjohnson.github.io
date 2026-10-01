@@ -8,11 +8,11 @@ toc_sticky: true
 
 These are short data essays drawn from my research in progress. Most run the data behind a working paper to answer a question the paper itself does not take up.
 
-## What print's spelling history predicts for AI
+## Will AI standardize the way we write?
 
 ![Four line charts of spelling shares in English book titles by decade, 1540 to 1640, with churche, kyng, englyshe and moste giving way to church, king, english and most](/assets/data-essays/spelling_english_four_words.png)
 
-Will AI standardize the way we write? [Arthur Spirling](https://x.com/arthur_spirling/status/2105315909057364447) asked whether AI-assisted writing will go further than print did, and print is a version of that experiment we have already run. In the 1540s three of every four English title pages spelled it "churche." By the 1590s nine in ten wrote "church." Print reached one spelling by two roads, a dominant center like London or a shared reference like the classical texts behind Latin. Where it had neither, as in Germany's many printing towns, variety lasted a century or more. My guess is that AI will standardize faster because it has both roads at once. The catalog's transcriptions limit what the curves can show.
+[Arthur Spirling](https://x.com/arthur_spirling/status/2105315909057364447) asked whether AI-assisted writing will standardize language further than the printing press did. The printing press is a version of that experiment we have already run. In the 1540s three of every four English title pages spelled it "churche." By the 1590s nine in ten wrote "church." Printers reached one spelling by two roads, a dominant printing center like London or a shared reference like the classical texts behind Latin. Where they had neither, as in Germany's many printing towns, variety lasted a century or more. My guess is that AI will standardize faster because it has both roads at once. The catalog's transcriptions limit what the curves can show.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
