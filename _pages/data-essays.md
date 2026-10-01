@@ -12,11 +12,7 @@ These are short data essays drawn from my research in progress. Most run the dat
 
 ![Four line charts of spelling shares in English book titles by decade, 1540 to 1640, with churche, kyng, englyshe and moste giving way to church, king, english and most](/assets/data-essays/spelling_english_four_words.png)
 
-Will AI standardize the way we write? [Arthur Spirling](https://x.com/arthur_spirling/status/2105315909057364447) asked whether AI-assisted writing will go further than print did, and print is a version of that experiment we have already run. In the 1540s three of every four English title pages spelled it "churche." By the 1590s nine in ten wrote "church." Across 17 common words in 52,000 English titles the leading spelling's share rose from 66 percent in the 1550s to 93 percent in the 1590s, a decade before the first English-only dictionary appeared in 1604. Caxton had asked in 1490 whether to write "egges or eyren." In England print settled questions like his within a century.
-
-The speed came from concentration. London printed 90 percent of English titles between 1540 and 1599, and in 1557 a royal charter put English printing under one London guild, the Stationers' Company. German needed 25 cities to print 80 percent of its titles, converged only after 1600, and its towns kept house styles. By the 1630s each large town was 99.7 percent consistent at home, and Vienna still wrote "Zeittung" where Hamburg wrote "Zeitung." Latin shows the second road. It was the most scattered market of all, 31 cities for 80 percent of titles, and it converged first because its printers shared a reference in the classical texts. "Ecclesiae" went from 11 percent of uses in 1501–09 to 94 percent by the 1560s.
-
-My guess is that AI will standardize writing further than print did, and faster, because it has both roads at once. A handful of models trained on much the same text are a London and a classical canon together, and the model writes the words, so the form is set at composition. That is my interpretation. AI text that varied by model the way German varied by town would prove it wrong. The caveats sit in the catalogue. These are transcriptions, the long s appears in none of 788,295 titles, u and v are modernized, and English records change transcription style at 1600, so the curves merge u/v and i/j and read trends inside one regime.
+Will AI standardize the way we write? [Arthur Spirling](https://x.com/arthur_spirling/status/2105315909057364447) asked whether AI-assisted writing will go further than print did, and print is a version of that experiment we have already run. In the 1540s three of every four English title pages spelled it "churche." By the 1590s nine in ten wrote "church." Print reached one spelling by two roads, a dominant center like London or a shared reference like the classical texts behind Latin. Where it had neither, as in Germany's many printing towns, variety lasted a century or more. My guess is that AI will standardize faster because it has both roads at once. The catalog's transcriptions limit what the curves can show.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
@@ -59,11 +55,7 @@ Method. Spelling families for 54 common title words in four languages from the U
 
 ![Two bar charts of the words following "the state of" in English book titles, personal conditions before 1550 and polities after 1600](/assets/data-essays/state_hook_two_columns.png)
 
-In 1500 the state of something was a condition you were in. The state of matrimony, of grace, of old age. By 1640 it was a kingdom. That crossover is visible on 52,000 English title pages, decade by decade, and it happens while the thing the word came to name is barely moving. Tax revenue per head across five European powers is nearly flat from 1500 to 1700. The vocabulary arrived first.
-
-The part nobody had shown is where it came from. The first eight times an English title called a place a state, between 1570 and 1579, the place was Germany, Holland, France, Flanders or Venice. Every one foreign. England is not named until 1585. The word entered English as news of other people's wars. And the thing itself shows up in print earlier still, because the state was publishing under its own name in the vernacular before the book market was. Royal edicts run 95 to 100 percent vernacular from 1500, when print as a whole was between a third and two thirds Latin.
-
-Two cases cut against any simple reading that the word tracks the thing. Germany has 10,048 ordinances printed in German and seven uses of Staat, which is the apparatus without the word. The Dutch are last to the word and most state-like with it, because their governing body was the States. Spain never crosses at all and was the superpower. So this is a poor gauge of state capacity and a good record of when an abstraction became available. The caveats are thin early cells, 18 English uses before 1550, and an Italian peak that leans on Milan's edicts. Without Milan it falls from 75 percent to 51.
+In 1500 the state of something was a condition you were in, such as matrimony, grace or old age. By 1640 it was a kingdom. That crossover is visible on 52,000 English title pages, while tax revenue per head across five European powers stayed nearly flat from 1500 to 1700. The vocabulary arrived first. The first eight English titles to call a place a state, between 1570 and 1579, all named foreign places, so the word entered English as news of other people's wars. Spain never crosses and was the superpower, so this is a poor gauge of state capacity and a good record of when an abstraction became available.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
@@ -106,11 +98,7 @@ Method. Regular expressions over title pages in the Universal Short Title Catalo
 
 ![Event study contrasting guilds with market grants and town charters](/assets/data-essays/guilds_hook.png)
 
-A charter exists the moment it is written. The document and the institution are one act, so first mention dates the founding. A guild ran for years before anyone wrote it down. It enters the record when it becomes worth confirming or taxing or fighting over, which happens once the city is already doing well. So first mention dates the founding of a made order and the ascent of a grown one. Compare the two by first mention and you are comparing different things.
-
-The test uses something the guild archive cannot touch. Where notable people were born. Match each guild city to undocumented cities of the same region and size, and guild cities out produce their matches for two or three centuries before their guilds reach the record. Run the identical design around market rights and town charters and that climb is gone. Our reading is that guilds enter the record on the way up while charters enter on the grantor's schedule.
-
-Three caveats matter. The placebo covers German and Austrian cities only, with smaller samples and wider error bars. Notable people databases carry their own survival bias. And the matched premium is an association, so no number here gets the word effect attached to it. This is work with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home).
+A charter exists the moment it is written, so first mention dates its founding. A guild ran for years before anyone wrote it down and enters the record once its city is already doing well. Matched to undocumented cities of the same region and size, guild cities outproduce their matches in notable people for two or three centuries before their guilds reach the record. The same design around market rights and town charters shows no such climb. Our reading is that guilds enter the record on the way up while charters enter on the grantor's schedule. The comparison measures an association. This is work with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home).
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
@@ -145,11 +133,11 @@ Method. A panel of 1,754 Western European cities from 1000 to 1800 built on Shei
 
 </details>
 
-## The model learns queen from 500 year old titles
+## The model learns queen from 500-year-old titles
 
 ![Word analogy results in Latin](/assets/data-essays/analogy_latin_hero.png)
 
-The classic word analogy asks the model for king minus man plus woman. Run on embeddings trained only on early modern Latin book titles the top answer is regina. The queen word also appears in the top ten for English and French and Dutch. The embedding spaces are small and noisy and trained on short titles so personal names bleed in. The point is that the structure is there at all in text this old and this sparse.
+The classic word analogy asks the model for king minus man plus woman. Run on embeddings trained only on early-modern Latin book titles, the top answer is regina. The queen word also appears in the top ten for English and French and Dutch. The embedding spaces are small and noisy and trained on short titles so personal names bleed in. The structure is there at all in text this old and this sparse.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
@@ -180,11 +168,11 @@ The classic word analogy asks the model for king minus man plus woman. Run on em
 
 </details>
 
-## The same word, four different fears
+## The word for witchcraft pointed at a different fear in each language
 
 ![Witchcraft across languages](/assets/data-essays/witchcraft_across_languages.png)
 
-Everyone in early modern Europe feared witches and they did not fear the same thing. The word for witchcraft points somewhere different in each language. Latin points at a book, the Malleus Maleficarum and the treatise vocabulary around it. German points at the weather, at hail and tempests. French points at devils and possession. English points at sin and at women. The scholar's witch and the peasant's witch and the exorcist's witch and the preacher's witch. The better part of the finding is where the witch is absent. Italian and Spanish and Dutch have no vernacular witch word that clears the bar, only the devil, which fits a Catholic south where the witch stayed in Latin and in the Inquisition's books.
+Everyone in early modern Europe feared witches and they did not fear the same thing. The word for witchcraft points somewhere different in each language. Latin points at a book, the Malleus Maleficarum and the treatise vocabulary around it. German points at the weather, at hail and tempests. French points at devils and possession. English points at sin and at women. Italian and Spanish and Dutch have no vernacular witch word that clears the bar, only the devil. That fits a Catholic south where the witch stayed in Latin and in the Inquisition's books.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
@@ -252,7 +240,7 @@ Take the average embedding of everything a city printed in Latin and subtract th
 
 ![Map of women printers in Europe](/assets/data-essays/women_printer_map_final.png)
 
-Women appear in the corpus as printers rather than authors, and overwhelmingly as widows continuing a husband's press. They account for just under two percent of editions, concentrated in the Low Countries and central Germany and the Baltic and nearly absent from Italy and Iberia. Presses run by women look more institutional in what they print. But a before and after comparison within each press shows widows printed almost exactly what their husbands had. The gap is selection over which presses passed to widows rather than a change in behavior, and the passing itself happened where law and custom let a widow keep the business. One caveat matters. Female authorship is not observable in this extract of the catalogue, so its absence here is a data limitation rather than a finding.
+Women appear in the corpus as printers rather than authors, and overwhelmingly as widows continuing a husband's press. They account for just under two percent of editions, concentrated in the Low Countries and central Germany and the Baltic and nearly absent from Italy and Iberia. Presses run by women look more institutional in what they print. But a before-and-after comparison within each press shows widows printed almost exactly what their husbands had. The gap is selection over which presses passed to widows rather than a change in behavior, and the passing itself happened where law and custom let a widow keep the business. Female authorship is not observable in this extract of the catalogue, so its absence here is a data limitation rather than a finding.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
@@ -283,7 +271,7 @@ Method. USTC, about 680k editions across 7 languages, 1450 to 1650. I flagged fe
 
 ![The commerce ladder across six languages](/assets/data-essays/commerce_ladder.png)
 
-Deirdre McCloskey argues that modern growth required a revaluation of commerce from sin to dignity. The embeddings let you read that gradient across languages in one figure. The neighbors of the Latin word for trade are usury and simony and homicide, the vocabulary of canon law. The neighbors of the Dutch word are free and company and charter. English and French sit near the honorable end and Spanish near the suspect end. Every token in the figure is a genuine nearest neighbor with its real cosine similarity. The one word labels are my reading and are marked as such.
+Deirdre McCloskey argues that modern growth required a revaluation of commerce from sin to dignity. The embeddings let you read that gradient across languages in one figure. The neighbors of the Latin word for trade are usury and simony and homicide. That is the vocabulary of canon law. The neighbors of the Dutch word are free and company and charter. English and French sit near the honorable end and Spanish near the suspect end. Every token in the figure is a genuine nearest neighbor with its real cosine similarity. The one word labels are my reading and are marked as such.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
@@ -328,7 +316,7 @@ Method. Word vectors are PMI plus truncated SVD on titles. Neighbors are cosine 
 
 ![Composition of print in the war zone](/assets/data-essays/fig2_composition.png)
 
-Total print output inside the Holy Roman Empire held up through the war and even grew. Its composition collapsed. Useful knowledge, meaning theology and law and medicine and science and history, fell by roughly forty percent while news and occasional print nearly tripled. The press shifted from books to news. Useful knowledge output ran parallel inside and outside the Empire until the 1610s and then forked, which points at the war rather than a Europe wide change in taste.
+Total print output inside the Holy Roman Empire held up through the war and even grew. Its composition collapsed. Useful knowledge, meaning theology and law and medicine and science and history, fell by roughly forty percent while news and occasional print nearly tripled. The press shifted from books to news. Useful knowledge output ran parallel inside and outside the Empire until the 1610s and then forked, which points at the war rather than a Europe-wide change in taste.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
@@ -357,11 +345,11 @@ Method. Editions by USTC classification, grouped into useful knowledge against n
 
 </details>
 
-## Arm to arm, how the vaccine and the distrust travelled
+## Districts near the 1857 reprisals vaccinated less for decades
 
 ![The cohort fade of the Lucknow effect](/assets/data-essays/post7_cohort_fade.png)
 
-This essay draws on my paper with Malik Altaf Hussain about vaccine hesitancy in colonial India. Before refrigeration the smallpox vaccine was a live virus with no shelf life, so the British moved it across India through the arms of children, vaccinating one and harvesting the lymph a week later for the next. The campaign saved lives and it also arrived by force, from a state that had recently been very violent. Districts closest to the reprisals that followed the 1857 revolt vaccinated less for decades afterward, and the effect fades as the generation that lived through 1857 passes. The frame that matters is that state violence carries a lasting public health cost.
+This essay draws on my paper with Malik Altaf Hussain about vaccine hesitancy in colonial India. Before refrigeration the smallpox vaccine was a live virus with no shelf life, so the British moved it across India through the arms of children, vaccinating one and harvesting the lymph a week later for the next. The campaign saved lives and it also arrived by force, from a state that had recently been very violent. Districts closest to the reprisals that followed the 1857 revolt vaccinated less for decades afterward, and the effect fades as the generation that lived through 1857 passes. State violence carries a lasting public-health cost.
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
