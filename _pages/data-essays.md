@@ -6,13 +6,7 @@ toc_label: "Jump to"
 toc_sticky: true
 ---
 
-These are short data essays drawn from my research in progress. Most run the data behind a working paper to answer a question the paper itself does not take up. The guilds essay is different. It is the central result of a paper with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home) put into plain language.
-
-The essays on early modern print come from the Universal Short Title Catalogue, which records roughly 800,000 editions printed in Europe between 1450 and 1650. With [Alexander Taylor](https://alexntaylor.github.io) I train word embeddings on the titles of these books as part of our paper [Mapping the Market for Ideas in Europe](/research/). The last essay comes from my work with [Malik Hussain](https://malikahussain.github.io) on vaccine hesitancy in colonial India.
-
-The figures show raw output. Where a one word label appears it is my interpretation and I say so. The caveats are stated in the essays rather than hidden. Several of these are seeds of larger projects.
-
-I post these as threads on X and Bluesky. This page collects them in one place. Expand any essay to read the whole thread as it was posted.
+These are short data essays drawn from my research in progress. Most run the data behind a working paper to answer a question the paper itself does not take up.
 
 ## What print's spelling history predicts for AI
 
