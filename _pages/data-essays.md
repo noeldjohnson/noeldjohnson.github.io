@@ -14,7 +14,7 @@ The figures show raw output. Where a one word label appears it is my interpretat
 
 I post these as threads on X and Bluesky. This page collects them in one place. Expand any essay to read the whole thread as it was posted.
 
-## Print reached one spelling by a dominant center or a shared reference, and AI has both
+## What print's spelling history predicts for AI
 
 ![Four line charts of spelling shares in English book titles by decade, 1540 to 1640, with churche, kyng, englyshe and moste giving way to church, king, english and most](/assets/data-essays/spelling_english_four_words.png)
 
