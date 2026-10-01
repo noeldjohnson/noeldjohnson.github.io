@@ -14,6 +14,53 @@ The figures show raw output. Where a one word label appears it is my interpretat
 
 I post these as threads on X and Bluesky. This page collects them in one place. Expand any essay to read the whole thread as it was posted.
 
+## Print reached one spelling by a dominant center or by a shared reference
+
+![Four line charts of spelling shares in English book titles by decade, 1540 to 1640, with churche, kyng, englyshe and moste giving way to church, king, english and most](/assets/data-essays/spelling_english_four_words.png)
+
+In the 1540s three of every four English title pages spelled it "churche." By the 1590s nine in ten wrote "church." Across 17 common words in 52,000 English titles the leading spelling's share rose from 66 percent in the 1550s to 93 percent in the 1590s, a decade before the first English-only dictionary appeared in 1604. Caxton had asked in 1490 whether to write "egges or eyren." In England print settled questions like his within a century.
+
+The speed came from concentration. London printed 90 percent of English titles between 1540 and 1599, and in 1557 a royal charter put English printing under one London guild, the Stationers' Company. German needed 25 cities to print 80 percent of its titles, converged only after 1600, and its towns kept house styles. By the 1630s each large town was 99.7 percent consistent at home, and Vienna still wrote "Zeittung" where Hamburg wrote "Zeitung." Latin shows the second road. It was the most scattered market of all, 31 cities for 80 percent of titles, and it converged first because its printers shared a reference in the classical texts. "Ecclesiae" went from 11 percent of uses in 1501–09 to 94 percent by the 1560s.
+
+The thread answered [Arthur Spirling](https://x.com/arthur_spirling/status/2105315909057364447), who asked whether AI-assisted writing will standardize language more than print did. My guess is that it will, and faster, because AI has both roads at once. A handful of models trained on much the same text are a London and a classical canon together, and the model writes the words, so the form is set at composition. That is my interpretation. AI text that varied by model the way German varied by town would prove it wrong. The caveats sit in the catalogue. These are transcriptions, the long s appears in none of 788,295 titles, u and v are modernized, and English records change transcription style at 1600, so the curves merge u/v and i/j and read trends inside one regime.
+
+<details markdown="1">
+<summary><strong>Read the whole thread</strong></summary>
+
+1/ We have run a version of the AI experiment already, with the printing press. In the 1540s, 3 of 4 English title pages spelled it "churche." By the 1590s, 9 of 10 wrote "church." We use 788,295 European titles to show: where print standardized fast, where it never did, and what that predicts for AI.
+
+![Four line charts of spelling shares in English book titles by decade, 1540 to 1640. Church: "churche" falls from 76% to near zero while "church" rises from 20% to 100%. King: "kyng" falls from 79% to zero by the 1580s as "king" rises to 96%. English: "englyshe" and "englishe" fade and "english" rises from 25% to 97% by the 1590s. Most: "moste" falls from 45% as "most" rises to 96% by the 1590s. A dashed line at 1600 marks a change in catalogue transcription.](/assets/data-essays/spelling_english_four_words.png)
+
+2/ The prediction first. AI will standardize writing faster than print did. Print reached one spelling by two roads, a dominant center or a shared reference text. Where it had neither, variety lasted a century or more. AI has both roads at once. The evidence follows...
+
+3/ In 1490 Caxton asked what a man should write: "egges or eyren"? A century on, print had settled questions like it. Across 17 words in 52,000 English titles, the leading spelling's share rose from 66% in the 1550s to 93% in the 1590s. The first English-only dictionary: 1604.
+
+4/ Why so fast? My hypothesis: one town, then one guild. London printed 90% of English titles in 1540–99. In 1557 a royal charter put English printing under one London guild, the Stationers' Company. Convergence starts in the 1570s. German needed 25 cities to print 80% of its titles.
+
+![Bar chart of how many cities it took to print 80% of the titles in each language, 1540 to 1599. English: 1 city (London printed 90%). French: 6 (Paris 49%). Dutch: 11 (Antwerp 35%). German: 25 (Nuremberg, the largest, 12%). Latin: 31 (Paris, the largest, 10%).](/assets/data-essays/spelling_cities_for_80.png)
+
+5/ German converged only after 1600 and its towns kept house styles. In 1570–99 Wittenberg printed "deudsch" (91%) and Nuremberg "teutsch" (81%). By the 1630s each big town was 99.7% consistent at home, and they still disagreed: Vienna wrote "Zeittung," Hamburg "Zeitung."
+
+6/ Dutch went the other way. Antwerp printed 57% of Dutch titles before 1540. After the Revolt split the market, Amsterdam led (37% after 1600). In 1620–49 Antwerp still wrote "coninck" (86%). Amsterdam was torn: coninck 45%, koninck 30%, coningh 21%. A new center, a new fight.
+
+7/ Latin breaks the rule. The most scattered market of all — 31 cities for 80% — converged first. Classical "ecclesiae" went from 11% of uses in 1501–09 to 94% by the 1560s, over medieval "ecclesie." Latin printers shared no town. They shared a reference: the classical texts.
+
+![Line chart of the share of the classical spelling in Latin book titles by decade, 1501 to 1649. "Ecclesiae" against "ecclesie" rises from 11% to 38% in the 1520s, 76% in the 1540s, 94% in the 1560s and 99% by the 1590s. "Quaestio" against "questio" rises from 23% to 97% by the 1550s. Both stay near 100% afterwards. Books printed before 1501 are excluded because their catalogue records are regularized.](/assets/data-essays/spelling_latin_ae.png)
+
+8/ So print had two roads to one spelling: a dominant center (London) or a shared reference (classical Latin). Where neither held — Germany's 200+ towns, a Dutch market split between two states — variety lasted to 1650. The leading spelling's share, four languages:
+
+![Line chart of the share of word tokens in the leading spelling, pooled over common words, by decade from 1510 to 1640, for four languages. Latin rises from about 85% to 98% by the 1560s and stays near 99%. English sits at 64–68% until the 1560s, then climbs to 88% in the 1580s, 93% in the 1590s and 98% by the 1620s. German holds at 79–85% through the 1590s, then rises to 92% in the 1600s and 98% in the 1640s. Dutch moves from 87% in the 1560s to 79% in the 1640s.](/assets/data-essays/spelling_four_languages.png)
+
+9/ Back to AI. A handful of models trained on much the same text: a London and a classical canon at once. And AI writes the words, so the form is set at composition. What would prove me wrong? AI text that varies by model the way German varied by town. My interpretation/guess, not a result.
+
+10/ Caveats. These are catalogue transcriptions: long s is in 0 of 788,295 titles, u/v is modernized, English USTC records change style at 1600. We merge u/v and i/j and read trends inside one regime. Five languages is a small sample. Most pre-1600 German variety sat inside each town.
+
+11/ Method: 54 words, four languages. We hand-checked which spellings are one word and took the leading spelling's share per decade. The groupings are our call. French is left to @jrhall97 and Alex Taylor, whose paper on the 1539 ordinance does it right. Send me comments or questions. /end
+
+Method. Spelling families for 54 common title words in four languages from the Universal Short Title Catalogue, hand-checked for which spellings are one word, with the leading spelling's share computed by decade. The groupings are our call. French is left to Taylor and Hall, whose paper ["The King's French" (2026)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6740518) uses a border design around the 1539 Ordinance of Villers-Cotterêts. The word lists, tables and code for every number are [here](https://claude.ai/artifact/9PRdn5b9okwztqUTDuPPFr).
+
+</details>
+
 ## The word for the state turned political before the state could tax
 
 ![Two bar charts of the words following "the state of" in English book titles, personal conditions before 1550 and polities after 1600](/assets/data-essays/state_hook_two_columns.png)
