@@ -8,6 +8,43 @@ toc_sticky: true
 
 These are short data essays drawn from my research in progress. Most run the data behind a working paper to answer a question the paper itself does not take up.
 
+## Printed weapons know-how traveled only where readers already had the capital
+
+![Title page of Biringuccio's Pirotechnia, Venice 1540, beside a musketeer from De Gheyn's drill manual, The Hague 1607](/assets/data-essays/weapons_hook_diptych.jpg)
+
+The worry about AI and weapons is that a model explaining how to build one puts it in anyone's hands. Europe ran a version of that experiment with print. The Universal Short Title Catalogue holds 2,182 editions of military manuals printed before 1650, and after 1550 about nine in ten were in the vernacular. The cannon books barely traveled. Biringuccio's manual of gunpowder and cannon founding took 16 years to reach a second language and Tartaglia's ballistics was never translated before 1650. De Gheyn's musket drill of 1607 was in four languages within a year. My reading is that print moved know-how fast only where readers already had the foundry or the men and the muskets. Whether any of it caused harm has not been measured.
+
+<details markdown="1">
+<summary><strong>Read the whole thread</strong></summary>
+
+1/ The AI-safety worry is that a model explaining how to build a weapon puts it in anyone's hands. Europe ran this experiment with print. Gunpowder, cannon founding, ballistics, and drill went into print in the 1500s. Whether the know-how spread depended on what else you needed.
+
+![Two early printed pages side by side. Left: the title page of Biringuccio's De la pirotechnia, Venice 1540, framed by a woodcut border of furnaces, bellows, mine works and a cannon on its carriage; caption "Venice, 1540: gunpowder and cannon founding. Second language after 16 years." Right: an engraving from De Gheyn's drill manual, The Hague 1607, of a musketeer firing a matchlock from a forked rest; caption "The Hague, 1607: musket drill. Four languages by 1608."](/assets/data-essays/weapons_hook_diptych.jpg)
+
+2/ Europe printed this harmful technology openly, some of it under state privilege. The Universal Short Title Catalogue holds 2,182 editions of military manuals before 1650. After 1550 about nine in ten were vernacular, against about six in ten for all print.
+
+3/ The authors knew it. In 1537 Tartaglia wrote that perfecting gunnery was "a reproachful, vituperative and cruel thing" and that he had "shredded and burned" his notes. Then, seeing "the wolf wishing to join our flock" (in context, the Ottomans), he published anyway.
+
+4/ Yet the cannon books barely traveled. Biringuccio's manual of gunpowder and cannon founding took 16 years to reach a second language. Tartaglia's ballistics was never translated before 1650. Valturio's war machines waited 83 years. Nine, five, and eight editions in all.
+
+![Dot chart of five early printed books, showing in years after each book's first edition when it first appeared in each new language. Tartaglia's ballistics (1537, 5 editions): never translated before 1650, drawn as a line running off the right edge with an arrow. Valturio's war machines (1472, 8 editions): second language after 83 years. Biringuccio's gunpowder and cannon founding (1540, 9 editions): second language after 16 years. These three are colored as books whose readers still lacked capital and skill. Alessio's book of secrets (1555, 154 editions): seven languages within 14 years. De Gheyn's musket and pike drill (1607, 25 editions): four languages within one year. These two are colored as books whose readers lacked only the know-how.](/assets/data-essays/weapons_languages.png)
+
+5/ My read is that the book was never the bottleneck. A cannon needed a foundry, a powder works, costly bronze, and a master founder trained by doing. Guns had been in Europe since the 1320s, more than a century before the press. Print supplied the one input that was not scarce.
+
+6/ Compare drill. In 1607 De Gheyn printed Maurice of Nassau's musket and pike drill. It was out in Dutch, English, French, and German by 1608, 25 editions in all. Armies already had the men and the muskets. The missing piece was the know-how and print moved it fast.
+
+7/ Cheap know-how moved fastest of all. Alessio's book of secrets (1555), mostly remedies, cosmetics, and household recipes, ran to 154 editions in seven languages, most of them pocket-sized. Did any of it cause harm? Nobody has measured that.
+
+8/ Charles Jones (JEP 2026) argues AI's payoff is held back by weak links, the tasks that stay slow or physical. I'd add that harm has weak links too and capital is one. It stops actors who lack it. It does little against those who already have it, as the drill manual shows.
+
+9/ Caveats. These are surviving editions in one catalog, so lost printings are missing. Translation speed measures demand, and harm goes unmeasured. De Gheyn's buyers were officers and states, so the drill case says nothing about lone actors. The capital argument is my reading.
+
+10/ Method: every edition of each book to 1650 in the Universal Short Title Catalogue, checked by hand, dated by first appearance in each language. Tartaglia quoted in Valleriani's translation. Which other dangerous book should I check? /end
+
+Method. Every edition of each book to 1650 in the Universal Short Title Catalogue, checked by hand and dated by first appearance in each language. Tartaglia is quoted from Valleriani's English translation (Edition Open Sources, 2013). The weak links argument is from C. I. Jones, "AI and Our Economic Future," *Journal of Economic Perspectives* 40(3), 2026. Images are public domain via Wikimedia Commons. The write up, the editions and the code are [here](https://claude.ai/artifact/QuQrE2HTHbtuwG1WShAv3B).
+
+</details>
+
 ## Will AI standardize the way we write?
 
 ![Four line charts of spelling shares in English book titles by decade, 1540 to 1640, with churche, kyng, englyshe and moste giving way to church, king, english and most](/assets/data-essays/spelling_english_four_words.png)
