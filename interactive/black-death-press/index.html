@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Black Death and the Printing Press</title>
+<meta name="description" content="An interactive companion to The Impact of the Black Death on the Adoption of the Printing Press by Noel D. Johnson, Andrew J. Thomas, and Alexander N. Taylor.">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+.byline a { color: var(--teal); }
+nav.toc { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; background: var(--panel);
+  padding: 14px 18px; border-radius: 6px; margin: 0 0 32px; }
+nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+nav.toc a { color: var(--navy); text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+h2 { font-size: 26px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.figure .cap { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted);
+  margin-top: 10px; }
+.figure .cap b { color: var(--ink); }
+.controls { font: 15px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; display: flex;
+  flex-wrap: wrap; gap: 10px 18px; align-items: center; margin-bottom: 12px; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+input[type=range] { width: 260px; max-width: 100%; accent-color: var(--rust); }
+button.tab, button.play { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; border: 1px solid var(--rule);
+  background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; color: var(--navy); }
+button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.readout div { background: #fff; border-radius: 6px; padding: 10px 12px;
+  font: 14px/1.35 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.readout b { display: block; font: 600 24px/1.2 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--navy); }
+svg { display: block; width: 100%; height: auto; }
+svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
+.axis path, .axis line { stroke: #b8b8b8; }
+.tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--rule);
+  border-radius: 4px; padding: 8px 10px; font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; max-width: 260px; z-index: 10; }
+.tip b { color: var(--navy); }
+.legend { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
+  font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+footer a { color: var(--teal); }
+@media (max-width: 640px) {
+  body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
+  .readout { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">Interactive companion</div>
+  <h1>The Impact of the Black Death on the Adoption of the Printing Press</h1>
+  <div class="byline">Noel D. Johnson, Andrew J. Thomas, and Alexander N. Taylor ·
+    <a href="/assets/papers/the-impact-of-the-black-death-on-draft.pdf">Read the paper</a> ·
+    <a href="/research/">Research</a></div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#mechanism">Mechanism</a></li>
+    <li><a href="#evidence">Evidence</a></li>
+    <li><a href="#map">Map</a></li>
+    <li><a href="#network">Network</a></li>
+    <li><a href="#identification">Identification</a></li>
+    <li><a href="#limits">Limits</a></li>
+  </ol>
+</nav>
+
+<section id="argument">
+<h2><span class="num">1</span>Argument</h2>
+<p>Gutenberg's press was operating in Mainz by 1450 and within fifty years presses were at work in more than 280 cities. Some cities adopted the technology early and others late or never. This paper asks whether the size of a city's market decided which.</p>
+<p>The Black Death of 1347 to 1352 killed about 40 percent of Europe's population and it struck cities with very different force. It killed people and left buildings, roads, and institutions standing. That makes city mortality a natural experiment in market size a century before the press arrived.</p>
+<p>The plague could have moved press adoption in two directions. Wages rose sharply after the plague and stayed high in many places until 1600. A higher price of labor could have drawn in a labor-saving technology, which predicts that the hardest-hit cities adopted the press sooner. The plague also destroyed customers. A press carried a large fixed cost in type, which Dittmar (2011) puts at four to ten years of skilled wages. A smaller market could have kept printers away, which predicts that the hardest-hit cities adopted later.</p>
+<p>The data favor market size. Using mortality as an instrument for city population in 1400, a city with 10 percent fewer people was 3.4 percentage points less likely to have a press by 1500 and printed 15 percent fewer editions between 1450 and 1500.</p>
+</section>
+
+<section id="mechanism">
+<h2><span class="num">2</span>Mechanism</h2>
+<p>Move the slider to set a city's Black Death mortality. The first stage of the paper turns mortality into population in 1400. The second stage turns population into the chance of a press by 1500 and the number of editions. Every number below comes from those two estimates, for a city otherwise at the average of the 169 cities in the sample.</p>
+<div class="figure">
+  <div class="controls">
+    <label for="mort">Black Death mortality <input id="mort" type="range" min="0" max="90" step="1" value="40"></label>
+    <span id="mortval" style="font-weight:600;color:var(--rust)"></span>
+  </div>
+  <div class="readout">
+    <div><b id="r-pop"></b>population in 1400</div>
+    <div><b id="r-press"></b>chance of a press by 1500</div>
+    <div><b id="r-eds"></b>editions printed 1450 to 1500, against the average city</div>
+  </div>
+  <svg id="mech" viewBox="0 0 800 300" role="img" aria-label="Predicted chance of a press by 1500 against Black Death mortality"></svg>
+  <div class="cap"><b>Figure 1.</b> Predicted chance of a press by 1500 at each mortality rate, from the instrumental variables estimate with bishopric, university, market access in 1300, and cereal suitability held at their means. The dashed line marks the sample's average mortality of 40 percent. The wage channel would tilt this line upward. The estimate tilts it down.</div>
+</div>
+<p>The 3.4 points and the 15 percent in the paper are the slider's answer to a fall of 10 percent in population. The predicted chance of a press is a linear probability and is held between zero and one. The editions effect is computed from the log specification, so it is a percentage change from the average city.</p>
+</section>
+
+<section id="evidence">
+<h2><span class="num">3</span>Evidence</h2>
+<p>Each panel plots every one of the 169 cities after removing the controls from both axes. The slope of the line is the coefficient in the paper. Hover over a point to see the city.</p>
+<div class="figure">
+  <div class="controls" id="scatter-tabs"></div>
+  <svg id="scatter" viewBox="0 0 800 420" role="img" aria-label="Scatter of the selected relationship"></svg>
+  <div class="cap" id="scatter-cap"></div>
+</div>
+<p>The first stage is the relationship the design rests on. Cities that lost more people in 1348 were smaller in 1400. The ordinary least squares panels show the raw association between size and print. The instrumental variables panels use only the part of population that the plague explains. Their slopes are larger than the ordinary least squares slopes.</p>
+</section>
+
+<section id="map">
+<h2><span class="num">4</span>Map</h2>
+<p>The 169 cities with recorded mortality and population. Color is Black Death mortality. A filled circle has a press by the year on the slider and a hollow one does not. Size follows population in 1400. Press the button to watch the technology spread.</p>
+<div class="figure">
+  <div class="controls">
+    <button class="play" id="play">Play</button>
+    <label for="year">Year <input id="year" type="range" min="1450" max="1600" step="1" value="1500"></label>
+    <span id="yearval" style="font-weight:600;color:var(--rust)"></span>
+    <label><input type="checkbox" id="allcities"> Show the other 1,632 cities</label>
+  </div>
+  <svg id="mapsvg" viewBox="0 0 800 640" role="img" aria-label="Map of European cities by Black Death mortality and press adoption"></svg>
+  <div class="legend" id="maplegend"></div>
+  <div class="cap"><b>Figure 2.</b> A city has a press in a given year if the Universal Short Title Catalogue records an edition printed there in or before that year. The cities without mortality data are drawn in gray when shown.</div>
+</div>
+</section>
+
+<section id="network">
+<h2><span class="num">5</span>Network</h2>
+<p>A city's own losses were one shock. The losses of the cities it traded with were another. The paper measures each city's market access in 1300 and 1400 from the populations of all other cities and the cost of reaching them, and asks whether the plague's damage to a city's trading network mattered on its own.</p>
+<p>To keep the network shock separate from the city's own losses, the measure leaves out cities within a ring around each city. The chart shows the estimate for every ring width the paper reports, as the effect of a 10 percent fall in market access.</p>
+<div class="figure">
+  <div class="controls" id="ma-tabs"></div>
+  <svg id="masvg" viewBox="0 0 800 300" role="img" aria-label="Effect of market access by donut radius"></svg>
+  <div class="cap"><b>Figure 3.</b> Effect of a 10 percent fall in market access between 1300 and 1400 on the chance of a press by 1500 or on editions printed, with 95 percent intervals. Each point excludes cities within the stated distance from the market access measure. Sample of 470 cities with a population estimate in 1300, Conley standard errors.</div>
+</div>
+<p>The effect is largest when nearby cities are left out at 50 or 100 kilometers and it fades as the ring widens past 150 kilometers. A city whose trading partners lost heavily was less likely to adopt the press, apart from its own losses.</p>
+</section>
+
+<section id="identification">
+<h2><span class="num">6</span>Identification</h2>
+<p>The design asks one thing of the plague. City mortality must be unrelated to whatever else made a city likely to print. The historical record supports that. Mortality depended heavily on how early a city was infected, and the disease moved in leaps that are hard to predict. It reached Valencia by May 1348 and London by September and did not arrive in Cologne until December 1349.</p>
+<p>The chart below regresses mortality on 27 characteristics of a city measured before or apart from the plague, including geography, population in 1300, trade, and political status. If mortality were picking up a city's prospects these coefficients would stand out from zero.</p>
+<div class="figure">
+  <svg id="balsvg" viewBox="0 0 800 640" role="img" aria-label="Balance of Black Death mortality on city characteristics"></svg>
+  <div class="cap"><b>Figure 4.</b> Standardized coefficients from one regression of mortality on all 27 characteristics at once, with 95 percent intervals and Conley standard errors. None is significant at the 5 percent level.</div>
+</div>
+<p class="note">The paper also controls for distance to Mainz, which other work uses as an instrument for the press. Here it is a control only, to check that mortality is not standing in for distance from the press's origin. The results are unchanged with it.</p>
+</section>
+
+<section id="limits">
+<h2><span class="num">7</span>Limits</h2>
+<p>The instrumental variables sample is the 169 cities with both recorded mortality and population in 1400. The market access results use a wider set of 470 cities. Mortality is not imputed for cities without a record.</p>
+<p>Adoption here means that the catalog records at least one edition from a city. A press that opened and failed before its first surviving edition never appears, and a press that closed is still counted as adopted. The measure captures entry and cannot see exit.</p>
+<p>The catalog records surviving editions. Lost editions are missing everywhere, and the design assumes their loss is not related to Black Death mortality.</p>
+<p>The paper also finds that cities hit harder printed a narrower range of subjects. That result is suggestive and it does not appear above.</p>
+</section>
+
+<footer>
+  <p>Every number on this page is computed from data exported by the paper's replication code (<code>companion_export_10_16.R</code>), which checks each coefficient against the manuscript. Mortality data come from Jedwab, Johnson, and Koyama. Print data come from the Universal Short Title Catalogue.</p>
+  <p id="stamp"></p>
+</footer>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C", light:"#cfcfcf" };
+const tip = d3.select("#tip");
+const showTip = (ev, html) => tip.html(html).style("opacity",1)
+  .style("left", Math.min(ev.clientX + 14, window.innerWidth - 270) + "px").style("top", (ev.clientY + 14) + "px");
+const hideTip = () => tip.style("opacity",0);
+const titleCase = s => s.toLowerCase().replace(/(^|[\s\-'])([a-zà-ÿ])/g, (m,a,b) => a + b.toUpperCase());
+const fmt1 = d3.format(".1f"), fmt0 = d3.format(",.0f");
+
+Promise.all([
+  d3.json("estimates.json"), d3.json("binscatter.json"), d3.json("balance.json"),
+  d3.json("basemap.geojson"), d3.csv("cities.csv", d3.autoType), d3.json("manifest.json")
+]).then(([est, bins, bal, land, cities, man]) => {
+  d3.select("#stamp").text("Data exported " + man.generated + ".");
+  mechanism(est); scatter(bins); mapView(land, cities); network(est); balance(bal);
+});
+
+// ---------- 2. Mechanism ----------
+function mechanism(est) {
+  const s = est.slider, bF = s.beta_first_stage, bP = s.beta_print1500, bE = s.beta_log_eds_1500, m = s.means;
+  const pred = mort => {
+    const dl = bF * (mort - m.mortality);
+    return { pop: Math.exp(m.lpop1400_05 + dl) * 1000,
+             press: Math.max(0, Math.min(1, m.print1500 + bP * dl)),
+             eds: 100 * (Math.exp(bE * dl) - 1) };
+  };
+  const svg = d3.select("#mech"), W = 800, H = 300, mg = {l:56, r:20, t:16, b:44};
+  const x = d3.scaleLinear([0, 90], [mg.l, W - mg.r]), y = d3.scaleLinear([0, 1], [H - mg.b, mg.t]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(9).tickFormat(d => d + "%"));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format(".0%")));
+  svg.append("text").attr("x", (W+mg.l)/2).attr("y", H-8).attr("text-anchor","middle").text("Black Death mortality");
+  svg.append("text").attr("transform","rotate(-90)").attr("x", -(H-mg.b+mg.t)/2).attr("y", 14).attr("text-anchor","middle").text("Chance of a press by 1500");
+  svg.append("line").attr("x1", x(m.mortality)).attr("x2", x(m.mortality)).attr("y1", mg.t).attr("y2", H-mg.b)
+     .attr("stroke", C.gray).attr("stroke-dasharray","4 4");
+  const grid = d3.range(0, 90.5, 1);
+  svg.append("path").datum(grid).attr("fill","none").attr("stroke", C.navy).attr("stroke-width", 2.5)
+     .attr("d", d3.line().x(d => x(d)).y(d => y(pred(d).press)));
+  const dot = svg.append("circle").attr("r", 7).attr("fill", C.rust).attr("stroke","#fff").attr("stroke-width",2);
+  const upd = () => {
+    const v = +d3.select("#mort").property("value"), p = pred(v);
+    d3.select("#mortval").text(v + " percent");
+    d3.select("#r-pop").text(fmt0(Math.round(p.pop / 100) * 100));
+    d3.select("#r-press").text(Math.round(100 * p.press) + "%");
+    d3.select("#r-eds").text((p.eds >= 0 ? "+" : "") + Math.round(p.eds) + "%");
+    dot.attr("cx", x(v)).attr("cy", y(p.press));
+  };
+  d3.select("#mort").on("input", upd); upd();
+}
+
+// ---------- 3. Evidence ----------
+function scatter(bins) {
+  const panels = [
+    ["first_stage", "First stage"], ["ols_print1500", "Press by 1500, OLS"], ["iv_print1500", "Press by 1500, IV"],
+    ["ols_eds1500", "Editions, OLS"], ["iv_eds1500", "Editions, IV"] ];
+  const caps = {
+    first_stage: "Black Death mortality against log population in 1400. Slope ",
+    ols_print1500: "Log population in 1400 against having a press by 1500. Slope ",
+    iv_print1500: "Population in 1400 as predicted by mortality against having a press by 1500. Slope ",
+    ols_eds1500: "Log population in 1400 against log editions printed 1450 to 1500. Slope ",
+    iv_eds1500: "Population in 1400 as predicted by mortality against log editions printed 1450 to 1500. Slope " };
+  const svg = d3.select("#scatter"), W = 800, H = 420, mg = {l:62, r:20, t:14, b:48};
+  const gx = svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`);
+  const gy = svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`);
+  const band = svg.append("path").attr("fill", C.teal).attr("opacity", .15);
+  const line = svg.append("path").attr("fill","none").attr("stroke", C.teal).attr("stroke-width", 2.5);
+  const pts = svg.append("g");
+  const xl = svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-8).attr("text-anchor","middle");
+  const yl = svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle");
+  const tabs = d3.select("#scatter-tabs").selectAll("button").data(panels).join("button")
+    .attr("class","tab").text(d => d[1]).on("click", (e,d) => draw(d[0]));
+  function draw(key) {
+    tabs.classed("on", d => d[0] === key);
+    const p = bins.scatters[key];
+    const xs = p.points.map(d => d.x).concat(p.fit_line.map(d => d.x));
+    const ys = p.points.map(d => d.y).concat(p.fit_line.flatMap(d => [d.lo, d.hi]));
+    const x = d3.scaleLinear(d3.extent(xs), [mg.l, W-mg.r]).nice(), y = d3.scaleLinear(d3.extent(ys), [H-mg.b, mg.t]).nice();
+    const t = svg.transition().duration(500);
+    gx.transition(t).call(d3.axisBottom(x).ticks(8)); gy.transition(t).call(d3.axisLeft(y).ticks(6));
+    xl.text(p.x_label); yl.text(p.y_label);
+    band.transition(t).attr("d", d3.area().x(d => x(d.x)).y0(d => y(d.lo)).y1(d => y(d.hi))(p.fit_line));
+    line.transition(t).attr("d", d3.line().x(d => x(d.x)).y(d => y(d.y))(p.fit_line));
+    pts.selectAll("circle").data(p.points, d => d.city_id).join("circle")
+      .attr("r", 4.5).attr("fill", C.navy).attr("fill-opacity", .55).attr("stroke","#fff").attr("stroke-width",.6)
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${titleCase(d.city)}</b><br>${p.x_label}: ${d.x.toFixed(2)}<br>${p.y_label}: ${d.y.toFixed(2)}`))
+      .on("mouseleave", hideTip)
+      .transition(t).attr("cx", d => x(d.x)).attr("cy", d => y(d.y));
+    d3.select("#scatter-cap").html(`<b>Figure.</b> ${caps[key]}${p.slope.toFixed(3)}. All 169 cities, residualized on bishopric, university, market access in 1300, and cereal suitability. The band is the 95 percent interval of the fitted line.`);
+  }
+  draw("first_stage");
+}
+
+// ---------- 4. Map ----------
+function mapView(land, cities) {
+  const svg = d3.select("#mapsvg"), W = 800, H = 640;
+  // The export writes polygons with planar (counterclockwise) winding. D3's spherical
+  // geometry reads that as everything outside the land, so reverse each ring.
+  const rewind = g => {
+    const fix = poly => poly.map(ring => ring.slice().reverse());
+    if (g.type === "Polygon") return { ...g, coordinates: fix(g.coordinates) };
+    if (g.type === "MultiPolygon") return { ...g, coordinates: g.coordinates.map(fix) };
+    return g;
+  };
+  const feats = (land.type === "FeatureCollection" ? land.features : [land])
+    .map(f => f.type === "Feature" ? { ...f, geometry: rewind(f.geometry) } : rewind(f));
+  // Fit to the extent of the paper's own maps, 15°W to 20°E and 35°N to 63°N.
+  const box = { type: "MultiPoint", coordinates: [[-11,35],[20,35],[-11,63],[20,63],[4.5,63],[4.5,35]] };
+  const proj = d3.geoConicConformal().rotate([-4.5, 0]).parallels([40, 58]).fitExtent([[10,10],[W-10,H-10]], box)
+    .clipExtent([[0,0],[W,H]]);
+  const path = d3.geoPath(proj);
+  svg.append("rect").attr("width",W).attr("height",H).attr("fill","#e9eef2");
+  svg.selectAll("path.land").data(feats).join("path").attr("class","land").attr("d", path)
+    .attr("fill","#fbfaf7").attr("stroke","#c9c9c9");
+  const placed = cities.filter(d => d.latitude != null && d.longitude != null);
+  const iv = placed.filter(d => d.in_bd169 === 1), rest = placed.filter(d => d.in_bd169 !== 1);
+  const color = d3.scaleLinear([0, 40, 80], ["#f2d9a6", C.rust, "#4a1c05"]).clamp(true);
+  const r = d3.scaleSqrt([0, d3.max(iv, d => d.pop1400_k)], [2.5, 16]);
+  const has = (d, yr) => d.first_edition != null && d.first_edition <= yr;
+  const gRest = svg.append("g").style("display","none");
+  const gIv = svg.append("g");
+  const restDots = gRest.selectAll("circle").data(rest).join("circle")
+    .attr("cx", d => proj([d.longitude, d.latitude])[0]).attr("cy", d => proj([d.longitude, d.latitude])[1]).attr("r", 2)
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${titleCase(d.city)}</b><br>No mortality record<br>First edition: ${d.first_edition ?? "none by 1600"}`))
+    .on("mouseleave", hideTip);
+  const ivDots = gIv.selectAll("circle").data(iv.sort((a,b) => b.pop1400_k - a.pop1400_k)).join("circle")
+    .attr("cx", d => proj([d.longitude, d.latitude])[0]).attr("cy", d => proj([d.longitude, d.latitude])[1])
+    .attr("r", d => r(d.pop1400_k)).attr("stroke", d => color(d.mortality)).attr("stroke-width", 2)
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${titleCase(d.city)}</b><br>Mortality: ${d.mortality}%<br>Population 1400: ${fmt0(d.pop1400_k*1000)}<br>First edition: ${d.first_edition ?? "none by 1600"}<br>Editions 1450–1500: ${fmt0(d.editions_1450_1500)}`))
+    .on("mouseleave", hideTip);
+  const upd = () => {
+    const yr = +d3.select("#year").property("value");
+    d3.select("#yearval").text(yr);
+    ivDots.attr("fill", d => has(d, yr) ? color(d.mortality) : "#ffffff").attr("fill-opacity", d => has(d, yr) ? .9 : .6);
+    restDots.attr("fill", d => has(d, yr) ? "#8a8a8a" : "none").attr("stroke", "#9a9a9a").attr("stroke-width", .6);
+    const n = iv.filter(d => has(d, yr)).length;
+    d3.select("#maplegend").html(`<b style="color:var(--navy)">${n} of 169</b> cities have a press by ${yr}. Circle color runs from pale (low mortality) to dark (high mortality).`);
+  };
+  d3.select("#year").on("input", upd);
+  d3.select("#allcities").on("change", function(){ gRest.style("display", this.checked ? null : "none"); });
+  let timer = null;
+  d3.select("#play").on("click", function() {
+    if (timer) { timer.stop(); timer = null; d3.select(this).text("Play"); return; }
+    const s = d3.select("#year"); if (+s.property("value") >= 1600) s.property("value", 1450);
+    d3.select(this).text("Pause");
+    timer = d3.interval(() => {
+      const v = +s.property("value") + 1; s.property("value", v); upd();
+      if (v >= 1600) { timer.stop(); timer = null; d3.select("#play").text("Play"); }
+    }, 70);
+  });
+  upd();
+}
+
+// ---------- 5. Network ----------
+function network(est) {
+  const ma = est.market_access;
+  const outs = [["print1500","Chance of a press by 1500","per_10pct_decline_pp"," pp"],
+                ["log_eds_1500","Editions printed 1450 to 1500","per_10pct_decline_pct","%"]];
+  const svg = d3.select("#masvg"), W = 800, H = 300, mg = {l:62, r:20, t:16, b:44};
+  const gx = svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`);
+  const gy = svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`);
+  const zero = svg.append("line").attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  const g = svg.append("g");
+  const yl = svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle");
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-8).attr("text-anchor","middle").text("Cities left out of the market access measure within this distance");
+  const tabs = d3.select("#ma-tabs").selectAll("button").data(outs).join("button").attr("class","tab")
+    .text(d => d[1]).on("click", (e,d) => draw(d));
+  function draw(o) {
+    tabs.classed("on", d => d[0] === o[0]);
+    const rows = Object.values(ma[o[0]]).map(d => {
+      const k = d[o[2]] / d.estimate;   // scale from the coefficient to the per-10% effect
+      return { km: d.donut_km, v: d[o[2]], lo: d.ci95[0]*k, hi: d.ci95[1]*k, p: d.p };
+    });
+    const x = d3.scalePoint(rows.map(d => d.km), [mg.l + 30, W - mg.r - 30]);
+    const y = d3.scaleLinear([Math.min(0, d3.min(rows, d => d.lo)), d3.max(rows, d => d.hi)], [H-mg.b, mg.t]).nice();
+    gx.call(d3.axisBottom(x).tickFormat(d => d === 0 ? "none" : d + " km"));
+    gy.call(d3.axisLeft(y).ticks(6).tickFormat(d => d + o[3]));
+    yl.text("Reduction from a 10% fall in market access");
+    zero.attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0));
+    const sel = g.selectAll("g.row").data(rows, d => d.km).join(en => { const r = en.append("g").attr("class","row");
+      r.append("line"); r.append("circle"); return r; });
+    sel.select("line").attr("x1", d => x(d.km)).attr("x2", d => x(d.km)).attr("y1", d => y(d.lo)).attr("y2", d => y(d.hi))
+      .attr("stroke", C.navy).attr("stroke-width", 2);
+    sel.select("circle").attr("cx", d => x(d.km)).attr("cy", d => y(d.v)).attr("r", 7)
+      .attr("fill", d => d.p < .05 ? C.rust : "#fff").attr("stroke", C.rust).attr("stroke-width", 2)
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${d.km === 0 ? "No ring" : d.km + " km ring"}</b><br>Effect: ${d.v.toFixed(1)}${o[3]}<br>95% interval: ${d.lo.toFixed(1)} to ${d.hi.toFixed(1)}<br>p = ${d.p.toFixed(3)}`))
+      .on("mouseleave", hideTip);
+  }
+  draw(outs[0]);
+}
+
+// ---------- 6. Identification ----------
+function balance(bal) {
+  const rows = bal.models.All.coefficients.slice().sort((a,b) => a.std_estimate - b.std_estimate);
+  const svg = d3.select("#balsvg"), W = 800, H = 640, mg = {l:300, r:24, t:10, b:40};
+  svg.attr("viewBox", `0 0 ${W} ${H}`);
+  const y = d3.scaleBand(rows.map(d => d.label), [mg.t, H-mg.b]).padding(.35);
+  const ext = d3.max(rows, d => Math.max(Math.abs(d.std_ci95_lo), Math.abs(d.std_ci95_hi)));
+  const x = d3.scaleLinear([-ext, ext], [mg.l, W-mg.r]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(7));
+  svg.append("line").attr("x1", x(0)).attr("x2", x(0)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  svg.append("text").attr("x", (W+mg.l)/2).attr("y", H-6).attr("text-anchor","middle").text("Standardized coefficient on mortality");
+  const g = svg.selectAll("g.r").data(rows).join("g").attr("transform", d => `translate(0,${y(d.label) + y.bandwidth()/2})`);
+  g.append("text").attr("x", mg.l - 10).attr("dy","0.35em").attr("text-anchor","end").text(d => d.label);
+  g.append("line").attr("x1", d => x(d.std_ci95_lo)).attr("x2", d => x(d.std_ci95_hi)).attr("stroke", C.teal).attr("stroke-width", 2);
+  g.append("circle").attr("cx", d => x(d.std_estimate)).attr("r", 5).attr("fill", C.teal)
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${d.label}</b><br>Coefficient: ${d.estimate.toFixed(2)} (s.e. ${d.se.toFixed(2)})<br>p = ${d.p.toFixed(2)}`))
+    .on("mouseleave", hideTip);
+}
+</script>
+</body>
+</html>

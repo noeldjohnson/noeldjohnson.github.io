@@ -1,0 +1,552 @@
+{
+  "source": "output/models/main_models.rds, output/models/ma_models.rds (bd_press_regs_05_25_main.R)",
+  "sample": {
+    "iv": "bd169: 169 cities with mortality, 1400 population and press data",
+    "market_access": "bd1801 cities with a 1300 population estimate (470)"
+  },
+  "units": {
+    "mortality": "percent of population (0-100)",
+    "lpop1400_05": "log 1400 population in thousands, zeros set to 0.5",
+    "print1500": "1 if a USTC edition is recorded in the city by 1500 (inclusive)",
+    "log_eds_1500": "log(1 + unique USTC editions 1450-1500)"
+  },
+  "headline_spec": "m3 (bishopric, university, market access 1300, cereal suitability); Column 3 / 6 of the consolidated IV table",
+  "first_stage": {
+    "dependent": "lpop1400_05",
+    "instrument": "mortality",
+    "estimate": -0.01534058,
+    "se": 0.00492903,
+    "ci95": [-0.02500131, -0.00567985],
+    "n": 169,
+    "vcov": "Conley (260km)"
+  },
+  "second_stage": {
+    "print1500": {
+      "m1": {
+        "spec": "m1",
+        "outcome": "print1500",
+        "controls": ["bish", "university"],
+        "n": 169,
+        "vcov": "Conley (260km)",
+        "first_stage_mortality": {
+          "estimate": -0.0169708,
+          "se": 0.00615783,
+          "p": 0.00651017,
+          "ci95": [-0.02903992, -0.00490169]
+        },
+        "second_stage_lpop1400": {
+          "estimate": 0.30268226,
+          "se": 0.15198049,
+          "p": 0.04806658,
+          "ci95": [0.00480597, 0.60055855]
+        }
+      },
+      "m2": {
+        "spec": "m2",
+        "outcome": "print1500",
+        "controls": ["bish", "university", "ma1300_0_38_1"],
+        "n": 169,
+        "vcov": "Conley (260km)",
+        "first_stage_mortality": {
+          "estimate": -0.01709844,
+          "se": 0.00608665,
+          "p": 0.00557099,
+          "ci95": [-0.02902805, -0.00516882]
+        },
+        "second_stage_lpop1400": {
+          "estimate": 0.29025311,
+          "se": 0.13504834,
+          "p": 0.0330807,
+          "ci95": [0.02556324, 0.55494299]
+        }
+      },
+      "m3": {
+        "spec": "m3",
+        "outcome": "print1500",
+        "controls": ["bish", "university", "ma1300_0_38_1", "cereal25k"],
+        "n": 169,
+        "vcov": "Conley (260km)",
+        "first_stage_mortality": {
+          "estimate": -0.01534058,
+          "se": 0.00492903,
+          "p": 0.00219274,
+          "ci95": [-0.02500131, -0.00567985]
+        },
+        "second_stage_lpop1400": {
+          "estimate": 0.3229422,
+          "se": 0.13554981,
+          "p": 0.01834931,
+          "ci95": [0.05726945, 0.58861496]
+        }
+      }
+    },
+    "log_eds_1500": {
+      "m1": {
+        "spec": "m1",
+        "outcome": "log_eds_1500",
+        "controls": ["bish", "university"],
+        "n": 169,
+        "vcov": "Conley (260km)",
+        "first_stage_mortality": {
+          "estimate": -0.0169708,
+          "se": 0.00615783,
+          "p": 0.00651017,
+          "ci95": [-0.02903992, -0.00490169]
+        },
+        "second_stage_lpop1400": {
+          "estimate": 1.47197877,
+          "se": 0.73321891,
+          "p": 0.04632253,
+          "ci95": [0.03489612, 2.90906142]
+        }
+      },
+      "m2": {
+        "spec": "m2",
+        "outcome": "log_eds_1500",
+        "controls": ["bish", "university", "ma1300_0_38_1"],
+        "n": 169,
+        "vcov": "Conley (260km)",
+        "first_stage_mortality": {
+          "estimate": -0.01709844,
+          "se": 0.00608665,
+          "p": 0.00557099,
+          "ci95": [-0.02902805, -0.00516882]
+        },
+        "second_stage_lpop1400": {
+          "estimate": 1.42823704,
+          "se": 0.65914959,
+          "p": 0.0316942,
+          "ci95": [0.13632759, 2.7201465]
+        }
+      },
+      "m3": {
+        "spec": "m3",
+        "outcome": "log_eds_1500",
+        "controls": ["bish", "university", "ma1300_0_38_1", "cereal25k"],
+        "n": 169,
+        "vcov": "Conley (260km)",
+        "first_stage_mortality": {
+          "estimate": -0.01534058,
+          "se": 0.00492903,
+          "p": 0.00219274,
+          "ci95": [-0.02500131, -0.00567985]
+        },
+        "second_stage_lpop1400": {
+          "estimate": 1.54579738,
+          "se": 0.64882639,
+          "p": 0.01834979,
+          "ci95": [0.27412102, 2.81747374]
+        }
+      }
+    }
+  },
+  "manuscript_macros": {
+    "BetaFs": "-0.0153",
+    "FsSe": "0.0049",
+    "BetaIvEdsXV": "1.546",
+    "IvPrintXVPP": "3.4",
+    "IvEdsXVPct": "15\\%"
+  },
+  "market_access": {
+    "note": "Six donut radii, as in Tables donuts_print1500 and donuts_eds1500. Standard errors are Conley at fixest's automatic cutoff (240km for this sample), as disclosed in those table notes. The manuscript's Section 1 ranges (0.6-2.4 pp; 3-8%) and Section 5.5 per-SD figures are typed by hand (CLAUDE.md SHOULD DO 5); use these values instead.",
+    "print1500": {
+      "m0": {
+        "spec": "m0",
+        "donut_km": 0,
+        "regressor": "dma_0_38_1",
+        "outcome": "print1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.69131365,
+        "estimate": 0.07044073,
+        "se": 0.02442298,
+        "p": 0.00410665,
+        "ci95": [0.02257257, 0.11830889],
+        "per_10pct_decline_pp": 0.74216716,
+        "per_sd_decline_pp": 4.86966376
+      },
+      "m50": {
+        "spec": "m50",
+        "donut_km": 50,
+        "regressor": "dma_0_38_1_km50",
+        "outcome": "print1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.31998438,
+        "estimate": 0.23852899,
+        "se": 0.07746223,
+        "p": 0.002198,
+        "ci95": [0.08670581, 0.39035216],
+        "per_10pct_decline_pp": 2.51315369,
+        "per_sd_decline_pp": 7.63255496
+      },
+      "m100": {
+        "spec": "m100",
+        "donut_km": 100,
+        "regressor": "dma_0_38_1_km100",
+        "outcome": "print1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.23989241,
+        "estimate": 0.23142295,
+        "se": 0.10821955,
+        "p": 0.03300119,
+        "ci95": [0.01931653, 0.44352937],
+        "per_10pct_decline_pp": 2.43828414,
+        "per_sd_decline_pp": 5.55166097
+      },
+      "m150": {
+        "spec": "m150",
+        "donut_km": 150,
+        "regressor": "dma_0_38_1_km150",
+        "outcome": "print1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.20390747,
+        "estimate": 0.16276087,
+        "se": 0.09042073,
+        "p": 0.07250383,
+        "ci95": [-0.01446049, 0.33998224],
+        "per_10pct_decline_pp": 1.71485694,
+        "per_sd_decline_pp": 3.3188158
+      },
+      "m200": {
+        "spec": "m200",
+        "donut_km": 200,
+        "regressor": "dma_0_38_1_km200",
+        "outcome": "print1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.17130943,
+        "estimate": 0.05542588,
+        "se": 0.14616454,
+        "p": 0.70471137,
+        "ci95": [-0.23105135, 0.3419031],
+        "per_10pct_decline_pp": 0.58396991,
+        "per_sd_decline_pp": 0.94949754
+      },
+      "m250": {
+        "spec": "m250",
+        "donut_km": 250,
+        "regressor": "dma_0_38_1_km250",
+        "outcome": "print1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.14701597,
+        "estimate": 0.01766711,
+        "se": 0.19475117,
+        "p": 0.92775713,
+        "ci95": [-0.36403816, 0.39937239],
+        "per_10pct_decline_pp": 0.18614163,
+        "per_sd_decline_pp": 0.25973479
+      }
+    },
+    "log_eds_1500": {
+      "m0": {
+        "spec": "m0",
+        "donut_km": 0,
+        "regressor": "dma_0_38_1",
+        "outcome": "log_eds_1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.69131365,
+        "estimate": 0.34650516,
+        "se": 0.17214123,
+        "p": 0.044701,
+        "ci95": [0.00911455, 0.68389577],
+        "per_10pct_decline_pct": 3.58495831,
+        "per_sd_decline_pct": 21.30131556
+      },
+      "m50": {
+        "spec": "m50",
+        "donut_km": 50,
+        "regressor": "dma_0_38_1_km50",
+        "outcome": "log_eds_1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.31998438,
+        "estimate": 0.89470036,
+        "se": 0.28686659,
+        "p": 0.00192841,
+        "ci95": [0.33245217, 1.45694854],
+        "per_10pct_decline_pct": 8.99594234,
+        "per_sd_decline_pct": 24.89553228
+      },
+      "m100": {
+        "spec": "m100",
+        "donut_km": 100,
+        "regressor": "dma_0_38_1_km100",
+        "outcome": "log_eds_1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.23989241,
+        "estimate": 0.77344134,
+        "se": 0.46771943,
+        "p": 0.09887624,
+        "ci95": [-0.1432719, 1.69015459],
+        "per_10pct_decline_pct": 7.82582376,
+        "per_sd_decline_pct": 16.9346642
+      },
+      "m150": {
+        "spec": "m150",
+        "donut_km": 150,
+        "regressor": "dma_0_38_1_km150",
+        "outcome": "log_eds_1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.20390747,
+        "estimate": 0.56761507,
+        "se": 0.40931076,
+        "p": 0.16618135,
+        "ci95": [-0.23461927, 1.36984941],
+        "per_10pct_decline_pct": 5.80510663,
+        "per_sd_decline_pct": 10.92940731
+      },
+      "m200": {
+        "spec": "m200",
+        "donut_km": 200,
+        "regressor": "dma_0_38_1_km200",
+        "outcome": "log_eds_1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.17130943,
+        "estimate": 0.3680435,
+        "se": 0.52569751,
+        "p": 0.48421255,
+        "ci95": [-0.66230469, 1.39839168],
+        "per_10pct_decline_pct": 3.80350395,
+        "per_sd_decline_pct": 6.11028343
+      },
+      "m250": {
+        "spec": "m250",
+        "donut_km": 250,
+        "regressor": "dma_0_38_1_km250",
+        "outcome": "log_eds_1500",
+        "n": 470,
+        "vcov": "Conley (240km)",
+        "sd_regressor": 0.14701597,
+        "estimate": 0.34303553,
+        "se": 0.76150195,
+        "p": 0.65258034,
+        "ci95": [-1.14948088, 1.83555193],
+        "per_10pct_decline_pct": 3.54970615,
+        "per_sd_decline_pct": 4.9181132
+      }
+    }
+  },
+  "slider": {
+    "formula": {
+      "d_lpop1400": "first_stage.estimate * (mortality - means.mortality)",
+      "d_print1500_pp": "100 * beta_print1500 * d_lpop1400 (linear probability model; clip predicted level to [0,1])",
+      "d_editions_pct": "100 * (exp(beta_log_eds_1500 * d_lpop1400) - 1)"
+    },
+    "beta_first_stage": -0.01534058,
+    "beta_print1500": 0.3229422,
+    "beta_log_eds_1500": 1.54579738,
+    "means": {
+      "mortality": 40.21707422,
+      "lpop1400_05": 2.08755514,
+      "pop1400_k": 16.68047337,
+      "print1500": 0.44378698,
+      "log_eds_1500": 1.68535043,
+      "editions_1450_1500": 113.98224852
+    },
+    "sds": {
+      "mortality": 16.59191789,
+      "lpop1400_05": 1.23369274
+    },
+    "grid": [
+      {
+        "mortality": 0,
+        "d_mortality": -40.21707422,
+        "d_lpop1400": 0.6169531,
+        "pred_pop1400_k": 14.94696461,
+        "d_print1500_pp": 19.92401925,
+        "pred_print1500": 0.64302717,
+        "d_editions_pct": 159.52542422,
+        "pred_editions_at_mean_log": 12.99968617
+      },
+      {
+        "mortality": 5,
+        "d_mortality": -35.21707422,
+        "d_lpop1400": 0.54025022,
+        "pred_pop1400_k": 13.84335537,
+        "d_print1500_pp": 17.44695949,
+        "pred_print1500": 0.61825658,
+        "d_editions_pct": 130.50845838,
+        "pred_editions_at_mean_log": 11.43441211
+      },
+      {
+        "mortality": 10,
+        "d_mortality": -30.21707422,
+        "d_lpop1400": 0.46354734,
+        "pred_pop1400_k": 12.82123113,
+        "d_print1500_pp": 14.96989972,
+        "pred_print1500": 0.59348598,
+        "d_editions_pct": 104.73581556,
+        "pred_editions_at_mean_log": 10.04414789
+      },
+      {
+        "mortality": 15,
+        "d_mortality": -25.21707422,
+        "d_lpop1400": 0.38684445,
+        "pred_pop1400_k": 11.87457544,
+        "d_print1500_pp": 12.49283996,
+        "pred_print1500": 0.56871538,
+        "d_editions_pct": 81.84475514,
+        "pred_editions_at_mean_log": 8.80932605
+      },
+      {
+        "mortality": 20,
+        "d_mortality": -20.21707422,
+        "d_lpop1400": 0.31014157,
+        "pred_pop1400_k": 10.99781608,
+        "d_print1500_pp": 10.0157802,
+        "pred_print1500": 0.54394478,
+        "d_editions_pct": 61.51309375,
+        "pred_editions_at_mean_log": 7.71256692
+      },
+      {
+        "mortality": 25,
+        "d_mortality": -15.21707422,
+        "d_lpop1400": 0.23343869,
+        "pred_pop1400_k": 10.18579225,
+        "d_print1500_pp": 7.53872044,
+        "pred_print1500": 0.51917419,
+        "d_editions_pct": 43.45467062,
+        "pred_editions_at_mean_log": 6.73843401
+      },
+      {
+        "mortality": 30,
+        "d_mortality": -10.21707422,
+        "d_lpop1400": 0.15673581,
+        "pred_pop1400_k": 9.43372421,
+        "d_print1500_pp": 5.06166068,
+        "pred_print1500": 0.49440359,
+        "d_editions_pct": 27.41531999,
+        "pred_editions_at_mean_log": 5.87321675
+      },
+      {
+        "mortality": 35,
+        "d_mortality": -5.21707422,
+        "d_lpop1400": 0.08003293,
+        "pred_pop1400_k": 8.73718512,
+        "d_print1500_pp": 2.58460092,
+        "pred_print1500": 0.46963299,
+        "d_editions_pct": 13.16929381,
+        "pred_editions_at_mean_log": 5.10473753
+      },
+      {
+        "mortality": 40,
+        "d_mortality": -0.21707422,
+        "d_lpop1400": 0.00333004,
+        "pred_pop1400_k": 8.09207499,
+        "d_print1500_pp": 0.10754116,
+        "pred_print1500": 0.44486239,
+        "d_editions_pct": 0.51608443,
+        "pred_editions_at_mean_log": 4.42218028
+      },
+      {
+        "mortality": 45,
+        "d_mortality": 4.78292578,
+        "d_lpop1400": -0.07337284,
+        "pred_pop1400_k": 7.49459658,
+        "d_print1500_pp": -2.3695186,
+        "pred_print1500": 0.4200918,
+        "d_editions_pct": -10.72239749,
+        "pred_editions_at_mean_log": 3.81593825
+      },
+      {
+        "mortality": 50,
+        "d_mortality": 9.78292578,
+        "d_lpop1400": -0.15007572,
+        "pred_pop1400_k": 6.94123299,
+        "d_print1500_pp": -4.84657836,
+        "pred_print1500": 0.3953212,
+        "d_editions_pct": -20.70432951,
+        "pred_editions_at_mean_log": 3.27747881
+      },
+      {
+        "mortality": 55,
+        "d_mortality": 14.78292578,
+        "d_lpop1400": -0.2267786,
+        "pred_pop1400_k": 6.428727,
+        "d_print1500_pp": -7.32363812,
+        "pred_print1500": 0.3705506,
+        "d_editions_pct": -29.5702037,
+        "pred_editions_at_mean_log": 2.79922333
+      },
+      {
+        "mortality": 60,
+        "d_mortality": 19.78292578,
+        "d_lpop1400": -0.30348148,
+        "pred_pop1400_k": 5.9540619,
+        "d_print1500_pp": -9.80069788,
+        "pred_print1500": 0.34578,
+        "d_editions_pct": -37.44480404,
+        "pred_editions_at_mean_log": 2.37444054
+      },
+      {
+        "mortality": 65,
+        "d_mortality": 24.78292578,
+        "d_lpop1400": -0.38018437,
+        "pred_pop1400_k": 5.51444369,
+        "d_print1500_pp": -12.27775764,
+        "pred_print1500": 0.32100941,
+        "d_editions_pct": -44.43896266,
+        "pred_editions_at_mean_log": 1.99715178
+      },
+      {
+        "mortality": 70,
+        "d_mortality": 29.78292578,
+        "d_lpop1400": -0.45688725,
+        "pred_pop1400_k": 5.10728471,
+        "d_print1500_pp": -14.7548174,
+        "pred_print1500": 0.29623881,
+        "d_editions_pct": -50.65111982,
+        "pred_editions_at_mean_log": 1.66204684
+      },
+      {
+        "mortality": 75,
+        "d_mortality": 34.78292578,
+        "d_lpop1400": -0.53359013,
+        "pred_pop1400_k": 4.7301883,
+        "d_print1500_pp": -17.23187716,
+        "pred_print1500": 0.27146821,
+        "d_editions_pct": -56.16870938,
+        "pred_editions_at_mean_log": 1.36440925
+      },
+      {
+        "mortality": 80,
+        "d_mortality": 39.78292578,
+        "d_lpop1400": -0.61029301,
+        "pred_pop1400_k": 4.38093482,
+        "d_print1500_pp": -19.70893692,
+        "pred_print1500": 0.24669761,
+        "d_editions_pct": -61.0693894,
+        "pred_editions_at_mean_log": 1.10004986
+      },
+      {
+        "mortality": 85,
+        "d_mortality": 44.78292578,
+        "d_lpop1400": -0.68699589,
+        "pred_pop1400_k": 4.05746846,
+        "d_print1500_pp": -22.18599668,
+        "pred_print1500": 0.22192702,
+        "d_editions_pct": -65.42213519,
+        "pred_editions_at_mean_log": 0.86524791
+      },
+      {
+        "mortality": 90,
+        "d_mortality": 49.78292578,
+        "d_lpop1400": -0.76369878,
+        "pred_pop1400_k": 3.75788525,
+        "d_print1500_pp": -24.66305644,
+        "pred_print1500": 0.19715642,
+        "d_editions_pct": -69.28821007,
+        "pred_editions_at_mean_log": 0.65669865
+      }
+    ]
+  },
+  "not_exported": "The subject-range (HHI) result is suggestive in the manuscript and gets no slider; the page states it as a sentence with its caveat."
+}

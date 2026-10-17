@@ -29,7 +29,8 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **The Impact of the Black Death on the Adoption of the Printing Press**\\
 (Joint with Alexander Taylor and Andrew Thomas)\\
 [Download Draft](/assets/papers/the-impact-of-the-black-death-on-draft.pdf)\\
-[Download Presentation](/assets/papers/the-impact-of-the-black-death-on-presentation.pdf)
+[Download Presentation](/assets/papers/the-impact-of-the-black-death-on-presentation.pdf)\\
+[Interactive Companion](/interactive/black-death-press/)
 
 **How Do Information Markets Respond to a Crisis? Plague, Print, and Persecution in Early Modern Europe**\\
 (joint with Alexander Taylor)

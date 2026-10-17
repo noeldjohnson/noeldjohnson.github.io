@@ -1,0 +1,8 @@
+{
+  "generated": "2026-10-16 22:10:09 EDT",
+  "script": "scripts/revisions/companion_export_10_16.R",
+  "git_commit": "88fa798",
+  "uncommitted_changes_in_scripts_or_latex": true,
+  "inputs": ["output/data/bd169_updated.dta", "output/data/bd1801_updated.dta", "output/models/main_models.rds", "output/models/ma_models.rds", "output/models/balance_models.rds", "output/tables/derived_stats.tex", "Analysis/Cities274Figure/ModernCountries/Modern Europe Projected.shp"],
+  "outputs": ["balance.json", "basemap.geojson", "binscatter.json", "cities.csv", "estimates.json", "manifest.json"]
+}
