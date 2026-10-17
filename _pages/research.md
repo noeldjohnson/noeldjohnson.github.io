@@ -20,7 +20,8 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 **Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach**\\
 (joint with Alexander Taylor)\\
 [Download Draft](/assets/papers/market-for-ideas.pdf)\\
-[Download Presentation](/assets/papers/market-for-ideas-presentation.pdf)
+[Download Presentation](/assets/papers/market-for-ideas-presentation.pdf)\\
+[Interactive Companion](/interactive/market-for-ideas/)
 
 **The Great Revolt and its Legacy: Understanding Vaccine Hesitancy in Colonial India**\\
 (joint with Malik Altaf Hussain)\\
