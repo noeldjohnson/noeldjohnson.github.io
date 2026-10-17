@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Selected Is the Institutional Record?</title>
+<meta name="description" content="An interactive companion to How Selected Is the Institutional Record? Craft Guilds and City Growth in Europe, 1000–1800 by Eric H. Wilhelm and Noel D. Johnson.">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+.byline a { color: var(--teal); }
+nav.toc { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; background: var(--panel); padding: 14px 18px; border-radius: 6px; margin: 0 0 32px; }
+nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+nav.toc a { color: var(--navy); text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+h2 { font-size: 26px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.figure .cap { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 10px; }
+.figure .cap b { color: var(--ink); }
+.controls { font: 15px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 12px; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+.controls .v { font-weight: 600; color: var(--rust); min-width: 3.2em; }
+input[type=range] { width: 180px; max-width: 100%; accent-color: var(--rust); }
+input[type=text] { font: 15px -apple-system, "Helvetica Neue", Arial, sans-serif; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+button.tab { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; border: 1px solid var(--rule); background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; color: var(--navy); }
+button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.readout div { background: #fff; border-radius: 6px; padding: 10px 12px; font: 14px/1.35 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.readout b { display: block; font: 600 24px/1.2 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--navy); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.chips { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.chips a { color: var(--teal); cursor: pointer; margin-right: 8px; text-decoration: underline; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
+svg text.title { font-weight: 600; fill: var(--navy); font-size: 13px; }
+.axis path, .axis line { stroke: #b8b8b8; }
+.tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; max-width: 300px; z-index: 10; }
+.tip b { color: var(--navy); }
+.legend { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 6px; }
+table.t { width: 100%; border-collapse: collapse; font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; margin: 6px 0 4px; }
+table.t th, table.t td { border-bottom: 1px solid var(--rule); padding: 6px 6px; text-align: left; }
+.note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+@media (max-width: 640px) {
+  body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
+  .readout, .two { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">Interactive companion</div>
+  <h1>How Selected Is the Institutional Record? Craft Guilds and City Growth in Europe, 1000–1800</h1>
+  <div class="byline">Eric H. Wilhelm and Noel D. Johnson · <a href="/research/">Research</a></div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#model">The model</a></li>
+    <li><a href="#map">Where guilds were recorded</a></li>
+    <li><a href="#ratios">Which cities enter the record</a></li>
+    <li><a href="#exclusivity">Exclusivity</a></li>
+    <li><a href="#explorer">City explorer</a></li>
+    <li><a href="#eventstudy">What followed the record</a></li>
+    <li><a href="#designs">Cross-city and within-city</a></li>
+    <li><a href="#limits">Limits</a></li>
+  </ol>
+</nav>
+
+<section id="argument">
+<h2><span class="num">1</span>Argument</h2>
+<p>In the year 1000 Ghent held about five thousand people. By 1300 it held sixty-four thousand, and only Paris and London were larger north of the Alps. Its craft guilds enter the surviving record in the thirteenth century, near the peak of that rise. Over the next three centuries the city lost half its people. Read one way, guilds arrived and growth stopped. Read another, guilds were first written down in a city that had been rising for three hundred years.</p>
+<p>Much of what economists know about institutions and growth comes from designs that date an institution by its first appearance in the record. Guilds, communes, universities, printing presses, and market rights have all been used this way. The record is built from documents that survived, and cities that grew wrote more and kept more. The paper asks how selected that record is.</p>
+<p>It uses a panel of 1,754 European cities from 1000 to 1800, with documented guild activity in 724 of them. Cities whose guilds are first documented had been about twice the size of their neighbors for four centuries before the record. They also had twice the notable births of cities their own size. Seven other institutions go through the same comparison. The first printing press shows the same long lead. Towns that received a market right or a charter were ordinary towns. Capitals and sees went to large cities.</p>
+<p>Once the selection is measured, the guild evidence reads differently. Cross-city regressions imply that a century of guild presence goes with a city twice as large in the long run. Within-city and matched designs put the premium near 14 percent. The apparent decline of guild cities after their guilds appear is mean reversion, which never-documented cities of the same size share.</p>
+</section>
+
+<section id="model">
+<h2><span class="num">2</span>The model</h2>
+<p>An institution comes into being in a town when whoever decides finds it worth the cost. Two dials set how far the towns that acquire it stand above the average town. The first is a threshold, the size a town must reach for the institution to pay. Craftsmen gain from organizing only where there are many of them, so a guild has a high threshold. A ruler selling a market right collects a fee that covers his cost in any town, so a grant has none. The second dial is the number of places available. A kingdom has one capital and a diocese one see.</p>
+<p>Move the dials. Town size is lognormal, and the lead is the mean size of the towns that acquire the institution over the mean of all towns, Eq. 3 in the paper.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Threshold at quantile <input id="mq" type="range" min="0" max="0.95" step="0.01" value="0.60"></label><span class="v" id="mqv"></span>
+    <label>Places for this share of towns <input id="mk" type="range" min="0.02" max="1" step="0.01" value="1"></label><span class="v" id="mkv"></span>
+    <label>Spread of town size, σ <input id="ms" type="range" min="0.4" max="1.6" step="0.05" value="1"></label><span class="v" id="msv"></span>
+  </div>
+  <div class="readout">
+    <div><b id="mr"></b>lead of acquiring towns over the average town</div>
+    <div><b id="mshare"></b>share of towns that acquire it</div>
+    <div><b id="mbind"></b>which dial binds</div>
+  </div>
+  <svg id="msvg" viewBox="0 0 800 260" role="img" aria-label="Distribution of town size with the cut"></svg>
+  <div class="cap"><b>Figure 1.</b> The distribution of log town scale. Towns in the shaded tail acquire the institution. The threshold cuts from below and a limit on places cuts from the top. With neither, every town that asks gets it and the lead is one.</div>
+</div>
+<p>Scale persists from century to century, which carries the lead backward from the date the institution was decided to the centuries before the record. A guild existed before anyone wrote it down, so its record lags its formation. A charter or a seat is recorded when it is created. The second figure traces the lead in the four centuries before the record, using the lead above and the persistence of city size. The paper's population data imply a half-life of five to seven centuries.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Persistence per century, ρ <input id="mrho" type="range" min="0.5" max="0.98" step="0.01" value="0.89"></label><span class="v" id="mrhov"></span>
+    <label>Lag from formation to record, centuries <input id="mtau" type="range" min="0" max="2" step="1" value="1"></label><span class="v" id="mtauv"></span>
+  </div>
+  <svg id="m2svg" viewBox="0 0 800 260" role="img" aria-label="Lead before the record"></svg>
+  <div class="cap"><b>Figure 2.</b> The lead of acquiring towns before the first record, approximating the log lead as decaying by ρ per century from the decision date (Section 2.3 of the paper). The formed organization uses the lead and lag set above. The seat is recorded when placed. The grant has no lead.</div>
+</div>
+</section>
+
+<section id="map">
+<h2><span class="num">3</span>Where guilds were recorded</h2>
+<p>Guild documentation begins in the Mediterranean commercial core and northern France. It spreads through the Holy Roman Empire and the Low Countries in the thirteenth and fourteenth centuries and reaches the periphery late. Documented and never-documented cities are interleaved everywhere, which is what lets the paper match each guild city to similar cities nearby.</p>
+<div class="figure">
+  <div class="controls"><label>Guilds documented by <input id="my" type="range" min="1100" max="1800" step="100" value="1400"></label><span class="v" id="myv"></span></div>
+  <svg id="mapsvg" viewBox="0 0 800 640" role="img" aria-label="Map of guild documentation"></svg>
+  <div class="legend" id="maplegend"></div>
+  <div class="cap"><b>Figure 3.</b> All 1,754 cities in the analysis sample. Filled circles have documented guild activity by the year on the slider and are shaded by the century it was first recorded. Open gray circles do not. The record dates when guilds were active, not when they were founded.</div>
+</div>
+<div class="figure">
+  <svg id="cohsvg" viewBox="0 0 800 280" role="img" aria-label="Average city population by documentation cohort"></svg>
+  <div class="legend" id="cohleg"></div>
+  <div class="cap"><b>Figure 4.</b> Average population of cities with an estimate, by when guild activity was first documented. The cities recorded earliest are the largest at every date, and never-documented cities are the smallest.</div>
+</div>
+</section>
+
+<section id="ratios">
+<h2><span class="num">4</span>Which cities enter the record</h2>
+<p>For each institution and each century from four before its first record to four after, the paper compares the cities that acquired it with the cities that did not. The population comparison uses every city in the comparison pool and counts a city with no estimate as small. The notable-births comparison uses cities whose population one century before the event was within a factor of about 2.7 of the event cities' mean, so it measures prominence given size. Per-inhabitant births remove the size difference that remains inside that band.</p>
+<div class="figure">
+  <div class="controls" id="rpanel"></div>
+  <div class="controls" id="rmeasure"></div>
+  <svg id="rsvg" viewBox="0 0 800 360" role="img" aria-label="Ratios by century"></svg>
+  <div class="legend" id="rleg"></div>
+  <div class="cap"><b>Figure 5.</b> Ratio of the mean for cities that acquired the institution to the mean for comparison cities, by century relative to the first record, on a log scale. Solid lines grew from below and dashed lines were conferred from above. Hover for the 95 percent interval. The paper prints intervals for the pooled windows only. The century-by-century intervals here use the paper's bootstrap of 500 draws, resampling event and comparison cities separately.</div>
+</div>
+<p>Four centuries before their guilds appear the average guild city held about 2,600 people and the average comparison city about 1,400. Market and charter towns were level with their neighbors at every date. Within the German and Austrian towns, where guild records, market rights, and charters all come from the same urban histories, guild towns were 1.5 to 2.1 times the size of other towns before the record and market and charter towns were not.</p>
+<div class="figure">
+  <table class="t" id="wtab"></table>
+  <div class="cap"><b>Table 1.</b> Pooled windows for the selected panel and measure, with 95 percent intervals. Early is the fourth and third centuries before the first record, late the second and first, and after the event century and the three that follow.</div>
+</div>
+<p class="note">The guild lead sits in the mean, not the median. The median guild city was the size of the median comparison city in the early window, and the larger guild cities carry the lead. Guild cities were also more often recorded at all, 83 percent against 71 percent in the early window. Counting only recorded cities, the early guild lead is 1.7 rather than 2.0.</p>
+</section>
+
+<section id="exclusivity">
+<h2><span class="num">5</span>Exclusivity</h2>
+<p>The model orders institutions by how hard they were to have. This figure places the nine on one scale. The horizontal axis is the share of cities in the comparison pool that ever acquired the institution. The vertical axis is the early-window lead over the average city in the pool.</p>
+<div class="figure">
+  <svg id="exsvg" viewBox="0 0 800 380" role="img" aria-label="Exclusivity"></svg>
+  <div class="legend" id="exleg"></div>
+  <div class="cap"><b>Figure 6.</b> Early-window lead over the average city against the share of cities acquiring the institution, on log scales, with 95 percent intervals. The paper presents this as an illustration of the model and does not test the relation.</div>
+</div>
+<p>The sharpest contrast is between an institution with a threshold and one without. In Germany guilds and charters were about equally common. Guild cities were ahead and charter towns were not. Exclusivity alone does not separate them. Whether a town had to be large to have the institution does.</p>
+</section>
+
+<section id="explorer">
+<h2><span class="num">6</span>City explorer</h2>
+<p>Pick any of the 1,754 cities to see its population, notable births, and guild record by century, with the dates of the other institutions it acquired.</p>
+<div class="figure">
+  <div class="controls">
+    <input id="city" type="text" list="citylist" placeholder="Type a city" style="width:240px"><datalist id="citylist"></datalist>
+    <span class="chips" id="cchips"></span>
+  </div>
+  <div class="legend" id="cinfo"></div>
+  <svg id="cvis" viewBox="0 0 800 330" role="img" aria-label="City history"></svg>
+  <div class="cap"><b>Figure 7.</b> Bars are population at the end of each century, on a log scale. The teal line is notable births in the century, on the right axis. Shaded bars mark centuries with documented guild activity, with the shade showing the share of the century documented. Other institutions are marked at the century they first appear.</div>
+</div>
+</section>
+
+<section id="eventstudy">
+<h2><span class="num">7</span>What followed the record</h2>
+<p>The paper's matched event study compares each guild city with never-documented cities in the same guild-strength region whose population one century before documentation was within 1.0 log point of the guild cities' mean. There are 26 experiments, 617 guild cities, and 918 control cities.</p>
+<div class="figure">
+  <div class="controls" id="estabs"></div>
+  <svg id="essvg" viewBox="0 0 800 320" role="img" aria-label="Event study"></svg>
+  <div class="legend" id="esleg"></div>
+  <div class="cap" id="escap"></div>
+</div>
+<p>Without matching, guild cities rise before their first record and decline after it. That decline is what made guilds look like a brake on growth. With matching, pre-trends are flat in the three centuries before documentation, with a small negative deviation in the fourth. The premium is 14.4 percent at documentation and holds for four centuries, because the matched controls revert toward the mean at the same rate. Where documentation is sustained the premium reaches about 0.31 log points. Where it lapses the premium disappears.</p>
+<p>The premium is an association. The century is the resolution of the data, and a city can take off and acquire documented guilds within the same hundred years.</p>
+</section>
+
+<section id="designs">
+<h2><span class="num">8</span>Cross-city and within-city</h2>
+<div class="figure">
+  <svg id="dsvg" viewBox="0 0 800 270" role="img" aria-label="Designs compared"></svg>
+  <div class="cap"><b>Figure 9.</b> Long-run association between a century of guild presence and city size implied by each design, in percent. The cross-city figure extrapolates a growth differential through the estimated convergence rate. The within-city figure is from a two-way fixed effects regression with a lagged dependent variable. Appendix G of the paper reports further specifications.</div>
+</div>
+<p>Cross-city growth regressions find guild cities growing about 7 points faster per century. Pushed through a convergence rate of about a tenth per century, that implies a steady-state city twice as large, which no urban institution could plausibly deliver. Within-city regressions and the matched design both give about 14 percent. The gap between them is the level selection of Section 4. Run backward, the same regressions show it directly. A doubling of a city's size predicts about four more years of documented guild activity in the following century.</p>
+</section>
+
+<section id="limits">
+<h2><span class="num">9</span>Limits</h2>
+<p>Market rights and charters are observed only for German and Austrian towns, because the Deutsches Städtebuch is the one source that dates them for many towns. The sharpest comparison in the paper is therefore also the narrowest.</p>
+<p>Size and prominence do not always agree. Commune cities were ordinary in size and unusually prominent. Cities that received new sees were large and no more prominent than cities their size. The paper reports both measures.</p>
+<p>Notable births are sparse before 1400, so the early comparisons for the rarer institutions are imprecise.</p>
+<p>The model orders institutions with two dials and one persistence rate. It predicts selection on levels and says nothing about what an institution does once it exists.</p>
+</section>
+
+<footer>
+  <p>Every number on this page comes from data exported by the paper's replication code, which checks 64 values against the draft of 3 October 2026. City populations are from Buringh (2021), guild activity extends Sheilagh Ogilvie's guild databases, notable births are from Laouenan et al. (2022), and the other institutions are from Bosker, Buringh, and van Zanden (2013), Cantoni, Mohr, and Weigand (2020), and the Universal Short Title Catalogue.</p>
+</footer>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
+const tip = d3.select("#tip");
+const showTip = (ev, html) => tip.html(html).style("opacity",1).style("left", Math.min(ev.clientX + 14, window.innerWidth - 310) + "px").style("top", (ev.clientY + 14) + "px");
+const hideTip = () => tip.style("opacity",0);
+const SMALL = new Set(["am","an","der","de","del","la","le","les","sur","sous","di","da","im","in","op","aan","van","en","y","el","los","las","du","des","an der","ob","bei"]);
+const tc = s => s.toLowerCase().split(/(\s|-)/).map((w,i) => (i > 0 && SMALL.has(w)) ? w : w.charAt(0).toUpperCase() + w.slice(1)).join("");
+const fmt0 = d3.format(",.0f");
+
+// standard normal CDF and inverse
+function erf(x){const t=1/(1+.3275911*Math.abs(x));const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-x*x);return x>=0?y:-y;}
+const Phi = z => .5*(1+erf(z/Math.SQRT2));
+function Pinv(p){ if(p<=0) return -8; if(p>=1) return 8;
+  const a=[-39.6968302866538,220.946098424521,-275.928510446969,138.357751867269,-30.6647980661472,2.50662827745924],
+        b=[-54.4760987982241,161.585836858041,-155.698979859887,66.8013118877197,-13.2806815528857],
+        c=[-.00778489400243029,-.322396458041136,-2.40075827716184,-2.54973253934373,4.37466414146497,2.93816398269878],
+        d=[.00778469570904146,.32246712907004,2.445134137143,3.75440866190742], pl=.02425;
+  let q,r; if(p<pl){q=Math.sqrt(-2*Math.log(p));return(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  if(p>1-pl){q=Math.sqrt(-2*Math.log(1-p));return-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  q=p-.5;r=q*q;return(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1); }
+const leadAt = (u, s) => u <= 0 ? 1 : (1 - Phi((s*Pinv(u) - s*s)/s)) / (1 - u);   // Eq. 3 with mu = 0, q = sigma * Pinv(u)
+
+Promise.all([
+  d3.csv("cities.csv", d3.autoType), d3.json("ratios.json"), d3.json("windows.json"), d3.json("exclusivity.json"),
+  d3.json("event_study.json"), d3.json("growth_designs.json"), d3.json("cohort_means.json"), d3.json("basemap.geojson")
+]).then(([cities, ratios, windows, excl, es, gd, coh, base]) => {
+  cities.forEach(r => { for (const k in r) if (r[k] === "NA" || r[k] === "") r[k] = null; });
+  const sample = cities.filter(r => r.analysis_sample === true || r.analysis_sample === "TRUE");
+  model(); mapView(sample, base); cohorts(coh); ratioView(ratios, windows); exclusivity(excl); explorer(sample); eventStudy(es); designs(gd);
+});
+
+// ---------- 2. Model ----------
+function model() {
+  const svg = d3.select("#msvg"), W = 800, H = 260, mg = {l:40, r:20, t:14, b:36};
+  const x = d3.scaleLinear([-4, 4], [mg.l, W-mg.r]);
+  const s2 = d3.select("#m2svg"), m2 = {l:56, r:150, t:14, b:36};
+  const x2 = d3.scaleLinear([-4, 0], [m2.l, W-m2.r]);
+  let lastR = 1;
+  function draw() {
+    const u = +d3.select("#mq").property("value"), k = +d3.select("#mk").property("value"), s = +d3.select("#ms").property("value");
+    d3.select("#mqv").text(Math.round(100*u) + "%"); d3.select("#mkv").text(Math.round(100*k) + "%"); d3.select("#msv").text(s.toFixed(2));
+    const uEff = Math.max(u, 1 - k), r = leadAt(uEff, s); lastR = r;
+    d3.select("#mr").text(r.toFixed(2) + "×"); d3.select("#mshare").text(Math.round(100*(1-uEff)) + "%");
+    d3.select("#mbind").text(uEff <= 0 ? "neither" : (1 - k > u ? "places" : "threshold"));
+    svg.selectAll("*").remove();
+    const pts = d3.range(-4, 4.01, 0.05).map(z => ({ z, d: Math.exp(-z*z/(2*s*s)) / (s*Math.sqrt(2*Math.PI)) }));
+    const y = d3.scaleLinear([0, d3.max(pts, p => p.d) * 1.1], [H-mg.b, mg.t]);
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(8));
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-4).attr("text-anchor","middle").text("Log scale of town");
+    const cut = s * Pinv(uEff);
+    svg.append("path").datum(pts.filter(p => p.z >= cut)).attr("fill", C.rust).attr("opacity", .35).attr("d", d3.area().x(p => x(p.z)).y0(y(0)).y1(p => y(p.d)));
+    svg.append("path").datum(pts).attr("fill","none").attr("stroke", C.navy).attr("stroke-width", 2).attr("d", d3.line().x(p => x(p.z)).y(p => y(p.d)));
+    if (u > 0) { const c = s*Pinv(u); svg.append("line").attr("x1", x(c)).attr("x2", x(c)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.navy).attr("stroke-dasharray","4 3");
+      svg.append("text").attr("x", x(c)+4).attr("y", mg.t+12).text("threshold S*"); }
+    if (k < 1) { const c = s*Pinv(1-k); svg.append("line").attr("x1", x(c)).attr("x2", x(c)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.rust).attr("stroke-dasharray","2 3");
+      svg.append("text").attr("x", x(c)+4).attr("y", mg.t+28).attr("fill", C.rust).text("top K places"); }
+    drawLead();
+  }
+  function drawLead() {
+    const rho = +d3.select("#mrho").property("value"), tau = +d3.select("#mtau").property("value");
+    d3.select("#mrhov").text(rho.toFixed(2)); d3.select("#mtauv").text(tau);
+    const hl = Math.log(0.5)/Math.log(rho);
+    d3.select("#mrhov").text(rho.toFixed(2) + " (half-life " + hl.toFixed(1) + ")");
+    s2.selectAll("*").remove();
+    const hs = d3.range(-4, 0.01, 0.1);
+    const formed = hs.map(h => ({ h, v: Math.exp(Math.log(lastR) * Math.pow(rho, Math.abs(-h - tau))) }));
+    const seat = hs.map(h => ({ h, v: Math.exp(Math.log(Math.max(lastR, 1)) * Math.pow(rho, Math.abs(-h))) }));
+    const grant = hs.map(h => ({ h, v: 1 }));
+    const y = d3.scaleLog([0.9, Math.max(2, lastR * 1.15)], [260-m2.b, m2.t]);
+    s2.append("g").attr("class","axis").attr("transform",`translate(0,${260-m2.b})`).call(d3.axisBottom(x2).ticks(4).tickFormat(d => d));
+    s2.append("g").attr("class","axis").attr("transform",`translate(${m2.l},0)`).call(d3.axisLeft(y).ticks(5, "~g"));
+    s2.append("text").attr("x",(W-m2.r+m2.l)/2).attr("y",256).attr("text-anchor","middle").text("Centuries before the first record");
+    s2.append("text").attr("transform","rotate(-90)").attr("x",-(260-m2.b+m2.t)/2).attr("y",14).attr("text-anchor","middle").text("Lead over the average town");
+    [[formed, C.rust, "Formed organization", null], [seat, C.navy, "Seat", "5 4"], [grant, C.gray, "Grant", "2 3"]].forEach(([d, col, lab, dash]) => {
+      s2.append("path").datum(d).attr("fill","none").attr("stroke", col).attr("stroke-width", 2.5).attr("stroke-dasharray", dash).attr("d", d3.line().x(p => x2(p.h)).y(p => y(p.v)));
+      s2.append("text").attr("x", W-m2.r+8).attr("y", y(d[d.length-1].v)).attr("dy","0.35em").attr("fill", col).style("font-weight",600).text(lab);
+    });
+  }
+  d3.selectAll("#mq,#mk,#ms").on("input", draw); d3.selectAll("#mrho,#mtau").on("input", drawLead); draw();
+}
+
+// ---------- 3. Map ----------
+function mapView(sample, base) {
+  const svg = d3.select("#mapsvg"), W = 800, H = 640;
+  const fix = f => { if (d3.geoArea(f) > 2*Math.PI) { const rv = p => p.map(r => r.slice().reverse()); const g = f.geometry;
+    return { ...f, geometry: { ...g, coordinates: g.type === "Polygon" ? rv(g.coordinates) : g.coordinates.map(rv) } }; } return f; };
+  const feats = (base.features || [base]).map(fix);
+  const box = { type:"MultiPoint", coordinates: [[-12,34],[30,34],[-12,63],[30,63],[9,64],[9,34]] };
+  const proj = d3.geoConicConformal().rotate([-9,0]).parallels([40,58]).fitExtent([[10,10],[W-10,H-10]], box).clipExtent([[0,0],[W,H]]);
+  const path = d3.geoPath(proj);
+  svg.append("rect").attr("width",W).attr("height",H).attr("fill","#e9eef2");
+  svg.selectAll("path.l").data(feats).join("path").attr("class","l").attr("d", path).attr("fill","#fbfaf7").attr("stroke","#c9c9c9");
+  const cityRows = d3.rollups(sample, v => v[0], r => r.city).map(d => d[1]).filter(r => r.latitude != null);
+  const col = d3.scaleSequential([1100, 1800], d3.interpolateRgbBasis(["#4a1c05", C.rust, C.gold, "#f2e6c6"]));
+  const g = svg.append("g");
+  const dots = g.selectAll("circle").data(cityRows.sort((a,b) => (b.first_guild_century ?? 9999) - (a.first_guild_century ?? 9999))).join("circle")
+    .attr("cx", r => proj([r.longitude, r.latitude])[0]).attr("cy", r => proj([r.longitude, r.latitude])[1])
+    .on("mousemove", (ev,r) => showTip(ev, `<b>${tc(r.city)}</b> (${r.country})<br>${r.first_guild_century ? "Guild activity first documented in the century to " + r.first_guild_century : "No documented guild activity"}`)).on("mouseleave", hideTip);
+  function draw() {
+    const yr = +d3.select("#my").property("value"); d3.select("#myv").text(yr);
+    dots.attr("r", r => r.first_guild_century && r.first_guild_century <= yr ? 3.6 : 2.4)
+      .attr("fill", r => r.first_guild_century && r.first_guild_century <= yr ? col(r.first_guild_century) : "none")
+      .attr("stroke", r => r.first_guild_century && r.first_guild_century <= yr ? "#fff" : "#a8a8a8").attr("stroke-width", .6);
+    const n = cityRows.filter(r => r.first_guild_century && r.first_guild_century <= yr).length;
+    d3.select("#maplegend").html(`<b style="color:var(--navy)">${n}</b> of ${cityRows.length.toLocaleString()} cities have documented guild activity by ${yr}. Dark circles were recorded earliest and pale ones latest.`);
+  }
+  d3.select("#my").on("input", draw); draw();
+}
+
+function cohorts(coh) {
+  const svg = d3.select("#cohsvg"), W = 800, H = 280, mg = {l:62, r:20, t:12, b:36};
+  const cols = [C.rust, C.gold, C.teal, "#9a9a9a"];
+  const all = coh.groups.flatMap(g => g.series);
+  const x = d3.scaleLinear([1000, 1800], [mg.l, W-mg.r]), y = d3.scaleLog(d3.extent(all, d => d.avg_pop), [H-mg.b, mg.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickFormat(d3.format("d")));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(4, ",.0f"));
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Average population (log)");
+  coh.groups.forEach((g, i) => {
+    svg.append("path").datum(g.series).attr("fill","none").attr("stroke", cols[i]).attr("stroke-width", 2.5).attr("d", d3.line().x(d => x(d.year)).y(d => y(d.avg_pop)));
+    svg.selectAll(null).data(g.series).join("circle").attr("cx", d => x(d.year)).attr("cy", d => y(d.avg_pop)).attr("r", 3.5).attr("fill", cols[i])
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${g.group}</b><br>${d.year}: ${fmt0(d.avg_pop)} on average, ${d.n} cities`)).on("mouseleave", hideTip);
+  });
+  d3.select("#cohleg").html(coh.groups.map((g, i) => `<span style="color:${cols[i]};font-weight:600">● ${g.group} (${g.n_cities})</span>`).join(" &nbsp; "));
+}
+
+// ---------- 4. Ratios ----------
+function ratioView(ratios, windows) {
+  const R = ratios.institutions, Wn = windows.institutions;
+  const panels = [
+    ["Full panel", ["guild_full","press"]],
+    ["German and Austrian towns", ["guild_de","market","charter"]],
+    ["Cities in Bosker et al.", ["guild_bbz","commune","capital","bishop","archbishop","university"]] ];
+  const measures = [["Population", "population","zeros_counted"], ["Population, recorded cities", "population","recorded_only"],
+                    ["Notable births", "births","per_city"], ["Births per inhabitant", "births","per_inhabitant"]];
+  const color = { guild_full: C.rust, guild_de: C.rust, guild_bbz: C.rust, press: C.navy, commune: C.teal, market: C.gold, charter: "#7a5195",
+                  capital: C.navy, bishop: C.gold, archbishop: "#7a5195", university: C.gray };
+  const dashed = k => /Conferred/.test(R[k].category) ? "6 4" : (R[k].category === "Not classified" ? "2 3" : null);
+  let P = panels[0], M = measures[0];
+  const tp = d3.select("#rpanel").selectAll("button").data(panels).join("button").attr("class","tab").text(d => d[0]).on("click", (e,d) => { P = d; draw(); });
+  const tm = d3.select("#rmeasure").selectAll("button").data(measures).join("button").attr("class","tab").text(d => d[0]).on("click", (e,d) => { M = d; draw(); });
+  const svg = d3.select("#rsvg"), W = 800, H = 360, mg = {l:56, r:20, t:14, b:40};
+  function draw() {
+    tp.classed("on", d => d === P); tm.classed("on", d => d === M);
+    svg.selectAll("*").remove();
+    const series = P[1].map(k => ({ k, rows: R[k][M[1]][M[2]].filter(d => d.ratio > 0) }));
+    const vals = series.flatMap(s => s.rows.map(d => d.ratio));
+    const x = d3.scaleLinear([-4, 4], [mg.l, W-mg.r]), y = d3.scaleLog([Math.min(0.5, d3.min(vals)), Math.max(2, d3.max(vals))], [H-mg.b, mg.t]).nice();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(8));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6, "~g"));
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(1)).attr("y2", y(1)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+    svg.append("line").attr("x1", x(0)).attr("x2", x(0)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", "#c8c8c8");
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Centuries relative to the first record");
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Event cities over comparison cities (log)");
+    series.forEach(s => {
+      svg.append("path").datum(s.rows).attr("fill","none").attr("stroke", color[s.k]).attr("stroke-width", 2.5).attr("stroke-dasharray", dashed(s.k))
+        .attr("d", d3.line().x(d => x(d.k)).y(d => y(d.ratio)));
+      svg.selectAll(null).data(s.rows).join("circle").attr("cx", d => x(d.k)).attr("cy", d => y(d.ratio)).attr("r", 4.5).attr("fill", color[s.k])
+        .on("mousemove", (ev,d) => showTip(ev, `<b>${R[s.k].label}, century ${d.k > 0 ? "+" : ""}${d.k}</b><br>Ratio ${d.ratio.toFixed(2)}<br>95% interval ${d.lo.toFixed(2)} to ${d.hi.toFixed(2)}`)).on("mouseleave", hideTip);
+    });
+    d3.select("#rleg").html(series.map(s => `<span style="color:${color[s.k]};font-weight:600">${dashed(s.k) ? "- -" : "—"} ${R[s.k].label}</span>`).join(" &nbsp; ") + `<br>${R[P[1][0]].sample_label}`);
+    // pooled windows table
+    const keyW = M[1] === "population" ? M[2] : M[2];
+    const rows = P[1].map(k => { const w = Wn[k][M[1]][keyW]; return [Wn[k].label, ...["early","late","after"].map(p => w && w[p] ? `${w[p].ratio.toFixed(2)} <span style="color:var(--muted)">[${w[p].lo.toFixed(2)}, ${w[p].hi.toFixed(2)}]</span>` : "–")]; });
+    d3.select("#wtab").html(`<tr><th>${M[0]}</th><th>Early</th><th>Late</th><th>After</th></tr>` + rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join(""));
+  }
+  draw();
+}
+
+// ---------- 5. Exclusivity ----------
+function exclusivity(excl) {
+  const pts = excl.points, svg = d3.select("#exsvg"), W = 800, H = 380, mg = {l:62, r:30, t:16, b:44};
+  const x = d3.scaleLog([0.03, 0.9], [mg.l, W-mg.r]), y = d3.scaleLog([0.8, d3.max(pts, p => p.hi) * 1.05], [H-mg.b, mg.t]);
+  const col = c => /below/.test(c) ? C.rust : /Conferred/.test(c) ? C.navy : C.gray;
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickValues([.05,.1,.2,.4,.7]).tickFormat(d3.format(".0%")));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).tickValues([1,1.5,2,3]).tickFormat(d => d));
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(1)).attr("y2", y(1)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-8).attr("text-anchor","middle").text("Share of cities in the comparison pool that acquire the institution (log)");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Early lead over the average city (log)");
+  const g = svg.selectAll("g.p").data(pts).join("g");
+  g.append("line").attr("x1", p => x(p.share_acquiring)).attr("x2", p => x(p.share_acquiring)).attr("y1", p => y(Math.max(p.lo, .8))).attr("y2", p => y(p.hi)).attr("stroke", p => col(p.category)).attr("stroke-width", 2);
+  g.append("circle").attr("cx", p => x(p.share_acquiring)).attr("cy", p => y(p.lead)).attr("r", 7)
+    .attr("fill", p => /below/.test(p.category) ? col(p.category) : "#fff").attr("stroke", p => col(p.category)).attr("stroke-width", 2)
+    .on("mousemove", (ev,p) => showTip(ev, `<b>${p.label}</b><br>${Math.round(100*p.share_acquiring)}% of cities acquire it<br>Lead ${p.lead.toFixed(2)} [${p.lo.toFixed(2)}, ${p.hi.toFixed(2)}]`)).on("mouseleave", hideTip);
+  const dy = { Guild: 18, Commune: -12, "Market right": 20, "Town charter": -12, "First press": -10, University: -10 };
+  const left = new Set(["Market right"]);
+  g.append("text").attr("x", p => x(p.share_acquiring) + (left.has(p.label) ? -10 : 10)).attr("text-anchor", p => left.has(p.label) ? "end" : "start").attr("y", p => y(p.lead) + (left.has(p.label) ? 16 : (dy[p.label] ?? -8))).style("font-weight",600).attr("fill", p => col(p.category)).text(p => p.label);
+  d3.select("#exleg").html(`<span style="color:${C.rust};font-weight:600">● Grew from below</span> &nbsp; <span style="color:${C.navy};font-weight:600">○ Conferred from above</span> &nbsp; <span style="color:${C.gray};font-weight:600">○ Not classified</span>`);
+}
+
+// ---------- 6. City explorer ----------
+function explorer(sample) {
+  const byCity = d3.group(sample, r => r.city);
+  const names = [...byCity.keys()].sort((a,b) => a.localeCompare(b));
+  const label = new Map(names.map(n => [tc(n), n]));
+  d3.select("#citylist").selectAll("option").data([...label.keys()].sort()).join("option").attr("value", d => d);
+  d3.select("#cchips").html("Try ").selectAll("a").data(["GENT","ANTWERPEN","FIRENZE","LONDON","PARIS"].filter(n => byCity.has(n))).join("a").text(d => tc(d)).on("click", (e,d) => { d3.select("#city").property("value", tc(d)); draw(d); });
+  const inst = [["press_century","First press"],["commune_century","Commune"],["capital_century","Capital"],["bishopric_century","Bishopric"],["archbishopric_century","Archbishopric"],["market_right_century","Market right"],["town_charter_century","Town charter"],["university_century","University"]];
+  const svg = d3.select("#cvis"), W = 800, H = 330, mg = {l:62, r:56, t:30, b:36};
+  function draw(key) {
+    svg.selectAll("*").remove();
+    const rows = (byCity.get(key) || []).slice().sort((a,b) => a.century - b.century);
+    if (!rows.length) { d3.select("#cinfo").text("No city by that name in the panel."); return; }
+    const r0 = rows[0];
+    const ev = inst.filter(([k]) => r0[k] != null).map(([k, l]) => `${l} ${r0[k]}`);
+    d3.select("#cinfo").html(`<b style="color:var(--navy)">${tc(key)}</b>, ${r0.country}, guild-strength region ${r0.guild_strength_region}. ${r0.first_guild_century ? "Guild activity first documented in the century to " + r0.first_guild_century + "." : "No documented guild activity."}${ev.length ? " Other institutions: " + ev.join(", ") + "." : ""}`);
+    const x = d3.scaleBand(rows.map(r => r.century), [mg.l, W-mg.r]).padding(.2);
+    const pmax = d3.max(rows, r => r.population) || 1000;
+    const y = d3.scaleLog([1000, Math.max(2000, pmax * 1.2)], [H-mg.b, mg.t]);
+    const bmax = d3.max(rows, r => r.notable_births ?? 0) || 1;
+    const yb = d3.scaleLinear([0, bmax * 1.1], [H-mg.b, mg.t]);
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(4, ",.0f"));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${W-mg.r},0)`).call(d3.axisRight(yb).ticks(4));
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Population (log)");
+    svg.append("text").attr("transform","rotate(90)").attr("x",(H-mg.b+mg.t)/2).attr("y",-W+14).attr("text-anchor","middle").attr("fill", C.teal).text("Notable births");
+    svg.selectAll("rect.p").data(rows.filter(r => r.population > 0)).join("rect").attr("class","p").attr("x", r => x(r.century)).attr("width", x.bandwidth())
+      .attr("y", r => y(r.population)).attr("height", r => y(1000) - y(r.population))
+      .attr("fill", r => r.G > 0 ? d3.interpolateRgb("#e8c9a8", C.rust)(r.G) : "#c9cdd3")
+      .on("mousemove", (ev,r) => showTip(ev, `<b>${tc(key)}, ${r.century}</b><br>Population ${fmt0(r.population)}<br>Guild activity in ${Math.round(100*(r.G||0))}% of the century<br>Notable births ${r.notable_births ?? 0}`)).on("mouseleave", hideTip);
+    svg.selectAll("text.z").data(rows.filter(r => !(r.population > 0))).join("text").attr("class","z").attr("x", r => x(r.century) + x.bandwidth()/2).attr("y", H-mg.b-6).attr("text-anchor","middle").text("no est.");
+    const br = rows.filter(r => r.notable_births != null);
+    svg.append("path").datum(br).attr("fill","none").attr("stroke", C.teal).attr("stroke-width", 2.5).attr("d", d3.line().x(r => x(r.century) + x.bandwidth()/2).y(r => yb(r.notable_births)));
+    svg.selectAll("circle.b").data(br).join("circle").attr("class","b").attr("cx", r => x(r.century) + x.bandwidth()/2).attr("cy", r => yb(r.notable_births)).attr("r", 3.5).attr("fill", C.teal);
+    inst.forEach(([k, l], i) => { const c = r0[k]; if (c == null || x(c) == null) return;
+      svg.append("text").attr("x", x(c) + x.bandwidth()/2).attr("y", mg.t - 14 + (i % 2) * 11).attr("text-anchor","middle").style("font-size","11px").attr("fill", C.navy).text("▾ " + l); });
+  }
+  d3.select("#city").on("change", function(){ draw(label.get(this.value) || this.value.toUpperCase()); });
+  d3.select("#city").property("value", "Gent"); draw("GENT");
+}
+
+// ---------- 7. Event study ----------
+function eventStudy(es) {
+  const views = [
+    ["Matched against unconditional", [["Unconditional", es.panel_a.unconditional, C.gray], ["Size and region matched", es.panel_a.matched, C.rust]],
+      "Figure 8. Log population of guild cities relative to never-documented cities by century from first documentation, with 95 percent intervals clustered by city. The unconditional path compares with all never-documented cities. The matched path uses same-region cities within 1.0 log point at the century before. Reference century −1."],
+    ["By persistence of the record", [["Continuous documentation", es.panel_b.continuous, C.rust], ["Lapsed documentation", es.panel_b.lapsed, C.navy]],
+      "Figure 8b. The matched path split by whether guild documentation persists in at least half of the observed post-event centuries, 357 cities against 296. The split conditions on what happens after the event, so it is descriptive."],
+    ["Other matching rules", [["Band 1.0 (headline)", es.panel_a.matched, C.rust], ["Band 0.5", es.variants.caliper_05, C.navy], ["Nearest neighbor", es.variants.nearest_neighbor, C.teal], ["Not-yet-documented controls", es.variants.not_yet_documented, C.gold]],
+      "Figure 8c. The matched path under a tighter caliper, nearest-neighbor matching, and not-yet-documented cities as controls. Post-event means are 0.14, 0.17, 0.19, and 0.13."] ];
+  const tabs = d3.select("#estabs").selectAll("button").data(views).join("button").attr("class","tab").text(d => d[0]).on("click", (e,d) => draw(d));
+  const svg = d3.select("#essvg"), W = 800, H = 320, mg = {l:56, r:20, t:14, b:40};
+  function draw(v) {
+    tabs.classed("on", d => d === v); svg.selectAll("*").remove();
+    const all = v[1].flatMap(s => s[1]);
+    const x = d3.scaleLinear([-4.4, 4.4], [mg.l, W-mg.r]), y = d3.scaleLinear([Math.min(-0.25, d3.min(all, d => d.lo)), Math.max(0.25, d3.max(all, d => d.hi))], [H-mg.b, mg.t]).nice();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(9));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+    svg.append("line").attr("x1", x(-0.5)).attr("x2", x(-0.5)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", "#c8c8c8");
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Centuries relative to first guild documentation");
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Log population relative to controls");
+    const n = v[1].length;
+    v[1].forEach(([name, rows, col], i) => {
+      const off = (i - (n-1)/2) * 0.12;
+      svg.append("path").datum(rows).attr("fill","none").attr("stroke", col).attr("stroke-width", 2).attr("opacity", .7).attr("d", d3.line().x(d => x(d.k + off)).y(d => y(d.est)));
+      svg.selectAll(null).data(rows).join("line").attr("x1", d => x(d.k + off)).attr("x2", d => x(d.k + off)).attr("y1", d => y(d.lo)).attr("y2", d => y(d.hi)).attr("stroke", col).attr("stroke-width", 1.8);
+      svg.selectAll(null).data(rows).join("circle").attr("cx", d => x(d.k + off)).attr("cy", d => y(d.est)).attr("r", 4.5).attr("fill", col)
+        .on("mousemove", (ev,d) => showTip(ev, `<b>${name}, century ${d.k > 0 ? "+" : ""}${d.k}</b><br>${d.est.toFixed(3)} [${d.lo.toFixed(3)}, ${d.hi.toFixed(3)}]`)).on("mouseleave", hideTip);
+    });
+    d3.select("#esleg").html(v[1].map(s => `<span style="color:${s[2]};font-weight:600">● ${s[0]}</span>`).join(" &nbsp; "));
+    d3.select("#escap").html(`<b>${v[2].split(". ")[0]}.</b> ${v[2].split(". ").slice(1).join(". ")}`);
+  }
+  draw(views[0]);
+}
+
+// ---------- 8. Designs ----------
+function designs(gd) {
+  const rows = [
+    { label: "Cross-city, steady state", est: gd.cross_city_steady_state_pct, color: C.navy },
+    { label: "Within-city, long run", est: gd.within_city_long_run_pct, color: C.teal },
+    { label: "Matched event study", est: gd.matched_premium_pct, color: C.rust } ];
+  const svg = d3.select("#dsvg"), W = 800, H = 270, mg = {l:250, r:40, t:8, b:36};
+  svg.attr("viewBox", `0 0 ${W} ${Math.max(H, rows.length * 30 + 50)}`);
+  const Hh = Math.max(H, rows.length * 30 + 50);
+  const y = d3.scaleBand(rows.map(r => r.label), [mg.t, Hh-mg.b]).padding(.3);
+  const x = d3.scaleLinear([0, Math.max(110, d3.max(rows, r => r.hi ?? r.est))], [mg.l, W-mg.r]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${Hh-mg.b})`).call(d3.axisBottom(x).ticks(6).tickFormat(d => d + "%"));
+  const g = svg.selectAll("g.r").data(rows).join("g").attr("transform", r => `translate(0,${y(r.label)})`);
+  g.append("text").attr("x", mg.l-8).attr("y", y.bandwidth()/2).attr("dy","0.35em").attr("text-anchor","end").text(r => r.label);
+  g.append("rect").attr("x", x(0)).attr("width", r => x(r.est) - x(0)).attr("height", y.bandwidth()).attr("fill", r => r.color).attr("opacity", .85);
+  g.filter(r => r.lo != null).append("line").attr("x1", r => x(r.lo)).attr("x2", r => x(r.hi)).attr("y1", y.bandwidth()/2).attr("y2", y.bandwidth()/2).attr("stroke", "#111").attr("stroke-width", 1.5);
+  g.append("text").attr("x", r => x(r.hi ?? r.est) + 6).attr("y", y.bandwidth()/2).attr("dy","0.35em").text(r => r.est.toFixed(0) + "%");
+}
+</script>
+</body>
+</html>
