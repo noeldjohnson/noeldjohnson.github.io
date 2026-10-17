@@ -14,7 +14,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
-Four of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
+Five of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
 
 **How Selected Is the Institutional Record? Craft Guilds and City Growth in Europe, 1000–1800**\\
 (joint with Eric Wilhelm)\\
@@ -38,7 +38,8 @@ Four of these papers have [interactive companions](/interactive/), with figures 
 [Interactive Companion](/interactive/black-death-press/)
 
 **How Do Information Markets Respond to a Crisis? Plague, Print, and Persecution in Early Modern Europe**\\
-(joint with Alexander Taylor)
+(joint with Alexander Taylor)\\
+[Interactive Companion](/interactive/plague-print/)
 
 
 

@@ -1,0 +1,225 @@
+city,catalog_place,lat,lon,main_language,polity_1550,first_year,editions_to_1650,clean_onsets,onsets_in_event_sample,fig14_onsets,prior_stock_mean
+Paris,Paris,48.8588897,2.3200410217200766,French,France,1460,79836,13,12,12,0.0131
+London,London,51.4893335,-0.14405508452768728,English,England,1455,47800,8,7,7,0.0284
+Venice,Venezia,45.4371908,12.3345898,Italian,Venice,1455,43321,11,7,7,0.0168
+Lyon,Lyon,45.7578137,4.8320114,Latin,France,1473,28314,14,13,13,0.0273
+Antwerp,Antwerpen,51.2211097,4.3997081,Latin,Spain,1481,24613,5,5,5,0.0559
+Leipzig,Leipzig,51.3406321,12.3747329,German,Saxony,1480,23343,5,5,5,0.0667
+Rome,Rome,41.8933203,12.4829321,Latin,Latium,1467,19660,6,6,6,0.0163
+Cologne,Köln,50.938361,6.959974,Latin,Cologne,1465,16522,9,9,9,0.0221
+Strasbourg,Strasbourg,48.584614,7.7507127,Latin,Salm-Dhaun,1460,14698,14,13,13,0.019
+Frankfurt,Frankfurt am Main,50.1106444,8.6820917,Latin,Frankfurt IC,1501,14585,6,5,5,0.0538
+Nuremberg,Nürnberg,49.453872,11.077298,German,Hohenzollern,1469,13742,12,12,12,0.0507
+Jena,Jena,50.9281717,11.5879359,Latin,Saxony,1503,11635,2,2,2,0.0085
+Basel,Basel,47.5581077,7.5878261,Latin,Swiss League,1468,11349,10,10,10,0.0197
+Leiden,Leiden,52.1594747,4.4908843,Latin,Spain,1483,11142,1,1,1,0
+Bologna,Bologna,44.4938203,11.3426327,Italian,Latium,1465,9695,4,4,4,0.1045
+Madrid,Madrid,40.4167047,-3.7035825,Spanish,Spain,1472,9084,2,1,1,0
+Augsburg,Augsburg,48.3690341,10.8979522,German,Augsburg BO,1468,8770,12,12,12,0.0758
+Florence,Firenze,43.7697955,11.2556404,Italian,Tuscany,1471,7490,5,5,5,0.0062
+Geneva,Geneva,46.2017559,6.1466014,Latin,France,1478,6850,10,10,10,0.0026
+Rostock,Rostock,54.0886707,12.1400211,Latin,Mecklenburg-Gustrow,1475,6717,3,3,3,0.0227
+Hamburg,Hamburg,53.550341,10.000654,German,Hamburg,1488,6514,7,6,6,0.121
+Milan,Milano,45.4641943,9.1896346,Italian,Spain,1471,6479,10,10,10,0.0661
+Rouen,Rouen,49.4404591,1.0939658,French,France,1480,6323,12,10,10,0.0026
+Erfurt,Erfurt,50.9777974,11.0287364,German,Saxony,1473,6272,8,8,8,0.1717
+Barcelona,Barcelona,41.3828939,2.1774322,Spanish,,1468,5696,12,12,11,0.0306
+Krakow,Kraków,50.0619474,19.9368564,Latin,Lithuania,1475,5008,7,5,5,0.036
+Magdeburg,Magdeburg,52.1315889,11.6399609,German,Magdeburg,1479,4429,8,7,7,0.0327
+Tübingen,Tübingen,48.5203263,9.053596,Latin,Furstenberg-Baar,1498,4400,7,7,7,0.0457
+Naples,Napoli,40.8358846,14.2487679,Italian,Spain,1470,4357,4,4,4,0
+Seville,Sevilla,37.3886303,-5.9953403,Spanish,Spain,1477,4264,10,9,9,0.0835
+Frankfurt an der Oder,Frankfurt an der Oder,52.3412273,14.549452,Latin,Hohenzollern,1502,4111,3,3,3,0.0632
+Ingolstadt,Ingolstadt,48.7630165,11.4250395,Latin,Wittelsbachs,1484,4072,1,1,1,0
+Lisbon,Lisboa,38.7077507,-9.1365919,Portuguese,,1489,3944,5,4,4,0
+The Hague,Den Haag,52.07494555,4.269680220536452,Dutch,Spain,1510,3730,1,0,0,
+Munich,Munich,48.1371079,11.5753822,German,Wittelsbachs,1482,3704,4,4,4,0.03
+Louvain,Louvain,50.879202,4.7011675,Latin,Spain,1473,3633,3,3,2,0.0076
+Douai,Douai,50.3675677,3.0804641,Latin,Spain,1546,3578,4,4,4,0.0178
+Vienna,Wien,48.2083537,16.3725042,German,Spain,1472,3554,6,6,6,0.0341
+Zurich,Zürich,47.3744489,8.5410422,German,Swiss League,1479,3399,3,3,3,0.01
+Dresden,Dresden,51.0493286,13.7381437,German,Saxony,1523,3291,8,8,8,0.0851
+Valencia,Valencia,39.4697065,-0.3763353,Spanish,Spain,1474,3289,7,7,7,0.0046
+Marburg,Marburg,50.8090106,8.7704695,Latin,Hesse,1506,2996,3,3,3,0.0661
+Saragossa,Zaragoza,41.6521342,-0.8809428,Spanish,Spain,1475,2776,8,8,8,0.0069
+Brussels,Bruxelles,50.8465573,4.351697,Dutch,Spain,1471,2667,5,2,2,0
+Mainz,Mainz,49.9995205,8.2736253,Latin,Mainz,1454,2583,6,6,6,0.0577
+Altdorf,Altdorf,48.5549274,12.1080947,Latin,,1540,2307,1,1,1,0
+Utrecht,Utrecht,52.0907006,5.1215634,Latin,Spain,1472,2258,1,1,1,0.25
+Heidelberg,Heidelberg,49.4093582,8.694724,Latin,Speyer BO,1482,2206,3,2,2,0.9375
+Königsberg,Königsberg,54.710128,20.5105838,Latin,Lithuania,1524,2099,5,4,4,0.02
+Szczecin,Szczecin,53.42968095,14.592912670292268,German,Pomerania,1533,2069,1,1,1,0.155
+Stockholm,Stockholm,59.3251172,18.0710935,Swedish,,1483,2055,9,6,6,0
+Alcala de Henares,Alcalá de Henares,40.481954,-3.363981,Spanish,Spain,1500,2030,3,3,3,0.0362
+Gdansk,Gdańsk,54.3482907,18.6540233,German,Lithuania,1498,1990,11,6,5,0.1698
+Padua,Padova,45.391408,11.805848677115884,Latin,Venice,1471,1954,4,3,3,0
+Toulouse,Toulouse,43.6044622,1.4442469,French,France,1475,1841,8,6,6,0.0384
+Oxford,Oxford,51.7520131,-1.2578499,English,England,1456,1794,10,3,3,0
+Prague,Praha,50.0874654,14.4212535,Czech,Spain,1478,1791,1,0,0,
+Granada,Granada,37.1734995,-3.5995337,Spanish,Spain,1496,1780,2,2,2,0
+Turin,Torino,45.0677551,7.6824892,Latin,France,1474,1745,2,2,2,0
+Lubeck,Lübeck,53.866444,10.684738,German,Lubeck,1474,1680,6,4,4,0
+Valladolid,Valladolid,41.6521807,-4.728605,Spanish,Spain,1481,1664,10,10,10,0.0815
+Berlin,Berlin,52.510885,13.3989367,German,Hohenzollern,1540,1649,2,2,2,0.1429
+Bordeaux,Bordeaux,44.841225,-0.5800364,French,France,1512,1620,10,7,7,0.0305
+Poitiers,Poitiers,46.5802596,0.340196,French,France,1479,1586,6,4,4,0.0633
+Dillingen,Dillingen,48.577185,10.4943532,Latin,,1489,1576,1,1,1,0
+Ghent,Gent,51.0538286,3.7250121,Dutch,Spain,1476,1563,2,2,2,0
+Delft,Delft,51.9994572,4.362724538543995,Dutch,Spain,1477,1521,3,2,2,0
+Coburg,Coburg,50.2582226,10.964561,Latin,Saxony,1521,1507,2,2,2,0.0129
+Giessen,Giessen,50.5808795,8.69381607080086,Latin,Nassau-Weilburg,1506,1500,4,1,1,0.0518
+Edinburgh,Edinburgh,55.9533456,-3.1883749,English,Scotland,1508,1481,11,6,6,0.03
+Wroclaw,Wrocław,51.1089776,17.0326689,German,Spain,1475,1422,11,8,7,0.0614
+Verona,Verona,45.4424977,10.985737689444765,Italian,Venice,1471,1338,5,2,2,0.049
+Freiberg,Freiberg,50.9169415,13.3428889,German,Saxony,1495,1285,1,0,0,
+Troyes,Troyes,48.2971626,4.0746257,French,France,1483,1182,11,9,9,0
+Ulm,Ulm,48.3984968,9.9912458,German,Fugger,1473,1156,2,1,1,0.0565
+Liège,Liège,50.6450944,5.5736112,French,Liege,1499,1126,2,1,1,0
+Rotterdam,Rotterdam,51.9244424,4.47775,Dutch,Spain,1501,1122,1,0,0,
+Hanau,Hanau,50.132881,8.9169797,Latin,Mainz,1514,1103,3,1,1,0
+Haarlem,Haarlem,52.38370575,4.643559696559635,Dutch,Spain,1470,1086,1,0,0,
+Brunswick,Braunschweig,52.2646577,10.5236066,German,Wolfenbuttel,1505,1079,7,5,5,0.1174
+Cambridge,Cambridge,52.2055314,0.1186637,English,England,1521,1064,11,5,5,0.0319
+Perugia,Perugia,43.1070321,12.402996209906489,Italian,Latium,1472,1056,5,2,2,0
+Toledo,Toledo,39.8560679,-4.0239568,Spanish,Spain,1484,1011,1,1,1,0
+Speyer,Speyer,49.3165553,8.433615,Latin,Baden-Durlach,1471,965,0,0,0,
+Vilnius,Vilnius,54.6870458,25.2829111,Latin,Lithuania,1522,958,8,5,5,0
+Orléans,Orléans,47.9027336,1.9086066,French,France,1510,952,11,8,8,0
+Burgos,Burgos,42.343926,-3.696977,Spanish,Spain,1475,931,4,4,4,0.0694
+Stuttgart,Stuttgart,48.7784485,9.1800132,German,Wurrtemberg,1486,913,5,1,1,0.0231
+Palermo,Palermo,38.1112268,13.3524434,Italian,Spain,1478,896,3,2,2,0
+Genoa,Genova,44.40726,8.9338624,Italian,,1474,856,4,1,1,0.303
+Regensburg,Regensburg,49.0195333,12.0974869,German,Wittelsbachs,1485,841,3,2,2,0.0893
+Caen,Caen,49.1813403,-0.3635615,French,France,1480,815,5,4,4,0.1166
+Bremen,Bremen,53.0758196,8.8071646,Latin,Bremen IC,1525,814,8,5,4,0.0411
+Altenburg,Altenburg,50.9852411,12.4340988,German,Saxony,1524,799,1,0,0,
+Saint-Omer,Saint-Omer,50.7515771,2.2534183,English,Spain,1511,779,2,0,0,
+Coimbra,Coimbra,40.2111931,-8.4294632,Latin,Portugal,1530,757,3,3,3,0
+La Rochelle,La Rochelle,46.159732,-1.1515951,French,France,1485,716,3,2,2,0
+Freiburg im Breisgau,Freiburg im Breisgau,47.9960901,7.8494005,Latin,Spain,1491,714,2,1,1,0
+Aix-en-Provence,Aix-en-Provence,43.5298424,5.4474738,French,France,1520,652,6,2,2,0.5
+Tours,Tours,47.3900474,0.6889268,French,France,1495,649,5,4,4,0
+Würzburg,Würzburg,49.7780356,9.94347690712558,Latin,Wurzburg,1479,642,4,4,4,0.4825
+Amberg,Amberg,49.4543662,11.847402115482414,Latin,Palatinate,1507,633,2,1,1,0.1333
+Lüneburg,Lüneburg,53.248706,10.407855,German,Luneburg,1490,626,10,2,2,0
+Mantua,Mantova,45.1692628,10.670836515673878,Italian,Mantua,1459,623,7,4,4,0.1261
+Lauingen,Lauingen,48.5710836,10.4305438,German,Spain,1472,591,1,1,1,0.1653
+Den Bosch,Den Bosch,51.6889387,5.303116,Dutch,Spain,1484,584,2,2,2,0
+Macerata,Macerata,43.15297805,13.150882217502016,Italian,Latium,1553,574,0,0,0,
+Cremona,Cremona,45.22086405,10.037037979628856,Italian,Spain,1491,521,3,2,2,0
+Bern,Bern,46.9484742,7.4521749,German,Swiss League,1537,518,2,2,2,0
+Reims,Reims,49.2577886,4.031926,French,France,1507,511,7,4,4,0
+Halberstadt,Halberstadt,51.8953514,11.0520563,German,Halberstadt,1519,495,2,1,1,0
+Hildesheim,Hildesheim,52.1527188,9.9518083,German,Hildesheim,1543,473,8,4,4,0
+Angers,Angers,47.4739884,-0.5515588,French,France,1476,472,13,11,11,0.0584
+Bergamo,Bergamo,45.7566557,9.754219200862249,Italian,Venice,1555,472,1,1,0,
+Saumur,Saumur,47.2596224,-0.0785177,French,France,1587,468,0,0,0,
+Arras,Arras,50.291048,2.7772211,French,Spain,1499,465,2,1,1,0
+Gera,Gera,50.8765537,12.0832666,German,Spain,1601,443,1,1,1,0
+Messina,Messina,38.1937571,15.5542082,Italian,,1474,443,4,2,2,0
+Mons,Mons,50.4549568,3.951958,French,Spain,1526,421,4,1,1,0
+Pamplona,Pamplona,42.81568595,-1.6522353378580308,Spanish,Spain,1490,405,1,1,1,0.4545
+Münster,Münster,51.9625101,7.6251879,Latin,Munster BO,1485,403,3,1,1,0
+Konstanz,Konstanz,47.659216,9.1750718,German,,1473,391,1,0,0,
+Graz,Graz,47.0708678,15.4382786,German,Spain,1559,387,1,1,1,0
+Lille,Lille,50.6365654,3.0635282,French,Spain,1540,386,6,4,4,0.0625
+Riga,Riga,56.9493977,24.1051846,Latin,,1588,384,1,1,1,0
+Dublin,Dublin,53.3493795,-6.2605593,English,,1551,370,3,2,2,0
+Montpellier,Montpellier,43.6112422,3.8767337,French,France,1501,352,9,4,2,0
+Sedan,Sedan,49.7033759,4.9433409,French,France,1565,329,4,2,2,0
+Rennes,Rennes,48.1113387,-1.6800198,French,France,1484,319,7,6,6,0
+Tournai,Tournai,50.6056458,3.3878179,French,Spain,1509,313,3,0,0,
+Bamberg,Bamberg,49.8916044,10.8868478,German,Bamberg,1461,308,1,0,0,
+Córdoba,Córdoba,37.8845813,-4.7760138,Spanish,Spain,1538,284,2,2,2,0
+Pont-à-Mousson,Pont-à-Mousson,48.9025946,6.0547691,Latin,Lorraine,1582,278,1,1,1,0.0926
+Montbéliard,Montbéliard,47.5102368,6.7977564,German,Wurrtemberg,1580,276,2,1,1,0
+Poznan,Poznań,52.4082663,16.9335199,Latin,Lithuania,1567,272,6,4,4,0
+Avignon,Avignon,43.9492493,4.8059012,French,France,1497,271,8,2,2,0
+Worms,Worms,49.6302618,8.3620898,German,Palatinate,1504,255,1,0,0,
+Tournon,Tournon,45.0675156,4.832852,French,,1586,251,0,0,0,
+La Flèche,La Flèche,47.6968408,-0.0746149,Latin,France,1575,245,1,0,0,
+Metz,Metz,49.1196964,6.1763552,French,Metz BO,1482,242,5,2,2,0
+Limoges,Limoges,45.8354243,1.2644847,Latin,France,1500,241,9,4,4,0.3571
+Dijon,Dijon,47.3215806,5.0414701,French,France,1491,240,12,5,5,0
+Gotha,Gotha,50.9494849,10.7014435,German,Saxony,1566,239,1,0,0,
+Landshut,Landshut,48.536217,12.1516551,German,Wittelsbachs,1487,238,2,0,0,
+Málaga,Málaga,36.7213028,-4.4216366,Spanish,Spain,1588,228,3,2,2,0.3333
+Innsbruck,Innsbruck,47.2654296,11.3927685,German,Spain,1514,223,1,1,1,0
+Bourges,Bourges,47.0811658,2.399125,French,France,1502,218,3,3,3,0
+Chambéry,Chambéry,45.5662672,5.9203636,French,France,1482,208,8,2,2,0
+Orvieto,Orvieto,42.7186152,12.1087907,Italian,Latium,1523,204,0,0,0,
+Nancy,Nancy,48.6937223,6.1834097,French,Lorraine,1510,200,2,2,2,0
+Huesca,Huesca,42.1382539,-0.4080901,Spanish,Spain,1565,196,1,1,1,0
+Wesel,Wesel,51.6576909,6.617087,Dutch,Julich-Cleves-Berg,1540,196,1,0,0,
+York,York,53.96565785,-1.0743052444639218,English,England,1506,193,5,1,1,0
+Evora,Évora,38.5707742,-7.9092808,Portuguese,Portugal,1526,187,2,1,1,0
+Nantes,Nantes,47.2186371,-1.5541362,French,France,1493,186,11,5,4,0.1087
+Charenton,Charenton,48.8198479,2.4159508,French,,1608,182,3,3,2,0
+Grenoble,Grenoble,45.1875602,5.7357819,French,France,1489,180,9,3,2,0
+Torun,Toruń,53.0145361,18.59658314465156,Latin,Lithuania,1569,180,3,3,3,0
+Udine,Udine,46.0634632,13.2358377,Italian,Venice,1484,180,5,1,1,0
+Lérida,Lérida,41.6147605,0.6267842,Spanish,Spain,1479,177,2,0,0,
+Cahors,Cahors,44.4495,1.4364999,French,France,1538,163,2,2,2,0
+Güstrow,Güstrow,53.793587,12.1764906,German,Mecklenburg-Gustrow,1582,162,1,1,1,0.1818
+Ieper,Ieper,50.8521947,2.8846047,Dutch,Spain,1529,162,1,0,0,
+Warsaw,Warszawa,52.2337172,21.071432235636493,Polish,,1564,160,4,2,1,0
+Weimar,Weimar,50.9793301,11.3297921,German,Saxony,1598,158,1,0,0,
+Aberdeen,Aberdeen,57.1482429,-2.0928095,English,,1622,156,1,0,0,
+Logroño,Logroño,42.4661196,-2.4396676,Spanish,Spain,1500,151,1,1,1,0
+Hanover,Hannover,52.3744779,9.7385532,German,Calenberg-Gottingen,1544,150,7,0,0,
+Alkmaar,Alkmaar,52.6008538,4.817099446443963,Dutch,Spain,1518,146,2,0,0,
+Dortmund,Dortmund,51.5142273,7.4652789,Latin,Julich-Cleves-Berg,1544,146,1,1,1,0
+Mechelen,Mechelen,51.0281381,4.4803453,Dutch,Spain,1526,140,1,1,0,
+Toul,Toul,48.6762624,5.8941759,French,France,1505,137,4,2,2,0.1562
+Béziers,Béziers,43.3426562,3.2131307,French,France,1612,135,1,1,1,0
+Nördlingen,Nördlingen,48.8516578,10.4885873,German,The Holy Roman Empire,1542,135,1,0,0,
+Cambrai,Cambrai,50.1757546,3.2346145,French,Cambrai,1518,133,8,3,2,0
+Westminster,Westminster,51.5004439,-0.1265398,English,England,1476,133,8,2,1,0
+Brașov,Brașov,45.6525105,25.6105654,Latin,Ottoman Emirate,1539,126,0,0,0,
+Nîmes,Nîmes,43.8374249,4.3600687,French,France,1525,126,9,4,4,0
+Nordhausen,Nordhausen,51.5051574,10.7925317,German,Hohnstein,1628,125,0,0,0,
+Montauban,Montauban,44.0175835,1.3549991,Latin,France,1518,122,2,1,1,0
+Vienne,Vienne,46.61211655,0.4654070096639711,French,France,1477,117,6,1,1,0
+Camerino,Camerino,43.1357641,13.0683092,Italian,Latium,1523,116,1,0,0,
+Elbląg,Elbląg,54.1558708,19.4044583,Latin,Lithuania,1559,113,1,1,1,0
+Verdun,Verdun,49.1589278,5.3867277,French,Metz BO,1549,113,0,0,0,
+Châlons-en-Champagne,Châlons-en-Champagne,48.9566218,4.3628851,French,France,1493,112,8,1,0,
+Angoulême,Angoulême,45.6484505,0.1561947,French,France,1491,110,6,2,2,0
+Cádiz,Cádiz,36.5297438,-6.2928976,Spanish,,1594,110,2,2,2,0
+Valenciennes,Valenciennes,50.3579317,3.5234846,French,Spain,1481,107,4,1,1,0
+Girona,Girona,41.9793006,2.8199439,Spanish,Spain,1483,106,1,0,0,
+Lausanne,Lausanne,46.5218269,6.6327025,Latin,,1493,105,1,0,0,
+Tarragona,Tarragona,41.1172364,1.2546057,Latin,,1484,104,4,0,0,
+Trento,Trento,46.1029536,11.12974249416882,Italian,Spain,1475,104,2,1,1,0
+Murcia,Murcia,37.9923795,-1.1305431,Spanish,Spain,1484,101,2,0,0,
+Blois,Blois,47.5876861,1.3337639,French,France,1554,100,1,0,0,
+Perpignan,Perpignan,42.6985304,2.8953121,Spanish,France,1500,89,5,2,2,0.5556
+Zittau,Zittau,50.8960964,14.8064807,German,Spain,1586,89,1,1,1,0
+Southwark,Southwark,51.46525455,-0.06901863321466493,English,England,1525,87,6,1,1,0
+Fribourg,Fribourg,46.8055656,7.1612669,German,Swiss League,1551,85,4,1,1,0
+Niort,Niort,46.3239233,-0.4646064,French,France,1589,84,1,1,1,0
+Agen,Agen,44.2015827,0.6176112,French,France,1524,80,10,2,2,0
+Asti,Asti,44.82601265,8.202686328987273,Latin,Spain,1518,79,0,0,0,
+Luxembourg,Luxembourg,49.6112768,6.129799,Latin,Spain,1577,76,1,1,1,0
+Chartres,Chartres,48.4438601,1.4881434,French,France,1482,75,5,0,0,
+Santiago de Compostela,Santiago de Compostela,42.8804219,-8.5458608,Spanish,Spain,1562,75,3,0,0,
+Schweinfurt,Schweinfurt,50.051855200000006,10.222092114223384,German,Wurzburg,1562,75,1,0,0,
+Linz,Linz,48.3059078,14.286198,German,Spain,1614,74,1,1,1,0
+Antequera,Antequera,37.0183652,-4.5596649,Spanish,Spain,1516,73,2,2,2,0
+Langres,Langres,47.8639612,5.333947,French,France,1538,73,2,1,1,0
+Clermont-Ferrand,Clermont-Ferrand,45.7774551,3.0819427,French,France,1518,65,4,1,1,0
+Zweibrücken,Zweibrücken,49.248655,7.3641981,German,Lorraine,1492,65,1,0,0,
+Sens,Sens,48.1978559,3.282606,French,France,1551,61,2,0,0,
+Dôle,Dôle,47.0921047,5.4925463,French,Spain,1490,60,6,3,2,0
+Ipswich,Ipswich,52.0579324,1.1528095,English,England,1545,58,3,0,0,
+Évreux,Évreux,49.0268903,1.1510164,French,France,1600,58,1,0,0,
+Écija,Écija,37.5406007,-5.079589,Spanish,Spain,1624,57,1,1,1,0
+Schiedam,Schiedam,51.91718,4.4019149,Dutch,Spain,1498,56,3,0,0,
+Castres,Castres,49.8044444,3.2383333,French,France,1519,54,0,0,0,
+Osnabrück,Osnabrück,52.2719595,8.047635,German,Osnabruck,1618,53,1,1,1,0
+Segovia,Segovia,40.9481192,-4.1172101,Spanish,Spain,1472,52,2,0,0,
+Arnstadt,Arnstadt,50.8349097,10.9461479,German,,1603,51,1,0,0,
+Die,Die,44.7533712,5.3689136,Latin,,1610,51,0,0,0,
+Bourg-en-Bresse,Bourg-en-Bresse,46.2051192,5.2250324,French,France,1571,50,6,1,1,0
+Colmar,Colmar,48.0777517,7.3579641,German,Spain,1521,50,1,0,0,
+Heilbronn,Heilbronn,49.142291,9.218655,German,Wurrtemberg,1625,50,0,0,0,

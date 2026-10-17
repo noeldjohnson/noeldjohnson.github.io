@@ -12,6 +12,14 @@ companion_guilds:
     url: /interactive/guilds/
     btn_label: "Open the companion"
     btn_class: "btn--primary"
+companion_plague:
+  - image_path: /assets/images/interactive/plague-print.jpg
+    alt: "Map of European plague outbreaks in 1575 and the cities of the print panel"
+    title: "How Do Information Markets Respond to a Crisis? Plague, Print, and Persecution in Early Modern Europe"
+    excerpt: "With Alexander Taylor. When plague returned to a city the medical share of its print nearly doubled in the onset year. Print aimed at Jews and accused witches did not rise and neither did witch trials or persecutions of Jewish communities."
+    url: /interactive/plague-print/
+    btn_label: "Open the companion"
+    btn_class: "btn--primary"
 companion_mfi:
   - image_path: /assets/images/interactive/market-for-ideas.jpg
     alt: "Map of European printing cities colored by market access in 1600"
@@ -41,6 +49,8 @@ companion_bdp:
 Each companion walks through one paper with figures you can move. Every number on these pages is computed from data exported by the paper's replication code and checked against the manuscript. The papers themselves are on the [Research](/research/) page.
 
 {% include feature_row id="companion_guilds" type="left" %}
+
+{% include feature_row id="companion_plague" type="left" %}
 
 {% include feature_row id="companion_mfi" type="left" %}
 

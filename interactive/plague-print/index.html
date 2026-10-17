@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Do Information Markets Respond to a Crisis?</title>
+<meta name="description" content="An interactive companion to How Do Information Markets Respond to a Crisis? Plague, Print, and Persecution in Early Modern Europe by Noel D. Johnson and Alexander Taylor.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Noel D. Johnson">
+<meta property="og:title" content="How Do Information Markets Respond to a Crisis? An interactive companion">
+<meta property="og:description" content="An interactive companion to How Do Information Markets Respond to a Crisis? Plague, Print, and Persecution in Early Modern Europe by Noel D. Johnson and Alexander Taylor.">
+<meta property="og:url" content="https://noeldjohnson.github.io/interactive/plague-print/">
+<meta property="og:image" content="https://noeldjohnson.github.io/assets/images/interactive/plague-print.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@noeldjohnson">
+<meta name="twitter:title" content="How Do Information Markets Respond to a Crisis? An interactive companion">
+<meta name="twitter:description" content="An interactive companion to How Do Information Markets Respond to a Crisis? Plague, Print, and Persecution in Early Modern Europe by Noel D. Johnson and Alexander Taylor.">
+<meta name="twitter:image" content="https://noeldjohnson.github.io/assets/images/interactive/plague-print.jpg">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+.byline a { color: var(--teal); }
+nav.toc { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; background: var(--panel); padding: 14px 18px; border-radius: 6px; margin: 0 0 32px; }
+nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+nav.toc a { color: var(--navy); text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+h2 { font-size: 26px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.figure .cap { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 10px; }
+.figure .cap b { color: var(--ink); }
+.controls { font: 15px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 12px; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+.controls .v { font-weight: 600; color: var(--rust); min-width: 3.2em; }
+input[type=range] { width: 180px; max-width: 100%; accent-color: var(--rust); }
+input[type=text] { font: 15px -apple-system, "Helvetica Neue", Arial, sans-serif; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+button.tab { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; border: 1px solid var(--rule); background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; color: var(--navy); }
+button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.readout div { background: #fff; border-radius: 6px; padding: 10px 12px; font: 14px/1.35 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.readout b { display: block; font: 600 24px/1.2 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--navy); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.chips { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.chips a { color: var(--teal); cursor: pointer; margin-right: 8px; text-decoration: underline; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
+svg text.title { font-weight: 600; fill: var(--navy); font-size: 13px; }
+.axis path, .axis line { stroke: #b8b8b8; }
+.tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; max-width: 300px; z-index: 10; }
+.tip b { color: var(--navy); }
+.legend { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 6px; }
+table.t { width: 100%; border-collapse: collapse; font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; margin: 6px 0 4px; }
+table.t th, table.t td { border-bottom: 1px solid var(--rule); padding: 6px 6px; text-align: left; }
+.note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+@media (max-width: 640px) {
+  body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
+  .readout, .two { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">Interactive companion</div>
+  <h1>How Do Information Markets Respond to a Crisis? Plague, Print, and Persecution in Early Modern Europe</h1>
+  <div class="byline">Noel D. Johnson and Alexander Taylor · <a href="/research/">Research</a></div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#products">Four products</a></li>
+    <li><a href="#plague">The returns of plague</a></li>
+    <li><a href="#onset">What the presses printed</a></li>
+    <li><a href="#stock">The prior stock</a></li>
+    <li><a href="#explorer">City explorer</a></li>
+    <li><a href="#news">News as a spot market</a></li>
+    <li><a href="#doctrine">Doctrine as a backlist</a></li>
+    <li><a href="#coverage">The coverage share</a></li>
+    <li><a href="#comovement">Co-movement and its limits</a></li>
+    <li><a href="#limits">Limits</a></li>
+  </ol>
+</nav>
+
+<section id="argument">
+<h2><span class="num">1</span>Argument</h2>
+<p>A long tradition holds that epidemics breed scapegoats. The paper tests that claim on the presses of early modern Europe. Plague returned to the cities of Europe for three centuries after the Black Death and it returned to any one city at times close to random. Each return was a shock to what a town's readers wanted. The paper follows what the presses printed at 607 clean onsets in 173 printing cities and asks whether persecution followed.</p>
+<p>The presses printed medicine. In the onset year the medical share of a city's print nearly doubled, from about 26 titles per thousand to about 49. The rise was outbreak medicine. It consisted of practical regimens in the vernacular, was printed as new works rather than reprints, and was largest where the city's own stock of such titles was thin. Print aimed at Jews and accused witches did not rise. Witch trials did not rise and persecutions of Jewish communities show no detectable rise.</p>
+<p>The reason lies in what kind of product each kind of print was. News lost its value within months and plague medicine within about five years. Both were printed near their readers and in their language. Doctrine, the treatise literature of persecution, held its value for decades and was traded across the continent. Of the news a city's readers could reach, about one part in 55 came from the city's own presses that year. Of the doctrine, about one part in 850 did. No local shock could move a stock of that kind.</p>
+</section>
+
+<section id="products">
+<h2><span class="num">2</span>Four products</h2>
+<p>The paper treats print as several products that differ in how fast they lose their value and how far they are traded. Table 1 of the paper sets out four.</p>
+<div class="figure">
+  <table class="t" id="t1"><thead><tr><th>Product</th><th>Loses its value over</th><th>Market</th><th>Buyer</th><th>Supply</th></tr></thead><tbody></tbody></table>
+  <div class="cap"><b>Table 1.</b> Four information products, from Table 1 of the paper.</div>
+</div>
+<p>A local shock should raise local printing of a product when the product is perishable and its readers are near the press. When the product is durable and traded the stock already within reach meets a local shock and local printing need not move.</p>
+</section>
+
+<section id="plague">
+<h2><span class="num">3</span>The returns of plague</h2>
+<p>Biraben's chronology records plague outbreaks town by town. The paper defines a clean onset as an outbreak recorded within 10 kilometers of a city after at least five plague-free years. The 224 cities of the print panel had 946 clean onsets. The 607 that fall in years when the city printed, and outside any other onset's window, enter the event study.</p>
+<div class="figure">
+  <div class="controls">
+    <button class="tab" id="pplay">Play</button>
+    <label>Year <input id="py" type="range" min="1450" max="1650" step="1" value="1575"></label><span class="v" id="pyv"></span>
+  </div>
+  <svg id="psvg" viewBox="0 0 800 600" role="img" aria-label="Map of plague outbreaks and the print panel"></svg>
+  <div class="legend" id="pleg"></div>
+  <svg id="pbars" viewBox="0 0 800 170" role="img" aria-label="Plague outbreaks by year"></svg>
+  <div class="cap"><b>Figure 1.</b> Upper panel, localities with a recorded plague outbreak in the selected year (rust) and the 224 cities of the print panel (navy). A ringed city had a clean onset that year. Lower panel, recorded plague outbreaks by year, 1347–1700, as in Figure 17 of the paper. Click a bar to jump to its year.</div>
+</div>
+</section>
+
+<section id="onset">
+<h2><span class="num">4</span>What the presses printed</h2>
+<p>For each clean onset the paper follows the share of each kind of print from five years before to five years after, with city and year fixed effects and the year before onset as the reference. Every band in this section uses the wider of the city-clustered and Conley standard errors, as the paper does.</p>
+<div class="figure">
+  <div class="controls" id="estabs"></div>
+  <svg id="essvg" viewBox="0 0 800 330" role="img" aria-label="Event study around plague onsets"></svg>
+  <div class="legend" id="esleg"></div>
+  <div class="cap" id="escap"></div>
+</div>
+<p>In the onset year the medical share rises by 2.31 percentage points on a pre-onset mean of 2.63 percent. The leads are flat and about three-fifths of the rise remains the next year. Plague-specific medicine carries the rise. First editions of new works rise by 2.39 percentage points and reprints by 0.23. An onset in a press-free town 20 to 60 kilometers away also raises plague medicine in the printing city.</p>
+<p>For titles aimed at Jews and accused witches the onset-year rate ratio is 0.79 and the interval reaches no higher than a rise of 26 percent. Witch trials fall by 0.8 percentage points at onset on a base of 2.6 percent. Persecutions of Jewish communities are too rare to bound tightly. Nothing in the recurrences resembles 1348–1350, when 32 percent of the 471 Jewish communities present in 1347 were attacked or expelled.</p>
+<div class="figure">
+  <svg id="risvg" viewBox="0 0 800 300" role="img" aria-label="Randomization inference"></svg>
+  <div class="cap"><b>Figure 3.</b> The onset estimates against their randomization distributions, as in Figure 12 of the paper. Each city's clean onsets are reassigned at random among its own panel years 500 times. The thick bar spans the middle 95 percent of the reassigned estimates, the thin line the middle 98 percent, and the dot is the actual estimate. Each row has its own scale.</div>
+</div>
+</section>
+
+<section id="stock">
+<h2><span class="num">5</span>The prior stock</h2>
+<p>The response to an outbreak is the shock net of what the city already holds. The paper measures the plague medicine each city printed in the decade before an onset, in years of the city's average output. The coefficient on onset times prior stock is −0.341 with a standard error of 0.135. About a third of a title printed in the prior decade still counted against new demand when the next outbreak arrived. Under geometric decay that implies an annual depreciation rate of 0.21, with a 95 percent interval from 0.09 to 0.56, and an economic life of about five years.</p>
+<div class="figure">
+  <svg id="stsvg" viewBox="0 0 800 280" role="img" aria-label="Onset response by prior stock"></svg>
+  <div class="cap"><b>Figure 4.</b> Onset response of plague-specific medicine by the city's prior-decade stock, in titles over the city's average annual output, with the size control held at its mean. The first bin is onsets with no prior stock and the other three are thirds of positive stock. The paper's Figure 14 draws city-clustered intervals. The bands here are the wider of those and Conley intervals computed for this page.</div>
+</div>
+</section>
+
+<section id="explorer">
+<h2><span class="num">6</span>City explorer</h2>
+<p>Pick any of the 224 cities to see what its presses printed each year, when plague arrived, and when trials and persecutions took place.</p>
+<div class="figure">
+  <div class="controls">
+    <label>City <input id="city" type="text" list="citylist" placeholder="Type a city"></label>
+    <datalist id="citylist"></datalist>
+    <span class="chips" id="cchips"></span>
+  </div>
+  <div class="legend" id="cinfo"></div>
+  <svg id="cvis" viewBox="0 0 800 400" role="img" aria-label="City print and plague history"></svg>
+  <div class="cap"><b>Figure 5.</b> Upper panel, editions printed in the city each year. Middle row, plague outbreaks (rust ticks), clean onsets (rust triangles), witch trials (navy), and persecutions of Jewish communities (gold). Lower panel, medical titles each year, with plague-specific medicine in the darker shade. Hover for the year's counts.</div>
+</div>
+</section>
+
+<section id="news">
+<h2><span class="num">7</span>News as a spot market</h2>
+<p>The Anabaptist regime at Münster fell to the bishop's army in June 1535. Within the year the story was in print in seven cities. Erfurt and Strasbourg issued a <i>Warhafftiger bericht</i>, Wittenberg a <i>Newe Zeittung</i>, Dresden its own report, and Antwerp and Amsterdam printed the story in Dutch. No press in Münster printed it. The paper's registry holds 384 coercive events with a place and a year, from executions and heresy trials to witch trials, rebellions, and attacks on Jews, together with the cities whose presses reported each one. Pick an event to map who reported it.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Event <input id="ev" type="text" list="evlist" placeholder="Type a place" style="width:260px"></label>
+    <datalist id="evlist"></datalist>
+    <span class="chips" id="evchips"></span>
+  </div>
+  <div class="legend" id="evinfo"></div>
+  <svg id="evsvg" viewBox="0 0 800 600" role="img" aria-label="Map of the cities that reported a coercive event"></svg>
+  <div class="cap"><b>Figure 6.</b> The event (star) and the cities whose presses reported it, teal for presses in the event's language and rust for presses in another. Dashed rings mark 250 and 500 kilometers. Distances are great-circle distances. Of the 384 events, 59 were reported only in editions with no known place of printing and draw no reporters.</div>
+</div>
+<p>For each event outside England the paper treats every city that printed news within two years as a candidate reporter, which gives 35,677 city-event pairs. A city within 25 kilometers of an event reported it 20.6 percent of the time, between 25 and 250 kilometers 2.1 percent, and beyond 250 kilometers 0.5 percent. With event and city fixed effects the elasticity of reporting with respect to distance is −0.61, so doubling the distance lowers the probability of a report by about a third. Near a language frontier a same-language town reported an event at 2.4 times the rate of a different-language town at the same distance.</p>
+<div class="figure">
+  <svg id="gsvg" viewBox="0 0 800 300" role="img" aria-label="Reporting rate by distance and language"></svg>
+  <div class="legend"><span style="color:var(--teal);font-weight:600">● Same language as the event</span> &nbsp; <span style="color:var(--rust);font-weight:600">● Another language</span></div>
+  <div class="cap"><b>Figure 7.</b> Share of candidate cities that reported a coercive event, by distance from the event and by whether the city shared the event's language, on the 35,677 city-event pairs. The vertical scale is logarithmic. Point size is the number of pairs in the bin. From Figure 5 of the paper.</div>
+</div>
+</section>
+
+<section id="doctrine">
+<h2><span class="num">8</span>Doctrine as a backlist</h2>
+<p>The <i>Malleus maleficarum</i> was first printed at Speyer in 1487. The reprint chains recover 29 editions through 1620 in eight cities, 28 of them with a known place of printing and every one in Latin. Drach at Speyer, Koberger at Nuremberg, and Koelhoff at Cologne printed it six times by 1496. Cologne, Paris, Lyon, and Nuremberg printed it again between 1511 and 1523. Bertano at Venice revived it in four editions between 1574 and 1576. Basse at Frankfurt printed it four times between 1580 and 1600 and Lyon carried it to 1620. A reader in 1600 could buy it from a backlist in Lyon or Frankfurt whatever the timing of plague in his own town.</p>
+<div class="figure">
+  <div class="controls">
+    <button class="tab" id="mplay">Play</button>
+    <label>Year <input id="my" type="range" min="1487" max="1620" step="1" value="1620"></label><span class="v" id="myv"></span>
+  </div>
+  <svg id="msvg" viewBox="0 0 800 600" role="img" aria-label="Map of the editions of the Malleus maleficarum"></svg>
+  <div class="legend" id="mleg"></div>
+  <div class="cap"><b>Figure 8.</b> The 28 placed editions of the <i>Malleus maleficarum</i> printed by the selected year, by city of printing. Circle area is the number of editions and color the year of the city's first edition, dark for the earliest. Arrows follow the order of first editions across cities. From Figure 7 of the paper.</div>
+</div>
+<p>The reprint chains hold 86 doctrine works and 585 coercive-news works. A doctrine work was reprinted 47.7 percent of the time and a news work 28.9 percent. The span from a work's first to its last edition was 9.2 years for doctrine and 0.7 years for news. The odds that a doctrine work appeared in a second language were 22 times the odds for a news work.</p>
+<div class="figure">
+  <svg id="dsvg" viewBox="0 0 800 260" role="img" aria-label="Reprinting and reprint span by product"></svg>
+  <div class="cap"><b>Figure 9.</b> Left, the share of works with at least two editions. Right, the years from first to last edition among reprinted works, at each tenth of the distribution, with the median marked large. From Figure 8 of the paper. Reprint links are conservative, so every gap is a lower bound.</div>
+</div>
+</section>
+
+<section id="coverage">
+<h2><span class="num">9</span>The coverage share</h2>
+<p>A city's own current output is a share λ = δ / (1 + R) of the content its readers could reach. Here δ is the rate at which a title loses its value each year, which dilutes this year's output against the city's own backlist. R measures the output of other cities within reach, which dilutes it against everyone else's. On one city system common to every product a city's own current output is 1.8 percent of the news its readers could reach and 0.12 percent of the doctrine.</p>
+<div class="figure">
+  <svg id="plsvg" viewBox="0 0 800 340" role="img" aria-label="The estimated product plane"></svg>
+  <div class="cap"><b>Figure 10.</b> The four products at their estimated depreciation and reach, as in Figure 10 of the paper. Dotted contours hold the coverage share λ constant. The dashed line marks the depreciation of plague medicine estimated in Section 5. Its reach is not calibrated because its demand events are not geocoded. Hover over a product for its numbers.</div>
+</div>
+<div class="figure">
+  <div class="controls">
+    <label>Depreciation per year, δ <input id="cd" type="range" min="0.05" max="1" step="0.001" value="0.108"></label><span class="v" id="cdv"></span>
+    <label>Reach, R <input id="cr" type="range" min="0" max="120" step="0.1" value="90.8"></label><span class="v" id="crv"></span>
+    <span class="chips" id="cpre"></span>
+  </div>
+  <div class="readout">
+    <div><b id="cl"></b>coverage share λ</div>
+    <div><b id="cn"></b>of what readers can reach comes from the city's own presses this year</div>
+    <div><b id="cbk"></b>of what readers can reach was printed in other cities</div>
+  </div>
+  <div class="cap"><b>Figure 11.</b> The coverage share for any depreciation and reach. The presets use the estimates of Table 39, Panel C, in the paper.</div>
+</div>
+</section>
+
+<section id="comovement">
+<h2><span class="num">10</span>Co-movement and its limits</h2>
+<p>Across decades witch-hunting doctrine and witch executions rise together into the great wave of 1570–1630 and subside together after it. Their correlation is 0.91 in the same decade, 0.80 with print leading by a decade, and 0.65 with print lagging by a decade. Locally the canon does nothing visible. The first arrival of an edition near a town leaves the town's trials flat from 30 years before to 25 years after.</p>
+<div class="figure">
+  <div class="two">
+    <svg id="asvg" viewBox="0 0 400 290" role="img" aria-label="Witch-hunting doctrine, news, and executions by decade"></svg>
+    <div>
+      <div class="controls" id="abtabs" style="margin-bottom:4px"></div>
+      <svg id="bsvg" viewBox="0 0 400 260" role="img" aria-label="Trials around the first local arrival of the canon"></svg>
+    </div>
+  </div>
+  <div class="cap"><b>Figure 12.</b> Left, decade totals of witch-hunting doctrine, witch-trial news pamphlets, and witch executions, each indexed to its own maximum. Right, the change in the probability of a witch trial around the first local arrival of the canon, by five-year bin, with city-clustered 95 percent intervals. The paper's last bin pools every year from 30 on and is omitted here. From Figure 9 of the paper.</div>
+</div>
+<p>A printer sizes a run of a durable work to the years it will take to sell. When demand is persistent such a run leads the demand it serves whichever way causation runs. The simulation below sets production equal to the next L years of consumption and the outcome equal to consumption plus noise, so production has no effect on the outcome. Proposition 2 of the paper puts the peak of the correlation at a lead of (L − 1)/2 years. A printer who reissued a doctrine work did so after 4.0 years on average, which puts the predicted lead at 1.5 years.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Years one run takes to sell, L <input id="sl" type="range" min="1" max="15" step="1" value="4"></label><span class="v" id="slv"></span>
+  </div>
+  <div class="two">
+    <svg id="s1svg" viewBox="0 0 400 270" role="img" aria-label="Simulated lead and lag"></svg>
+    <svg id="s2svg" viewBox="0 0 400 270" role="img" aria-label="Observed correlogram"></svg>
+  </div>
+  <div class="cap"><b>Figure 13.</b> Left, the simulated correlation between production and the outcome at each lead, averaged over 40 simulations of 4,000 periods with persistence 0.8. The dot marks the peak and the dashed line the predicted peak. The simulation runs in whole years, so its peak falls on a whole year near the prediction. Right, the observed correlation of decade-level doctrine and executions with print leading by k decades. From Figure 11 of the paper.</div>
+</div>
+<p>The aggregate co-movement is what an integrated market produces whether or not reading doctrine raised persecution. In this setting the effect of reading doctrine on persecution is not identified.</p>
+</section>
+
+<section id="limits">
+<h2><span class="num">11</span>Limits</h2>
+<p>The event study describes the larger presses. Onsets that enter it sit in presses printing 41.9 titles a year, against 13.9 for those that drop out.</p>
+<p>Persecutions of Jewish communities are rare in city-years, and the design cannot rule out an onset-year rise to four times the base rate.</p>
+<p>Print aimed at Jews and accused witches mixes durable doctrine with perishable edicts and news. The perishable part is too thin to test on its own, so the bound applies to the category as a whole.</p>
+<p>The record of production cannot identify an effect of reading doctrine on persecution, and plague medicine's reach is not calibrated.</p>
+</section>
+
+<footer>
+  <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/market-for-ideas/">Mapping the market for ideas</a> · <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/">All companions</a></p>
+  <p>Every number on this page comes from data exported by the paper's replication code, which checks 50 values against the draft of 15 October 2026. Print data come from the Universal Short Title Catalogue. Plague outbreaks are from Biraben (1975, 1976), witch trials from Leeson and Russ (2018), and persecutions of Jewish communities from Jedwab, Johnson, and Koyama (2019). The basemap is from Natural Earth.</p>
+</footer>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
+const tip = d3.select("#tip");
+const showTip = (ev, html) => tip.html(html).style("opacity",1).style("left", Math.min(ev.clientX + 14, window.innerWidth - 310) + "px").style("top", (ev.clientY + 14) + "px");
+const hideTip = () => tip.style("opacity",0);
+const fmt0 = d3.format(",.0f");
+const lo = d => Math.min(d.lo_city, d.lo_conley), hi = d => Math.max(d.hi_city, d.hi_conley);
+const TYPES = { execution_crime:"Execution for crime", heresy_inquisition:"Heresy and inquisition", witch_trial:"Witch trial", rebellion_treason:"Rebellion and treason", confessional_violence:"Confessional violence", anti_jewish:"Anti-Jewish violence", other_coercion:"Other coercion" };
+const PROD = { news:"Coercive news", edict:"Edicts", other:"Other print", doctrine:"Doctrine" };
+
+function fixWinding(base) {
+  return (base.features || [base]).map(f => { if (d3.geoArea(f) > 2*Math.PI) { const rv = p => p.map(r => r.slice().reverse()); const g = f.geometry;
+    return { ...f, geometry: { ...g, coordinates: g.type === "Polygon" ? rv(g.coordinates) : g.coordinates.map(rv) } }; } return f; });
+}
+function baseMap(svg, feats, W, H, box) {
+  box = box || { type:"MultiPoint", coordinates: [[-11,36],[28,36],[-11,60],[28,60],[8.5,61],[8.5,35.5]] };
+  const proj = d3.geoConicConformal().rotate([-8.5,0]).parallels([40,56]).fitExtent([[8,8],[W-8,H-8]], box).clipExtent([[0,0],[W,H]]);
+  svg.append("rect").attr("width",W).attr("height",H).attr("fill","#e9eef2");
+  svg.selectAll("path.l").data(feats).join("path").attr("class","l").attr("d", d3.geoPath(proj)).attr("fill","#fbfaf7").attr("stroke","#c9c9c9");
+  return proj;
+}
+function player(btnId, inputId, step, draw) {
+  let timer = null; const btn = d3.select(btnId), inp = d3.select(inputId);
+  btn.on("click", () => {
+    if (timer) { clearInterval(timer); timer = null; btn.text("Play").classed("on", false); return; }
+    if (+inp.property("value") >= +inp.attr("max")) inp.property("value", inp.attr("min"));
+    btn.text("Pause").classed("on", true);
+    timer = setInterval(() => { const v = +inp.property("value") + step;
+      if (v > +inp.attr("max")) { clearInterval(timer); timer = null; btn.text("Play").classed("on", false); return; }
+      inp.property("value", v); draw(); }, 140);
+  });
+}
+
+Promise.all([
+  d3.csv("cities.csv", d3.autoType), d3.csv("city_year.csv", d3.autoType), d3.csv("outbreaks.csv", d3.autoType), d3.csv("outbreaks_by_year.csv", d3.autoType),
+  d3.json("event_study.json"), d3.json("stock_response.json"), d3.json("news.json"), d3.json("doctrine.json"), d3.json("products.json"), d3.json("aggregate.json"), d3.json("basemap.geojson")
+]).then(([cities, cy, ob, oby, es, st, news, doc, prod, agg, base]) => {
+  const feats = fixWinding(base);
+  table1(prod); plagueMap(cities, cy, ob, oby, feats); eventStudy(es); randomization(es.fig12); stock(st);
+  explorer(cities, cy); newsMap(news, feats); gradient(news); malleus(doc, feats); durability(doc);
+  plane(prod); calculator(prod); aggregate(agg); simulation(agg);
+});
+
+// ---------- 2. Table 1 ----------
+function table1(prod) {
+  d3.select("#t1 tbody").selectAll("tr").data(prod.table1).join("tr").html(d =>
+    `<td><b>${d.product}</b></td><td>${d.loses_value_over}</td><td>${d.market}</td><td>${d.buyer}</td><td>${d.supply}</td>`);
+}
+
+// ---------- 3. Plague map ----------
+function plagueMap(cities, cy, ob, oby, feats) {
+  const svg = d3.select("#psvg"), W = 800, H = 600;
+  const proj = baseMap(svg, feats, W, H);
+  const byYear = new Map();
+  ob.forEach(r => String(r.years).split(/\s+/).map(Number).forEach(y => { if (!byYear.has(y)) byYear.set(y, []); byYear.get(y).push(r); }));
+  const onsets = new Map();
+  cy.forEach(r => { if (r.clean_onset === 1) { if (!onsets.has(r.year)) onsets.set(r.year, new Set()); onsets.get(r.year).add(r.city); } });
+  const pts = cities.filter(c => c.lat != null);
+  const gO = svg.append("g"), gC = svg.append("g");
+  gC.selectAll("circle").data(pts).join("circle").attr("cx", c => proj([c.lon, c.lat])[0]).attr("cy", c => proj([c.lon, c.lat])[1])
+    .attr("r", c => 1.5 + Math.sqrt(c.editions_to_1650) / 40).attr("fill", C.navy).attr("opacity", .55)
+    .on("mousemove", (ev,c) => showTip(ev, `<b>${c.city}</b><br>${fmt0(c.editions_to_1650)} editions to 1650<br>${c.clean_onsets} clean onsets, ${c.onsets_in_event_sample} in the event study`)).on("mouseleave", hideTip);
+  const gR = svg.append("g");
+  const bs = d3.select("#pbars"), BW = 800, BH = 170, bm = {l:46, r:12, t:10, b:28};
+  const bx = d3.scaleBand(oby.map(d => d.year), [bm.l, BW-bm.r]).padding(0.1);
+  const by = d3.scaleLinear([0, d3.max(oby, d => d.outbreaks)], [BH-bm.b, bm.t]).nice();
+  bs.append("g").attr("class","axis").attr("transform",`translate(0,${BH-bm.b})`).call(d3.axisBottom(bx).tickValues(oby.map(d => d.year).filter(y => y % 50 === 0)));
+  bs.append("g").attr("class","axis").attr("transform",`translate(${bm.l},0)`).call(d3.axisLeft(by).ticks(4));
+  bs.append("text").attr("transform","rotate(-90)").attr("x",-(BH-bm.b+bm.t)/2).attr("y",12).attr("text-anchor","middle").text("Outbreaks");
+  const bars = bs.selectAll("rect").data(oby).join("rect").attr("x", d => bx(d.year)).attr("width", bx.bandwidth()).attr("y", d => by(d.outbreaks)).attr("height", d => by(0) - by(d.outbreaks))
+    .attr("cursor","pointer").on("click", (e,d) => { if (d.year >= 1450 && d.year <= 1650) { d3.select("#py").property("value", d.year); draw(); } })
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${d.year}</b><br>${d.outbreaks} localities with an outbreak`)).on("mouseleave", hideTip);
+  function draw() {
+    const y = +d3.select("#py").property("value"); d3.select("#pyv").text(y);
+    const o = byYear.get(y) || [], on = onsets.get(y) || new Set();
+    gO.selectAll("circle").data(o, d => d.locality).join("circle").attr("cx", d => proj([d.lon, d.lat])[0]).attr("cy", d => proj([d.lon, d.lat])[1]).attr("r", 4)
+      .attr("fill", C.rust).attr("opacity", .75).on("mousemove", (ev,d) => showTip(ev, `<b>${d.locality}</b><br>Plague in ${y}. ${d.n_outbreaks} outbreaks recorded 1450–1650`)).on("mouseleave", hideTip);
+    const ring = pts.filter(c => on.has(c.city));
+    gR.selectAll("circle").data(ring, c => c.city).join("circle").attr("cx", c => proj([c.lon, c.lat])[0]).attr("cy", c => proj([c.lon, c.lat])[1]).attr("r", 9)
+      .attr("fill","none").attr("stroke", C.rust).attr("stroke-width", 2).style("pointer-events","none");
+    bars.attr("fill", d => d.year === y ? C.rust : "#b9bec6");
+    d3.select("#pleg").html(`<b style="color:var(--navy)">${y}</b>. ${o.length} localities recorded plague. ${ring.length ? ring.length + " panel " + (ring.length === 1 ? "city" : "cities") + " had a clean onset: " + ring.map(c => c.city).join(", ") + "." : "No panel city had a clean onset."}`);
+  }
+  d3.select("#py").on("input", draw); player("#pplay", "#py", 1, draw); draw();
+}
+
+// ---------- 4. Event study ----------
+function esChart(svg, series, o) {
+  const W = o.W || 800, H = o.H || 330, mg = {l:62, r:20, t:14, b:40};
+  svg.selectAll("*").remove();
+  const all = series.flatMap(s => s.rows);
+  const ref = o.ref ?? 0;
+  const x = d3.scaleLinear([-5.5, 5.5], [mg.l, W-mg.r]);
+  const y = d3.scaleLinear([Math.min(ref, d3.min(all, lo)), Math.max(ref, d3.max(all, hi))], [H-mg.b, mg.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(11));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(ref)).attr("y2", y(ref)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  svg.append("line").attr("x1", x(-0.5)).attr("x2", x(-0.5)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", "#c8c8c8");
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Years since plague onset");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text(o.ylab);
+  const n = series.length;
+  series.forEach((s, i) => {
+    const off = (i - (n-1)/2) * 0.14;
+    svg.append("path").datum(s.rows).attr("fill","none").attr("stroke", s.col).attr("stroke-width", 2).attr("opacity", .7).attr("d", d3.line().x(d => x(d.tau + off)).y(d => y(d.est)));
+    svg.selectAll(null).data(s.rows).join("line").attr("x1", d => x(d.tau + off)).attr("x2", d => x(d.tau + off)).attr("y1", d => y(lo(d))).attr("y2", d => y(hi(d))).attr("stroke", s.col).attr("stroke-width", 1.8);
+    svg.selectAll(null).data(s.rows).join("circle").attr("cx", d => x(d.tau + off)).attr("cy", d => y(d.est)).attr("r", 4.5).attr("fill", s.col)
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${s.name}, year ${d.tau > 0 ? "+" : ""}${d.tau}</b><br>${d.est.toFixed(2)} [${lo(d).toFixed(2)}, ${hi(d).toFixed(2)}]`)).on("mouseleave", hideTip);
+  });
+}
+function eventStudy(es) {
+  const f13 = Object.entries(es.fig13).map(([k, v], i) => ({ name: k.replace(/^[AB]\. /, ""), rows: v, col: [C.rust, C.teal, C.gray][i] }));
+  f13[0].name = "Press-free town onset, all city-years"; f13[1].name = "Press-free town onset, no own outbreak within a year"; f13[2].name = "Own-city onset";
+  const views = [
+    { tab: "Medical print", series: [{ name: "Medical share", rows: es.fig1.medical_share, col: C.rust }], ylab: "Percentage points",
+      cap: "Figure 2. Medical share of city-year print around clean plague onsets, in percentage points. From the left panel of Figure 1 of the paper." },
+    { tab: "Print aimed at Jews and witches", series: [{ name: "Titles aimed at Jews and accused witches", rows: es.fig1.jews_witches_irr, col: C.navy }], ylab: "Incidence-rate ratio", ref: 1,
+      cap: "Figure 2. Incidence-rate ratio for titles aimed at Jews and accused witches from the count model, since those titles are too rare for a share specification. A value of one is no change. From the right panel of Figure 1 of the paper." },
+    { tab: "Plague-specific and general medicine", series: [{ name: "Plague-specific medicine", rows: es.fig2.plague_specific, col: C.rust }, { name: "General medicine", rows: es.fig2.general, col: C.teal }], ylab: "Percentage points",
+      cap: "Figure 2. Plague-specific and general medical shares of city-year print, in percentage points. From Figure 2 of the paper, which draws city-clustered bands." },
+    { tab: "New works and reprints", series: [{ name: "New works (first editions)", rows: es.fig15["New works (first edition)"], col: C.rust }, { name: "Reprints", rows: es.fig15["Reprints (existing stock)"], col: C.navy }], ylab: "Percentage points",
+      cap: "Figure 2. First editions of new plague-specific works and reprints of existing ones, as shares of city-year print in percentage points. Automated reprint detection is conservative, so the gap between them is an upper bound. From Figure 15 of the paper." },
+    { tab: "Press-free towns nearby", series: f13, ylab: "Percentage points",
+      cap: "Figure 2. Plague-specific medical share in a printing city around onsets in press-free towns 20 to 60 kilometers away, against the city's own onsets. The second path drops city-years near an outbreak in the printing city itself. From Figure 13 of the paper." },
+    { tab: "Persecution in deed", series: [{ name: "Witch trials", rows: es.fig3.witch_trials, col: C.navy }, { name: "Persecutions of Jewish communities", rows: es.fig3.jewish_persecutions, col: C.gold }], ylab: "Percentage points",
+      cap: `Figure 2. Change in the probability of a witch trial and of a persecution of a Jewish community in the city-year, in percentage points. Base rates are ${es.fig3.base_rate_pct.witch_trials.toFixed(1)} and ${es.fig3.base_rate_pct.jewish_persecutions.toFixed(1)} percent. From Figure 3 of the paper.` } ];
+  const tabs = d3.select("#estabs").selectAll("button").data(views).join("button").attr("class","tab").text(d => d.tab).on("click", (e,d) => draw(d));
+  function draw(v) {
+    tabs.classed("on", d => d === v);
+    esChart(d3.select("#essvg"), v.series, { ylab: v.ylab, ref: v.ref });
+    d3.select("#esleg").html(v.series.map(s => `<span style="color:${s.col};font-weight:600">● ${s.name}</span>`).join(" &nbsp; "));
+    d3.select("#escap").html(`<b>Figure 2.</b> ${v.cap.replace(/^Figure 2\. /, "")} City and year fixed effects, reference year −1, 95 percent bands from the wider of the city-clustered and Conley standard errors.`);
+  }
+  draw(views[0]);
+}
+function randomization(r) {
+  const svg = d3.select("#risvg"), W = 800, H = 300, mg = {l:300, r:24, t:6, b:14};
+  const rows = [["med", "Medical share (pp)"], ["pmed", "Plague-specific medicine (pp)"], ["pawp", "Aimed at Jews and witches (log ratio)"], ["trial", "Witch trials (pp)"]];
+  const rh = (H - mg.t - mg.b) / rows.length;
+  rows.forEach(([k, label], i) => {
+    const d = r[k], q = d.quantiles, yc = mg.t + rh * i + rh / 2;
+    const x = d3.scaleLinear().domain(d3.extent([q.q01, q.q99, d.real, 0])).nice().range([mg.l, W-mg.r]);
+    const g = svg.append("g");
+    g.append("text").attr("x", mg.l - 12).attr("y", yc - 4).attr("text-anchor","end").attr("class","title").text(label);
+    g.append("text").attr("x", mg.l - 12).attr("y", yc + 12).attr("text-anchor","end").text(`permutation p = ${d.perm_p < 0.01 ? d.perm_p.toFixed(3) : d.perm_p.toFixed(2)}`);
+    g.append("g").attr("class","axis").attr("transform",`translate(0,${yc + 14})`).call(d3.axisBottom(x).ticks(5).tickSize(3));
+    g.append("line").attr("x1", x(0)).attr("x2", x(0)).attr("y1", yc - 14).attr("y2", yc + 14).attr("stroke", "#c8c8c8");
+    g.append("line").attr("x1", x(q.q01)).attr("x2", x(q.q99)).attr("y1", yc).attr("y2", yc).attr("stroke", "#9aa3ad").attr("stroke-width", 1.5);
+    g.append("rect").attr("x", x(q.q025)).attr("width", x(q.q975) - x(q.q025)).attr("y", yc - 6).attr("height", 12).attr("fill", "#c9cfd6");
+    g.append("circle").attr("cx", x(d.real)).attr("cy", yc).attr("r", 6).attr("fill", k === "med" || k === "pmed" ? C.rust : C.navy)
+      .on("mousemove", ev => showTip(ev, `<b>${label}</b><br>Actual estimate ${d.real.toFixed(2)}<br>Middle 95 percent of 500 reassignments ${q.q025.toFixed(2)} to ${q.q975.toFixed(2)}`)).on("mouseleave", hideTip);
+  });
+}
+
+// ---------- 5. Stock ----------
+function stock(st) {
+  const svg = d3.select("#stsvg"), W = 800, H = 280, mg = {l:62, r:20, t:14, b:48};
+  const labels = ["No prior stock", "Lowest third", "Middle third", "Highest third"];
+  const rows = st.bins.map((b, i) => ({ ...b, label: labels[i] }));
+  const x = d3.scaleBand(labels, [mg.l, W-mg.r]).padding(.4);
+  const y = d3.scaleLinear([Math.min(0, d3.min(rows, lo)), d3.max(rows, hi)], [H-mg.b, mg.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x));
+  svg.selectAll("text.n").data(rows).join("text").attr("x", d => x(d.label) + x.bandwidth()/2).attr("y", H-mg.b+30).attr("text-anchor","middle").text(d => `${d.n} onsets, mean stock ${d.h_mean.toFixed(2)}`);
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5));
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Onset response");
+  const cx = d => x(d.label) + x.bandwidth()/2;
+  svg.selectAll("line.ci").data(rows).join("line").attr("x1", cx).attr("x2", cx).attr("y1", d => y(lo(d))).attr("y2", d => y(hi(d))).attr("stroke", C.rust).attr("stroke-width", 2);
+  svg.selectAll("circle").data(rows).join("circle").attr("cx", cx).attr("cy", d => y(d.est_adj)).attr("r", 6).attr("fill", C.rust)
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${d.label}</b><br>Response ${d.est_adj.toFixed(2)} [${lo(d).toFixed(2)}, ${hi(d).toFixed(2)}]<br>${d.n} onsets`)).on("mouseleave", hideTip);
+}
+
+// ---------- 6. City explorer ----------
+function explorer(cities, cy) {
+  const byCity = d3.group(cy, r => r.city), info = new Map(cities.map(c => [c.city, c]));
+  const names = [...byCity.keys()].sort((a,b) => a.localeCompare(b));
+  d3.select("#citylist").selectAll("option").data(names).join("option").attr("value", d => d);
+  d3.select("#cchips").html("Try ").selectAll("a").data(["Venice","Lyon","Nuremberg","London","Antwerp"].filter(n => byCity.has(n))).join("a").text(d => d).on("click", (e,d) => { d3.select("#city").property("value", d); draw(d); });
+  const svg = d3.select("#cvis"), W = 800, H = 400, mg = {l:62, r:20, t:10, b:30};
+  const top = [mg.t, 170], mid = [186, 236], bot = [252, H-mg.b];
+  function draw(key) {
+    svg.selectAll("*").remove();
+    const rows = (byCity.get(key) || []).slice().sort((a,b) => a.year - b.year);
+    if (!rows.length) { d3.select("#cinfo").text("No city by that name in the panel."); return; }
+    const c = info.get(key) || {};
+    d3.select("#cinfo").html(`<b style="color:var(--navy)">${key}</b>. Main print language ${c.main_language}. First dated edition ${c.first_year}. ${fmt0(c.editions_to_1650)} editions to 1650. ${c.clean_onsets} clean plague onsets, ${c.onsets_in_event_sample} of them in the event study.`);
+    const x = d3.scaleBand(d3.range(1454, 1651), [mg.l, W-mg.r]).padding(0);
+    const yE = d3.scaleLinear([0, d3.max(rows, r => r.editions) || 1], [top[1], top[0]]).nice();
+    const yM = d3.scaleLinear([0, Math.max(1, d3.max(rows, r => r.medical))], [bot[1], bot[0]]).nice();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${bot[1]})`).call(d3.axisBottom(x).tickValues(d3.range(1460, 1651, 20)));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(yE).ticks(4, "~s"));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(yM).ticks(3, "~s"));
+    svg.append("text").attr("x", mg.l + 6).attr("y", top[0] + 10).attr("class","title").text("Editions");
+    svg.append("text").attr("x", mg.l + 6).attr("y", bot[0] + 10).attr("class","title").text("Medical titles");
+    const bw = Math.max(1, x.bandwidth() - 0.6);
+    svg.selectAll("rect.e").data(rows).join("rect").attr("x", r => x(r.year)).attr("width", bw).attr("y", r => yE(r.editions)).attr("height", r => yE(0) - yE(r.editions)).attr("fill", "#9aa3ad");
+    svg.selectAll("rect.m").data(rows).join("rect").attr("x", r => x(r.year)).attr("width", bw).attr("y", r => yM(r.medical)).attr("height", r => yM(0) - yM(r.medical)).attr("fill", "#e3b48f");
+    svg.selectAll("rect.pm").data(rows).join("rect").attr("x", r => x(r.year)).attr("width", bw).attr("y", r => yM(r.plague_medical)).attr("height", r => yM(0) - yM(r.plague_medical)).attr("fill", C.rust);
+    const marks = [["outbreak", 0, C.rust], ["witch_trial", 1, C.navy], ["jewish_persecution", 2, C.gold]];
+    const rh = (mid[1] - mid[0]) / 3;
+    ["Plague", "Witch trial", "Jewish persecution"].forEach((t, i) => svg.append("text").attr("x", mg.l - 6).attr("y", mid[0] + rh * i + rh/2 + 4).attr("text-anchor","end").style("font-size","10px").text(t));
+    marks.forEach(([k, i, col]) => svg.selectAll(null).data(rows.filter(r => r[k] === 1)).join("rect").attr("x", r => x(r.year)).attr("width", Math.max(2, bw)).attr("y", mid[0] + rh * i + 2).attr("height", rh - 4).attr("fill", col));
+    svg.selectAll("path.on").data(rows.filter(r => r.clean_onset === 1)).join("path").attr("transform", r => `translate(${x(r.year) + bw/2},${mid[0] - 2})`).attr("d", d3.symbol(d3.symbolTriangle, 40)()).attr("fill", C.rust).attr("transform", r => `translate(${x(r.year) + bw/2},${mid[0] - 3}) rotate(180)`);
+    svg.selectAll("rect.hit").data(rows).join("rect").attr("x", r => x(r.year)).attr("width", x.bandwidth()).attr("y", top[0]).attr("height", bot[1] - top[0]).attr("fill", "transparent")
+      .on("mousemove", (ev,r) => showTip(ev, `<b>${key}, ${r.year}</b><br>${r.editions} editions<br>${r.medical} medical, ${r.plague_medical} plague-specific<br>${r.aimed_at_jews + r.aimed_at_witches} aimed at Jews or accused witches${r.outbreak ? "<br>Plague outbreak" : ""}${r.clean_onset ? " (clean onset)" : ""}${r.witch_trial ? "<br>Witch trial" : ""}${r.jewish_persecution ? "<br>Persecution of the Jewish community" : ""}`)).on("mouseleave", hideTip);
+  }
+  d3.select("#city").on("change", function(){ draw(this.value); });
+  d3.select("#city").property("value", "Nuremberg"); draw("Nuremberg");
+}
+
+// ---------- 7. News ----------
+function newsMap(news, feats) {
+  const svg = d3.select("#evsvg"), W = 800, H = 600;
+  const proj = baseMap(svg, feats, W, H), path = d3.geoPath(proj);
+  const evs = news.registry.filter(e => e.reporters.length).map(e => ({ ...e, key: `${e.place}, ${e.year ?? "year unknown"} · ${TYPES[e.type] || e.type}` }));
+  const byKey = new Map(evs.map(e => [e.key, e]));
+  d3.select("#evlist").selectAll("option").data(evs.map(e => e.key).sort((a,b) => a.localeCompare(b))).join("option").attr("value", d => d);
+  const chips = [evs.find(e => e.place === "Münster" && e.year === 1535), ...evs.filter(e => !(e.place === "Münster" && e.year === 1535)).filter(e => e.year != null).sort((a,b) => b.reporters.length - a.reporters.length).slice(0, 3)];
+  d3.select("#evchips").html("Try ").selectAll("a").data(chips).join("a").text(e => `${e.place} ${e.year}`).on("click", (ev,e) => { d3.select("#ev").property("value", e.key); draw(e); });
+  const g = svg.append("g");
+  function draw(e) {
+    g.selectAll("*").remove();
+    [250, 500].forEach(km => g.append("path").datum(d3.geoCircle().center([e.lon, e.lat]).radius(km / 111.2)()).attr("d", path).attr("fill","none").attr("stroke", C.gray).attr("stroke-dasharray","4 4").attr("opacity",.6));
+    const ep = proj([e.lon, e.lat]);
+    const rs = e.reporters.filter(r => r.lat != null);
+    g.selectAll("line").data(rs).join("line").attr("x1", ep[0]).attr("y1", ep[1]).attr("x2", r => proj([r.lon, r.lat])[0]).attr("y2", r => proj([r.lon, r.lat])[1]).attr("stroke", "#9aa3ad").attr("stroke-width", 1);
+    g.selectAll("circle").data(rs).join("circle").attr("cx", r => proj([r.lon, r.lat])[0]).attr("cy", r => proj([r.lon, r.lat])[1]).attr("r", r => 4 + 1.5 * Math.sqrt(r.editions))
+      .attr("fill", r => r.language === e.language ? C.teal : C.rust).attr("stroke","#fff")
+      .on("mousemove", (ev,r) => showTip(ev, `<b>${r.city}</b><br>${r.language}, ${fmt0(r.dist_km)} km<br>First report ${r.first_report}, ${r.editions} ${r.editions === 1 ? "edition" : "editions"}`)).on("mouseleave", hideTip);
+    g.selectAll("text").data(rs).join("text").attr("x", r => proj([r.lon, r.lat])[0] + 7).attr("y", r => proj([r.lon, r.lat])[1] - 5).style("font-size","11px").attr("fill", C.navy).text(r => r.city);
+    g.append("path").attr("transform", `translate(${ep[0]},${ep[1]})`).attr("d", d3.symbol(d3.symbolStar, 220)()).attr("fill", C.gold).attr("stroke", C.navy);
+    const same = rs.filter(r => r.language === e.language).length, ds = rs.map(r => r.dist_km);
+    d3.select("#evinfo").html(`<b style="color:var(--navy)">${e.place}${e.year != null ? ", " + e.year : ""}</b>. ${TYPES[e.type] || e.type}${e.language ? ", in the " + e.language + " language market" : ""}. ${e.editions} ${e.editions === 1 ? "edition" : "editions"} in the registry. Reported in ${rs.length} ${rs.length === 1 ? "city" : "cities"}, ${same} of them in the event's language. Nearest report ${fmt0(d3.min(ds))} km, farthest ${fmt0(d3.max(ds))} km.`);
+  }
+  d3.select("#ev").on("change", function(){ const e = byKey.get(this.value); if (e) draw(e); });
+  d3.select("#ev").property("value", chips[0].key); draw(chips[0]);
+}
+function gradient(news) {
+  const svg = d3.select("#gsvg"), W = 800, H = 300, mg = {l:62, r:20, t:14, b:40};
+  const bins = ["<10","10-25","25-50","50-100","100-250","250-500","500-1k",">1k"];
+  const lab = { "<10":"under 10", "10-25":"10–25", "25-50":"25–50", "50-100":"50–100", "100-250":"100–250", "250-500":"250–500", "500-1k":"500–1,000", ">1k":"over 1,000" };
+  const x = d3.scalePoint(bins, [mg.l + 20, W - mg.r - 20]);
+  const rows = news.fig5_upper.filter(d => d.share > 0);
+  const y = d3.scaleLog([d3.min(rows, d => d.share) * 0.7, 0.5], [H-mg.b, mg.t]);
+  const r = d3.scaleSqrt([0, d3.max(rows, d => d.n)], [2, 14]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickFormat(b => lab[b]));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).tickValues([0.001, 0.003, 0.01, 0.03, 0.1, 0.3]).tickFormat(d3.format(".1%")));
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Distance from the event, kilometers");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Share that reported it");
+  [["same language", C.teal], ["other language", C.rust]].forEach(([l, col]) => {
+    const d = rows.filter(q => q.lang === l).sort((a,b) => bins.indexOf(a.bin) - bins.indexOf(b.bin));
+    svg.append("path").datum(d).attr("fill","none").attr("stroke", col).attr("stroke-width", 2).attr("d", d3.line().x(q => x(q.bin)).y(q => y(q.share)));
+    svg.selectAll(null).data(d).join("circle").attr("cx", q => x(q.bin)).attr("cy", q => y(q.share)).attr("r", q => r(q.n)).attr("fill", col).attr("opacity", .8)
+      .on("mousemove", (ev,q) => showTip(ev, `<b>${lab[q.bin]} km, ${l}</b><br>${(100*q.share).toFixed(2)} percent of ${fmt0(q.n)} candidate pairs reported`)).on("mouseleave", hideTip);
+  });
+}
+
+// ---------- 8. Doctrine ----------
+function malleus(doc, feats) {
+  const svg = d3.select("#msvg"), W = 800, H = 600;
+  const proj = baseMap(svg, feats, W, H, { type:"MultiPoint", coordinates: [[-3,42],[17,42],[-3,54],[17,54]] });
+  const eds = doc.malleus.filter(d => d.lat != null);
+  const cities = d3.rollups(eds, v => ({ city: v[0].city, lat: v[0].lat, lon: v[0].lon, years: v.map(d => d.year).sort((a,b) => a - b) }), d => d.city).map(d => d[1]).sort((a,b) => a.years[0] - b.years[0]);
+  const col = d3.scaleSequential([1487, 1580], d3.interpolateRgbBasis(["#4a1c05", C.rust, C.gold]));
+  svg.append("defs").append("marker").attr("id","arr").attr("viewBox","0 0 10 10").attr("refX",9).attr("refY",5).attr("markerWidth",6).attr("markerHeight",6).attr("orient","auto")
+    .append("path").attr("d","M0,0 L10,5 L0,10 z").attr("fill", C.navy);
+  const links = cities.slice(1).map((c, i) => ({ a: cities[i], b: c }));
+  const gl = svg.append("g"), gc = svg.append("g");
+  const arc = l => { const [x1,y1] = proj([l.a.lon, l.a.lat]), [x2,y2] = proj([l.b.lon, l.b.lat]); const dx = x2-x1, dy = y2-y1, dr = Math.hypot(dx,dy) * 1.2; return `M${x1},${y1} A${dr},${dr} 0 0,1 ${x2},${y2}`; };
+  function draw() {
+    const yr = +d3.select("#my").property("value"); d3.select("#myv").text(yr);
+    gl.selectAll("path").data(links.filter(l => l.b.years[0] <= yr)).join("path").attr("d", arc).attr("fill","none").attr("stroke", C.navy).attr("stroke-width", 1.4).attr("opacity", .55).attr("marker-end","url(#arr)");
+    const vis = cities.filter(c => c.years[0] <= yr).map(c => ({ ...c, n: c.years.filter(y => y <= yr).length }));
+    gc.selectAll("circle").data(vis, c => c.city).join("circle").attr("cx", c => proj([c.lon, c.lat])[0]).attr("cy", c => proj([c.lon, c.lat])[1]).attr("r", c => 5 + 4 * Math.sqrt(c.n))
+      .attr("fill", c => col(c.years[0])).attr("stroke","#fff").attr("opacity", .9)
+      .on("mousemove", (ev,c) => showTip(ev, `<b>${c.city}</b><br>${c.n} ${c.n === 1 ? "edition" : "editions"} by ${yr}<br>${c.years.filter(y => y <= yr).join(", ")}`)).on("mouseleave", hideTip);
+    gc.selectAll("text").data(vis, c => c.city).join("text").attr("x", c => proj([c.lon, c.lat])[0] + 8 + 3 * Math.sqrt(c.n)).attr("y", c => proj([c.lon, c.lat])[1] + 4).attr("fill", C.navy).style("font-size","12px").text(c => c.city);
+    const n = d3.sum(vis, c => c.n);
+    d3.select("#mleg").html(`<b style="color:var(--navy)">${n}</b> placed ${n === 1 ? "edition" : "editions"} in ${vis.length} ${vis.length === 1 ? "city" : "cities"} by ${yr}.`);
+  }
+  d3.select("#my").on("input", draw); player("#mplay", "#my", 1, draw); draw();
+}
+function durability(doc) {
+  const svg = d3.select("#dsvg"), W = 800, H = 260, mg = {l:110, r:20, t:24, b:36};
+  const order = ["doctrine", "edict", "other", "news"];
+  const y = d3.scaleBand(order, [mg.t, H-mg.b]).padding(.35);
+  const f8 = new Map(doc.fig8.map(d => [d.product, d]));
+  const xL = d3.scaleLinear([0, 0.6], [mg.l, 360]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(xL).ticks(4).tickFormat(d3.format(".0%")));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).tickFormat(p => PROD[p]));
+  svg.append("text").attr("x", mg.l).attr("y", 14).attr("class","title").text("Share reprinted");
+  svg.selectAll("rect").data(order).join("rect").attr("x", mg.l).attr("y", p => y(p)).attr("height", y.bandwidth()).attr("width", p => xL(f8.get(p).share_reprinted) - mg.l).attr("fill", p => p === "doctrine" ? C.navy : p === "news" ? C.rust : "#9aa3ad")
+    .on("mousemove", (ev,p) => showTip(ev, `<b>${PROD[p]}</b><br>${(100*f8.get(p).share_reprinted).toFixed(1)} percent of ${f8.get(p).works} works reprinted`)).on("mouseleave", hideTip);
+  const x0 = 420, xR = d3.scaleLinear([0, 60], [x0, W-mg.r]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(xR).ticks(6));
+  svg.append("text").attr("x", x0).attr("y", 14).attr("class","title").text("Years from first to last edition, reprinted works");
+  order.forEach(p => {
+    const q = doc.fig8_quantiles[p], yc = y(p) + y.bandwidth()/2, col = p === "doctrine" ? C.navy : p === "news" ? C.rust : "#9aa3ad";
+    const ks = ["q10","q20","q30","q40","q50","q60","q70","q80","q90"];
+    svg.append("line").attr("x1", xR(q.q10)).attr("x2", xR(q.q90)).attr("y1", yc).attr("y2", yc).attr("stroke", col).attr("opacity", .5);
+    ks.forEach(k => svg.append("circle").attr("cx", xR(q[k])).attr("cy", yc).attr("r", k === "q50" ? 7 : 3.5).attr("fill", col).attr("opacity", k === "q50" ? 1 : .7)
+      .on("mousemove", ev => showTip(ev, `<b>${PROD[p]}</b><br>${k === "q50" ? "Median" : (+k.slice(1)) + "th percentile"} ${q[k]} years`)).on("mouseleave", hideTip));
+  });
+}
+
+// ---------- 9. Coverage ----------
+function plane(prod) {
+  const svg = d3.select("#plsvg"), W = 800, H = 340, mg = {l:62, r:30, t:16, b:44};
+  const reach = new Map(prod.table39_panel_c.map(d => [d.product, d]));
+  const pts = prod.table39_panel_a.map(a => ({ product: a.product, delta: a.delta, R: reach.get(a.product).reach_R, lambda: reach.get(a.product).lambda }));
+  const x = d3.scaleLog([0.08, 1.15], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 110], [H-mg.b, mg.t]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickValues([0.1, 0.2, 0.3, 0.5, 1]).tickFormat(d3.format("~g")));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Depreciation per year, δ (log scale), more durable to the left");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Reach, R");
+  [0.001, 0.002, 0.005, 0.01, 0.02].forEach(l => {
+    const line = d3.range(Math.log(0.08), Math.log(1.15), 0.02).map(v => [Math.exp(v), Math.exp(v)/l - 1]).filter(p => p[1] >= 0 && p[1] <= 110);
+    if (line.length < 2) return;
+    svg.append("path").datum(line).attr("fill","none").attr("stroke","#b9bec6").attr("stroke-dasharray","2 3").attr("d", d3.line().x(p => x(p[0])).y(p => y(p[1])));
+    const e = line[line.length - 1]; svg.append("text").attr("x", x(e[0]) + 3).attr("y", y(e[1]) - 3).style("font-size","10px").text(`λ = ${l * 100}%`);
+  });
+  svg.append("line").attr("x1", x(0.21)).attr("x2", x(0.21)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.rust).attr("stroke-dasharray","5 4");
+  svg.append("text").attr("x", x(0.21) + 4).attr("y", mg.t + 12).attr("fill", C.rust).text("plague medicine, reach not calibrated");
+  svg.selectAll("circle").data(pts).join("circle").attr("cx", p => x(p.delta)).attr("cy", p => y(p.R)).attr("r", 8).attr("fill", p => p.product === "doctrine" ? C.navy : p.product === "news" ? C.teal : "#9aa3ad").attr("stroke","#fff")
+    .on("mousemove", (ev,p) => showTip(ev, `<b>${PROD[p.product]}</b><br>δ = ${p.delta.toFixed(2)}, R = ${p.R.toFixed(1)}<br>Coverage share λ = ${(100*p.lambda).toFixed(2)} percent`)).on("mouseleave", hideTip);
+  svg.selectAll("text.p").data(pts).join("text").attr("class","p").attr("x", p => x(p.delta) + (p.product === "news" || p.product === "other" ? -12 : 12)).attr("y", p => y(p.R) + (p.product === "other" ? 16 : p.product === "edict" ? -8 : 4)).attr("text-anchor", p => p.product === "news" || p.product === "other" ? "end" : "start").attr("fill", C.navy).text(p => PROD[p.product]);
+}
+function calculator(prod) {
+  const c = new Map(prod.table39_panel_c.map(d => [d.product, d]));
+  const presets = [["News", c.get("news")], ["Doctrine", c.get("doctrine")]];
+  d3.select("#cpre").html("Presets ").selectAll("a").data(presets).join("a").text(d => d[0]).on("click", (e,d) => { d3.select("#cd").property("value", d[1].delta); d3.select("#cr").property("value", d[1].reach_R); draw(); });
+  function draw() {
+    const dl = +d3.select("#cd").property("value"), R = +d3.select("#cr").property("value"), l = dl / (1 + R);
+    d3.select("#cdv").text(dl.toFixed(2)); d3.select("#crv").text(R.toFixed(1));
+    d3.select("#cl").text((100*l).toFixed(l < 0.01 ? 2 : 1) + "%");
+    d3.select("#cn").text("1 in " + fmt0(1/l));
+    d3.select("#cbk").text((100 * R / (1 + R)).toFixed(1) + "%");
+  }
+  d3.selectAll("#cd,#cr").on("input", draw);
+  const d0 = c.get("doctrine"); d3.select("#cd").property("value", d0.delta); d3.select("#cr").property("value", d0.reach_R); draw();
+}
+
+// ---------- 10. Co-movement ----------
+function aggregate(agg) {
+  const svg = d3.select("#asvg"), W = 400, H = 290, mg = {l:44, r:12, t:22, b:60};
+  const ser = [["demonology", "Doctrine", C.navy], ["witch_news", "Witch-trial news", C.teal], ["executions", "Executions", C.rust]];
+  const x = d3.scaleLinear(d3.extent(agg.fig9a, d => d.decade), [mg.l, W-mg.r]), y = d3.scaleLinear([0, 1], [H-mg.b, mg.t]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(5).tickFormat(d3.format("d")));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5));
+  svg.append("text").attr("x", mg.l).attr("y", 12).attr("class","title").text("Indexed to own maximum, by decade");
+  ser.forEach(([k, name, col], i) => {
+    const m = d3.max(agg.fig9a, d => d[k]) || 1;
+    svg.append("path").datum(agg.fig9a).attr("fill","none").attr("stroke", col).attr("stroke-width", 2.2).attr("d", d3.line().x(d => x(d.decade)).y(d => y(d[k] / m)));
+    svg.selectAll(null).data(agg.fig9a).join("circle").attr("cx", d => x(d.decade)).attr("cy", d => y(d[k] / m)).attr("r", 3).attr("fill", col)
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${d.decade}s</b><br>${name} ${fmt0(d[k])}`)).on("mouseleave", hideTip);
+    svg.append("text").attr("x", mg.l + i * 118).attr("y", H - 16).attr("fill", col).style("font-weight","600").text("● " + name);
+  });
+  const groups = [...new Set(agg.fig9b.map(d => d.group))];
+  const tabs = d3.select("#abtabs").selectAll("button").data(groups).join("button").attr("class","tab").text(d => d).on("click", (e,d) => draw(d));
+  const s2 = d3.select("#bsvg"), H2 = 260, m2 = {l:44, r:12, t:12, b:36};
+  function draw(gname) {
+    tabs.classed("on", d => d === gname); s2.selectAll("*").remove();
+    const rows = agg.fig9b.filter(d => d.group === gname && d.rel_years < 30).map(d => ({ ...d, est: 100*d.est, lo: 100*d.lo, hi: 100*d.hi }));
+    const xb = d3.scaleLinear([-32, 27], [m2.l, W-m2.r]), yb = d3.scaleLinear([Math.min(-1, d3.min(rows, d => d.lo)), Math.max(1, d3.max(rows, d => d.hi))], [H2-m2.b, m2.t]).nice();
+    s2.append("g").attr("class","axis").attr("transform",`translate(0,${H2-m2.b})`).call(d3.axisBottom(xb).tickValues([-30,-20,-10,0,10,20]));
+    s2.append("g").attr("class","axis").attr("transform",`translate(${m2.l},0)`).call(d3.axisLeft(yb).ticks(5));
+    s2.append("line").attr("x1", m2.l).attr("x2", W-m2.r).attr("y1", yb(0)).attr("y2", yb(0)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+    s2.append("text").attr("x",(W+m2.l)/2).attr("y",H2-4).attr("text-anchor","middle").text("Years since the canon arrived nearby");
+    s2.append("text").attr("transform","rotate(-90)").attr("x",-(H2-m2.b+m2.t)/2).attr("y",11).attr("text-anchor","middle").style("font-size","11px").text("Witch trial probability (pp)");
+    s2.selectAll("line.ci").data(rows).join("line").attr("x1", d => xb(d.rel_years)).attr("x2", d => xb(d.rel_years)).attr("y1", d => yb(d.lo)).attr("y2", d => yb(d.hi)).attr("stroke", C.navy).attr("stroke-width", 1.6);
+    s2.selectAll("circle").data(rows).join("circle").attr("cx", d => xb(d.rel_years)).attr("cy", d => yb(d.est)).attr("r", 3.8).attr("fill", C.navy)
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${gname}, ${d.rel_years > 0 ? "+" : ""}${d.rel_years} years</b><br>${d.est.toFixed(2)} pp [${d.lo.toFixed(2)}, ${d.hi.toFixed(2)}]`)).on("mouseleave", hideTip);
+  }
+  draw(groups[0]);
+}
+function simulation(agg) {
+  const s1 = d3.select("#s1svg"), W = 400, H = 270, mg = {l:44, r:12, t:22, b:40};
+  const paths = agg.fig11a.paths;
+  const x = d3.scaleLinear(d3.extent(paths, d => d.tau), [mg.l, W-mg.r]), y = d3.scaleLinear([0, 1], [H-mg.b, mg.t]);
+  function draw() {
+    const L = +d3.select("#sl").property("value"); d3.select("#slv").text(L);
+    s1.selectAll("*").remove();
+    s1.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(8));
+    s1.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5));
+    s1.append("text").attr("x", mg.l).attr("y", 12).attr("class","title").text("Simulated, no causal effect");
+    s1.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Lead of production over the outcome, years");
+    const rows = paths.filter(d => d.L === L), pk = agg.fig11a.peaks.find(d => d.L === L), pred = (L - 1) / 2;
+    s1.append("line").attr("x1", x(pred)).attr("x2", x(pred)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.rust).attr("stroke-dasharray","5 4");
+    s1.append("text").attr("x", x(pred) + 4).attr("y", mg.t + 10).attr("fill", C.rust).style("font-size","11px").text(`predicted peak ${pred}`);
+    s1.append("path").datum(rows).attr("fill","none").attr("stroke", C.navy).attr("stroke-width", 2.2).attr("d", d3.line().x(d => x(d.tau)).y(d => y(d.r)));
+    s1.append("circle").attr("cx", x(pk.tau)).attr("cy", y(pk.r)).attr("r", 6).attr("fill", C.navy);
+  }
+  d3.select("#sl").on("input", draw); draw();
+  const s2 = d3.select("#s2svg"), cg = agg.fig11b.correlogram;
+  const xb = d3.scaleBand(cg.map(d => d.k), [mg.l, W-mg.r]).padding(.3), yb = d3.scaleLinear([0, 1], [H-mg.b, mg.t]);
+  s2.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(xb));
+  s2.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(yb).ticks(5));
+  s2.append("text").attr("x", mg.l).attr("y", 12).attr("class","title").text("Observed, doctrine and executions");
+  s2.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Print leads executions by k decades");
+  s2.selectAll("rect").data(cg).join("rect").attr("x", d => xb(d.k)).attr("width", xb.bandwidth()).attr("y", d => yb(Math.max(0, d.r))).attr("height", d => Math.abs(yb(d.r) - yb(0))).attr("fill", d => d.k === 0 ? C.navy : "#9aa3ad")
+    .on("mousemove", (ev,d) => showTip(ev, `<b>k = ${d.k}</b><br>Correlation ${d.r.toFixed(2)}`)).on("mouseleave", hideTip);
+}
+</script>
+</body>
+</html>

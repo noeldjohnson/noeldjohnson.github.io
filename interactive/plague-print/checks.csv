@@ -1,0 +1,51 @@
+check,got,want,result
+Fig 14: rebuilt city-years match script 113,18755,18755,PASS
+Fig 14: rebuilt onsets match script 113,590,590,PASS
+Fig 14: rebuilt bin estimates equal the saved ones (max abs diff),0,0,PASS
+Fig 14: rebuilt bin SEs equal the saved city SEs (max abs diff),0,0,PASS
+Cities in the panel,224,224,PASS
+Clean onsets in the panel,946,946,PASS
+Clean onsets in the event-study sample (onset years),607,607,PASS
+Printing cities with an onset in the event-study sample,173,173,PASS
+Corpus editions dated 1650 or earlier,788299,788299,PASS
+City-years in the panel,31219,31219,PASS
+City-years in the event-study sample,19223,19223,PASS
+Outbreak localities 1450-1650 (Figure 26),1103,1103,PASS
+Fig 1: medical share at onset (pp),2.31,2.31,PASS
+Plague medicine fourfold in the count model (IRR),4,4,PASS
+"Medical titles per thousand, five years before an onset",26,26,PASS
+Medical titles per thousand in the onset year (pre-onset mean plus onset estimate),49,49,PASS
+Fig 3: witch-trial base rate (percent),2.6,2.6,PASS
+Fig 3: Jewish-persecution base rate (percent),1.2,1.2,PASS
+Plague-medicine depreciation,0.21,0.21,PASS
+"Table 26: events (town-specific, geocoded)",384,384,PASS
+"Table 26: editions (town-specific, geocoded)",722,722,PASS
+City-event pairs in the choice grid,35677,35677,PASS
+Border-zone events (250 km window),100,100,PASS
+Same-language reporting ratio at the frontier (600 km window),2.4,2.4,PASS
+Munster 1535: reporting cities within the year,7,7,PASS
+Table 2 (2): log distance,-0.61,-0.61,PASS
+Malleus maleficarum editions,29,29,PASS
+Malleus editions placed,28,28,PASS
+Malleus cities,8,8,PASS
+Malleus span in years,133,133,PASS
+Malleus editions all in Latin,TRUE,TRUE,PASS
+Table 32: doctrine reprinted (percent),47.7,47.7,PASS
+Table 32: news reprinted (percent),28.9,28.9,PASS
+Table 32: doctrine reprint span (years),9.2,9.2,PASS
+Table 32: translation odds ratio,22.47,22.47,PASS
+Table 1 rows,4,4,PASS
+One part in 55 of reachable news,55,55,PASS
+One part in 850 of reachable doctrine,850,850,PASS
+Table 39 Panel C: doctrine ratio to news,0.066,0.066,PASS
+Table 39 Panel C: doctrine ratio interval,0.041 0.134,0.041 0.134,PASS
+Plague medicine reprint-span depreciation,0.76,0.76,PASS
+"Doctrine and executions, same decade",0.91,0.91,PASS
+Doctrine leading executions by a decade,0.8,0.8,PASS
+Trials flat to 25 years after arrival: largest |t|,0.75,0.75,PASS
+Reissue gap (years),4,4,PASS
+Predicted lead peak (years),1.5,1.5,PASS
+Predicted lead band upper end (years),4.1,4.1,PASS
+Basemap under 300 KB,TRUE,TRUE,PASS
+Largest file under 3 MB,TRUE,TRUE,PASS
+Total under 8 MB,TRUE,TRUE,PASS
