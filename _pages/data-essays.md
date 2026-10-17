@@ -170,6 +170,8 @@ Method. A panel of 1,754 Western European cities from 1000 to 1800 built on Shei
 
 </details>
 
+The paper behind this essay has an [interactive companion](/interactive/guilds/).
+
 ## The model learns queen from 500-year-old titles
 
 ![Word analogy results in Latin](/assets/data-essays/analogy_latin_hero.png)
@@ -204,6 +206,8 @@ The classic word analogy asks the model for king minus man plus woman. Run on em
 7/ Still — a gender axis, recoverable from the semantic geometry of 500 year old book titles, cleanly enough that Latin hands you regina. The market for ideas had structure. The vectors can see it. /end
 
 </details>
+
+The paper behind this essay has an [interactive companion](/interactive/market-for-ideas/).
 
 ## The word for witchcraft pointed at a different fear in each language
 
@@ -242,6 +246,8 @@ Everyone in early modern Europe feared witches and they did not fear the same th
 
 </details>
 
+The paper behind this essay has an [interactive companion](/interactive/market-for-ideas/).
+
 ## Every city printed something different
 
 ![Map of city print personalities](/assets/data-essays/print_personalities_map.png)
@@ -272,6 +278,8 @@ Take the average embedding of everything a city printed in Latin and subtract th
 7/ The Method in one breath. Each title is the average of its word embedding vectors. Then we take the average of the city's titles minus the European average. Then the remaining "unique" city signature is the nearest words. /end
 
 </details>
+
+The paper behind this essay has an [interactive companion](/interactive/market-for-ideas/).
 
 ## Women in the printing trade
 
@@ -349,6 +357,8 @@ Method. Word vectors are PMI plus truncated SVD on titles. Neighbors are cosine 
 
 </details>
 
+The paper behind this essay has an [interactive companion](/interactive/market-for-ideas/).
+
 ## What the Thirty Years' War did to German print
 
 ![Composition of print in the war zone](/assets/data-essays/fig2_composition.png)
@@ -418,3 +428,5 @@ This essay draws on my paper with Malik Altaf Hussain about vaccine hesitancy in
 The paper is Hussain and Johnson, The Great Revolt and its Legacy, Understanding Vaccine Hesitancy in Colonial India. The archival quotes are verified against the original scans. The route map is adapted from Bennett (2007).
 
 </details>
+
+The paper behind this essay has an [interactive companion](/interactive/great-revolt/).

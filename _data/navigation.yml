@@ -4,6 +4,8 @@ main:
     url: /assets/Johnson_CV.pdf
   - title: "Research"
     url: /research/
+  - title: "Interactive"
+    url: /interactive/
   - title: "Data Essays"
     url: /data-essays/
   - title: "Teaching"
