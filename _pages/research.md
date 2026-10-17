@@ -14,7 +14,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
-**Craft Guilds & City Growth in Western Europe, 1000–1800**\\
+**How Selected Is the Institutional Record? Craft Guilds and City Growth in Europe, 1000–1800**\\
 (joint with Eric Wilhelm)
 
 **Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach**\\
