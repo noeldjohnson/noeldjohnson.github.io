@@ -93,12 +93,14 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 <section id="model">
 <h2><span class="num">2</span>The model</h2>
 <p>An institution comes into being in a town when whoever decides finds it worth the cost. Two dials set how far the towns that acquire it stand above the average town. The first is a threshold, the size a town must reach for the institution to pay. Craftsmen gain from organizing only where there are many of them, so a guild has a high threshold. A ruler selling a market right collects a fee that covers his cost in any town, so a grant has none. The second dial is the number of places available. A kingdom has one capital and a diocese one see.</p>
-<p>Move the dials. Town size is lognormal, and the lead is the mean size of the towns that acquire the institution over the mean of all towns, Eq. 3 in the paper.</p>
+<p>Move the dials. Town size is lognormal, so the log of town size is normally distributed. The lead is the mean size of the towns that acquire the institution over the mean size of all towns, Eq. 3 in the paper. Switch the figure to the size scale to see the long right tail that carries the lead.</p>
 <div class="figure">
   <div class="controls">
     <label>Threshold at quantile <input id="mq" type="range" min="0" max="0.95" step="0.01" value="0.60"></label><span class="v" id="mqv"></span>
     <label>Places for this share of towns <input id="mk" type="range" min="0.02" max="1" step="0.01" value="1"></label><span class="v" id="mkv"></span>
     <label>Spread of town size, σ <input id="ms" type="range" min="0.4" max="1.6" step="0.05" value="1"></label><span class="v" id="msv"></span>
+    <label><input type="radio" name="mscale" value="log" checked> Log scale</label>
+    <label><input type="radio" name="mscale" value="size"> Size scale</label>
   </div>
   <div class="readout">
     <div><b id="mr"></b>lead of acquiring towns over the average town</div>
@@ -106,7 +108,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
     <div><b id="mbind"></b>which dial binds</div>
   </div>
   <svg id="msvg" viewBox="0 0 800 260" role="img" aria-label="Distribution of town size with the cut"></svg>
-  <div class="cap"><b>Figure 1.</b> The distribution of log town scale. Towns in the shaded tail acquire the institution. The threshold cuts from below and a limit on places cuts from the top. With neither, every town that asks gets it and the lead is one.</div>
+  <div class="cap"><b>Figure 1.</b> The distribution of town size. On the log scale it is the normal bell, and on the size scale it has a long right tail. Towns in the shaded tail acquire the institution. The threshold cuts from below and a limit on places cuts from the top. With neither, every town that asks gets it and the lead is one. The lead is a ratio of mean sizes, so the few large towns in the right tail carry it. On the size scale the axis is in multiples of the median town and stops at the 95th percentile or just past the mean of the acquiring towns, whichever is larger.</div>
 </div>
 <p>Scale persists from century to century, which carries the lead backward from the date the institution was decided to the centuries before the record. A guild existed before anyone wrote it down, so its record lags its formation. A charter or a seat is recorded when it is created. The second figure traces the lead in the four centuries before the record, using the lead above and the persistence of city size. The paper's population data imply a half-life of five to seven centuries.</p>
 <div class="figure">
@@ -259,17 +261,33 @@ function model() {
     d3.select("#mr").text(r.toFixed(2) + "×"); d3.select("#mshare").text(Math.round(100*(1-uEff)) + "%");
     d3.select("#mbind").text(uEff <= 0 ? "neither" : (1 - k > u ? "places" : "threshold"));
     svg.selectAll("*").remove();
-    const pts = d3.range(-4, 4.01, 0.05).map(z => ({ z, d: Math.exp(-z*z/(2*s*s)) / (s*Math.sqrt(2*Math.PI)) }));
+    const sizeScale = d3.select('input[name="mscale"]:checked').property("value") === "size";
+    const cut = s * Pinv(uEff), meanAll = Math.exp(s*s/2), meanSel = r * meanAll;
+    let xs, pts, X, lab;
+    if (!sizeScale) {
+      xs = x; X = z => z; lab = "Log of town size";
+      pts = d3.range(-4, 4.01, 0.05).map(z => ({ z, v: z, d: Math.exp(-z*z/(2*s*s)) / (s*Math.sqrt(2*Math.PI)) }));
+    } else {
+      const xmax = Math.max(4, Math.exp(1.645*s), meanSel * 1.12);
+      xs = d3.scaleLinear([0, xmax], [mg.l, W-mg.r]); X = z => Math.exp(z); lab = "Town size, in multiples of the median town";
+      pts = d3.range(-6*s, Math.log(xmax) + 0.001, 0.01).map(z => ({ z, v: Math.exp(z), d: Math.exp(-z*z/(2*s*s)) / (s*Math.sqrt(2*Math.PI)*Math.exp(z)) }));
+    }
     const y = d3.scaleLinear([0, d3.max(pts, p => p.d) * 1.1], [H-mg.b, mg.t]);
-    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(8));
-    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-4).attr("text-anchor","middle").text("Log scale of town");
-    const cut = s * Pinv(uEff);
-    svg.append("path").datum(pts.filter(p => p.z >= cut)).attr("fill", C.rust).attr("opacity", .35).attr("d", d3.area().x(p => x(p.z)).y0(y(0)).y1(p => y(p.d)));
-    svg.append("path").datum(pts).attr("fill","none").attr("stroke", C.navy).attr("stroke-width", 2).attr("d", d3.line().x(p => x(p.z)).y(p => y(p.d)));
-    if (u > 0) { const c = s*Pinv(u); svg.append("line").attr("x1", x(c)).attr("x2", x(c)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.navy).attr("stroke-dasharray","4 3");
-      svg.append("text").attr("x", x(c)+4).attr("y", mg.t+12).text("threshold S*"); }
-    if (k < 1) { const c = s*Pinv(1-k); svg.append("line").attr("x1", x(c)).attr("x2", x(c)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.rust).attr("stroke-dasharray","2 3");
-      svg.append("text").attr("x", x(c)+4).attr("y", mg.t+28).attr("fill", C.rust).text("top K places"); }
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(xs).ticks(8));
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-4).attr("text-anchor","middle").text(lab);
+    svg.append("path").datum(pts.filter(p => p.z >= cut)).attr("fill", C.rust).attr("opacity", .35).attr("d", d3.area().x(p => xs(p.v)).y0(y(0)).y1(p => y(p.d)));
+    svg.append("path").datum(pts).attr("fill","none").attr("stroke", C.navy).attr("stroke-width", 2).attr("d", d3.line().x(p => xs(p.v)).y(p => y(p.d)));
+    if (u > 0) { const c = X(s*Pinv(u)); svg.append("line").attr("x1", xs(c)).attr("x2", xs(c)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.navy).attr("stroke-dasharray","4 3");
+      svg.append("text").attr("x", xs(c)+4).attr("y", mg.t+12).text("threshold S*"); }
+    if (k < 1) { const c = X(s*Pinv(1-k)); svg.append("line").attr("x1", xs(c)).attr("x2", xs(c)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.rust).attr("stroke-dasharray","2 3");
+      svg.append("text").attr("x", xs(c)+4).attr("y", mg.t+28).attr("fill", C.rust).text("top K places"); }
+    if (sizeScale) {
+      [[meanAll, C.gray, "mean of all towns", 44], [meanSel, C.rust, "mean of acquiring towns", 60]].forEach(([m, col, t, ty]) => {
+        svg.append("line").attr("x1", xs(m)).attr("x2", xs(m)).attr("y1", mg.t+ty-10).attr("y2", H-mg.b).attr("stroke", col).attr("stroke-width", 2);
+        const right = xs(m) > W - 200;
+        svg.append("text").attr("x", xs(m) + (right ? -4 : 4)).attr("y", mg.t+ty).attr("text-anchor", right ? "end" : "start").attr("fill", col).text(t);
+      });
+    }
     drawLead();
   }
   function drawLead() {
@@ -292,7 +310,7 @@ function model() {
       s2.append("text").attr("x", W-m2.r+8).attr("y", y(d[d.length-1].v)).attr("dy","0.35em").attr("fill", col).style("font-weight",600).text(lab);
     });
   }
-  d3.selectAll("#mq,#mk,#ms").on("input", draw); d3.selectAll("#mrho,#mtau").on("input", drawLead); draw();
+  d3.selectAll("#mq,#mk,#ms").on("input", draw); d3.selectAll("input[name=mscale]").on("change", draw); d3.selectAll("#mrho,#mtau").on("input", drawLead); draw();
 }
 
 // ---------- 3. Map ----------
