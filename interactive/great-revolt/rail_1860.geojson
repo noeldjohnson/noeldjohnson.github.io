@@ -1,0 +1,26 @@
+{
+"type": "FeatureCollection",
+"name": "rail_1860",
+"features": [
+{ "type": "Feature", "properties": { "InLine_FID": 627 }, "geometry": { "type": "LineString", "coordinates": [ [ 72.953, 19.13 ], [ 72.847, 18.928 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 628 }, "geometry": { "type": "LineString", "coordinates": [ [ 72.991, 19.181 ], [ 72.953, 19.13 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 629 }, "geometry": { "type": "LineString", "coordinates": [ [ 73.163, 19.236 ], [ 72.991, 19.181 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 630 }, "geometry": { "type": "LineString", "coordinates": [ [ 86.995, 25.241 ], [ 87.055, 24.896 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 631 }, "geometry": { "type": "LineString", "coordinates": [ [ 86.962, 23.698 ], [ 87.147, 23.589 ], [ 87.894, 23.253 ], [ 88.335, 23.024 ], [ 88.391, 22.958 ], [ 88.342, 22.778 ], [ 88.325, 22.638 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 632 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.275, 13.113 ], [ 79.66, 13.101 ], [ 79.361, 12.959 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 633 }, "geometry": { "type": "LineString", "coordinates": [ [ 73.363, 18.826 ], [ 73.339, 18.754 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 634 }, "geometry": { "type": "LineString", "coordinates": [ [ 73.352, 18.845 ], [ 73.364, 18.823 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 635 }, "geometry": { "type": "LineString", "coordinates": [ [ 73.336, 18.884 ], [ 73.352, 18.845 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 636 }, "geometry": { "type": "LineString", "coordinates": [ [ 73.163, 19.236 ], [ 73.316, 19.08 ], [ 73.336, 18.884 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 637 }, "geometry": { "type": "LineString", "coordinates": [ [ 79.361, 12.959 ], [ 79.123, 12.949 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 638 }, "geometry": { "type": "LineString", "coordinates": [ [ 73.487, 18.754 ], [ 73.707, 18.72 ], [ 73.963, 18.486 ], [ 74.589, 18.475 ], [ 74.786, 18.316 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 639 }, "geometry": { "type": "LineString", "coordinates": [ [ 74.786, 18.316 ], [ 75.115, 18.307 ], [ 75.395, 18.101 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 640 }, "geometry": { "type": "LineString", "coordinates": [ [ 87.702, 23.921 ], [ 87.699, 23.832 ], [ 87.782, 23.3 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 641 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.324, 26.437 ], [ 80.701, 25.969 ], [ 81.585, 25.511 ], [ 81.835, 25.461 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 642 }, "geometry": { "type": "LineString", "coordinates": [ [ 79.12, 12.948 ], [ 78.872, 12.911 ], [ 78.537, 12.594 ], [ 78.53, 12.496 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 643 }, "geometry": { "type": "LineString", "coordinates": [ [ 75.395, 18.101 ], [ 75.608, 17.985 ], [ 75.73, 17.713 ], [ 75.864, 17.671 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 644 }, "geometry": { "type": "LineString", "coordinates": [ [ 73.242, 19.37 ], [ 73.163, 19.236 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 645 }, "geometry": { "type": "LineString", "coordinates": [ [ 72.999, 21.708 ], [ 73.02, 21.636 ], [ 72.963, 21.448 ], [ 72.85, 21.177 ] ] } },
+{ "type": "Feature", "properties": { "InLine_FID": 646 }, "geometry": { "type": "LineString", "coordinates": [ [ 87.762, 25.038 ], [ 87.829, 24.828 ], [ 87.854, 24.288 ], [ 87.678, 24.016 ], [ 87.702, 23.921 ] ] } }
+]
+}

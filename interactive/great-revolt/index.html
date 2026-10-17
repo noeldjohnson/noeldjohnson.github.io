@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Great Revolt and its Legacy</title>
+<meta name="description" content="An interactive companion to The Great Revolt and its Legacy: Understanding Vaccine Hesitancy in Colonial India by Malik Altaf Hussain and Noel D. Johnson.">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+.byline a { color: var(--teal); }
+nav.toc { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; background: var(--panel); padding: 14px 18px; border-radius: 6px; margin: 0 0 32px; }
+nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+nav.toc a { color: var(--navy); text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+h2 { font-size: 26px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.figure .cap { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 10px; }
+.figure .cap b { color: var(--ink); }
+.controls { font: 15px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin-bottom: 12px; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+input[type=range] { width: 200px; max-width: 100%; accent-color: var(--rust); }
+button.tab { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; border: 1px solid var(--rule); background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; color: var(--navy); }
+button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.readout div { background: #fff; border-radius: 6px; padding: 10px 12px; font: 14px/1.35 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.readout b { display: block; font: 600 24px/1.2 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--navy); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
+svg text.title { font-weight: 600; fill: var(--navy); font-size: 13px; }
+.axis path, .axis line { stroke: #b8b8b8; }
+.tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; max-width: 260px; z-index: 10; }
+.tip b { color: var(--navy); }
+.legend { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 6px; }
+.note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+footer a { color: var(--teal); }
+@media (max-width: 640px) {
+  body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
+  .readout, .two { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">Interactive companion</div>
+  <h1>The Great Revolt and its Legacy: Understanding Vaccine Hesitancy in Colonial India</h1>
+  <div class="byline">Malik Altaf Hussain and Noel D. Johnson ·
+    <a href="/assets/papers/great-revolt.pdf">Read the paper</a> · <a href="/research/">Research</a></div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#infants">Why infants</a></li>
+    <li><a href="#cohort">The cohort</a></li>
+    <li><a href="#map">Map</a></li>
+    <li><a href="#gradient">The gradient by decade</a></li>
+    <li><a href="#sepoy">Where the violence was</a></li>
+    <li><a href="#placebo">Other cities</a></li>
+    <li><a href="#awadh">Awadh</a></li>
+    <li><a href="#welfare">Mortality and welfare</a></li>
+    <li><a href="#limits">Limits</a></li>
+  </ol>
+</nav>
+
+<section id="argument">
+<h2><span class="num">1</span>Argument</h2>
+<p>From the 1860s the British colonial state sent vaccinators across India with free smallpox vaccine. Smallpox killed 20 to 30 percent of those it infected and up to 80 percent of children under five. Uptake was uneven across districts and many districts kept high smallpox mortality even with the vaccine on offer.</p>
+<p>The Great Revolt of 1857 began as a mutiny in the Bengal Army and became a popular rising across North India. Its center in Awadh was Lucknow, where rebels besieged the British Residency from June to November 1857. The British response included mass executions, the destruction of at least 1,500 houses in Lucknow, and the confiscation of over half a million acres in Awadh. A decade later the same administration that had carried out the reprisals came to the same villages offering to vaccinate children.</p>
+<p>The paper asks whether that memory reduced vaccination. With a new district panel digitized from colonial vaccination reports for 1870 to 1919, districts closer to Lucknow vaccinated fewer infants. The gap was largest in the 1880s and faded as the generation that lived through 1857 died. Districts closer to Lucknow also had higher smallpox mortality in the 1890s.</p>
+<p>The contribution is that the injury was not medical. Earlier work traced medical mistrust to medical abuses such as the Tuskegee study and French colonial sleeping-sickness campaigns. Here the suppression of a political revolt depressed participation in an unrelated health campaign a generation later.</p>
+</section>
+
+<section id="infants">
+<h2><span class="num">2</span>Why infants</h2>
+<p>The vaccination reports give the number vaccinated each year. That flow falls on its own as the vaccinated share of the population rises, because fewer unvaccinated people remain. A falling all-ages rate could be fading mistrust or simply saturation, and the data cannot tell them apart.</p>
+<p>The Bass model of diffusion makes the point. Each year an unvaccinated person adopts with a probability that rises with the share already vaccinated. Move the sliders. The all-ages rate climbs and then falls as the population fills up. Infants are a fresh cohort every year, so the share of each new birth cohort vaccinated rises and never falls back.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Innovation, p <input id="bp" type="range" min="0.005" max="0.10" step="0.005" value="0.03"> <span id="bpv" style="font-weight:600;color:var(--rust);min-width:3em"></span></label>
+    <label>Imitation, q <input id="bq" type="range" min="0.05" max="0.8" step="0.01" value="0.38"> <span id="bqv" style="font-weight:600;color:var(--rust);min-width:3em"></span></label>
+  </div>
+  <svg id="bass" viewBox="0 0 800 300" role="img" aria-label="Bass diffusion model"></svg>
+  <div class="cap"><b>Figure 1.</b> The Bass model with the paper's illustrative values of p = 0.03 and q = 0.38 as defaults. The rust line is the share of the whole population vaccinated each year, drawn at five times its size so it is visible. The teal line is the share of each new birth cohort vaccinated in its first year. The dashed line is the cumulative share vaccinated.</div>
+</div>
+<p>The reports show the same divergence. The all-ages rate climbed in the 1870s and then stayed near 3.4 to 3.7 percent a year. The infant rate rose from about 7 per 1,000 in the 1870s to about 20 per 1,000 in the 1910s, with a small dip in the 1890s. The paper therefore uses infant vaccination as its outcome.</p>
+<div class="figure">
+  <svg id="rates" viewBox="0 0 800 260" role="img" aria-label="Infant and all-ages vaccination rates by decade"></svg>
+  <div class="cap"><b>Figure 2.</b> Mean vaccination per 1,000 inhabitants by decade, for infants under one and for all ages, with the interquartile range across districts. Infant vaccinations are counted per 1,000 of the whole population.</div>
+</div>
+</section>
+
+<section id="cohort">
+<h2><span class="num">3</span>The cohort</h2>
+<p>Beliefs about institutions form mostly between the ages of 10 and 25. The people most shaped by 1857 were born between 1832 and 1847, and they would have been deciding whether to vaccinate their own infants through the 1870s and 1880s. If the memory of 1857 traveled with them, the effect should fade as they died.</p>
+<div class="figure">
+  <svg id="surv" viewBox="0 0 800 240" role="img" aria-label="Survival of the 1832 to 1847 birth cohort by decade"></svg>
+  <div class="cap"><b>Figure 3.</b> Probability that a member of the cohort aged 10 to 25 in 1857 is still alive in each decade, given alive in 1857. Exponential survival with hazards from Visaria and Visaria (1982), as in Appendix Table C.1 of the paper.</div>
+</div>
+</section>
+
+<section id="map">
+<h2><span class="num">4</span>Map</h2>
+<p>Each circle is a district city, colored by its infant vaccination rate in the chosen decade. Lucknow is the star. The shaded ring is the 1,000 kilometer sample. The twelve districts of Awadh have dark outlines. Hover for a district's figures.</p>
+<div class="figure">
+  <div class="controls" id="map-decades"></div>
+  <div class="controls">
+    <label><input type="checkbox" id="showsepoy"> Sepoy events of 1857</label>
+    <label><input type="checkbox" id="showrail"> Railways</label>
+    <span id="railyears" style="display:none"><button class="tab" data-y="1860">1860</button> <button class="tab" data-y="1880">1880</button></span>
+  </div>
+  <svg id="mapsvg" viewBox="0 0 800 760" role="img" aria-label="Map of districts by infant vaccination rate"></svg>
+  <div class="legend" id="maplegend"></div>
+  <div class="cap"><b>Figure 4.</b> District cities in the panel, colored by infant vaccinations per 1,000 inhabitants in the decade. Gray circles have no rate in that decade. Sepoy events are the 145 documented mutinies, disarmaments, and disbandments in David (2001). Railways are Donaldson's lines open in 1860 and 1880. Boundaries are of 1891.</div>
+</div>
+</section>
+
+<section id="gradient">
+<h2><span class="num">5</span>The gradient by decade</h2>
+<p>For each decade the paper regresses a district's infant vaccination rate on its travel cost to Lucknow over the historical road, river, and rail network, with controls for terrain, caloric suitability, distance to sea and rivers, population, vaccination spending per head, and railway access. Both variables are standardized within the decade. A positive coefficient means districts farther from Lucknow vaccinated more.</p>
+<p>Switch between specifications. The gray bars behind each panel show the share of the 1857 cohort still alive.</p>
+<div class="figure">
+  <div class="controls" id="grad-tabs"></div>
+  <svg id="grad" viewBox="0 0 800 330" role="img" aria-label="Decade coefficients"></svg>
+  <div class="cap" id="grad-cap"></div>
+</div>
+<p>With province fixed effects the coefficient peaks at 1.06 in the 1880s. A district one standard deviation closer to Lucknow had an infant vaccination rate about one standard deviation lower, which the paper puts at 9 to 11 fewer infant vaccinations per 1,000 inhabitants a year. The pattern holds within districts as the rail network changed their access, under straight-line distance, and in close-kin linguistic distance to Lucknow. The broad-cultural linguistic measure grows over time instead, which the paper reads as a separate and longer-lived channel.</p>
+</section>
+
+<section id="sepoy">
+<h2><span class="num">6</span>Where the violence was</h2>
+<p>If the effect runs through the memory of 1857, it should be strongest where the fighting was. The paper interacts access to Lucknow with whether a district lies within 50 or 100 kilometers of a documented sepoy event.</p>
+<div class="figure">
+  <div class="controls" id="sepoy-tabs"></div>
+  <svg id="sepsvg" viewBox="0 0 800 280" role="img" aria-label="Sepoy interaction coefficients"></svg>
+  <div class="cap"><b>Figure 5.</b> Coefficient on access to Lucknow interacted with sepoy exposure, by decade, with province fixed effects and 95 percent Conley intervals. A positive value means the gradient is steeper in districts near sepoy activity.</div>
+</div>
+<p>In the 1880s the gradient was about twice as steep in districts within 50 kilometers of sepoy activity. The interaction is positive in most other decades and significant in none of them.</p>
+</section>
+
+<section id="placebo">
+<h2><span class="num">7</span>Other cities</h2>
+<p>A gradient around Lucknow could be a gradient around any major center. The paper runs the same regressions with travel cost to Delhi, Calcutta, and Bombay in place of Lucknow.</p>
+<div class="figure">
+  <svg id="plsvg" viewBox="0 0 800 300" role="img" aria-label="Placebo cities"></svg>
+  <div class="legend" id="pllegend"></div>
+  <div class="cap"><b>Figure 6.</b> Decade coefficients on access to each city, province fixed effects, 95 percent Conley intervals, districts within 1,000 kilometers of each city.</div>
+</div>
+<p>None of the other cities reproduces the rise and fade. Delhi runs the other way. Delhi saw severe fighting in 1857 but the violence was concentrated in the city, and the British re-established administration around it quickly. In Awadh the Oudh Settlement dispossessed about 21,000 taluqdars and dissolved the patron relationships through which rural authority had run. With both cities in the same 1880s regression, Lucknow is 0.88 and Delhi is −0.90, both significant at one percent.</p>
+<p>The same test works for language. Interacting linguistic distance to Lucknow with the cohort's survival gives a positive coefficient against each of six comparison cities, significant in five. The comparison city's own interaction is indistinguishable from zero in five of six.</p>
+</section>
+
+<section id="awadh">
+<h2><span class="num">8</span>Awadh</h2>
+<p>The smooth gradient has two parts. Awadh as a whole took a region-wide shock from annexation in 1856 and the Oudh Settlement after 1858, so it should be uniformly low. Outside Awadh, exposure should fall off with distance from Lucknow. Within the historical northwestern province the paper estimates both.</p>
+<div class="figure">
+  <svg id="awsvg" viewBox="0 0 800 300" role="img" aria-label="Awadh decomposition"></svg>
+  <div class="cap"><b>Figure 7.</b> Implied infant vaccination, in standard deviations, against standardized access to Lucknow, from the pooled regression of Appendix Table F.5 with decade fixed effects. Ticks along the bottom are the districts' access values.</div>
+</div>
+<p>Awadh districts sit 0.75 standard deviations lower. Outside Awadh the gradient is 0.40. Inside Awadh it is 0.04, which is flat. The cohort fade and the concentration near sepoy events both live in the gradient outside Awadh. Dropping the twelve Awadh districts from the full sample leaves the headline coefficient positive in every decade.</p>
+</section>
+
+<section id="welfare">
+<h2><span class="num">9</span>Mortality and welfare</h2>
+<p>The reports also record smallpox deaths. In the 1890s districts with one standard deviation better access to Lucknow had 0.279 standard deviations more smallpox deaths. The 1900s and 1910s estimates are near zero, and the 1870s and 1880s have too little mortality data to estimate.</p>
+<p>The medical literature bounds what the vaccination shortfall could have cost. Set the parameters below. The ceiling assumes every missed vaccination left a child fully exposed in an unvaccinated population. The observed gradient sits far below it, as partial coverage and herd immunity would lead one to expect.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Missed vaccinations per 1,000 <input id="wshort" type="range" min="9" max="11" step="0.5" value="10"> <span id="wshortv" style="font-weight:600;color:var(--rust);min-width:3em"></span></label>
+    <label>Attack rate <input id="watt" type="range" min="0.70" max="0.90" step="0.01" value="0.80"> <span id="wattv" style="font-weight:600;color:var(--rust);min-width:3em"></span></label>
+    <label>Case fatality <input id="wcfr" type="range" min="0.25" max="0.30" step="0.005" value="0.275"> <span id="wcfrv" style="font-weight:600;color:var(--rust);min-width:3em"></span></label>
+    <label>Vaccine efficacy <input id="weff" type="range" min="0.85" max="0.99" step="0.01" value="0.95"> <span id="weffv" style="font-weight:600;color:var(--rust);min-width:3em"></span></label>
+  </div>
+  <div class="readout">
+    <div><b id="wceil"></b>ceiling, excess deaths per 1,000 a year</div>
+    <div><b id="wobs"></b>observed in the 1890s, per 1,000 a year</div>
+    <div><b id="wtot"></b>excess deaths a year in the districts nearest Lucknow</div>
+  </div>
+  <div class="cap"><b>Figure 8.</b> The ceiling is missed vaccinations times the attack rate times case fatality times efficacy. The observed value is the 1890s coefficient of 0.279 times the standard deviation of 1890s smallpox mortality, 0.266 per 1,000. The total applies the observed value to the 48.8 million people in the third of the 1890s sample closest to Lucknow. The paper rounds these inputs to 0.28, 0.27, and 50 million and states the result as on the order of 4,000 deaths a year.</div>
+</div>
+<p>The observed figure does not prove that vaccination was the only channel. Economic disruption after the Oudh Settlement could raise mortality on its own. The exercise shows that the observed gradient has the direction and timing that the vaccination shortfall predicts and lies well inside its medical bound.</p>
+</section>
+
+<section id="limits">
+<h2><span class="num">10</span>Limits</h2>
+<p>The panel is unbalanced. Coverage grew from 79 districts in the 1870s to 206 in the 1910s within the 1,000 kilometer sample. The within-district fade survives on a balanced panel of 62 districts.</p>
+<p>Distance and access are smooth gradients and they also track other features of the Gangetic heartland. The case rests on the timing, which follows the cohort, and on the concentration near sepoy events. Static geography produces neither.</p>
+<p>The mortality data come from the vaccination reports and are uneven. Only the 1890s gradient is significant.</p>
+<p>District boundaries changed over the period, so each district is located at its largest city.</p>
+<p class="note">This page follows the circulating draft of 6 July 2026. The paper is under revision and the page will be updated when the revised version circulates.</p>
+</section>
+
+<footer>
+  <p>Every number on this page is computed from data exported by the paper's replication code (<code>companion_export_10_17.R</code>), which checks each coefficient against the manuscript. Standard errors are the Conley errors the paper reports. Vaccination data are digitized from the provincial vaccination reports held by the National Library of Scotland.</p>
+</footer>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
+const tip = d3.select("#tip");
+const showTip = (ev, html) => tip.html(html).style("opacity",1)
+  .style("left", Math.min(ev.clientX + 14, window.innerWidth - 270) + "px").style("top", (ev.clientY + 14) + "px");
+const hideTip = () => tip.style("opacity",0);
+const cap = s => s.replace(/_/g," ").replace(/\b\w/g, c => c.toUpperCase());
+const fmt0 = d3.format(",.0f");
+
+Promise.all([
+  d3.json("estimates.json"), d3.json("decade_summary.json"), d3.json("survival.json"),
+  d3.csv("districts.csv", d3.autoType), d3.csv("sepoy_events.csv", d3.autoType),
+  d3.json("basemap.geojson"), d3.json("rail_1860.geojson"), d3.json("rail_1880.geojson")
+]).then(([est, dec, surv, dist, sep, base, r60, r80]) => {
+  const na = rows => rows.forEach(r => { for (const k in r) if (r[k] === "NA" || r[k] === "") r[k] = null; });
+  na(dist); na(sep);
+  bass(); rates(dec); survival(surv); mapView(dist, sep, base, {1860: r60, 1880: r80});
+  gradient(est, surv); sepoy(est); placebo(est); awadh(est, dist); welfare(est);
+});
+
+function axes(svg, x, y, W, H, mg, xf, yf, xlab, ylab) {
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(6).tickFormat(xf));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(yf));
+  if (xlab) svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text(xlab);
+  if (ylab) svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text(ylab);
+}
+
+// ---------- 2. Bass ----------
+function bass() {
+  const svg = d3.select("#bass"), W = 800, H = 300, mg = {l:56, r:20, t:16, b:44}, T = 30;
+  const x = d3.scaleLinear([0, T], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 1], [H-mg.b, mg.t]);
+  axes(svg, x, y, W, H, mg, d => d, d3.format(".0%"), "Years since vaccination begins", "Share");
+  const lf = svg.append("path").attr("fill","none").attr("stroke",C.gray).attr("stroke-dasharray","5 4").attr("stroke-width",2);
+  const lr = svg.append("path").attr("fill","none").attr("stroke",C.rust).attr("stroke-width",2.5);
+  const li = svg.append("path").attr("fill","none").attr("stroke",C.teal).attr("stroke-width",2.5);
+  const lab = (t, c, i) => svg.append("text").attr("x", W-mg.r-6).attr("text-anchor","end").attr("fill", c).style("font-weight",600).text(t);
+  const t1 = lab("cumulative share vaccinated", C.gray), t2 = lab("all ages, vaccinated this year (x 5)", C.rust), t3 = lab("new birth cohort, vaccinated in first year", C.teal);
+  function run() {
+    const p = +d3.select("#bp").property("value"), q = +d3.select("#bq").property("value");
+    d3.select("#bpv").text(p.toFixed(3)); d3.select("#bqv").text(q.toFixed(2));
+    let F = 0; const out = [];
+    for (let t = 0; t <= T; t++) { const h = Math.min(1, p + q*F); const flow = h * (1 - F); out.push({t, F, flow, h}); F = Math.min(1, F + flow); }
+    lf.attr("d", d3.line().x(d => x(d.t)).y(d => y(d.F))(out));
+    lr.attr("d", d3.line().x(d => x(d.t)).y(d => y(Math.min(1, 5*d.flow)))(out));
+    li.attr("d", d3.line().x(d => x(d.t)).y(d => y(d.h))(out));
+    t1.attr("y", y(out[T].F) - 8); t3.attr("y", y(out[T].h) + 16); t2.attr("y", y(Math.min(1,5*out[T].flow)) - 8);
+  }
+  d3.selectAll("#bp,#bq").on("input", run); run();
+}
+
+function rates(dec) {
+  const svg = d3.select("#rates"), W = 800, H = 260, mg = {l:56, r:20, t:16, b:40};
+  const series = [["all_ages_rate_figA2","All ages",C.rust],["infant_rate_fig5","Infants under one",C.teal]];
+  const decs = dec.infant_rate_fig5.map(d => d.decade);
+  const x = d3.scalePoint(decs, [mg.l+40, W-mg.r-40]);
+  const y = d3.scaleLinear([0, d3.max(dec.all_ages_rate_figA2, d => d.q75)*1000], [H-mg.b, mg.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5));
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Vaccinations per 1,000");
+  series.forEach(([k, name, col], i) => {
+    const d = dec[k], off = i ? 8 : -8;
+    svg.append("g").selectAll("line").data(d).join("line").attr("x1", r => x(r.decade)+off).attr("x2", r => x(r.decade)+off)
+      .attr("y1", r => y(r.q25*1000)).attr("y2", r => y(r.q75*1000)).attr("stroke", col).attr("stroke-width", 2).attr("opacity",.5);
+    svg.append("path").datum(d).attr("fill","none").attr("stroke", col).attr("stroke-width", 2.5)
+      .attr("d", d3.line().x(r => x(r.decade)+off).y(r => y(r.mean*1000)));
+    svg.append("g").selectAll("circle").data(d).join("circle").attr("cx", r => x(r.decade)+off).attr("cy", r => y(r.mean*1000)).attr("r", 5).attr("fill", col)
+      .on("mousemove", (ev,r) => showTip(ev, `<b>${name}, ${r.decade}</b><br>Mean ${(r.mean*1000).toFixed(1)} per 1,000<br>IQR ${(r.q25*1000).toFixed(1)} to ${(r.q75*1000).toFixed(1)}`)).on("mouseleave", hideTip);
+    svg.append("text").attr("x", x(decs[4])+off+10).attr("y", y(d[4].mean*1000)).attr("dy","0.35em").attr("fill", col).style("font-weight",600).text(name);
+  });
+}
+
+// ---------- 3. Survival ----------
+function survival(surv) {
+  const svg = d3.select("#surv"), W = 800, H = 240, mg = {l:56, r:20, t:16, b:40};
+  const d = surv.by_decade, x = d3.scaleBand(d.map(r => r.decade + "s"), [mg.l, W-mg.r]).padding(.3), y = d3.scaleLinear([0,1],[H-mg.b, mg.t]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format(".0%")));
+  svg.selectAll("rect").data(d).join("rect").attr("x", r => x(r.decade+"s")).attr("width", x.bandwidth())
+    .attr("y", r => y(r.survival)).attr("height", r => y(0)-y(r.survival)).attr("fill", C.navy).attr("opacity", .8)
+    .on("mousemove", (ev,r) => showTip(ev, `<b>${r.decade}s</b><br>Survival ${(100*r.survival).toFixed(0)}%<br>Mid-cohort age ${r.cohort_mid_age}`)).on("mouseleave", hideTip);
+  svg.selectAll("text.v").data(d).join("text").attr("class","v").attr("x", r => x(r.decade+"s") + x.bandwidth()/2).attr("y", r => y(r.survival)-6)
+    .attr("text-anchor","middle").text(r => Math.round(100*r.survival) + "%");
+}
+
+// ---------- 4. Map ----------
+function mapView(dist, sep, base, rails) {
+  const svg = d3.select("#mapsvg"), W = 800, H = 760;
+  // sf writes planar winding; if a polygon covers more than a hemisphere, reverse its rings for d3.
+  const fix = f => {
+    if (d3.geoArea(f) > 2*Math.PI) {
+      const rv = poly => poly.map(r => r.slice().reverse());
+      const g = f.geometry;
+      f = { ...f, geometry: { ...g, coordinates: g.type === "Polygon" ? rv(g.coordinates) : g.coordinates.map(rv) } };
+    }
+    return f;
+  };
+  const feats = base.features.map(fix);
+  const fc = { type:"FeatureCollection", features: feats };
+  const proj = d3.geoConicConformal().rotate([-80, 0]).parallels([12, 30]).fitExtent([[10,10],[W-10,H-10]], fc);
+  const path = d3.geoPath(proj);
+  svg.append("rect").attr("width",W).attr("height",H).attr("fill","#e9eef2");
+  svg.append("g").selectAll("path").data(feats).join("path").attr("d", path)
+    .attr("fill", f => f.properties.status === "British district" ? "#fbfaf7" : "#f1efe8").attr("stroke","#cfcfcf").attr("stroke-width",.6);
+  const luck = [80.94393762, 26.86630671];
+  svg.append("path").datum(d3.geoCircle().center(luck).radius(1000/111.2)()).attr("d", path)
+    .attr("fill", C.navy).attr("fill-opacity", .05).attr("stroke", C.navy).attr("stroke-opacity", .35).attr("stroke-dasharray","4 4");
+  const gRail = svg.append("g").style("display","none");
+  const railPath = gRail.append("path").attr("fill","none").attr("stroke","#7a7a7a").attr("stroke-width",1.4);
+  const gD = svg.append("g"), gS = svg.append("g").style("display","none");
+  gS.selectAll("path").data(sep).join("path")
+    .attr("transform", d => `translate(${proj([d.longitude, d.latitude])})`)
+    .attr("d", d3.symbol(d3.symbolTriangle, 34)).attr("fill", "none").attr("stroke", "#111").attr("stroke-width", 1)
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${d.place}</b><br>${d.type}, 1857`)).on("mouseleave", hideTip);
+  const star = svg.append("path").attr("transform", `translate(${proj(luck)})`).attr("d", d3.symbol(d3.symbolStar, 260))
+    .attr("fill", C.rust).attr("stroke","#fff").attr("stroke-width",1.2);
+  svg.append("text").attr("x", proj(luck)[0] + 12).attr("y", proj(luck)[1] - 10).style("font-weight",600).attr("fill", C.navy).text("Lucknow");
+  const color = d3.scaleSequential([0, 35], d3.interpolateRgbBasis(["#f7e9c8", "#7fb3ad", "#2A6F77", "#123a40"])).clamp(true);
+  const decades = [1870, 1880, 1890, 1900, 1910];
+  const tabs = d3.select("#map-decades").selectAll("button").data(decades).join("button").attr("class","tab").text(d => d + "s").on("click", (e,d) => draw(d));
+  function draw(dec) {
+    tabs.classed("on", d => d === dec);
+    const rows = dist.filter(r => r.decade === dec && r.latitude != null);
+    gD.selectAll("circle").data(rows, r => r.id).join("circle")
+      .attr("cx", r => proj([r.longitude, r.latitude])[0]).attr("cy", r => proj([r.longitude, r.latitude])[1])
+      .attr("r", 5.5).attr("fill", r => r.infant_vax_rate == null ? "#c8c8c8" : color(1000*r.infant_vax_rate))
+      .attr("fill-opacity", r => r.within_1000km === true || r.within_1000km === "TRUE" ? .95 : .45)
+      .attr("stroke", r => r.awadh ? "#111" : "#fff").attr("stroke-width", r => r.awadh ? 1.8 : .6)
+      .on("mousemove", (ev,r) => showTip(ev, `<b>${cap(r.district_name)}</b> (${cap(r.province_name)})<br>Infant vaccinations: ${r.infant_vax_rate == null ? "not reported" : (1000*r.infant_vax_rate).toFixed(1) + " per 1,000"}<br>Travel cost to Lucknow: ${r.access_lucknow_cost == null ? "–" : r.access_lucknow_cost.toFixed(1)}<br>Straight-line distance: ${fmt0(r.straight_line_km_lucknow)} km${r.awadh ? "<br>Awadh district" : ""}`))
+      .on("mouseleave", hideTip);
+    const n = rows.filter(r => r.infant_vax_rate != null).length;
+    d3.select("#maplegend").html(`<b style="color:var(--navy)">${n}</b> districts report an infant rate in the ${dec}s. Color runs from pale (few infant vaccinations) to dark teal (35 or more per 1,000). Faded circles lie outside the 1,000 kilometer sample.`);
+  }
+  d3.select("#showsepoy").on("change", function(){ gS.style("display", this.checked ? null : "none"); });
+  const ry = d3.select("#railyears").selectAll("button");
+  const setRail = y => { railPath.attr("d", path(rails[y])); ry.classed("on", function(){ return +this.dataset.y === y; }); };
+  ry.on("click", function(){ setRail(+this.dataset.y); });
+  d3.select("#showrail").on("change", function(){ gRail.style("display", this.checked ? null : "none"); d3.select("#railyears").style("display", this.checked ? null : "none"); setRail(1880); });
+  star.raise(); draw(1880);
+}
+
+// ---------- coefficient plot helper ----------
+function coefPlot(svg, rows, opts) {
+  const W = 800, H = opts.H, mg = {l:56, r:20, t:16, b:36};
+  svg.selectAll("*").remove();
+  const decs = opts.decades;
+  const x = d3.scalePoint(decs.map(String), [mg.l+40, W-mg.r-40]);
+  const lo = Math.min(-0.2, d3.min(rows, r => r.ci95_low)), hi = Math.max(0.2, d3.max(rows, r => r.ci95_high));
+  const y = d3.scaleLinear([lo, hi], [H-mg.b, mg.t]).nice();
+  if (opts.surv) {
+    const ys = d3.scaleLinear([0, 1], [H-mg.b, mg.t]);
+    svg.append("g").selectAll("rect").data(opts.surv.filter(s => decs.includes(s.decade))).join("rect")
+      .attr("x", s => x(String(s.decade)) - 22).attr("width", 44).attr("y", s => ys(s.survival)).attr("height", s => ys(0) - ys(s.survival))
+      .attr("fill", "#d9d6cd");
+  }
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickFormat(d => d + "s"));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text(opts.ylab);
+  const groups = d3.group(rows, r => r.series ?? "");
+  const keys = [...groups.keys()], n = keys.length;
+  keys.forEach((k, i) => {
+    const off = n === 1 ? 0 : (i - (n-1)/2) * 14, col = opts.colors ? opts.colors[k] : C.rust;
+    const g = svg.append("g");
+    const rr = groups.get(k).filter(r => decs.includes(r.decade));
+    if (opts.line !== false) g.append("path").datum(rr).attr("fill","none").attr("stroke", col).attr("stroke-width",1.5).attr("opacity",.6)
+      .attr("d", d3.line().x(r => x(String(r.decade))+off).y(r => y(r.estimate)));
+    g.selectAll("line.ci").data(rr).join("line").attr("class","ci").attr("x1", r => x(String(r.decade))+off).attr("x2", r => x(String(r.decade))+off)
+      .attr("y1", r => y(r.ci95_low)).attr("y2", r => y(r.ci95_high)).attr("stroke", col).attr("stroke-width", 2);
+    g.selectAll("circle").data(rr).join("circle").attr("cx", r => x(String(r.decade))+off).attr("cy", r => y(r.estimate)).attr("r", 6)
+      .attr("fill", r => r.p < .05 ? col : "#fff").attr("stroke", col).attr("stroke-width", 2)
+      .on("mousemove", (ev,r) => showTip(ev, `<b>${k ? k + ", " : ""}${r.decade}s</b><br>Coefficient ${r.estimate.toFixed(3)} (s.e. ${r.se.toFixed(3)})<br>p = ${r.p < .001 ? "<0.001" : r.p.toFixed(3)}${r.n ? "<br>N = " + r.n : ""}`)).on("mouseleave", hideTip);
+  });
+}
+
+// ---------- 5. Gradient ----------
+function gradient(est, surv) {
+  const es = [{decade:1870, estimate:0, se:0, ci95_low:0, ci95_high:0, p:1}].concat(est.event_study_fig10.unbalanced);
+  const specs = [
+    ["Province fixed effects", est.access_fe_fig9, "Coefficient on travel cost to Lucknow by decade, with province fixed effects. Filled points are significant at 5 percent. The paper's Figure 9."],
+    ["No fixed effects", est.access_no_fe_fig8, "Coefficient on travel cost to Lucknow by decade, without province fixed effects. The paper's Figure 8."],
+    ["Within district", es, "Panel regression with district and decade fixed effects, relative to the 1870s, identified from changes in a district's access as the rail network grew. Standard errors clustered by district. The paper's Figure 10."],
+    ["Straight-line distance", est.straight_line_figA1, "Straight-line distance to Lucknow in place of travel cost, with province fixed effects. The paper's Figure A.1."],
+    ["Language, close kin", est.linguistic_fig11.delta05, "Linguistic distance to Lucknow with δ = 0.5, which counts only close linguistic kin as near. No fixed effects. The paper's Figure 11."],
+    ["Language, broad", est.linguistic_fig11.delta005, "Linguistic distance to Lucknow with δ = 0.05, which reflects family-level cultural distance. No fixed effects. The paper's Figure 11."] ];
+  const tabs = d3.select("#grad-tabs").selectAll("button").data(specs).join("button").attr("class","tab").text(d => d[0]).on("click", (e,d) => draw(d));
+  function draw(s) {
+    tabs.classed("on", d => d === s);
+    coefPlot(d3.select("#grad"), s[1], { H: 330, decades: [1870,1880,1890,1900,1910], surv: surv.by_decade, ylab: "Coefficient (standard deviations)" });
+    d3.select("#grad-cap").html(`<b>Figure.</b> ${s[2]} Bars show 95 percent intervals, Conley unless noted. Gray columns are the share of the 1857 cohort alive in the decade, on a scale from zero to one.`);
+  }
+  draw(specs[0]);
+}
+
+// ---------- 6. Sepoy ----------
+function sepoy(est) {
+  const all = est.sepoy_interaction_fig13;
+  const tabs = d3.select("#sepoy-tabs").selectAll("button").data([50, 100]).join("button").attr("class","tab").text(d => "Within " + d + " km").on("click", (e,d) => draw(d));
+  function draw(r) {
+    tabs.classed("on", d => d === r);
+    coefPlot(d3.select("#sepsvg"), all.filter(x => x.radius_km === r), { H: 280, decades: [1870,1880,1890,1900,1910], ylab: "Interaction coefficient" });
+  }
+  draw(50);
+}
+
+// ---------- 7. Placebo ----------
+function placebo(est) {
+  const colors = { Lucknow: C.rust, Delhi: C.navy, Calcutta: C.teal, Bombay: C.gold };
+  const rows = est.placebo_cities_fig14.flatMap(c => c.decades.map(d => ({ ...d, series: c.city })));
+  coefPlot(d3.select("#plsvg"), rows, { H: 300, decades: [1870,1880,1890,1900,1910], colors, ylab: "Coefficient on travel cost" });
+  d3.select("#pllegend").html(Object.entries(colors).map(([k,v]) => `<span style="color:${v};font-weight:600">● ${k}</span>`).join(" &nbsp; "));
+}
+
+// ---------- 8. Awadh ----------
+function awadh(est, dist) {
+  const a = est.awadh_decomposition_tableF5, bA = a.awadh.estimate, bX = a.access.estimate, bI = a.interaction.estimate;
+  const nw = dist.filter(r => r.province_name === "northwestern" && r.access_lucknow_std != null && (r.in_main_sample === true || r.in_main_sample === "TRUE"));
+  const svg = d3.select("#awsvg"), W = 800, H = 300, mg = {l:56, r:20, t:16, b:44};
+  const ext = d3.extent(nw, r => r.access_lucknow_std);
+  const x = d3.scaleLinear(ext, [mg.l, W-mg.r]).nice(), y = d3.scaleLinear([-1.4, 1.2], [H-mg.b-14, mg.t]);
+  axes(svg, x, y, W, H-14, mg, d => d, d => d, "", "Implied infant vaccination (SD)");
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-4).attr("text-anchor","middle").text("Travel cost to Lucknow (standardized, higher is farther)");
+  const xa = d3.extent(nw.filter(r => r.awadh), r => r.access_lucknow_std), xn = d3.extent(nw.filter(r => !r.awadh), r => r.access_lucknow_std);
+  const ln = (x0, x1, f, col, label) => {
+    svg.append("line").attr("x1", x(x0)).attr("x2", x(x1)).attr("y1", y(f(x0))).attr("y2", y(f(x1))).attr("stroke", col).attr("stroke-width", 3.5);
+    svg.append("text").attr("x", x(x1)).attr("y", y(f(x1)) - 12).attr("text-anchor","end").attr("fill", col).style("font-weight",600).text(label);
+  };
+  ln(xn[0], xn[1], v => bX*v, C.teal, "Outside Awadh, slope " + bX.toFixed(2));
+  ln(xa[0], xa[1], v => bA + (bX+bI)*v, C.rust, "Awadh, slope " + (bX+bI).toFixed(2));
+  svg.append("g").selectAll("line").data(nw).join("line").attr("x1", r => x(r.access_lucknow_std)).attr("x2", r => x(r.access_lucknow_std))
+    .attr("y1", H-mg.b-14).attr("y2", H-mg.b-22).attr("stroke", r => r.awadh ? C.rust : C.teal).attr("opacity",.5);
+}
+
+// ---------- 9. Welfare ----------
+function welfare(est) {
+  const w = est.welfare_inputs_sec6_10;
+  const obs = -w.mortality_coef_1890s * w.sd_mortality_1890s;
+  const upd = () => {
+    const s = +d3.select("#wshort").property("value"), at = +d3.select("#watt").property("value"),
+          cf = +d3.select("#wcfr").property("value"), ef = +d3.select("#weff").property("value");
+    d3.select("#wshortv").text(s); d3.select("#wattv").text(Math.round(100*at) + "%");
+    d3.select("#wcfrv").text((100*cf).toFixed(1) + "%"); d3.select("#weffv").text(Math.round(100*ef) + "%");
+    d3.select("#wceil").text((s * at * cf * ef).toFixed(2));
+    d3.select("#wobs").text(obs.toFixed(3));
+    d3.select("#wtot").text(fmt0(Math.round(obs / 1000 * w.population_high_mistrust / 100) * 100));
+  };
+  d3.selectAll("#wshort,#watt,#wcfr,#weff").on("input", upd); upd();
+}
+</script>
+</body>
+</html>

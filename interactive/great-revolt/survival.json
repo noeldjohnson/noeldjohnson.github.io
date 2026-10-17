@@ -1,0 +1,39 @@
+{
+  "cohort": "Aged 10-25 in 1857 (born 1832-47), survival conditional on being alive in 1857",
+  "model": "S = exp(-(midpoint age - a) * lambda_a); a = 20 through the 1880s, a = 30 after",
+  "lambda20": 0.0263157894736842,
+  "lambda30": 0.0333333333333333,
+  "source": "Visaria and Visaria (1982), via Appendix Table C.1",
+  "by_decade": [
+    {
+      "decade": 1870,
+      "cohort_mid_age": 35,
+      "survival": 0.67385734679864
+    },
+    {
+      "decade": 1880,
+      "cohort_mid_age": 45,
+      "survival": 0.517940588745428
+    },
+    {
+      "decade": 1890,
+      "cohort_mid_age": 55,
+      "survival": 0.434598208507078
+    },
+    {
+      "decade": 1900,
+      "cohort_mid_age": 65,
+      "survival": 0.311403223914598
+    },
+    {
+      "decade": 1910,
+      "cohort_mid_age": 75,
+      "survival": 0.22313016014843
+    },
+    {
+      "decade": 1920,
+      "cohort_mid_age": 85,
+      "survival": 0.159879746079694
+    }
+  ]
+}

@@ -1,0 +1,1006 @@
+{
+  "notes": {
+    "standardization": "All variables standardized within each decade's estimation sample.",
+    "sign": "Positive access coefficients mean districts with higher travel cost to Lucknow had higher infant vaccination.",
+    "ci": "95 percent intervals are estimate +/- 1.96 se, as in the paper's figures; p from fixest coeftable.",
+    "sample": "Districts within 1,000 km of Lucknow unless noted."
+  },
+  "access_no_fe_fig8": [
+    {
+      "estimate": 0.427031916440352,
+      "se": 0.189273454275668,
+      "ci95_low": 0.0560627628305533,
+      "ci95_high": 0.798001070050151,
+      "p": 0.0271862984748697,
+      "n": 79,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1870
+    },
+    {
+      "estimate": 0.856877185304044,
+      "se": 0.249634287321064,
+      "ci95_low": 0.367602972848435,
+      "ci95_high": 1.34615139775965,
+      "p": 0.00101477606407709,
+      "n": 78,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1880
+    },
+    {
+      "estimate": 0.393934843880985,
+      "se": 0.107726312512646,
+      "ci95_low": 0.182795151168892,
+      "ci95_high": 0.605074536593079,
+      "p": 0.000363099944188833,
+      "n": 146,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1890
+    },
+    {
+      "estimate": 0.199672266644365,
+      "se": 0.159026483395039,
+      "ci95_low": -0.112013913397968,
+      "ci95_high": 0.511358446686698,
+      "p": 0.210774358503609,
+      "n": 203,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1900
+    },
+    {
+      "estimate": 0.142936835482162,
+      "se": 0.133087646469336,
+      "ci95_low": -0.117910158384935,
+      "ci95_high": 0.403783829349259,
+      "p": 0.284134056498156,
+      "n": 206,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1910
+    }
+  ],
+  "access_fe_fig9": [
+    {
+      "estimate": 0.634648717210642,
+      "se": 0.158380376883713,
+      "ci95_low": 0.324228882660684,
+      "ci95_high": 0.945068551760599,
+      "p": 0.000158737947382719,
+      "n": 78,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1870
+    },
+    {
+      "estimate": 1.05784310098589,
+      "se": 0.323800090570904,
+      "ci95_low": 0.423206585276111,
+      "ci95_high": 1.69247961669567,
+      "p": 0.00173801248884581,
+      "n": 76,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1880
+    },
+    {
+      "estimate": 0.479873701603563,
+      "se": 0.105422340132185,
+      "ci95_low": 0.27324971177855,
+      "ci95_high": 0.686497691428577,
+      "p": 1.19983850787558e-05,
+      "n": 144,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1890
+    },
+    {
+      "estimate": 0.419589125110575,
+      "se": 0.182554634534373,
+      "ci95_low": 0.0617886162123318,
+      "ci95_high": 0.777389634008818,
+      "p": 0.022655394270091,
+      "n": 202,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1900
+    },
+    {
+      "estimate": 0.272859350330881,
+      "se": 0.154517314189299,
+      "ci95_low": -0.029989020468004,
+      "ci95_high": 0.575707721129766,
+      "p": 0.0790474738885821,
+      "n": 204,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1910
+    }
+  ],
+  "access_fe_drop_lucknow": [
+    {
+      "estimate": 0.626045118149198,
+      "se": 0.167559065335089,
+      "ci95_low": 0.29763538480923,
+      "ci95_high": 0.954454851489166,
+      "p": 0.000396114852989496,
+      "n": 77,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1870
+    },
+    {
+      "estimate": 1.04431321474083,
+      "se": 0.331703908403166,
+      "ci95_low": 0.394185500739451,
+      "ci95_high": 1.69444092874221,
+      "p": 0.00249449346734633,
+      "n": 75,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1880
+    },
+    {
+      "estimate": 0.47547978171354,
+      "se": 0.1075772244978,
+      "ci95_low": 0.264632296141073,
+      "ci95_high": 0.686327267286008,
+      "p": 2.06235382467122e-05,
+      "n": 143,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1890
+    },
+    {
+      "estimate": 0.415797369517569,
+      "se": 0.181560280654806,
+      "ci95_low": 0.0599457584111655,
+      "ci95_high": 0.771648980623972,
+      "p": 0.0231481042070451,
+      "n": 201,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1900
+    },
+    {
+      "estimate": 0.26493995161574,
+      "se": 0.154331500638554,
+      "ci95_low": -0.0375442313158467,
+      "ci95_high": 0.567424134547327,
+      "p": 0.0876998232117735,
+      "n": 203,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1910
+    }
+  ],
+  "event_study_fig10": {
+    "reference_decade": 1870,
+    "unbalanced": [
+      {
+        "estimate": 0.258944833309253,
+        "se": 0.0678170728056871,
+        "ci95_low": 0.126025813073175,
+        "ci95_high": 0.39186385354533,
+        "p": 0.000178717185578383,
+        "n": 681,
+        "se_type": "Clustered by district",
+        "decade": 1880,
+        "sample": "unbalanced",
+        "districts": null
+      },
+      {
+        "estimate": 0.143879545649131,
+        "se": 0.0728638339267789,
+        "ci95_low": 0.00106905537713692,
+        "ci95_high": 0.286690035921126,
+        "p": 0.0496719217701796,
+        "n": 681,
+        "se_type": "Clustered by district",
+        "decade": 1890,
+        "sample": "unbalanced",
+        "districts": null
+      },
+      {
+        "estimate": -0.00189216393507109,
+        "se": 0.0859984270715366,
+        "ci95_low": -0.170445983722377,
+        "ci95_high": 0.166661655852235,
+        "p": 0.982467832536352,
+        "n": 681,
+        "se_type": "Clustered by district",
+        "decade": 1900,
+        "sample": "unbalanced",
+        "districts": null
+      },
+      {
+        "estimate": -0.100428264749418,
+        "se": 0.0937081395434026,
+        "ci95_low": -0.284092843312741,
+        "ci95_high": 0.0832363138139043,
+        "p": 0.28512755481684,
+        "n": 681,
+        "se_type": "Clustered by district",
+        "decade": 1910,
+        "sample": "unbalanced",
+        "districts": null
+      }
+    ],
+    "balanced": [
+      {
+        "estimate": 0.198235488084446,
+        "se": 0.0505449950517139,
+        "ci95_low": 0.0991691181843313,
+        "ci95_high": 0.29730185798456,
+        "p": 0.000225317122067586,
+        "n": 310,
+        "se_type": "Clustered by district",
+        "decade": 1880,
+        "sample": "balanced",
+        "districts": 62
+      },
+      {
+        "estimate": 0.093600245865152,
+        "se": 0.0570475368987444,
+        "ci95_low": -0.0182108718631067,
+        "ci95_high": 0.205411363593411,
+        "p": 0.105998047451797,
+        "n": 310,
+        "se_type": "Clustered by district",
+        "decade": 1890,
+        "sample": "balanced",
+        "districts": 62
+      },
+      {
+        "estimate": 0.000740752603538615,
+        "se": 0.0716959511495325,
+        "ci95_low": -0.139780729486888,
+        "ci95_high": 0.141262234693965,
+        "p": 0.991790230792227,
+        "n": 310,
+        "se_type": "Clustered by district",
+        "decade": 1900,
+        "sample": "balanced",
+        "districts": 62
+      },
+      {
+        "estimate": -0.059337489834584,
+        "se": 0.0840887325723417,
+        "ci95_low": -0.224148377181994,
+        "ci95_high": 0.105473397512826,
+        "p": 0.483089988330823,
+        "n": 310,
+        "se_type": "Clustered by district",
+        "decade": 1910,
+        "sample": "balanced",
+        "districts": 62
+      }
+    ]
+  },
+  "linguistic_fig11": {
+    "delta05": [
+      {
+        "estimate": 0.21418101668962,
+        "se": 0.177450664888539,
+        "ci95_low": -0.133615895524603,
+        "ci95_high": 0.561977928903842,
+        "p": 0.23144226844594,
+        "n": 80,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1870
+      },
+      {
+        "estimate": 0.62175561891164,
+        "se": 0.249300227706285,
+        "ci95_low": 0.133136151269688,
+        "ci95_high": 1.11037508655359,
+        "p": 0.0150313001053545,
+        "n": 78,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1880
+      },
+      {
+        "estimate": 0.179427299579781,
+        "se": 0.112339403788292,
+        "ci95_low": -0.0407538858899743,
+        "ci95_high": 0.399608485049537,
+        "p": 0.112708749812436,
+        "n": 136,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1890
+      },
+      {
+        "estimate": 0.00572035467274337,
+        "se": 0.115282289321479,
+        "ci95_low": -0.220228780452683,
+        "ci95_high": 0.231669489798169,
+        "p": 0.960488763821189,
+        "n": 164,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1900
+      },
+      {
+        "estimate": 0.0194146589284891,
+        "se": 0.132360773199365,
+        "ci95_low": -0.24000768950814,
+        "ci95_high": 0.278837007365118,
+        "p": 0.883585688994952,
+        "n": 156,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1910
+      }
+    ],
+    "delta005": [
+      {
+        "estimate": 0.148344661523819,
+        "se": 0.0843732916228696,
+        "ci95_low": -0.0170239513141005,
+        "ci95_high": 0.313713274361738,
+        "p": 0.085089402767784,
+        "n": 57,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1870
+      },
+      {
+        "estimate": 0.201267635483545,
+        "se": 0.137763136480278,
+        "ci95_low": -0.0687431504150752,
+        "ci95_high": 0.471278421382165,
+        "p": 0.150539574453045,
+        "n": 57,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1880
+      },
+      {
+        "estimate": 0.166676014595129,
+        "se": 0.0854677960306762,
+        "ci95_low": -0.000837787463011525,
+        "ci95_high": 0.33418981665327,
+        "p": 0.0541046487941341,
+        "n": 104,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1890
+      },
+      {
+        "estimate": 0.286095745723484,
+        "se": 0.164800716088714,
+        "ci95_low": -0.036907722436806,
+        "ci95_high": 0.609099213883773,
+        "p": 0.0853368049998478,
+        "n": 120,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1900
+      },
+      {
+        "estimate": 0.302524753034066,
+        "se": 0.103027903499741,
+        "ci95_low": 0.100593772771905,
+        "ci95_high": 0.504455733296227,
+        "p": 0.00408141459042799,
+        "n": 114,
+        "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+        "decade": 1910
+      }
+    ]
+  },
+  "placebo_cities_fig14": [
+    {
+      "city": "Lucknow",
+      "decades": [
+        {
+          "estimate": 0.634648717210642,
+          "se": 0.158380376883713,
+          "ci95_low": 0.324228882660684,
+          "ci95_high": 0.945068551760599,
+          "p": 0.000158737947382719,
+          "n": 78,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1870
+        },
+        {
+          "estimate": 1.05784310098589,
+          "se": 0.323800090570904,
+          "ci95_low": 0.423206585276111,
+          "ci95_high": 1.69247961669567,
+          "p": 0.00173801248884581,
+          "n": 76,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1880
+        },
+        {
+          "estimate": 0.479873701603563,
+          "se": 0.105422340132185,
+          "ci95_low": 0.27324971177855,
+          "ci95_high": 0.686497691428577,
+          "p": 1.19983850787558e-05,
+          "n": 144,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1890
+        },
+        {
+          "estimate": 0.419589125110575,
+          "se": 0.182554634534373,
+          "ci95_low": 0.0617886162123318,
+          "ci95_high": 0.777389634008818,
+          "p": 0.022655394270091,
+          "n": 202,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1900
+        },
+        {
+          "estimate": 0.272859350330881,
+          "se": 0.154517314189299,
+          "ci95_low": -0.029989020468004,
+          "ci95_high": 0.575707721129766,
+          "p": 0.0790474738885821,
+          "n": 204,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1910
+        }
+      ]
+    },
+    {
+      "city": "Delhi",
+      "decades": [
+        {
+          "estimate": -0.538523894565267,
+          "se": 0.363710209534602,
+          "ci95_low": -1.2513828060626,
+          "ci95_high": 0.174335016932069,
+          "p": 0.143189695000362,
+          "n": 82,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1870
+        },
+        {
+          "estimate": -1.12072944464525,
+          "se": 0.469689743742796,
+          "ci95_low": -2.04130442628898,
+          "ci95_high": -0.200154463001524,
+          "p": 0.0200449357179449,
+          "n": 74,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1880
+        },
+        {
+          "estimate": -0.420267057353909,
+          "se": 0.164878385444526,
+          "ci95_low": -0.743422754654294,
+          "ci95_high": -0.0971113600535249,
+          "p": 0.0122363966738003,
+          "n": 119,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1890
+        },
+        {
+          "estimate": -0.052147129959677,
+          "se": 0.176653707536464,
+          "ci95_low": -0.398382034466618,
+          "ci95_high": 0.294087774547264,
+          "p": 0.768225949725204,
+          "n": 178,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1900
+        },
+        {
+          "estimate": -0.316161724885373,
+          "se": 0.151666652759714,
+          "ci95_low": -0.613422901950156,
+          "ci95_high": -0.0189005478205908,
+          "p": 0.0387797034971103,
+          "n": 169,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1910
+        }
+      ]
+    },
+    {
+      "city": "Calcutta",
+      "decades": [
+        {
+          "estimate": 0.0242873464327888,
+          "se": 0.376799814557702,
+          "ci95_low": -0.714226719481678,
+          "ci95_high": 0.762801412347256,
+          "p": 0.949034023651082,
+          "n": 40,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1870
+        },
+        {
+          "estimate": -0.0981564091513858,
+          "se": 0.0938013506203012,
+          "ci95_low": -0.28200367806839,
+          "ci95_high": 0.0856908597656183,
+          "p": 0.301077899620761,
+          "n": 55,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1880
+        },
+        {
+          "estimate": 0.183393785997166,
+          "se": 0.189621502088085,
+          "ci95_low": -0.188257528789866,
+          "ci95_high": 0.555045100784198,
+          "p": 0.336001109288546,
+          "n": 104,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1890
+        },
+        {
+          "estimate": 0.147672813896515,
+          "se": 0.252399214631935,
+          "ci95_low": -0.347020556508272,
+          "ci95_high": 0.642366184301302,
+          "p": 0.559526358183723,
+          "n": 142,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1900
+        },
+        {
+          "estimate": 0.192462380771457,
+          "se": 0.17526209796797,
+          "ci95_low": -0.151045019100695,
+          "ci95_high": 0.53596978064361,
+          "p": 0.274001742867727,
+          "n": 158,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1910
+        }
+      ]
+    },
+    {
+      "city": "Bombay",
+      "decades": [
+        {
+          "estimate": -0.0531048218027591,
+          "se": 0.145655637760588,
+          "ci95_low": -0.338584625958724,
+          "ci95_high": 0.232374982353206,
+          "p": 0.716719842882205,
+          "n": 73,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1870
+        },
+        {
+          "estimate": -0.26246905748677,
+          "se": 0.106020513810428,
+          "ci95_low": -0.47026544617764,
+          "ci95_high": -0.0546726687959,
+          "p": 0.0201350613046461,
+          "n": 38,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1880
+        },
+        {
+          "estimate": -0.291839724573813,
+          "se": 0.16195693043856,
+          "ci95_low": -0.60926947528005,
+          "ci95_high": 0.0255900261324228,
+          "p": 0.0812844947844392,
+          "n": 44,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1890
+        },
+        {
+          "estimate": -0.0807734507883811,
+          "se": 0.096110727195984,
+          "ci95_low": -0.269147014620464,
+          "ci95_high": 0.107600113043702,
+          "p": 0.403116401363046,
+          "n": 96,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1900
+        },
+        {
+          "estimate": -0.127286678906327,
+          "se": 0.0615161006945999,
+          "ci95_low": -0.247856020737082,
+          "ci95_high": -0.00671733707557137,
+          "p": 0.042023604079463,
+          "n": 87,
+          "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+          "decade": 1910
+        }
+      ]
+    }
+  ],
+  "horse_race_1880s_tableF1": {
+    "lucknow": {
+      "estimate": 0.882068753294561,
+      "se": 0.175672712925804,
+      "ci95_low": 0.53775656289354,
+      "ci95_high": 1.22638094369558,
+      "p": 4.3702149312508e-06,
+      "n": 76,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)"
+    },
+    "delhi": {
+      "estimate": -0.895860510581771,
+      "se": 0.242235388509042,
+      "ci95_low": -1.37063314784056,
+      "ci95_high": -0.421087873322982,
+      "p": 0.000452774640273775,
+      "n": 76,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)"
+    }
+  },
+  "cohort_survival_table1": [
+    {
+      "comparison": "Dacca",
+      "lucknow": {
+        "estimate": 0.629428808732527,
+        "se": 0.224724315856221,
+        "ci95_low": 0.18897724320393,
+        "ci95_high": 1.06988037426112,
+        "p": 0.00540322577350394,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "placebo": {
+        "estimate": 0.204281528735295,
+        "se": 0.303037083942523,
+        "ci95_low": -0.389660241772091,
+        "ci95_high": 0.798223299242681,
+        "p": 0.500721009089969,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "districts": 120
+    },
+    {
+      "comparison": "Poona",
+      "lucknow": {
+        "estimate": 0.636801435514373,
+        "se": 0.207711559255084,
+        "ci95_low": 0.229694260201752,
+        "ci95_high": 1.04390861082699,
+        "p": 0.00235411139617707,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "placebo": {
+        "estimate": 0.120685186313233,
+        "se": 0.159848449002735,
+        "ci95_low": -0.192612016716714,
+        "ci95_high": 0.43398238934318,
+        "p": 0.450800604219194,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "districts": 120
+    },
+    {
+      "comparison": "Lahore",
+      "lucknow": {
+        "estimate": 0.639490960153686,
+        "se": 0.203546877549113,
+        "ci95_low": 0.240546410991841,
+        "ci95_high": 1.03843550931553,
+        "p": 0.00183497100693999,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "placebo": {
+        "estimate": -0.755555485817212,
+        "se": 0.197148407746169,
+        "ci95_low": -1.14195926460912,
+        "ci95_high": -0.369151707025303,
+        "p": 0.000152493668162873,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "districts": 120
+    },
+    {
+      "comparison": "Karachi",
+      "lucknow": {
+        "estimate": 0.655739421230034,
+        "se": 0.262884417321366,
+        "ci95_low": 0.14049543118336,
+        "ci95_high": 1.17098341127671,
+        "p": 0.0131163116270741,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "placebo": {
+        "estimate": -0.1259325995369,
+        "se": 0.14026155054197,
+        "ci95_low": -0.400840187014906,
+        "ci95_high": 0.148974987941106,
+        "p": 0.369938967248125,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "districts": 120
+    },
+    {
+      "comparison": "Bombay",
+      "lucknow": {
+        "estimate": 0.69561685250928,
+        "se": 0.308996181696412,
+        "ci95_low": 0.0899954650239184,
+        "ci95_high": 1.30123823999464,
+        "p": 0.0250438272691976,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "placebo": {
+        "estimate": -0.1909561917366,
+        "se": 0.224685124920288,
+        "ci95_low": -0.631330944442247,
+        "ci95_high": 0.249418560969046,
+        "p": 0.396019342202812,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "districts": 120
+    },
+    {
+      "comparison": "Calcutta",
+      "lucknow": {
+        "estimate": 0.372529499641238,
+        "se": 0.408038621980448,
+        "ci95_low": -0.427211503741793,
+        "ci95_high": 1.17227050302427,
+        "p": 0.361936068347192,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "placebo": {
+        "estimate": 0.284217616315947,
+        "se": 0.409772992372432,
+        "ci95_low": -0.518922690571225,
+        "ci95_high": 1.08735792320312,
+        "p": 0.488432995852353,
+        "n": 452,
+        "se_type": "Conley spatial HAC"
+      },
+      "districts": 120
+    }
+  ],
+  "sepoy_interaction_fig13": [
+    {
+      "estimate": 0.310358738996057,
+      "se": 0.260583487200469,
+      "ci95_low": -0.200375510882716,
+      "ci95_high": 0.82109298887483,
+      "p": 0.238046378072381,
+      "n": 78,
+      "se_type": "Conley spatial HAC",
+      "decade": 1870,
+      "radius_km": 50,
+      "n_sepoy": 44,
+      "n_nonsepoy": 34
+    },
+    {
+      "estimate": -0.169848721169445,
+      "se": 0.656707717131581,
+      "ci95_low": -1.45697219511686,
+      "ci95_high": 1.11727475277797,
+      "p": 0.796745557038127,
+      "n": 78,
+      "se_type": "Conley spatial HAC",
+      "decade": 1870,
+      "radius_km": 100,
+      "n_sepoy": 58,
+      "n_nonsepoy": 20
+    },
+    {
+      "estimate": 0.79298447376358,
+      "se": 0.183591159577983,
+      "ci95_low": 0.433152413110787,
+      "ci95_high": 1.15281653441637,
+      "p": 5.65492240347053e-05,
+      "n": 76,
+      "se_type": "Conley spatial HAC",
+      "decade": 1880,
+      "radius_km": 50,
+      "n_sepoy": 45,
+      "n_nonsepoy": 31
+    },
+    {
+      "estimate": 1.01488195342883,
+      "se": 0.390109609539248,
+      "ci95_low": 0.250281168708922,
+      "ci95_high": 1.77948273814874,
+      "p": 0.0115533993229149,
+      "n": 76,
+      "se_type": "Conley spatial HAC",
+      "decade": 1880,
+      "radius_km": 100,
+      "n_sepoy": 59,
+      "n_nonsepoy": 17
+    },
+    {
+      "estimate": 0.0169294992266059,
+      "se": 0.112910743077428,
+      "ci95_low": -0.204371490672808,
+      "ci95_high": 0.23823048912602,
+      "p": 0.881048487219401,
+      "n": 144,
+      "se_type": "Conley spatial HAC",
+      "decade": 1890,
+      "radius_km": 50,
+      "n_sepoy": 81,
+      "n_nonsepoy": 63
+    },
+    {
+      "estimate": 0.331532802852934,
+      "se": 0.226702738343279,
+      "ci95_low": -0.112796399496499,
+      "ci95_high": 0.775862005202367,
+      "p": 0.146060356367279,
+      "n": 144,
+      "se_type": "Conley spatial HAC",
+      "decade": 1890,
+      "radius_km": 100,
+      "n_sepoy": 115,
+      "n_nonsepoy": 29
+    },
+    {
+      "estimate": 0.220499229686378,
+      "se": 0.136018852416765,
+      "ci95_low": -0.0460928222689499,
+      "ci95_high": 0.487091281641707,
+      "p": 0.106719407049969,
+      "n": 202,
+      "se_type": "Conley spatial HAC",
+      "decade": 1900,
+      "radius_km": 50,
+      "n_sepoy": 87,
+      "n_nonsepoy": 115
+    },
+    {
+      "estimate": 0.318315384501746,
+      "se": 0.27051495738526,
+      "ci95_low": -0.211884189252752,
+      "ci95_high": 0.848514958256243,
+      "p": 0.240842929537359,
+      "n": 202,
+      "se_type": "Conley spatial HAC",
+      "decade": 1900,
+      "radius_km": 100,
+      "n_sepoy": 129,
+      "n_nonsepoy": 73
+    },
+    {
+      "estimate": 0.227660779554727,
+      "se": 0.143566125598756,
+      "ci95_low": -0.0537236560187886,
+      "ci95_high": 0.509045215128242,
+      "p": 0.114502579772924,
+      "n": 204,
+      "se_type": "Conley spatial HAC",
+      "decade": 1910,
+      "radius_km": 50,
+      "n_sepoy": 93,
+      "n_nonsepoy": 111
+    },
+    {
+      "estimate": 0.0947125054900847,
+      "se": 0.254080681407908,
+      "ci95_low": -0.403276479236811,
+      "ci95_high": 0.592701490216981,
+      "p": 0.709749725483196,
+      "n": 204,
+      "se_type": "Conley spatial HAC",
+      "decade": 1910,
+      "radius_km": 100,
+      "n_sepoy": 138,
+      "n_nonsepoy": 66
+    }
+  ],
+  "awadh_decomposition_tableF5": {
+    "sample": "Historical northwestern province (Awadh plus older NWP), pooled decades",
+    "awadh": {
+      "estimate": -0.748473948643018,
+      "se": 0.177874336688159,
+      "ci95_low": -1.09710124232576,
+      "ci95_high": -0.399846654960275,
+      "p": 3.69691727825925e-05,
+      "n": 245,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)"
+    },
+    "access": {
+      "estimate": 0.396061150590998,
+      "se": 0.108028977585277,
+      "ci95_low": 0.184328245237171,
+      "ci95_high": 0.607794055944825,
+      "p": 0.000305715253258274,
+      "n": 245,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)"
+    },
+    "interaction": {
+      "estimate": -0.3522710301181,
+      "se": 0.105173646880703,
+      "ci95_low": -0.558407590127012,
+      "ci95_high": -0.146134470109189,
+      "p": 0.000946234560040954,
+      "n": 245,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)"
+    }
+  },
+  "mortality_tableF4": [
+    {
+      "estimate": -0.279173678984601,
+      "se": 0.113226006136394,
+      "ci95_low": -0.501092573125245,
+      "ci95_high": -0.0572547848439574,
+      "p": 0.0150560008413476,
+      "n": 136,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1890
+    },
+    {
+      "estimate": 0.0671260092699708,
+      "se": 0.0804510554972729,
+      "ci95_low": -0.0905551620229171,
+      "ci95_high": 0.224807180562859,
+      "p": 0.405416811817408,
+      "n": 165,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1900
+    },
+    {
+      "estimate": 0.0104883627824558,
+      "se": 0.0107455861075652,
+      "ci95_low": -0.0105725989811459,
+      "ci95_high": 0.0315493245460576,
+      "p": 0.330584381565903,
+      "n": 169,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1910
+    }
+  ],
+  "straight_line_figA1": [
+    {
+      "estimate": 0.795901459440326,
+      "se": 0.144450215370865,
+      "ci95_low": 0.512784239754377,
+      "ci95_high": 1.07901867912628,
+      "p": 6.38177008019235e-07,
+      "n": 78,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1870
+    },
+    {
+      "estimate": 1.22252262096826,
+      "se": 0.153365432417371,
+      "ci95_low": 0.921931896956803,
+      "ci95_high": 1.52311334497972,
+      "p": 3.28213259627064e-11,
+      "n": 76,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1880
+    },
+    {
+      "estimate": 0.541770355700717,
+      "se": 0.107811236792287,
+      "ci95_low": 0.330464214459114,
+      "ci95_high": 0.753076496942319,
+      "p": 1.61548562781395e-06,
+      "n": 144,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1890
+    },
+    {
+      "estimate": 0.491654236800973,
+      "se": 0.152899287344915,
+      "ci95_low": 0.191977140343098,
+      "ci95_high": 0.791331333258848,
+      "p": 0.00153670802081119,
+      "n": 202,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1900
+    },
+    {
+      "estimate": 0.320007112704907,
+      "se": 0.139066116262037,
+      "ci95_low": 0.0474425333614545,
+      "ci95_high": 0.592571692048359,
+      "p": 0.0224878850684386,
+      "n": 204,
+      "se_type": "Conley spatial HAC (fixest default cutoff, as in the paper)",
+      "decade": 1910
+    }
+  ],
+  "welfare_inputs_sec6_10": {
+    "mortality_coef_1890s": -0.279173678984601,
+    "sd_mortality_1890s": 0.266255746217697,
+    "sd_source": "SD of smallpox deaths per 1,000 over the 1890s mortality sample as standardized in analysis_cross.R (N = 137 before fixest drops one fixed-effect singleton); manuscript states 0.27.",
+    "population_high_mistrust": 48830378.9873016,
+    "population_source": "Sum of 1890s district population in the third of the 1890s baseline sample with the lowest travel cost to Lucknow; manuscript states about 50 million.",
+    "manuscript_values": {
+      "deaths_per_1000": 0.075,
+      "excess_deaths_per_year": 4000
+    }
+  }
+}
