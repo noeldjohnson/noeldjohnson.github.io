@@ -148,10 +148,14 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="stock">
 <h2><span class="num">5</span>The prior stock</h2>
-<p>The response to an outbreak is the shock net of what the city already holds. The paper measures the plague medicine each city printed in the decade before an onset, in years of the city's average output. The coefficient on onset times prior stock is −0.341 with a standard error of 0.135. About a third of a title printed in the prior decade still counted against new demand when the next outbreak arrived. Under geometric decay that implies an annual depreciation rate of 0.21, with a 95 percent interval from 0.09 to 0.56, and an economic life of about five years.</p>
+<p>When plague returned, a city that already held plenty of recent plague medicine printed less new medicine. The paper measures the plague medicine each city printed in the decade before an onset, in multiples of the city's normal yearly output. A stock of 0.3 means the decade's plague titles added up to about three-tenths of one year's ordinary printing. Each title in that stock offset about a third of a new title at the next outbreak. The coefficient is −0.341 with a standard error of 0.135.</p>
+<p>That third is a depreciation rate. If a plague title loses 21 percent of its value each year, the titles printed over the ten years before an outbreak keep on average 34 percent of their value when it arrives. So the coefficient implies an annual depreciation of 0.21, with a 95 percent interval from 0.09 to 0.56, and an economic life of about five years. Plague medicine sits between news, which lost nearly all its value within the year, and doctrine, which lost about a tenth of its value a year.</p>
 <div class="figure">
-  <svg id="stsvg" viewBox="0 0 800 280" role="img" aria-label="Onset response by prior stock"></svg>
-  <div class="cap"><b>Figure 4.</b> Onset response of plague-specific medicine by the city's prior-decade stock, in titles over the city's average annual output, with the size control held at its mean. The first bin is onsets with no prior stock and the other three are thirds of positive stock. The paper's Figure 14 draws city-clustered intervals. The bands here are the wider of those and Conley intervals computed for this page.</div>
+  <svg id="stdecay" viewBox="0 0 800 290" role="img" aria-label="Share of a title's value left by years since printing"></svg>
+  <div class="legend"><span style="color:var(--teal);font-weight:600">● Coercive news</span> &nbsp; <span style="color:var(--rust);font-weight:600">● Plague medicine</span> &nbsp; <span style="color:var(--navy);font-weight:600">● Doctrine</span></div>
+  <div class="cap"><b>Figure 4, Panel A.</b> The share of a title's value left after a given number of years under geometric decay. Plague medicine is drawn at the depreciation rate the paper estimates, 0.21 a year, with the band running from 0.09 to 0.56. News and doctrine are drawn at the rates of Table 39, Panel A, in the paper. The dotted line marks the economic life of a plague title, about five years.</div>
+  <svg id="stsvg" viewBox="0 0 800 250" role="img" aria-label="Onset response by prior stock with the fitted line" style="margin-top:18px"></svg>
+  <div class="cap"><b>Panel B.</b> The onset response of plague medicine by the size of the city's prior stock, with the fitted line from the paper's regression. The first point is onsets with no prior stock. The other three are thirds of positive stock, placed at their mean stock. Each point is imprecise and every interval crosses zero, so the evidence for the decline is the slope of −0.341 and not the pattern of the points. Bands are the wider of city-clustered and Conley intervals. From Figure 14 of the paper.</div>
 </div>
 </section>
 
@@ -312,7 +316,7 @@ Promise.all([
   d3.json("event_study.json"), d3.json("stock_response.json"), d3.json("news.json"), d3.json("doctrine.json"), d3.json("products.json"), d3.json("aggregate.json"), d3.json("basemap.geojson")
 ]).then(([cities, cy, ob, oby, es, st, news, doc, prod, agg, base]) => {
   const feats = fixWinding(base);
-  table1(prod); plagueMap(cities, cy, ob, oby, feats); eventStudy(es); randomization(es.fig12); stock(st);
+  table1(prod); plagueMap(cities, cy, ob, oby, feats); eventStudy(es); randomization(es.fig12); stock(st, prod);
   explorer(cities, cy); newsMap(news, feats); gradient(news); malleus(doc, feats); durability(doc);
   plane(prod); calculator(prod); aggregate(agg); simulation(agg);
 });
@@ -428,21 +432,50 @@ function randomization(r) {
 }
 
 // ---------- 5. Stock ----------
-function stock(st) {
-  const svg = d3.select("#stsvg"), W = 800, H = 280, mg = {l:62, r:20, t:14, b:48};
+function stock(st, prod) {
+  // Panel A: value left after t years under geometric decay
+  const dA = d3.select("#stdecay"), W = 800, H = 290, mg = {l:62, r:24, t:14, b:42};
+  const pa = new Map(prod.table39_panel_a.map(d => [d.product, d.delta]));
+  const dPlague = st.delta_annual, ci = st.delta_ci, tmax = 20;
+  const x = d3.scaleLinear([0, tmax], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 1], [H-mg.b, mg.t]);
+  const val = (d, t) => Math.pow(1 - d, t), ts = d3.range(0, tmax + 0.001, 0.1);
+  dA.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(10));
+  dA.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format(".0%")));
+  dA.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Years since the title was printed");
+  dA.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Share of value left");
+  dA.append("path").datum(ts).attr("fill", C.rust).attr("opacity", .15)
+    .attr("d", d3.area().x(t => x(t)).y0(t => y(val(ci[1], t))).y1(t => y(val(ci[0], t))));
+  [[pa.get("news"), C.teal, "Coercive news"], [dPlague, C.rust, "Plague medicine"], [pa.get("doctrine"), C.navy, "Doctrine"]].forEach(([d, col, name]) => {
+    const pts = d >= 1 ? [[0, 1], [0.001, 0], [tmax, 0]] : ts.map(t => [t, val(d, t)]);
+    dA.append("path").datum(pts).attr("fill","none").attr("stroke", col).attr("stroke-width", 2.5).attr("d", d3.line().x(p => x(p[0])).y(p => y(p[1])));
+    const lt = d >= 1 ? 0.6 : 1 / d;
+    if (d < 1) dA.append("text").attr("x", x(Math.min(tmax - 3, lt * 1.6)) + 4).attr("y", y(val(d, Math.min(tmax - 3, lt * 1.6))) - 8).attr("fill", col).style("font-weight","600").text(name);
+    else dA.append("text").attr("x", x(0.4)).attr("y", y(0.06)).attr("fill", col).style("font-weight","600").text(name);
+  });
+  const life = 1 / dPlague;
+  dA.append("line").attr("x1", x(life)).attr("x2", x(life)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.rust).attr("stroke-dasharray","2 4");
+  dA.append("text").attr("x", x(life) + 4).attr("y", mg.t + 12).attr("fill", C.rust).style("font-size","11px").text(`economic life ${life.toFixed(1)} years`);
+  const hit = dA.append("rect").attr("x", mg.l).attr("y", mg.t).attr("width", W-mg.l-mg.r).attr("height", H-mg.t-mg.b).attr("fill","transparent");
+  hit.on("mousemove", ev => { const t = Math.max(0, Math.min(tmax, x.invert(d3.pointer(ev)[0])));
+    showTip(ev, `<b>${t.toFixed(1)} years after printing</b><br>Plague medicine ${(100*val(dPlague,t)).toFixed(0)}% [${(100*val(ci[1],t)).toFixed(0)}, ${(100*val(ci[0],t)).toFixed(0)}]<br>Doctrine ${(100*val(pa.get("doctrine"),t)).toFixed(0)}%<br>News ${t < 1 ? "nearly all lost within the year" : "0%"}`); }).on("mouseleave", hideTip);
+
+  // Panel B: bins with the fitted line
+  const svg = d3.select("#stsvg"), H2 = 250, m2 = {l:62, r:24, t:14, b:42};
   const labels = ["No prior stock", "Lowest third", "Middle third", "Highest third"];
   const rows = st.bins.map((b, i) => ({ ...b, label: labels[i] }));
-  const x = d3.scaleBand(labels, [mg.l, W-mg.r]).padding(.4);
-  const y = d3.scaleLinear([Math.min(0, d3.min(rows, lo)), d3.max(rows, hi)], [H-mg.b, mg.t]).nice();
-  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x));
-  svg.selectAll("text.n").data(rows).join("text").attr("x", d => x(d.label) + x.bandwidth()/2).attr("y", H-mg.b+30).attr("text-anchor","middle").text(d => `${d.n} onsets, mean stock ${d.h_mean.toFixed(2)}`);
-  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5));
-  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
-  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Onset response");
-  const cx = d => x(d.label) + x.bandwidth()/2;
-  svg.selectAll("line.ci").data(rows).join("line").attr("x1", cx).attr("x2", cx).attr("y1", d => y(lo(d))).attr("y2", d => y(hi(d))).attr("stroke", C.rust).attr("stroke-width", 2);
-  svg.selectAll("circle").data(rows).join("circle").attr("cx", cx).attr("cy", d => y(d.est_adj)).attr("r", 6).attr("fill", C.rust)
-    .on("mousemove", (ev,d) => showTip(ev, `<b>${d.label}</b><br>Response ${d.est_adj.toFixed(2)} [${lo(d).toFixed(2)}, ${hi(d).toFixed(2)}]<br>${d.n} onsets`)).on("mouseleave", hideTip);
+  const xb = d3.scaleLinear([-0.01, 0.35], [m2.l, W-m2.r]);
+  const yb = d3.scaleLinear([Math.min(0, d3.min(rows, lo)), d3.max(rows, hi)], [H2-m2.b, m2.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H2-m2.b})`).call(d3.axisBottom(xb).ticks(7));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${m2.l},0)`).call(d3.axisLeft(yb).ticks(5));
+  svg.append("line").attr("x1", m2.l).attr("x2", W-m2.r).attr("y1", yb(0)).attr("y2", yb(0)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  svg.append("text").attr("x",(W+m2.l)/2).attr("y",H2-6).attr("text-anchor","middle").text("Prior-decade stock, in multiples of the city's yearly output");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H2-m2.b+m2.t)/2).attr("y",14).attr("text-anchor","middle").text("Onset response");
+  const ln = st.line, xs = [0, 0.35];
+  svg.append("path").datum(xs).attr("fill","none").attr("stroke", C.navy).attr("stroke-width", 2).attr("d", d3.line().x(h => xb(h)).y(h => yb(ln.intercept + ln.slope * h)));
+  svg.append("text").attr("x", xb(0.2)).attr("y", yb(ln.intercept + ln.slope * 0.2) - 10).attr("text-anchor","middle").attr("fill", C.navy).style("font-weight","600").text(`fitted line, slope ${ln.slope.toFixed(3)}`);
+  svg.selectAll("line.ci").data(rows).join("line").attr("x1", d => xb(d.h_mean)).attr("x2", d => xb(d.h_mean)).attr("y1", d => yb(lo(d))).attr("y2", d => yb(hi(d))).attr("stroke", C.rust).attr("stroke-width", 2).attr("opacity", .7);
+  svg.selectAll("circle").data(rows).join("circle").attr("cx", d => xb(d.h_mean)).attr("cy", d => yb(d.est_adj)).attr("r", 6).attr("fill", C.rust)
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${d.label}</b><br>Mean stock ${d.h_mean.toFixed(2)}, ${d.n} onsets<br>Response ${d.est_adj.toFixed(2)} [${lo(d).toFixed(2)}, ${hi(d).toFixed(2)}]`)).on("mouseleave", hideTip);
 }
 
 // ---------- 6. City explorer ----------
