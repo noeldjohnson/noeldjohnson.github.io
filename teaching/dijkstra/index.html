@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dijkstra's Algorithm Step by Step</title>
+<meta name="description" content="An interactive walk through Dijkstra's least-cost path algorithm on a small network and on a raster, for ECON 895 Spatial Techniques for Empirical Economics.">
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+  --sans: -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+h2 { font-size: 26px; color: var(--navy); margin: 44px 0 12px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.cap { font: 14px/1.5 var(--sans); color: var(--muted); margin-top: 10px; }
+.cap b { color: var(--ink); }
+.controls { font: 15px/1.4 var(--sans); display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin-bottom: 12px; }
+.controls .lab { color: var(--muted); }
+button.b { font: 14px var(--sans); border: 1px solid var(--rule); background: #fff; padding: 6px 12px; border-radius: 4px; cursor: pointer; color: var(--ink); }
+button.b:hover { border-color: var(--navy); }
+button.b.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+button.b.go { background: var(--rust); color: #fff; border-color: var(--rust); }
+button.b:disabled { opacity: .4; cursor: default; }
+label.chk { display: flex; align-items: center; gap: 6px; }
+.two { display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; align-items: start; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font-family: var(--sans); }
+.narr { font: 15px/1.5 var(--sans); background: #fff; border-left: 4px solid var(--rust); border-radius: 4px; padding: 10px 14px; min-height: 92px; }
+.narr b { color: var(--navy); }
+table.t { width: 100%; border-collapse: collapse; font: 14px var(--sans); background: #fff; border-radius: 6px; overflow: hidden; margin-top: 12px; }
+table.t th, table.t td { padding: 5px 6px; text-align: center; border-bottom: 1px solid var(--rule); }
+table.t th:first-child, table.t td:first-child, table.t th:nth-child(2), table.t td:nth-child(2) { text-align: left; }
+table.t tr.cur td { background: #fbeee4; }
+table.t td.chg { color: var(--rust); font-weight: 600; }
+table.t td.fin { color: var(--navy); font-weight: 600; }
+.edges { font: 14px var(--sans); display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 12px; color: var(--muted); }
+.edges input { width: 46px; font: 14px var(--sans); padding: 2px 4px; border: 1px solid var(--rule); border-radius: 3px; }
+.readout { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 0; }
+.readout div { background: #fff; border-radius: 6px; padding: 8px 10px; font: 13px/1.35 var(--sans); color: var(--muted); }
+.readout b { display: block; font: 600 20px/1.2 var(--sans); color: var(--navy); }
+.legend { font: 13px var(--sans); color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; }
+.sw { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; border: 1px solid #0002; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 var(--sans); color: var(--muted); }
+@media (max-width: 720px) { .two { grid-template-columns: 1fr; } .readout { grid-template-columns: 1fr 1fr; } h1 { font-size: 27px; } }
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">ECON 895 · Week 7</div>
+  <h1>Dijkstra's Algorithm Step by Step</h1>
+  <div class="byline">Noel D. Johnson · Spatial Techniques for Empirical Economics · George Mason University</div>
+</header>
+
+<section id="network">
+<h2><span class="num">1</span>A six-node network</h2>
+<p>Each line is a road with a cost of travel. Dijkstra's algorithm finds the cheapest cost from one starting node to every other node. It keeps a tentative cost for every node and a set of settled nodes. At each step it settles the unsettled node with the lowest tentative cost and then relaxes that node's roads. Relaxing a road means lowering a neighbor's tentative cost when the route through the settled node is cheaper.</p>
+
+<div class="figure">
+  <div class="controls">
+    <span class="lab">Start at</span>
+    <span id="srcbtns"></span>
+    <label class="chk"><input type="checkbox" id="cf"> Add a road from C to F at cost 5</label>
+  </div>
+  <div class="controls">
+    <button class="b" id="back">Back</button>
+    <button class="b go" id="step">Step</button>
+    <button class="b" id="run">Run to the end</button>
+    <button class="b" id="reset">Reset</button>
+    <span class="lab" id="stepno"></span>
+  </div>
+  <div class="two">
+    <svg id="g" viewBox="0 0 460 330" role="img" aria-label="Six-node network"></svg>
+    <div>
+      <div class="narr" id="narr"></div>
+      <div class="legend">
+        <span><span class="sw" style="background:#fff"></span>not reached</span>
+        <span><span class="sw" style="background:#f3dfa6"></span>reached, cost tentative</span>
+        <span><span class="sw" style="background:#C75B12"></span>settled this step</span>
+        <span><span class="sw" style="background:#1B2A4A"></span>settled</span>
+      </div>
+    </div>
+  </div>
+  <table class="t" id="tab"></table>
+  <div class="edges" id="edges"></div>
+  <div class="cap"><b>Figure 1.</b> The network from the Week 7 slides. The number under each node is its tentative cost. Rust roads are the ones relaxed in the current step. Teal roads form the cheapest route to each settled node. After the last step click any node to trace its cheapest route from the start. Change a road's cost in the boxes below the table and the run starts over.</div>
+</div>
+
+<p>A settled node's cost never changes again. When it is settled every other unsettled node already costs at least as much, and with costs that are never negative no later route can come back cheaper. That is why the algorithm needs nonnegative costs.</p>
+</section>
+
+<section id="raster">
+<h2><span class="num">2</span>A raster is a graph</h2>
+<p>Every cell of a raster is a node and every cell touches its eight neighbors. The cost of a step between two cells is the mean of their costs times the distance between their centers, so a diagonal step costs 1.41 times a straight one. This is what <code>gdistance</code> builds with <code>transition</code> and <code>geoCorrection</code>, and the algorithm is the same as above. Paint cells with a mode of transport, then find the cheapest route.</p>
+
+<div class="figure">
+  <div class="controls">
+    <span class="lab">Paint</span>
+    <span id="paintbtns"></span>
+    <span class="lab">Place</span>
+    <button class="b" data-mode="start" id="pstart">Start</button>
+    <button class="b" data-mode="end" id="pend">End</button>
+  </div>
+  <div class="controls">
+    <button class="b go" id="grun">Find the cheapest route</button>
+    <button class="b" id="gclear">Clear the route</button>
+    <button class="b" id="greset">Reset the map</button>
+  </div>
+  <svg id="grid" viewBox="0 0 840 480" role="img" aria-label="Cost raster"></svg>
+  <div class="legend" id="glegend"></div>
+  <div class="readout">
+    <div><b id="rcost">–</b>cost of the cheapest route, km-equivalents</div>
+    <div><b id="rlen">–</b>length of that route, km</div>
+    <div><b id="rline">–</b>straight-line distance, km</div>
+    <div><b id="rsettled">–</b>cells settled before the end was reached</div>
+  </div>
+  <div class="cap"><b>Figure 2.</b> Each cell is 10 km across. The costs are Bairoch's relative costs used in the Week 7 code, overland 1, road 0.81, river 0.21, and sea 0.08. Shading shows the order in which cells were settled, lightest first. The route is drawn in rust. Click or drag to paint.</div>
+</div>
+</section>
+
+<footer>Built for ECON 895 at George Mason University, Fall 2026. The six-node network and its costs match <code>toy_network.csv</code> in the course data.</footer>
+</main>
+
+<script>
+// ===== ALGORITHM (tested by test_dijkstra.js) =====
+function dijkstraSteps(nodes, edges, source) {
+  // edges: [{a, b, cost}], undirected. Returns one state per settled node.
+  const adj = {}; nodes.forEach(n => adj[n] = []);
+  edges.forEach((e, i) => { adj[e.a].push({to: e.b, cost: e.cost, i}); adj[e.b].push({to: e.a, cost: e.cost, i}); });
+  const dist = {}, pred = {}, settled = {};
+  nodes.forEach(n => { dist[n] = Infinity; pred[n] = null; settled[n] = false; });
+  dist[source] = 0;
+  const states = [{settle: null, relaxed: [], changed: [], ties: [], dist: {...dist}, pred: {...pred}, settled: {...settled}}];
+  for (let k = 0; k < nodes.length; k++) {
+    let u = null;
+    nodes.forEach(n => { if (!settled[n] && dist[n] < Infinity && (u === null || dist[n] < dist[u])) u = n; });
+    if (u === null) break;
+    settled[u] = true;
+    const relaxed = [], changed = [], ties = [];
+    adj[u].forEach(({to, cost, i}) => {
+      if (settled[to]) return;
+      relaxed.push(i);
+      const via = dist[u] + cost;
+      if (via < dist[to]) { changed.push({node: to, from: dist[to], to: via}); dist[to] = via; pred[to] = {node: u, edge: i}; }
+      else if (via === dist[to]) ties.push({node: to, cost: via});
+    });
+    states.push({settle: u, relaxed, changed, ties, dist: {...dist}, pred: JSON.parse(JSON.stringify(pred)), settled: {...settled}});
+  }
+  return states;
+}
+function gridRoute(costs, nr, nc, start, end, cellKm) {
+  // costs: flat array of cell costs. 8 neighbors, edge = mean cost * distance.
+  const N = nr * nc, dist = new Float64Array(N).fill(Infinity), pred = new Int32Array(N).fill(-1);
+  const done = new Uint8Array(N), order = [];
+  dist[start] = 0;
+  const heap = [[0, start]];
+  const push = x => { heap.push(x); let i = heap.length - 1; while (i > 0) { const p = (i - 1) >> 1; if (heap[p][0] <= heap[i][0]) break; [heap[p], heap[i]] = [heap[i], heap[p]]; i = p; } };
+  const pop = () => { const top = heap[0], last = heap.pop(); if (heap.length) { heap[0] = last; let i = 0; for (;;) { const l = 2 * i + 1, r = l + 1; let m = i; if (l < heap.length && heap[l][0] < heap[m][0]) m = l; if (r < heap.length && heap[r][0] < heap[m][0]) m = r; if (m === i) break; [heap[m], heap[i]] = [heap[i], heap[m]]; i = m; } } return top; };
+  while (heap.length) {
+    const [d, u] = pop();
+    if (done[u]) continue;
+    done[u] = 1; order.push(u);
+    if (u === end) break;
+    const r = Math.floor(u / nc), c = u % nc;
+    for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) {
+      if (!dr && !dc) continue;
+      const rr = r + dr, cc = c + dc;
+      if (rr < 0 || rr >= nr || cc < 0 || cc >= nc) continue;
+      const v = rr * nc + cc;
+      if (done[v]) continue;
+      const step = (dr && dc ? Math.SQRT2 : 1) * cellKm * (costs[u] + costs[v]) / 2;
+      if (d + step < dist[v]) { dist[v] = d + step; pred[v] = u; push([dist[v], v]); }
+    }
+  }
+  const path = [];
+  if (dist[end] < Infinity) { for (let v = end; v !== -1; v = pred[v]) path.push(v); path.reverse(); }
+  return {cost: dist[end], path, order};
+}
+// ===== END ALGORITHM =====
+
+// ---------- Section 1: the six-node network ----------
+const NODES = ["A", "B", "C", "D", "E", "F"];
+const POS = {A: [55, 165], B: [175, 55], C: [175, 275], D: [300, 55], E: [300, 275], F: [410, 165]};
+const BASE = [["A","B",4],["A","C",2],["B","C",1],["B","D",5],["C","E",8],["D","E",2],["D","F",6],["E","F",3]];
+let costs = BASE.map(e => e[2]), cfCost = 5;
+let source = "A", useCF = false, states = [], k = 0, traced = null;
+
+const qs = new URLSearchParams(location.search);
+if (qs.get("start") && NODES.includes(qs.get("start"))) source = qs.get("start");
+if (qs.get("cf") === "1") useCF = true;
+
+function edgeList() {
+  const E = BASE.map((e, i) => ({a: e[0], b: e[1], cost: costs[i]}));
+  if (useCF) E.push({a: "C", b: "F", cost: cfCost});
+  return E;
+}
+function fmt(x) { return x === Infinity ? "∞" : (Math.round(x * 100) / 100).toString(); }
+
+function recompute(keepStep) {
+  states = dijkstraSteps(NODES, edgeList(), source);
+  k = keepStep ? Math.min(k, states.length - 1) : 0; traced = null; draw();
+}
+
+function draw() {
+  const E = edgeList(), s = states[k], g = document.getElementById("g");
+  const treeEdges = new Set();
+  NODES.forEach(n => { if (s.settled[n] && s.pred[n]) treeEdges.add(s.pred[n].edge); });
+  const pathEdges = new Set(), pathNodes = new Set();
+  if (traced && k === states.length - 1) {
+    for (let n = traced; n; n = s.pred[n] ? s.pred[n].node : null) { pathNodes.add(n); if (s.pred[n]) pathEdges.add(s.pred[n].edge); }
+  }
+  let h = "";
+  E.forEach((e, i) => {
+    const [x1, y1] = POS[e.a], [x2, y2] = POS[e.b];
+    const relaxed = s.relaxed.includes(i);
+    let col = "#b9b9b9", w = 2, dash = (i >= BASE.length) ? "6 5" : "";
+    if (treeEdges.has(i)) { col = "#2A6F77"; w = 4; }
+    if (relaxed) { col = "#C75B12"; w = 4.5; }
+    if (pathEdges.has(i)) { col = "#C75B12"; w = 6; }
+    h += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${w}" stroke-dasharray="${dash}" stroke-linecap="round"/>`;
+    const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+    h += `<circle cx="${mx}" cy="${my}" r="11" fill="#fff" stroke="${col}" stroke-width="1.2"/><text x="${mx}" y="${my + 4.5}" text-anchor="middle" font-size="13" font-weight="600" fill="#1d1d1f">${fmt(e.cost)}</text>`;
+  });
+  NODES.forEach(n => {
+    const [x, y] = POS[n];
+    let fill = "#fff", tc = "#1B2A4A", stroke = "#1B2A4A";
+    if (s.dist[n] < Infinity && !s.settled[n]) fill = "#f3dfa6";
+    if (s.settled[n]) { fill = "#1B2A4A"; tc = "#fff"; }
+    if (s.settle === n) { fill = "#C75B12"; stroke = "#C75B12"; tc = "#fff"; }
+    if (pathNodes.has(n)) stroke = "#C75B12";
+    const ring = n === source ? `<circle cx="${x}" cy="${y}" r="29" fill="none" stroke="#C9A227" stroke-width="3"/>` : "";
+    h += ring + `<circle class="nd" data-n="${n}" cx="${x}" cy="${y}" r="23" fill="${fill}" stroke="${stroke}" stroke-width="2.5" style="cursor:pointer"/>`;
+    h += `<text x="${x}" y="${y + 6}" text-anchor="middle" font-size="18" font-weight="700" fill="${tc}" pointer-events="none">${n}</text>`;
+    const below = y > 160 ? y + 46 : y - 34, above = (n === "A" || n === "F") ? y + 46 : below;
+    h += `<text x="${x}" y="${above}" text-anchor="middle" font-size="15" font-weight="600" fill="${s.settled[n] ? "#1B2A4A" : "#5f6368"}">${fmt(s.dist[n])}</text>`;
+  });
+  g.innerHTML = h;
+  g.querySelectorAll(".nd").forEach(c => c.addEventListener("click", () => {
+    if (k === states.length - 1) { traced = c.dataset.n; draw(); }
+  }));
+
+  // narrative
+  const narr = document.getElementById("narr");
+  if (k === 0) {
+    narr.innerHTML = `Start at <b>${source}</b>. Its cost is 0 and every other node is ∞ because no route to it has been found yet. Press <b>Step</b> to settle the cheapest unsettled node.`;
+  } else {
+    const u = s.settle, parts = [`Settle <b>${u}</b> at cost <b>${fmt(s.dist[u])}</b>, the cheapest unsettled node.`];
+    if (!s.relaxed.length) parts.push(`All of ${u}'s neighbors are already settled, so there is nothing to relax.`);
+    s.changed.forEach(c => parts.push(`Through ${u}, ${c.node} costs ${fmt(s.dist[u])} + ${fmt(c.to - s.dist[u])} = <b>${fmt(c.to)}</b>, which beats ${fmt(c.from)}. ${c.node} now costs ${fmt(c.to)}.`));
+    s.ties.forEach(t => parts.push(`Through ${u}, ${t.node} also costs ${fmt(t.cost)}. That ties its current cost, so it keeps its route.`));
+    const relaxedNoGain = s.relaxed.map(i => E[i]).map(e => e.a === u ? e.b : e.a)
+      .filter(n => !s.changed.some(c => c.node === n) && !s.ties.some(t => t.node === n));
+    relaxedNoGain.forEach(n => parts.push(`Through ${u}, ${n} would cost ${fmt(s.dist[u] + E[s.relaxed.find(i => (E[i].a === n || E[i].b === n))].cost)}, which does not beat ${fmt(s.dist[n])}.`));
+    if (k === states.length - 1) parts.push(`Every node is settled. Click a node to trace its cheapest route from ${source}.`);
+    narr.innerHTML = parts.join(" ");
+  }
+  if (traced && k === states.length - 1) {
+    const route = []; for (let n = traced; n; n = s.pred[n] ? s.pred[n].node : null) route.unshift(n);
+    narr.innerHTML += ` <br><b>Route to ${traced}</b> ${route.join(" → ")}, total cost <b>${fmt(s.dist[traced])}</b>.`;
+  }
+
+  // table
+  let t = `<tr><th>Settle</th><th>Relax</th>${NODES.map(n => `<th>${n}</th>`).join("")}</tr>`;
+  for (let j = 0; j <= k; j++) {
+    const st = states[j], prev = j ? states[j - 1] : null;
+    const label = j === 0 ? "begin" : `${st.settle} (${fmt(st.dist[st.settle])})`;
+    const rel = j === 0 ? "" : st.relaxed.map(i => `${E[i].a}–${E[i].b}`).join(", ");
+    t += `<tr class="${j === k ? "cur" : ""}"><td>${label}</td><td>${rel}</td>` + NODES.map(n => {
+      const chg = prev && st.dist[n] !== prev.dist[n];
+      return `<td class="${chg ? "chg" : (st.settled[n] ? "fin" : "")}">${fmt(st.dist[n])}</td>`;
+    }).join("") + "</tr>";
+  }
+  document.getElementById("tab").innerHTML = t;
+  document.getElementById("stepno").textContent = `Step ${k} of ${states.length - 1}`;
+  document.getElementById("back").disabled = k === 0;
+  document.getElementById("step").disabled = document.getElementById("run").disabled = k === states.length - 1;
+}
+
+function buildControls() {
+  document.getElementById("srcbtns").innerHTML = NODES.map(n => `<button class="b${n === source ? " on" : ""}" data-src="${n}">${n}</button>`).join(" ");
+  document.querySelectorAll("[data-src]").forEach(b => b.addEventListener("click", () => {
+    source = b.dataset.src; buildControls(); recompute(false);
+  }));
+  const ed = document.getElementById("edges");
+  ed.innerHTML = "<span>Road costs</span>" + BASE.map((e, i) =>
+    `<label>${e[0]}–${e[1]} <input type="number" min="0" step="1" value="${costs[i]}" data-e="${i}"></label>`).join("") +
+    `<label>C–F <input type="number" min="0" step="1" value="${cfCost}" data-e="cf"></label>`;
+  ed.querySelectorAll("input").forEach(inp => inp.addEventListener("change", () => {
+    const v = Math.max(0, Number(inp.value) || 0); inp.value = v;
+    if (inp.dataset.e === "cf") cfCost = v; else costs[+inp.dataset.e] = v;
+    recompute(false);
+  }));
+}
+document.getElementById("step").addEventListener("click", () => { if (k < states.length - 1) { k++; traced = null; draw(); } });
+document.getElementById("back").addEventListener("click", () => { if (k > 0) { k--; traced = null; draw(); } });
+document.getElementById("run").addEventListener("click", () => { k = states.length - 1; draw(); });
+document.getElementById("reset").addEventListener("click", () => { costs = BASE.map(e => e[2]); cfCost = 5; buildControls(); recompute(false); });
+const cfBox = document.getElementById("cf");
+cfBox.checked = useCF;
+cfBox.addEventListener("change", () => { useCF = cfBox.checked; recompute(false); });
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT") return;
+  if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); document.getElementById("step").click(); }
+  if (e.key === "ArrowLeft") document.getElementById("back").click();
+});
+buildControls(); recompute(false);
+if (qs.get("step")) { k = Math.min(states.length - 1, Math.max(0, parseInt(qs.get("step")) || 0)); draw(); }
+
+// ---------- Section 2: a raster is a graph ----------
+const NR = 12, NC = 21, CELL = 40, KM = 10;
+const MODES = {land: {cost: 1, col: "#f3efe6", name: "Overland 1"}, road: {cost: 0.81, col: "#d9b98f", name: "Road 0.81"},
+               river: {cost: 0.21, col: "#8fb9de", name: "River 0.21"}, sea: {cost: 0.08, col: "#cfe2f3", name: "Sea 0.08"}};
+let paint = "road", gmode = "paint", cells, gStart, gEnd, route = null;
+function defaultMap() {
+  cells = new Array(NR * NC).fill("land");
+  for (let r = 0; r < NR; r++) for (let c = 0; c < NC; c++) {
+    if (r >= 9 || (c <= 2 && r >= 4) || (r >= 8 && c <= 8)) cells[r * NC + c] = "sea";
+  }
+  const river = [[1,15],[2,14],[3,13],[4,13],[5,12],[6,11],[7,10],[8,10],[8,9]];
+  river.forEach(([r, c]) => cells[r * NC + c] = "river");
+  for (let c = 3; c <= 18; c++) cells[2 * NC + c] = cells[2 * NC + c] === "river" ? "river" : "road";
+  gStart = 1 * NC + 2; gEnd = 6 * NC + 19; route = null;
+}
+function gdraw() {
+  const svg = document.getElementById("grid");
+  let h = "";
+  const rank = {};
+  if (route) route.order.forEach((v, i) => rank[v] = i / Math.max(1, route.order.length - 1));
+  for (let r = 0; r < NR; r++) for (let c = 0; c < NC; c++) {
+    const i = r * NC + c;
+    h += `<rect class="cell" data-i="${i}" x="${c * CELL}" y="${r * CELL}" width="${CELL}" height="${CELL}" fill="${MODES[cells[i]].col}" stroke="#ffffff" stroke-width="1"/>`;
+    if (route && i in rank) h += `<rect x="${c * CELL + 1}" y="${r * CELL + 1}" width="${CELL - 2}" height="${CELL - 2}" fill="#1B2A4A" opacity="${0.04 + 0.22 * rank[i]}" pointer-events="none"/>`;
+  }
+  const ctr = i => [(i % NC) * CELL + CELL / 2, Math.floor(i / NC) * CELL + CELL / 2];
+  const [sx, sy] = ctr(gStart), [ex, ey] = ctr(gEnd);
+  h += `<line x1="${sx}" y1="${sy}" x2="${ex}" y2="${ey}" stroke="#5f6368" stroke-width="2" stroke-dasharray="6 6" pointer-events="none"/>`;
+  if (route && route.path.length) {
+    h += `<polyline points="${route.path.map(ctr).map(p => p.join(",")).join(" ")}" fill="none" stroke="#C75B12" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" pointer-events="none"/>`;
+  }
+  h += `<circle cx="${sx}" cy="${sy}" r="13" fill="#C9A227" stroke="#1B2A4A" stroke-width="2" pointer-events="none"/><text x="${sx}" y="${sy + 5}" text-anchor="middle" font-size="13" font-weight="700" fill="#1B2A4A" pointer-events="none">S</text>`;
+  h += `<circle cx="${ex}" cy="${ey}" r="13" fill="#fff" stroke="#C75B12" stroke-width="3" pointer-events="none"/><text x="${ex}" y="${ey + 5}" text-anchor="middle" font-size="13" font-weight="700" fill="#C75B12" pointer-events="none">E</text>`;
+  svg.innerHTML = h;
+  const line = Math.hypot((gStart % NC) - (gEnd % NC), Math.floor(gStart / NC) - Math.floor(gEnd / NC)) * KM;
+  document.getElementById("rline").textContent = Math.round(line);
+  if (route && route.path.length) {
+    let len = 0; for (let j = 1; j < route.path.length; j++) { const a = route.path[j - 1], b = route.path[j]; len += Math.hypot((a % NC) - (b % NC), Math.floor(a / NC) - Math.floor(b / NC)) * KM; }
+    document.getElementById("rcost").textContent = Math.round(route.cost);
+    document.getElementById("rlen").textContent = Math.round(len);
+    document.getElementById("rsettled").textContent = route.order.length + " of " + NR * NC;
+  } else ["rcost", "rlen", "rsettled"].forEach(id => document.getElementById(id).textContent = "–");
+}
+function setGMode(m) {
+  gmode = m;
+  document.querySelectorAll("#paintbtns .b, #pstart, #pend").forEach(b => b.classList.toggle("on",
+    (m === "paint" && b.dataset.paint === paint) || b.dataset.mode === m));
+}
+document.getElementById("paintbtns").innerHTML = Object.entries(MODES).map(([k, m]) =>
+  `<button class="b" data-paint="${k}"><span class="sw" style="background:${m.col}"></span>${m.name}</button>`).join(" ");
+document.querySelectorAll("[data-paint]").forEach(b => b.addEventListener("click", () => { paint = b.dataset.paint; setGMode("paint"); }));
+document.getElementById("pstart").addEventListener("click", () => setGMode("start"));
+document.getElementById("pend").addEventListener("click", () => setGMode("end"));
+document.getElementById("glegend").innerHTML = Object.values(MODES).map(m => `<span><span class="sw" style="background:${m.col}"></span>${m.name}</span>`).join("") +
+  `<span><span class="sw" style="background:#C9A227"></span>start</span><span><span class="sw" style="background:#fff;border-color:#C75B12"></span>end</span><span>dashed line, straight route</span>`;
+let painting = false;
+function hit(evt) {
+  const t = evt.target.closest ? evt.target.closest(".cell") : null;
+  if (!t) return;
+  const i = +t.dataset.i;
+  if (gmode === "start") { gStart = i; route = null; setGMode("paint"); }
+  else if (gmode === "end") { gEnd = i; route = null; setGMode("paint"); }
+  else { cells[i] = paint; route = null; }
+  gdraw();
+}
+const gridSvg = document.getElementById("grid");
+gridSvg.addEventListener("pointerdown", e => { painting = true; hit(e); });
+gridSvg.addEventListener("pointerover", e => { if (painting && gmode === "paint") hit(e); });
+window.addEventListener("pointerup", () => painting = false);
+document.getElementById("grun").addEventListener("click", () => {
+  route = gridRoute(cells.map(c => MODES[c].cost), NR, NC, gStart, gEnd, KM); gdraw();
+});
+document.getElementById("gclear").addEventListener("click", () => { route = null; gdraw(); });
+document.getElementById("greset").addEventListener("click", () => { defaultMap(); gdraw(); });
+defaultMap(); setGMode("paint"); gdraw();
+if (qs.get("route") === "1") document.getElementById("grun").click();
+</script>
+</body>
+</html>
