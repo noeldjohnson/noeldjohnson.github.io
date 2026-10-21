@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tax Farming and the Origins of State Capacity</title>
+<meta name="description" content="An interactive companion to Tax Farming and the Origins of State Capacity in England and France by Noel D. Johnson and Mark Koyama, Explorations in Economic History, 2014.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Noel D. Johnson">
+<meta property="og:title" content="Tax Farming and the Origins of State Capacity. An interactive companion">
+<meta property="og:description" content="An interactive companion to Tax Farming and the Origins of State Capacity in England and France by Noel D. Johnson and Mark Koyama, Explorations in Economic History, 2014.">
+<meta property="og:url" content="https://noeldjohnson.github.io/interactive/tax-farming/">
+<meta property="og:image" content="https://noeldjohnson.github.io/assets/images/interactive/tax-farming.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@noeldjohnson">
+<meta name="twitter:title" content="Tax Farming and the Origins of State Capacity. An interactive companion">
+<meta name="twitter:description" content="An interactive companion to Tax Farming and the Origins of State Capacity in England and France by Noel D. Johnson and Mark Koyama, Explorations in Economic History, 2014.">
+<meta name="twitter:image" content="https://noeldjohnson.github.io/assets/images/interactive/tax-farming.jpg">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+.byline a { color: var(--teal); }
+nav.toc { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; background: var(--panel); padding: 14px 18px; border-radius: 6px; margin: 0 0 32px; }
+nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+nav.toc a { color: var(--navy); text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+h2 { font-size: 26px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.figure .cap { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 10px; }
+.figure .cap b { color: var(--ink); }
+.controls { font: 15px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 12px; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+.controls .v { font-weight: 600; color: var(--rust); min-width: 3.2em; }
+input[type=range] { width: 180px; max-width: 100%; accent-color: var(--rust); }
+input[type=text] { font: 15px -apple-system, "Helvetica Neue", Arial, sans-serif; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+button.tab { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; border: 1px solid var(--rule); background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; color: var(--navy); }
+button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.readout div { background: #fff; border-radius: 6px; padding: 10px 12px; font: 14px/1.35 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.readout b { display: block; font: 600 24px/1.2 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--navy); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.chips { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.chips a { color: var(--teal); cursor: pointer; margin-right: 8px; text-decoration: underline; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
+svg text.title { font-weight: 600; fill: var(--navy); font-size: 13px; }
+.axis path, .axis line { stroke: #b8b8b8; }
+.tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; max-width: 300px; z-index: 10; }
+.tip b { color: var(--navy); }
+.legend { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 6px; }
+table.t { width: 100%; border-collapse: collapse; font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; margin: 6px 0 4px; }
+table.t th, table.t td { border-bottom: 1px solid var(--rule); padding: 6px 6px; text-align: left; }
+.note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+@media (max-width: 640px) {
+  body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
+  .readout, .two { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">Interactive companion</div>
+  <h1>Tax Farming and the Origins of State Capacity in England and France</h1>
+  <div class="byline">Noel D. Johnson and Mark Koyama · <i>Explorations in Economic History</i>, 2014 · <a href="/assets/papers/tax-farming-and-the-origins-of-state-paper.pdf">Read the paper</a> · <a href="/research/">Research</a></div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#model">The model</a></li>
+    <li><a href="#paths">Two paths through the model</a></li>
+    <li><a href="#france">Lending through the French farms</a></li>
+    <li><a href="#england">The Great Farm of the Customs</a></li>
+    <li><a href="#arrets">Standardization in France</a></li>
+    <li><a href="#chronology">Chronologies</a></li>
+    <li><a href="#limits">Limits</a></li>
+  </ol>
+</nav>
+
+<section id="argument">
+<h2><span class="num">1</span>Argument</h2>
+<p>Early modern rulers faced two costs. Collecting taxes was expensive in economies that were fragmented and hard to monitor, so rulers sold the right to collect a tax to a private farmer, who paid a fixed lease and kept whatever he collected. Borrowing was expensive too, because a king could not credibly promise to repay, so rulers depended on loans from the people closest to their revenues, including their tax farmers.</p>
+<p>The paper builds a model that connects the two. When the crown does not need to borrow, competitive auctions are the best way to allocate tax farms, because bidding reveals which farmer can collect at lowest cost. When the crown needs large loans, competition fails, because a crown can default on any single farmer and re-lease the farm to another. A small group of financiers holding all the farms, a cabal, can punish a default together, so it can lend far more. Both England and France moved from competitive farming to cabal farming as their borrowing grew after 1600.</p>
+<p>Cabal farming gave the crown a reason to invest in standardizing laws, taxes, and weights and measures, since it no longer learned collection costs from auctions. That investment undermined the cabal, because a more uniform fiscal system made direct collection a better outside option and lowered the cost of defaulting on the farmers. England, which was more uniform to begin with, abandoned its Customs farm in 1671 and its Excise farm in 1683. France kept its General Farms until the Revolution.</p>
+</section>
+
+<section id="model">
+<h2><span class="num">2</span>The model</h2>
+<p>Tax farmers differ in their cost of collection, which is spread uniformly around a mean. The spread is larger where the fiscal system is more fragmented, and the crown can shrink it by investing in standardization. Under competition the crown gets close to the value of the lowest-cost farmer. Under a cabal the crown and the cabal split the surplus by Nash bargaining, and the crown's threat point is direct collection at the highest cost.</p>
+<p>The crown borrows an amount x against future revenue, which the paper calls anticipations. The crown keeps repaying the cabal as long as its discount factor δ is at least (x − ΔV)/(x + ΔV), where ΔV is a quarter of the gap between the farm's value under the cabal and under direct collection. Rearranged, the cabal can lend at most ΔV(1 + δ)/(1 − δ). Under perfect competition the crown defaults on any loan at all.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Fiscal fragmentation, spread of costs <input id="msig" type="range" min="0.05" max="0.5" step="0.01" value="0.35"></label><span class="v" id="msigv"></span>
+    <label>Patience of the crown, δ <input id="mdel" type="range" min="0.5" max="0.95" step="0.01" value="0.85"></label><span class="v" id="mdelv"></span>
+    <label>Borrowing per period, x <input id="mx" type="range" min="0" max="3" step="0.02" value="0.8"></label><span class="v" id="mxv"></span>
+    <label><input id="mstd" type="checkbox"> Invest in standardization</label>
+  </div>
+  <div class="readout">
+    <div><b id="mmax"></b>most the cabal can lend</div>
+    <div><b id="mverdict"></b><span id="mverdict2"></span></div>
+    <div><b id="mrev"></b>crown revenue per period, competition against cabal against direct</div>
+  </div>
+  <svg id="msvg" viewBox="0 0 800 300" role="img" aria-label="Maximum sustainable lending by fiscal fragmentation"></svg>
+  <div class="cap"><b>Figure 1.</b> The curve is the most a cabal can lend at each level of fiscal fragmentation, for the chosen δ. Below it lending is self-enforcing. Above it the crown prefers to default. The dot is the crown's position. Standardizing halves the spread of costs and moves the dot left, which lowers the most the cabal can lend. The paper leaves the value of a farm general. This calculator uses a value of 3 minus the cost of collection and a mean cost of 1, so the numbers are illustrative units and the shape is the paper's.</div>
+</div>
+<p>Two results follow. The crown gets less from a cabal than from competition, so it switches only when it needs to borrow. And the crown gains more from standardization under a cabal than under competition, because an auction already reveals collection costs. Standardization then lowers the spread of costs, which shrinks ΔV and with it the lending a cabal can sustain. The institution that encouraged the investment is undermined by it.</p>
+</section>
+
+<section id="paths">
+<h2><span class="num">3</span>Two paths through the model</h2>
+<p>The paper's Figure 3 places England and France on two axes, standardization and inside finance, between 1500 and 1800. Both began with competitive farming and low borrowing. Both moved up into cabal farming as borrowing grew. England started more standardized, so its cabal became unstable sooner and it moved to direct management after 1670. France stayed in the cabal region until the Revolution.</p>
+<div class="figure">
+  <div class="controls">
+    <button class="tab" id="pplay">Play</button>
+    <label>Year <input id="pyr" type="range" min="1500" max="1800" step="1" value="1500"></label><span class="v" id="pyrv"></span>
+  </div>
+  <svg id="psvg" viewBox="0 0 800 460" role="img" aria-label="Equilibria and the historical paths of England and France"></svg>
+  <div class="legend" id="pleg"></div>
+  <div class="cap"><b>Figure 2.</b> The four equilibria and the paths of England and France, redrawn from Figure 3 of the paper. The figure is a schematic, so positions are qualitative. The dots move between the dated points the paper marks, which are 1500, 1600, 1700, and 1800 for France and 1500, 1632, 1670, and 1800 for England.</div>
+</div>
+</section>
+
+<section id="france">
+<h2><span class="num">4</span>Lending through the French farms</h2>
+<p>No French data on lease prices or loans through the farms survive for the sixteenth century. For 1600 to 1656 the records kept by Jean-Roland Malet, published by Richard and Margaret Bonney, give the lease price of each farm and incomplete, and therefore lower-bound, figures on the loans made through them.</p>
+<div class="figure">
+  <div class="controls" id="ftabs"></div>
+  <svg id="fsvg" viewBox="0 0 800 300" role="img" aria-label="French tax farm leases and loans"></svg>
+  <div class="legend" id="fleg"></div>
+  <div class="cap" id="fcap"></div>
+</div>
+<p>Real lease prices rose through 1643 and fell after. Loans through the farms ran from about half the lease price to more than its full value. At least before 1640 the high ratios came from more lending and not from falling leases. Between 1598 and 1655 only a third of leases ran their full contracted length, which is what the model predicts when a crown borrows from competitively allocated farms. The farms were consolidated in two waves, the salt, customs, and sales tax farms between 1578 and 1604, and then under Colbert into the single Company of General Farms by 1681.</p>
+</section>
+
+<section id="england">
+<h2><span class="num">5</span>The Great Farm of the Customs</h2>
+<p>Elizabeth I put the Customs out to competitive farm from the late 1560s. James I was in one historian's words a super-borrower whose demands the London money market could not meet. In 1604 the Great Customs were consolidated into a single farm held by a syndicate that became the leading lender to James I and Charles I.</p>
+<div class="figure">
+  <div class="controls" id="etabs"></div>
+  <svg id="esvg" viewBox="0 0 800 300" role="img" aria-label="Great Farm rents and anticipations"></svg>
+  <div class="legend" id="eleg"></div>
+  <div class="cap" id="ecap"></div>
+</div>
+<p>The rent of the first farm was £112,400. The crown did not push the rent up to what the farm could bear, and Ashton reads the low rent as the price the crown chose to pay for the new services the farmers performed. Under Charles I the crown began anticipating the rent several years ahead, and anticipations rose to almost half the annual rent by the mid-1630s. In 1641 Parliament expropriated the farmers. They were restored in 1660, but in 1671 the Customs farm was cancelled and the Customs placed under government supervision. The Excise followed in 1683. Both changes came before the Glorious Revolution.</p>
+</section>
+
+<section id="arrets">
+<h2><span class="num">6</span>Standardization in France</h2>
+<p>To measure investment in standardization the paper counts the royal arrêts and edicts that limited five seigneurial institutions. These are the terrier, or seigneurial land register, seigneurial justice, the péages, or local tolls, corvée labor, and weights and measures. The list comes from Renauldon's 1765 treatise on seigneurial rights, and each rule change in an edict counts once.</p>
+<div class="figure">
+  <svg id="asvg" viewBox="0 0 800 280" role="img" aria-label="Standardizing arrets by quarter century"></svg>
+  <div class="cap"><b>Figure 5.</b> Standardizing arrêts and edicts issued by the French monarchy by quarter century, 1500–1749, as in Figure 8 of the paper. The counts come from the authors' data file. The published figure shows 15 for 1725–1749, one more than the file holds.</div>
+</div>
+<p>The two jumps match the two waves of consolidation in the farms. The first follows the failure of the Grand Parti de Lyon in 1559, which ended the crown's use of outside finance. The second follows 1661, when Colbert was uniting the farms into the General Farms. Pick an institution to see each arrêt.</p>
+<div class="figure">
+  <div class="controls" id="atabs"></div>
+  <svg id="atsvg" viewBox="0 0 800 210" role="img" aria-label="Timeline of arrets by institution"></svg>
+  <div id="alist" class="legend" style="max-height:340px;overflow:auto"></div>
+  <div class="cap"><b>Figure 6.</b> Each dot is a year in which the crown issued an arrêt or edict on that institution, from Table A1 of the paper. Hover a dot for the rule. Entries before 1500, such as the 864 ordinance of Charles the Bald on measures, are listed below the timeline but not drawn.</div>
+</div>
+</section>
+
+<section id="chronology">
+<h2><span class="num">7</span>Chronologies</h2>
+<div class="figure">
+  <svg id="csvg" viewBox="0 0 800 330" role="img" aria-label="Chronology of tax farming in France and England"></svg>
+  <div class="cap"><b>Figure 7.</b> Key dates in the move from competitive farming to cabal farming and, in England, to direct collection, from Tables 1 and 2 of the paper. Hover a mark for the event.</div>
+</div>
+</section>
+
+<section id="limits">
+<h2><span class="num">8</span>Limits</h2>
+<p>The French loan figures are incomplete, so the ratio of loans to lease price is a lower bound, and no French series exists before 1600.</p>
+<p>The paper's Figure 3 is a schematic. The positions of England and France on it are qualitative and the calculator in Section 2 uses one illustrative form of the model.</p>
+<p>The arrêt counts come from one treatise written by a seigneur. Renauldon wrote as an aid to other seigneurs facing royal encroachment, so the paper argues his list should if anything be biased against rulings that knocked down traditional rights.</p>
+<p>The model explains why cabal farming was less stable in England. The paper also names the contingencies of the 1660s and 1670s, including a quarrel between the Lord Treasurer and the head of the farming syndicate, the costs of the Dutch War, and the king's spending.</p>
+</section>
+
+<footer>
+  <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/market-for-ideas/">Mapping the market for ideas</a> · <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/">All companions</a></p>
+  <p>The data come from the paper's replication files and are checked against the published figures. French lease prices and loans are from the Malet records published by Bonney and Bonney. Real values are grams of silver, shown in tonnes. English rents and anticipations are from Ashton (1957, 1960). The arrêts are from Renauldon (1765). The text of the published paper dates the £172,500 rent to 1638, while Ashton's series and the paper's Figure 6 put it in 1639. The paper captions the loan series as starting in 1614. The data file has its first loan figure in 1617.</p>
+</footer>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
+const tip = d3.select("#tip");
+const showTip = (ev, html) => tip.html(html).style("opacity",1).style("left", Math.min(ev.clientX + 14, window.innerWidth - 310) + "px").style("top", (ev.clientY + 14) + "px");
+const hideTip = () => tip.style("opacity",0);
+const fmt0 = d3.format(",.0f");
+
+Promise.all([d3.json("france.json"), d3.json("england.json"), d3.json("arrets_counts.json"), d3.json("arrets_list.json")])
+  .then(([fr, en, ac, al]) => { model(); paths(); france(fr); england(en); arretBars(ac); arretList(al); chronology(); });
+
+// ---------- 2. Model ----------
+function model() {
+  const A = 3, MU = 1, S3 = Math.sqrt(3);
+  const svg = d3.select("#msvg"), W = 800, H = 300, mg = {l:62, r:24, t:14, b:44};
+  const x = d3.scaleLinear([0, 0.5], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 3], [H-mg.b, mg.t]);
+  function draw() {
+    const sig0 = +d3.select("#msig").property("value"), del = +d3.select("#mdel").property("value"), xb = +d3.select("#mx").property("value");
+    const std = d3.select("#mstd").property("checked");
+    const sig = std ? sig0 / 2 : sig0, mu = std ? 0.9 * MU : MU;
+    const dV = S3 * sig / 4, xmax = dV * (1 + del) / (1 - del);
+    const vComp = A - (mu - S3*sig), vCabal = ((A - mu) + (A - (mu + S3*sig))) / 2, vDirect = A - (mu + S3*sig);
+    d3.select("#msigv").text(sig0.toFixed(2)); d3.select("#mdelv").text(del.toFixed(2)); d3.select("#mxv").text(xb.toFixed(2));
+    d3.select("#mmax").text(xmax.toFixed(2));
+    d3.select("#mrev").text(`${vComp.toFixed(2)} · ${vCabal.toFixed(2)} · ${vDirect.toFixed(2)}`);
+    let v1, v2;
+    if (xb === 0) { v1 = "Competition"; v2 = "With no borrowing an auction gives the crown the most."; }
+    else if (xb <= xmax) { v1 = "Cabal holds"; v2 = "Only a cabal can lend this much, and the crown keeps repaying."; }
+    else { v1 = "Cabal breaks"; v2 = "The crown would default. Lending this large needs outside finance."; }
+    d3.select("#mverdict").text(v1); d3.select("#mverdict2").text(v2);
+    svg.selectAll("*").remove();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(6));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Spread of collection costs, higher is more fragmented");
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Borrowing per period");
+    const curve = d3.range(0, 0.5001, 0.005).map(s => [s, Math.min(3, S3*s/4 * (1+del)/(1-del))]);
+    svg.append("path").datum(curve.concat([[0.5,0],[0,0]])).attr("fill", C.teal).attr("opacity", .12).attr("d", d3.line().x(p => x(p[0])).y(p => y(p[1])));
+    svg.append("path").datum(curve).attr("fill","none").attr("stroke", C.teal).attr("stroke-width", 2.5).attr("d", d3.line().x(p => x(p[0])).y(p => y(p[1])));
+    svg.append("text").attr("x", x(0.47)).attr("y", y(0.15)).attr("text-anchor","end").attr("fill", C.teal).text("cabal lending is self-enforcing");
+    if (std) svg.append("line").attr("x1", x(sig0)).attr("x2", x(sig)).attr("y1", y(xb)).attr("y2", y(xb)).attr("stroke", C.gray).attr("stroke-dasharray","4 3");
+    if (std) svg.append("circle").attr("cx", x(sig0)).attr("cy", y(xb)).attr("r", 6).attr("fill","none").attr("stroke", C.gray);
+    svg.append("circle").attr("cx", x(sig)).attr("cy", y(xb)).attr("r", 8).attr("fill", xb <= xmax ? C.navy : C.rust).attr("stroke","#fff").attr("stroke-width",2);
+  }
+  d3.selectAll("#msig,#mdel,#mx").on("input", draw); d3.select("#mstd").on("change", draw); draw();
+}
+
+// ---------- 3. Paths ----------
+function paths() {
+  const svg = d3.select("#psvg"), W = 800, H = 460, mg = {l:40, r:20, t:20, b:40};
+  const x = d3.scaleLinear([0, 1], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 1], [H-mg.b, mg.t]);
+  const quads = [[0,0.5,0.5,1,"Cabal tax farming"],[0.5,0.5,1,1,"Cabal tax farming unstable"],[0,0,0.5,0.5,"Competitive tax farming"],[0.5,0,1,0.5,"Direct management"]];
+  quads.forEach(([x0,y0,x1,y1,l],i) => {
+    svg.append("rect").attr("x", x(x0)).attr("y", y(y1)).attr("width", x(x1)-x(x0)).attr("height", y(y0)-y(y1)).attr("fill", ["#efe7da","#f3ece3","#e8eef1","#eef2ee"][i]).attr("stroke","#fff").attr("stroke-width",3);
+    svg.append("text").attr("x", x(x0)+12).attr("y", y(y1)+22).attr("class","title").text(l);
+  });
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-8).attr("text-anchor","middle").text("Standardization, low to high");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",16).attr("text-anchor","middle").text("Inside finance, low to high");
+  const P = {
+    France: { col: C.rust, pts: [[1500,0.08,0.12],[1600,0.19,0.54],[1700,0.39,0.85],[1800,0.74,0.40]] },
+    England: { col: C.navy, pts: [[1500,0.37,0.15],[1632,0.40,0.60],[1670,0.53,0.58],[1800,0.76,0.21]] } };
+  const dots = Object.entries(P).map(([name, p]) => {
+    const path = svg.append("path").datum(p.pts).attr("fill","none").attr("stroke", p.col).attr("stroke-width", 2).attr("stroke-dasharray","5 4").attr("opacity",.6)
+      .attr("d", d3.line().curve(d3.curveCatmullRom).x(d => x(d[1])).y(d => y(d[2]))).node();
+    svg.selectAll(null).data(p.pts).join("text").attr("x", d => x(d[1]) + 8).attr("y", d => y(d[2]) - 6).attr("fill", p.col).style("font-size","11px").text(d => `${name} ${d[0]}`);
+    svg.selectAll(null).data(p.pts).join("circle").attr("cx", d => x(d[1])).attr("cy", d => y(d[2])).attr("r", 3).attr("fill", p.col);
+    // length along the curve at each dated point, so the moving dot stays on the curve
+    const L = path.getTotalLength(), samples = d3.range(0, L + 0.5, 0.5);
+    const lens = p.pts.map(d => d3.least(samples, s => { const q = path.getPointAtLength(s); return (q.x - x(d[1]))**2 + (q.y - y(d[2]))**2; }));
+    return { name, p, path, lens, c: svg.append("circle").attr("r", 9).attr("fill", p.col).attr("stroke","#fff").attr("stroke-width",2) };
+  });
+  const lenAt = (d, yr) => { const pts = d.p.pts; if (yr <= pts[0][0]) return d.lens[0]; for (let i = 1; i < pts.length; i++) if (yr <= pts[i][0]) { const t = (yr - pts[i-1][0]) / (pts[i][0] - pts[i-1][0]); return d.lens[i-1] + t * (d.lens[i] - d.lens[i-1]); } return d.lens[d.lens.length-1]; };
+  function draw() {
+    const yr = +d3.select("#pyr").property("value"); d3.select("#pyrv").text(yr);
+    dots.forEach(d => { const q = d.path.getPointAtLength(lenAt(d, yr)); d.c.attr("cx", q.x).attr("cy", q.y); });
+    d3.select("#pleg").html(`<span style="color:${C.rust};font-weight:600">● France</span> &nbsp; <span style="color:${C.navy};font-weight:600">● England</span>`);
+  }
+  let timer = null; d3.select("#pplay").on("click", function(){
+    if (timer) { clearInterval(timer); timer = null; d3.select(this).text("Play").classed("on", false); return; }
+    if (+d3.select("#pyr").property("value") >= 1800) d3.select("#pyr").property("value", 1500);
+    d3.select(this).text("Pause").classed("on", true);
+    timer = setInterval(() => { const v = +d3.select("#pyr").property("value") + 2; if (v > 1800) { clearInterval(timer); timer = null; d3.select("#pplay").text("Play").classed("on", false); return; } d3.select("#pyr").property("value", v); draw(); }, 60);
+  });
+  d3.select("#pyr").on("input", draw); draw();
+}
+
+// ---------- line chart helper ----------
+function lineChart(svg, series, o) {
+  const W = 800, H = 300, mg = {l:70, r:24, t:14, b:40};
+  svg.selectAll("*").remove();
+  const all = series.flatMap(s => s.rows.filter(r => r[1] != null));
+  const x = d3.scaleLinear(o.xdom, [mg.l, W-mg.r]), y = d3.scaleLinear([o.y0 ?? 0, d3.max(all, r => r[1]) * 1.08], [H-mg.b, mg.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(8).tickFormat(d3.format("d")));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6).tickFormat(o.yfmt || d3.format(",")));
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Year");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text(o.ylab);
+  if (o.hline != null) svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(o.hline)).attr("y2", y(o.hline)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  series.forEach(s => {
+    const rows = s.rows.filter(r => r[1] != null);
+    if (s.bars) {
+      svg.selectAll(null).data(rows).join("rect").attr("x", r => x(r[0]) - 3).attr("width", 6).attr("y", r => y(r[1])).attr("height", r => y(o.y0 ?? 0) - y(r[1])).attr("fill", s.col).attr("opacity", .35)
+        .on("mousemove", (ev,r) => showTip(ev, `<b>${s.name}, ${r[0]}</b><br>${o.tipfmt(r[1])}`)).on("mouseleave", hideTip);
+    } else {
+      svg.append("path").datum(rows).attr("fill","none").attr("stroke", s.col).attr("stroke-width", s.w || 2.2).attr("stroke-dasharray", s.dash || null).attr("d", d3.line().x(r => x(r[0])).y(r => y(r[1])));
+      svg.selectAll(null).data(rows).join("circle").attr("cx", r => x(r[0])).attr("cy", r => y(r[1])).attr("r", 3).attr("fill", s.col)
+        .on("mousemove", (ev,r) => showTip(ev, `<b>${s.name}, ${r[0]}</b><br>${o.tipfmt(r[1])}`)).on("mouseleave", hideTip);
+    }
+  });
+}
+function tabbed(tabsSel, views, svgSel, legSel, capSel) {
+  const tabs = d3.select(tabsSel).selectAll("button").data(views).join("button").attr("class","tab").text(d => d.tab).on("click", (e,d) => draw(d));
+  function draw(v) {
+    tabs.classed("on", d => d === v);
+    lineChart(d3.select(svgSel), v.series, v.opts);
+    d3.select(legSel).html(v.series.map(s => `<span style="color:${s.col};font-weight:600">● ${s.name}</span>`).join(" &nbsp; "));
+    d3.select(capSel).html(v.cap);
+  }
+  draw(views[0]);
+}
+
+// ---------- 4. France ----------
+function france(fr) {
+  const pick = k => fr.map(r => [r.year, r[k]]);
+  const tonnes = v => `${v.toFixed(1)} tonnes of silver`;
+  const other = fr.map(r => [r.year, r.lease_nominal == null ? null : r.lease_nominal - (r.gabelles||0) - (r.cinq_grosses_fermes||0) - (r.aides||0) - (r.domaines||0)]);
+  tabbed("#ftabs", [
+    { tab: "Real lease prices", series: [{ name: "Annual", rows: pick("lease_real_tonnes"), col: "#9aa3ad", w: 1.4 }, { name: "Smoothed, as in the paper", rows: pick("lease_real_tonnes_smoothed"), col: C.rust }],
+      opts: { xdom: [1598, 1660], ylab: "Tonnes of silver", tipfmt: tonnes },
+      cap: "<b>Figure 3.</b> Aggregate lease prices of the French revenue farms, 1600–1656, in tonnes of silver. The smoothed series is the one in Figure 4 of the paper." },
+    { tab: "Loans over lease prices", series: [{ name: "Annual", rows: pick("loans_over_lease"), col: "#9aa3ad", w: 1.4 }, { name: "Smoothed, as in the paper", rows: pick("loans_over_lease_smoothed"), col: C.navy }],
+      opts: { xdom: [1610, 1660], ylab: "Loans as a share of lease price", y0: 0, hline: 1, yfmt: d3.format(".1f"), tipfmt: v => `${(100*v).toFixed(0)} percent of the lease price` },
+      cap: "<b>Figure 3.</b> Loans made through the farms as a share of the lease price. The dashed line marks loans equal to the whole lease. The loan figures are incomplete, so the share is a lower bound. Gaps are years with no loan data. The smoothed series is the one in Figure 5 of the paper." },
+    { tab: "Lease prices by farm", series: [{ name: "Gabelles de France, salt", rows: pick("gabelles"), col: C.rust }, { name: "Cinq Grosses Fermes, customs", rows: pick("cinq_grosses_fermes"), col: C.navy }, { name: "Aides, sales taxes", rows: pick("aides"), col: C.teal }, { name: "Domaines", rows: pick("domaines"), col: C.gold }, { name: "All other farms", rows: other, col: "#9aa3ad" }],
+      opts: { xdom: [1598, 1660], ylab: "Nominal livres tournois", tipfmt: v => `${fmt0(v)} livres` },
+      cap: "<b>Figure 3.</b> Nominal lease prices of the largest farms, 1600–1656, from the same records. All other farms is the total lease less the four named farms." } ],
+    "#fsvg", "#fleg", "#fcap");
+}
+
+// ---------- 5. England ----------
+function england(en) {
+  const pick = k => en.map(r => [r.year, r[k]]);
+  tabbed("#etabs", [
+    { tab: "Rent of the Great Farm", series: [{ name: "Annual rent", rows: pick("rent"), col: C.navy }],
+      opts: { xdom: [1602, 1641], ylab: "Pounds sterling", y0: 100000, tipfmt: v => `£${fmt0(v)}` },
+      cap: "<b>Figure 4.</b> Nominal rent of the Great Farm of the Customs, 1604–1639, from Ashton (1957, 1960), as in Figure 6 of the paper." },
+    { tab: "Anticipations over rent", series: [{ name: "Anticipations in the year, over rent", rows: en.map(r => [r.year, r.anticipations == null ? null : r.anticipations / r.rent]), col: "#9aa3ad", bars: true }, { name: "Smoothed, as in the paper", rows: pick("anticipations_over_rent_smoothed"), col: C.rust }],
+      opts: { xdom: [1602, 1641], ylab: "Share of the annual rent", y0: 0, yfmt: d3.format(".0%"), tipfmt: v => `${(100*v).toFixed(0)} percent of the rent` },
+      cap: "<b>Figure 4.</b> Anticipations, the crown's advance draws on future rent, as a share of the annual rent. The bars are each year's anticipations. The line is the smoothed series in Figure 7 of the paper." } ],
+    "#esvg", "#eleg", "#ecap");
+}
+
+// ---------- 6. Arrets ----------
+function arretBars(ac) {
+  const svg = d3.select("#asvg"), W = 800, H = 280, mg = {l:56, r:20, t:14, b:48};
+  const rows = ac.bins.map(b => ({ label: `${b.start}–${b.start + 24}`, n: b.arrets, start: b.start }));
+  const x = d3.scaleBand(rows.map(r => r.label), [mg.l, W-mg.r]).padding(.25), y = d3.scaleLinear([0, 20], [H-mg.b, mg.t]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x)).selectAll("text").style("font-size","10px");
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5));
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Arrêts or edicts");
+  const hl = s => (s >= 1550 && s < 1600) || (s >= 1650 && s < 1675);
+  svg.selectAll("rect").data(rows).join("rect").attr("x", r => x(r.label)).attr("width", x.bandwidth()).attr("y", r => y(r.n)).attr("height", r => y(0) - y(r.n)).attr("fill", r => hl(r.start) ? C.rust : C.navy)
+    .on("mousemove", (ev,r) => showTip(ev, `<b>${r.label}</b><br>${r.n} arrêts or edicts`)).on("mouseleave", hideTip);
+  svg.append("text").attr("x", x("1550–1574")).attr("y", y(9.5)).attr("fill", C.rust).style("font-size","11px").text("after 1559");
+  svg.append("text").attr("x", x("1650–1674")).attr("y", y(19)).attr("fill", C.rust).style("font-size","11px").text("Colbert");
+}
+function arretList(al) {
+  const cats = ["All", ...new Set(al.map(a => a.category))];
+  const svg = d3.select("#atsvg"), W = 800, H = 210, mg = {l:130, r:20, t:10, b:30};
+  const real = cats.slice(1);
+  const x = d3.scaleLinear([1500, 1770], [mg.l, W-mg.r]), y = d3.scaleBand(real, [mg.t, H-mg.b]).padding(.3);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(10).tickFormat(d3.format("d")));
+  real.forEach(c => svg.append("text").attr("x", mg.l - 8).attr("y", y(c) + y.bandwidth()/2 + 4).attr("text-anchor","end").text(c));
+  [[1559, "1559"], [1661, "1661"]].forEach(([yr, l]) => { svg.append("line").attr("x1", x(yr)).attr("x2", x(yr)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.rust).attr("stroke-dasharray","3 3"); });
+  const dots = al.flatMap(a => [].concat(a.years ?? []).filter(yr => yr >= 1500).map(yr => ({ ...a, yr })));
+  const ds = svg.selectAll("circle").data(dots).join("circle").attr("cx", d => x(d.yr)).attr("cy", d => y(d.category) + y.bandwidth()/2).attr("r", 5).attr("fill", C.navy).attr("opacity", .75)
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${d.category}, ${d.yr}</b><br>${d.text}`)).on("mouseleave", hideTip);
+  const tabs = d3.select("#atabs").selectAll("button").data(cats).join("button").attr("class","tab").text(d => d).on("click", (e,d) => draw(d));
+  function draw(c) {
+    tabs.classed("on", d => d === c);
+    ds.attr("opacity", d => c === "All" || d.category === c ? .8 : .12);
+    const rows = al.filter(a => c === "All" || a.category === c);
+    d3.select("#alist").html(rows.map(a => `<div style="padding:4px 0;border-bottom:1px solid var(--rule)"><b style="color:var(--navy)">${a.dates}</b> · ${a.category}. ${a.text}</div>`).join(""));
+  }
+  draw("All");
+}
+
+// ---------- 7. Chronology ----------
+function chronology() {
+  const fr = [[1500,"Before the early 1500s. Competitive tax farming at the parish level."],[1527,"Jacques de Beaune, superintendent of finances for Francis I, is executed."],[1559,"Failure of the Grand Parti de Lyon ends outside finance."],[1578,"1578 to 1598. The gabelles, the salt taxes, are consolidated into a single cabal of farmers."],[1598,"The traites, the customs, are consolidated into a single cabal."],[1604,"The aides, the sales taxes, are consolidated into a single cabal."],[1635,"France enters the Thirty Years' War, and lending through the farms increases."],[1661,"Louis XIV and Colbert institute a Chambre de Justice."],[1681,"A single cabal, the Company of General Farms, is formed."]];
+  const en = [[1568,"Competitive farming of the Customs is introduced."],[1604,"The General Farm begins the consolidation of the Customs."],[1621,"The silk farms are integrated into the Great Farm."],[1632,"The petty Customs farms are consolidated into the Great Farm."],[1641,"Parliament expropriates the Customs farmers."],[1660,"The Restoration. The Customs farmers are restored."],[1671,"The Customs farming contract is cancelled and the Customs placed under government supervision."],[1683,"The Excise farming contract is cancelled and the Excise placed under government supervision."],[1688,"The Glorious Revolution."],[1694,"The Bank of England is founded and the National Debt established."]];
+  const svg = d3.select("#csvg"), W = 800, H = 330, mg = {l:80, r:20, t:20, b:34};
+  const x = d3.scaleLinear([1495, 1705], [mg.l, W-mg.r]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(10).tickFormat(d3.format("d")));
+  [["France", fr, 95, C.rust], ["England", en, 215, C.navy]].forEach(([name, ev, yc, col]) => {
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", yc).attr("y2", yc).attr("stroke", col).attr("opacity", .4).attr("stroke-width", 2);
+    svg.append("text").attr("x", mg.l - 10).attr("y", yc + 4).attr("text-anchor","end").attr("class","title").text(name);
+    svg.selectAll(null).data(ev).join("circle").attr("cx", d => x(d[0])).attr("cy", yc).attr("r", 7).attr("fill", col).attr("stroke","#fff").attr("stroke-width",2)
+      .on("mousemove", (e,d) => showTip(e, `<b>${name}, ${d[0]}</b><br>${d[1]}`)).on("mouseleave", hideTip);
+    svg.selectAll(null).data(ev).join("text").attr("x", d => x(d[0])).attr("y", (d,i) => yc + (i % 2 ? 26 : -14)).attr("text-anchor","middle").style("font-size","10px").attr("fill", col).text(d => d[0]);
+  });
+}
+</script>
+</body>
+</html>

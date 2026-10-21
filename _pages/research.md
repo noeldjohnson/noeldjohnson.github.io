@@ -14,7 +14,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
-Five of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
+Six of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
 
 **How Selected Is the Institutional Record? Craft Guilds and City Growth in Europe, 1000–1800**\\
 (joint with Eric Wilhelm)\\
@@ -121,6 +121,7 @@ Five of these papers have [interactive companions](/interactive/), with figures 
 (joint with Mark Koyama)\\
 *Explorations in Economic History, 2014*\\
 [Download Paper](/assets/papers/tax-farming-and-the-origins-of-state-paper.pdf)\\
+[Interactive Companion](/interactive/tax-farming/)\\
 [Download Appendix 1](/assets/papers/tax-farming-and-the-origins-of-state-appendix-1.pdf)\\
 [Download Appendix 2](/assets/papers/tax-farming-and-the-origins-of-state-appendix-2.pdf)
 

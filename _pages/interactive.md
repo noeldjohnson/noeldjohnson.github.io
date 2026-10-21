@@ -1,7 +1,7 @@
 ---
 title: "Interactive Companions"
 permalink: /interactive/
-excerpt: "Interactive companions to Noel D. Johnson's working papers, with figures you can move and data you can explore."
+excerpt: "Interactive companions to Noel D. Johnson's papers, with figures you can move and data you can explore."
 header:
   og_image: /assets/images/interactive/market-for-ideas.jpg
 companion_guilds:
@@ -44,6 +44,14 @@ companion_bdp:
     url: /interactive/black-death-press/
     btn_label: "Open the companion"
     btn_class: "btn--primary"
+companion_taxfarming:
+  - image_path: /assets/images/interactive/tax-farming.jpg
+    alt: "Schematic of the paths England and France took between competitive tax farming, cabal tax farming, and direct management, 1500 to 1800"
+    title: "Tax Farming and the Origins of State Capacity in England and France"
+    excerpt: "With Mark Koyama. Explorations in Economic History, 2014. Rulers who needed loans moved from competitive tax farming to cabals of financiers. Cabal farming gave the crown a reason to standardize its fiscal system, and standardization undermined the cabal. England abandoned its farms in 1671 and 1683 and France kept them until the Revolution."
+    url: /interactive/tax-farming/
+    btn_label: "Open the companion"
+    btn_class: "btn--primary"
 ---
 
 Each companion walks through one paper with figures you can move. Every number on these pages is computed from data exported by the paper's replication code and checked against the manuscript. The papers themselves are on the [Research](/research/) page.
@@ -57,3 +65,5 @@ Each companion walks through one paper with figures you can move. Every number o
 {% include feature_row id="companion_revolt" type="left" %}
 
 {% include feature_row id="companion_bdp" type="left" %}
+
+{% include feature_row id="companion_taxfarming" type="left" %}
