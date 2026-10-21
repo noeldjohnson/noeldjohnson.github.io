@@ -106,14 +106,14 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 <section id="model">
 <h2><span class="num">2</span>The model</h2>
 <p>An institution comes into being in a town when whoever decides finds it worth the cost. Two dials set how far the towns that acquire it stand above the average town. The first is a threshold, the size a town must reach for the institution to pay. Craftsmen gain from organizing only where there are many of them, so a guild has a high threshold. A ruler selling a market right collects a fee that covers his cost in any town, so a grant has none. The second dial is the number of places available. A kingdom has one capital and a diocese one see.</p>
-<p>Move the dials. Town size is lognormal, so the log of town size is normally distributed. The lead is the mean size of the towns that acquire the institution over the mean size of all towns, Eq. 3 in the paper. Switch the figure to the size scale to see the long right tail that carries the lead.</p>
+<p>Move the dials. Town size is lognormal, so the log of town size is normally distributed. The lead is the mean size of the towns that acquire the institution over the mean size of all towns, Eq. 3 in the paper. The figure opens on the size scale, which shows the long right tail that carries the lead. The log scale shows the same distribution as a normal bell.</p>
 <div class="figure">
   <div class="controls">
     <label>Threshold at quantile <input id="mq" type="range" min="0" max="0.95" step="0.01" value="0.60"></label><span class="v" id="mqv"></span>
     <label>Places for this share of towns <input id="mk" type="range" min="0.02" max="1" step="0.01" value="1"></label><span class="v" id="mkv"></span>
     <label>Spread of town size, σ <input id="ms" type="range" min="0.4" max="1.6" step="0.05" value="1"></label><span class="v" id="msv"></span>
-    <label><input type="radio" name="mscale" value="log" checked> Log scale</label>
-    <label><input type="radio" name="mscale" value="size"> Size scale</label>
+    <label><input type="radio" name="mscale" value="log"> Log scale</label>
+    <label><input type="radio" name="mscale" value="size" checked> Size scale</label>
   </div>
   <div class="readout">
     <div><b id="mr"></b>lead of acquiring towns over the average town</div>
