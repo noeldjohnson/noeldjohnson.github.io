@@ -70,6 +70,11 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
   body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
   .readout, .two { grid-template-columns: 1fr; }
 }
+h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0 28px; font: 14px/1.3 -apple-system, "Helvetica Neue", Arial, sans-serif; }
+.flow div { background: var(--panel); border-radius: 6px; padding: 8px 10px; color: var(--navy); font-weight: 600; }
+.flow small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+.flow span { color: var(--rust); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -103,24 +108,105 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="model">
 <h2><span class="num">2</span>The model</h2>
-<p>Tax farmers differ in their cost of collection, which is spread uniformly around a mean. The spread is larger where the fiscal system is more fragmented, and the crown can shrink it by investing in standardization. Under competition the crown gets close to the value of the lowest-cost farmer. Under a cabal the crown and the cabal split the surplus by Nash bargaining, and the crown's threat point is direct collection at the highest cost.</p>
-<p>The crown borrows an amount x against future revenue, which the paper calls anticipations. The crown keeps repaying the cabal as long as its discount factor δ is at least (x − ΔV)/(x + ΔV), where ΔV is a quarter of the gap between the farm's value under the cabal and under direct collection. Rearranged, the cabal can lend at most ΔV(1 + δ)/(1 − δ). Under perfect competition the crown defaults on any loan at all.</p>
+<p>The paper is an analytic narrative. A model of how a crown allocates the right to collect its taxes yields four propositions, and the sections after this one read the English and French record against them. The model has a crown and many tax farmers and runs in three steps. The crown chooses how to allocate the farm. It chooses whether to invest in standardizing the fiscal system. It then borrows against the farm and decides whether to repay.</p>
+<p>The controls in this section are linked. Moving a slider in one figure moves the same slider in every other figure.</p>
+
+<h3>Collection costs and the value of a farm</h3>
+<p>Each farmer has a private cost of collecting the tax. Costs are spread uniformly between a lowest cost θ̲ and a highest cost θ̄ with mean μ and standard deviation σ. Both depend on the country's underlying fiscal heterogeneity, which the paper ties to geography, and on whether the crown has invested in standardization. A farmer with cost θ values the farm at V(θ). Value falls as cost rises and falls faster at higher costs.</p>
+<p>Three points on the distribution carry the model. The lowest-cost farmer has cost θ̲. A cabal is assumed to collect at the average cost, θ̂ = μ. A crown that collects directly faces the cost of the worst farmer, θ̄. With a uniform distribution θ̲ = μ − √3σ and θ̄ = μ + √3σ, so the spread of costs sets how far apart the three values lie.</p>
 <div class="figure">
   <div class="controls">
-    <label>Fiscal fragmentation, spread of costs <input id="msig" type="range" min="0.05" max="0.5" step="0.01" value="0.35"></label><span class="v" id="msigv"></span>
-    <label>Patience of the crown, δ <input id="mdel" type="range" min="0.5" max="0.95" step="0.01" value="0.85"></label><span class="v" id="mdelv"></span>
-    <label>Borrowing per period, x <input id="mx" type="range" min="0" max="3" step="0.02" value="0.8"></label><span class="v" id="mxv"></span>
-    <label><input id="mstd" type="checkbox"> Invest in standardization</label>
+    <label>Fiscal fragmentation, σ <input data-k="sig" type="range" min="0.05" max="0.5" step="0.01"></label><span class="v" data-v="sig"></span>
+    <label><input data-k="std" type="checkbox"> Invest in standardization</label>
+  </div>
+  <div class="readout">
+    <div><b id="r1lo"></b>value to the lowest-cost farmer, V(θ̲)</div>
+    <div><b id="r1mu"></b>value to a cabal, V(θ̂)</div>
+    <div><b id="r1hi"></b>value to the crown collecting directly, V(θ̄)</div>
+  </div>
+  <svg id="vsvg" viewBox="0 0 800 300" role="img" aria-label="Value of the farm against the cost of collection"></svg>
+  <div class="cap"><b>Figure 1.</b> The value of the farm against the cost of collection. The shaded band is the range of farmers' costs. The paper assumes only that V falls and is concave. This page uses V(θ) = 4 − θ² with a mean cost of 1, and standardization halves σ and lowers μ by a tenth. Every number in this section is in those illustrative units.</div>
+</div>
+
+<h3>Allocating the farm when the crown does not borrow</h3>
+<p>Under competition the crown sells the farm in an ascending-bid auction. The lowest-cost farmer wins and pays the value of the second-lowest-cost farmer. As the number of bidders grows the price approaches V(θ̲) and the crown captures nearly all the gains from contracting out collection.</p>
+<p>Under a cabal the crown leases the farm to a single syndicate and the two split the surplus by Nash bargaining. The crown's outside option is direct collection, worth V(θ̄). The crown receives ½[V(θ̂) + V(θ̄)] and the cabal receives ½[V(θ̂) − V(θ̄)]. The crown gets more from a competitive auction than from a cabal. This is Proposition 1. A crown that does not need to borrow farms its taxes competitively.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Bidders, n <input data-k="n" type="range" min="2" max="40" step="1"></label><span class="v" data-v="n"></span>
+    <label>Fiscal fragmentation, σ <input data-k="sig" type="range" min="0.05" max="0.5" step="0.01"></label><span class="v" data-v="sig"></span>
+    <label><input data-k="std" type="checkbox"> Invest in standardization</label>
+  </div>
+  <svg id="bsvg" viewBox="0 0 800 280" role="img" aria-label="Crown revenue under competition, a cabal, and direct collection"></svg>
+  <div class="cap"><b>Figure 2.</b> What the crown receives under each allocation. The auction bar is the expected value of the second-lowest-cost farmer among n bidders, which is the price in an ascending auction. The dashed line is V(θ̲), the limit as bidders multiply. The cabal bar splits the farm's value under the cabal into the crown's share and the cabal's share.</div>
+</div>
+
+<h3>Why a cabal makes standardization worth more</h3>
+<p>Standardization means common weights and measures, a more uniform tax code, and fewer openings for evasion. In the model it lowers both the mean and the spread of collection costs at a fixed cost. A lower mean helps the crown under every allocation. A narrower spread helps the crown when it collects directly or bargains with a cabal, because both payoffs rest on the high-cost end of the distribution. Under competition a narrower spread hurts the crown. The auction already pays it the value of the best farmer, and standardization erodes the advantage that farmer drew from local and tacit knowledge.</p>
+<p>The crown therefore gains least from standardizing when it farms competitively. This is Proposition 2. An auction already reveals collection costs, so markets and standardization substitute for one another.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Fiscal fragmentation, σ <input data-k="sig" type="range" min="0.05" max="0.5" step="0.01"></label><span class="v" data-v="sig"></span>
+  </div>
+  <div class="readout">
+    <div><b id="r3c"></b>crown's gain from standardizing under competition</div>
+    <div><b id="r3k"></b>under a cabal</div>
+    <div><b id="r3d"></b>under direct collection</div>
+  </div>
+  <svg id="ssvg" viewBox="0 0 800 300" role="img" aria-label="Crown revenue by spread of costs under three allocations"></svg>
+  <div class="legend" id="sleg"></div>
+  <div class="cap"><b>Figure 3.</b> The crown's revenue under each allocation as the spread of costs changes, with the mean cost held at 1. The open circles mark the chosen spread. The filled circles mark the same crown after standardizing, which halves the spread and also lowers the mean cost, so they sit off the curves. The readouts give the gain from standardizing under each allocation. Whether the crown invests also depends on the cost of standardization, which the figure leaves out.</div>
+</div>
+
+<h3>Borrowing and the commitment problem</h3>
+<p>Now the crown borrows an amount x against the second period of the lease. These advances are the anticipations of the sources. At the start of the second period the crown chooses whether to repay. Under competition a crown that defaults keeps the loan and re-leases the farm to one of the other bidders. Its only loss is the gap ΔB between what the original farmer would have paid and what the next bidder offers. The crown defaults whenever x ≥ ΔB. As bidders multiply ΔB shrinks toward zero, and a crown facing a perfectly competitive market defaults on any loan at all.</p>
+<p>The paper treats the relationship as infinitely repeated and draws on two approaches to sovereign debt. Bulow and Rogoff (1989) show that many separate lenders cannot sustain lending without outside sanctions. Kletzer and Wright (2000) show that lenders who collude to punish a default together can. A cabal can punish together. If the crown defaults the cabal stops farming and the crown is left with direct collection in every later period. The crown repays when its discount factor δ satisfies δ ≥ (x − ΔV)/(x + ΔV), where ΔV = [V(θ̂) − V(θ̄)]/4. The same condition with ΔB in place of ΔV governs competition. A cabal's punishment is larger than the gap between two bidders, so a cabal can carry more lending. This is Proposition 3.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Patience of the crown, δ <input data-k="del" type="range" min="0.5" max="0.97" step="0.01"></label><span class="v" data-v="del"></span>
+    <label>Bidders, n <input data-k="n" type="range" min="2" max="40" step="1"></label><span class="v" data-v="n"></span>
+    <label>Fiscal fragmentation, σ <input data-k="sig" type="range" min="0.05" max="0.5" step="0.01"></label><span class="v" data-v="sig"></span>
+  </div>
+  <div class="readout">
+    <div><b id="r4c"></b>largest loan the crown repays under competition</div>
+    <div><b id="r4k"></b>largest loan the crown repays under a cabal</div>
+    <div><b id="r4r"></b>punishment for default, ΔB under competition against ΔV under a cabal</div>
+  </div>
+  <svg id="dsvg" viewBox="0 0 800 300" role="img" aria-label="Lowest discount factor at which the crown repays, by loan size"></svg>
+  <div class="legend" id="dleg"></div>
+  <div class="cap"><b>Figure 4.</b> The lowest discount factor at which the crown repays a loan of size x, under competition and under a cabal. A loan is self-enforcing where its curve lies below the crown's δ, the dashed line. The competitive punishment ΔB is the expected gap in value between the lowest-cost and second-lowest-cost of n bidders, as defined in the paper's appendix. More bidders raise the competitive curve toward 1 at every loan size.</div>
+</div>
+
+<h3>What wears a cabal down</h3>
+<p>The repayment condition does not rule out default. Default becomes likely when a war or a threat of revolution makes the crown weigh the present more heavily, which lowers δ. It also becomes likely when something narrows the gap between V(θ̂) and V(θ̄).</p>
+<p>Standardization narrows that gap. So does lower underlying heterogeneity. Either lowers ΔV and with it the largest loan a cabal can sustain, and as σ approaches zero no lending survives at any δ below 1. This is Proposition 4. A cabal is more stable in a fragmented fiscal system than in a uniform one.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Fiscal fragmentation, σ <input data-k="sig" type="range" min="0.05" max="0.5" step="0.01"></label><span class="v" data-v="sig"></span>
+    <label>Patience of the crown, δ <input data-k="del" type="range" min="0.5" max="0.97" step="0.01"></label><span class="v" data-v="del"></span>
+    <label>Borrowing per period, x <input data-k="x" type="range" min="0" max="8" step="0.05"></label><span class="v" data-v="x"></span>
+    <label><input data-k="std" type="checkbox"> Invest in standardization</label>
   </div>
   <div class="readout">
     <div><b id="mmax"></b>most the cabal can lend</div>
     <div><b id="mverdict"></b><span id="mverdict2"></span></div>
-    <div><b id="mrev"></b>crown revenue per period, competition against cabal against direct</div>
+    <div><b id="mcomp"></b>most competitive farmers can lend at the same δ</div>
   </div>
   <svg id="msvg" viewBox="0 0 800 300" role="img" aria-label="Maximum sustainable lending by fiscal fragmentation"></svg>
-  <div class="cap"><b>Figure 1.</b> The curve is the most a cabal can lend at each level of fiscal fragmentation, for the chosen δ. Below it lending is self-enforcing. Above it the crown prefers to default. The dot is the crown's position. Standardizing halves the spread of costs and moves the dot left, which lowers the most the cabal can lend. The paper leaves the value of a farm general. This calculator uses a value of 3 minus the cost of collection and a mean cost of 1, so the numbers are illustrative units and the shape is the paper's.</div>
+  <div class="cap"><b>Figure 5.</b> The most a cabal can lend at each spread of costs, ΔV(1 + δ)/(1 − δ). Below the curve lending is self-enforcing and above it the crown prefers to default. The dot is the crown. With the default settings a loan of 2.5 is self-enforcing. Standardizing moves the dot left to the narrower spread and lowers the curve slightly through the lower mean cost, and the crown then defaults on the same loan. The faint curve is the curve before standardizing.</div>
 </div>
-<p>Two results follow. The crown gets less from a cabal than from competition, so it switches only when it needs to borrow. And the crown gains more from standardization under a cabal than under competition, because an auction already reveals collection costs. Standardization then lowers the spread of costs, which shrinks ΔV and with it the lending a cabal can sustain. The institution that encouraged the investment is undermined by it.</p>
+<p>Propositions 2 and 4 together make cabal farming an intermediate institution. A crown that needs credit turns to a cabal. The cabal gives the crown a reason to standardize. Standardization shrinks the punishment the cabal can impose, and the crown's promise to repay stops being credible. The paper argues that the farmers could foresee this, and in both countries they tried to protect their position through ties to political elites.</p>
+<div class="flow">
+  <div>Borrowing needs rise</div><span>→</span>
+  <div>Cabal farming<small>Proposition 3</small></div><span>→</span>
+  <div>The crown standardizes<small>Proposition 2</small></div><span>→</span>
+  <div>The spread of costs narrows</div><span>→</span>
+  <div>The cabal cannot be repaid<small>Proposition 4</small></div><span>→</span>
+  <div>Direct collection</div>
+</div>
+
+<h3>Risk aversion as an alternative explanation</h3>
+<p>A common explanation for tax farming is that a risk-averse crown traded expected revenue for a fixed payment. The paper gives three reasons this cannot carry the story. It says nothing about whether farming is competitive or centralized. In both countries farmers were granted defalcations, reductions in the lease after wars and other shocks, so the crown's receipts were far from fixed. And nothing suggests the English crown's attitude to risk changed in 1604, 1671, or 1683.</p>
 </section>
 
 <section id="paths">
@@ -133,7 +219,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
   </div>
   <svg id="psvg" viewBox="0 0 800 460" role="img" aria-label="Equilibria and the historical paths of England and France"></svg>
   <div class="legend" id="pleg"></div>
-  <div class="cap"><b>Figure 2.</b> The four equilibria and the paths of England and France, redrawn from Figure 3 of the paper. The figure is a schematic, so positions are qualitative. The dots move between the dated points the paper marks, which are 1500, 1600, 1700, and 1800 for France and 1500, 1632, 1670, and 1800 for England.</div>
+  <div class="cap"><b>Figure 6.</b> The four equilibria and the paths of England and France, redrawn from Figure 3 of the paper. The figure is a schematic, so positions are qualitative. The dots move between the dated points the paper marks, which are 1500, 1600, 1700, and 1800 for France and 1500, 1632, 1670, and 1800 for England.</div>
 </div>
 </section>
 
@@ -166,14 +252,14 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 <p>To measure investment in standardization the paper counts the royal arrêts and edicts that limited five seigneurial institutions. These are the terrier, or seigneurial land register, seigneurial justice, the péages, or local tolls, corvée labor, and weights and measures. The list comes from Renauldon's 1765 treatise on seigneurial rights, and each rule change in an edict counts once.</p>
 <div class="figure">
   <svg id="asvg" viewBox="0 0 800 280" role="img" aria-label="Standardizing arrets by quarter century"></svg>
-  <div class="cap"><b>Figure 5.</b> Standardizing arrêts and edicts issued by the French monarchy by quarter century, 1500–1749, as in Figure 8 of the paper. The counts come from the authors' data file. The published figure shows 15 for 1725–1749, one more than the file holds.</div>
+  <div class="cap"><b>Figure 9.</b> Standardizing arrêts and edicts issued by the French monarchy by quarter century, 1500–1749, as in Figure 8 of the paper. The counts come from the authors' data file. The published figure shows 15 for 1725–1749, one more than the file holds.</div>
 </div>
 <p>The two jumps match the two waves of consolidation in the farms. The first follows the failure of the Grand Parti de Lyon in 1559, which ended the crown's use of outside finance. The second follows 1661, when Colbert was uniting the farms into the General Farms. Pick an institution to see each arrêt.</p>
 <div class="figure">
   <div class="controls" id="atabs"></div>
   <svg id="atsvg" viewBox="0 0 800 210" role="img" aria-label="Timeline of arrets by institution"></svg>
   <div id="alist" class="legend" style="max-height:340px;overflow:auto"></div>
-  <div class="cap"><b>Figure 6.</b> Each dot is a year in which the crown issued an arrêt or edict on that institution, from Table A1 of the paper. Hover a dot for the rule. Entries before 1500, such as the 864 ordinance of Charles the Bald on measures, are listed below the timeline but not drawn.</div>
+  <div class="cap"><b>Figure 10.</b> Each dot is a year in which the crown issued an arrêt or edict on that institution, from Table A1 of the paper. Hover a dot for the rule. Entries before 1500, such as the 864 ordinance of Charles the Bald on measures, are listed below the timeline but not drawn.</div>
 </div>
 </section>
 
@@ -181,14 +267,14 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 <h2><span class="num">7</span>Chronologies</h2>
 <div class="figure">
   <svg id="csvg" viewBox="0 0 800 330" role="img" aria-label="Chronology of tax farming in France and England"></svg>
-  <div class="cap"><b>Figure 7.</b> Key dates in the move from competitive farming to cabal farming and, in England, to direct collection, from Tables 1 and 2 of the paper. Hover a mark for the event.</div>
+  <div class="cap"><b>Figure 11.</b> Key dates in the move from competitive farming to cabal farming and, in England, to direct collection, from Tables 1 and 2 of the paper. Hover a mark for the event.</div>
 </div>
 </section>
 
 <section id="limits">
 <h2><span class="num">8</span>Limits</h2>
 <p>The French loan figures are incomplete, so the ratio of loans to lease price is a lower bound, and no French series exists before 1600.</p>
-<p>The paper's Figure 3 is a schematic. The positions of England and France on it are qualitative and the calculator in Section 2 uses one illustrative form of the model.</p>
+<p>The paper's Figure 3 is a schematic. The positions of England and France on it are qualitative and the figures in Section 2 use one illustrative form of the value function.</p>
 <p>The arrêt counts come from one treatise written by a seigneur. Renauldon wrote as an aid to other seigneurs facing royal encroachment, so the paper argues his list should if anything be biased against rulings that knocked down traditional rights.</p>
 <p>The model explains why cabal farming was less stable in England. The paper also names the contingencies of the 1660s and 1670s, including a quarrel between the Lord Treasurer and the head of the farming syndicate, the costs of the Dutch War, and the king's spending.</p>
 </section>
@@ -212,37 +298,128 @@ Promise.all([d3.json("france.json"), d3.json("england.json"), d3.json("arrets_co
 
 // ---------- 2. Model ----------
 function model() {
-  const A = 3, MU = 1, S3 = Math.sqrt(3);
-  const svg = d3.select("#msvg"), W = 800, H = 300, mg = {l:62, r:24, t:14, b:44};
-  const x = d3.scaleLinear([0, 0.5], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 3], [H-mg.b, mg.t]);
-  function draw() {
-    const sig0 = +d3.select("#msig").property("value"), del = +d3.select("#mdel").property("value"), xb = +d3.select("#mx").property("value");
-    const std = d3.select("#mstd").property("checked");
-    const sig = std ? sig0 / 2 : sig0, mu = std ? 0.9 * MU : MU;
-    const dV = S3 * sig / 4, xmax = dV * (1 + del) / (1 - del);
-    const vComp = A - (mu - S3*sig), vCabal = ((A - mu) + (A - (mu + S3*sig))) / 2, vDirect = A - (mu + S3*sig);
-    d3.select("#msigv").text(sig0.toFixed(2)); d3.select("#mdelv").text(del.toFixed(2)); d3.select("#mxv").text(xb.toFixed(2));
-    d3.select("#mmax").text(xmax.toFixed(2));
-    d3.select("#mrev").text(`${vComp.toFixed(2)} · ${vCabal.toFixed(2)} · ${vDirect.toFixed(2)}`);
-    let v1, v2;
-    if (xb === 0) { v1 = "Competition"; v2 = "With no borrowing an auction gives the crown the most."; }
-    else if (xb <= xmax) { v1 = "Cabal holds"; v2 = "Only a cabal can lend this much, and the crown keeps repaying."; }
-    else { v1 = "Cabal breaks"; v2 = "The crown would default. Lending this large needs outside finance."; }
-    d3.select("#mverdict").text(v1); d3.select("#mverdict2").text(v2);
-    svg.selectAll("*").remove();
-    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(6));
-    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
-    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Spread of collection costs, higher is more fragmented");
-    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Borrowing per period");
-    const curve = d3.range(0, 0.5001, 0.005).map(s => [s, Math.min(3, S3*s/4 * (1+del)/(1-del))]);
-    svg.append("path").datum(curve.concat([[0.5,0],[0,0]])).attr("fill", C.teal).attr("opacity", .12).attr("d", d3.line().x(p => x(p[0])).y(p => y(p[1])));
-    svg.append("path").datum(curve).attr("fill","none").attr("stroke", C.teal).attr("stroke-width", 2.5).attr("d", d3.line().x(p => x(p[0])).y(p => y(p[1])));
-    svg.append("text").attr("x", x(0.47)).attr("y", y(0.15)).attr("text-anchor","end").attr("fill", C.teal).text("cabal lending is self-enforcing");
-    if (std) svg.append("line").attr("x1", x(sig0)).attr("x2", x(sig)).attr("y1", y(xb)).attr("y2", y(xb)).attr("stroke", C.gray).attr("stroke-dasharray","4 3");
-    if (std) svg.append("circle").attr("cx", x(sig0)).attr("cy", y(xb)).attr("r", 6).attr("fill","none").attr("stroke", C.gray);
-    svg.append("circle").attr("cx", x(sig)).attr("cy", y(xb)).attr("r", 8).attr("fill", xb <= xmax ? C.navy : C.rust).attr("stroke","#fff").attr("stroke-width",2);
+  const S3 = Math.sqrt(3), V = t => 4 - t*t;
+  const st = { sig: 0.35, std: false, n: 10, del: 0.85, x: 2.5 };
+  const eff = () => ({ sig: st.std ? st.sig/2 : st.sig, mu: st.std ? 0.9 : 1 });
+  const pts = (sig, mu) => ({ lo: mu - S3*sig, mu, hi: mu + S3*sig });
+  // expected V of the k-th lowest of n uniform costs on [a,b], by numerical integration of the beta density
+  const lbeta = (a, b) => { const g = z => { let s = 0; for (let i = 1; i < z; i++) s += Math.log(i); return s; }; return g(a) + g(b) - g(a+b); };
+  function EV(k, n, a, b) {
+    const m = 400, lb = lbeta(k, n-k+1); let s = 0;
+    for (let i = 0; i <= m; i++) { const u = i/m, w = (i === 0 || i === m) ? 1 : (i % 2 ? 4 : 2);
+      const pdf = (u === 0 && k > 1) || (u === 1 && n-k > 0) ? 0 : Math.exp((k-1)*Math.log(u || 1e-300) + (n-k)*Math.log(1-u || 1e-300) - lb);
+      s += w * pdf * V(a + (b-a)*u); }
+    return s / (3*m);
   }
-  d3.selectAll("#msig,#mdel,#mx").on("input", draw); d3.select("#mstd").on("change", draw); draw();
+  const f2 = d3.format(".2f");
+  const axes = (svg, x, y, W, H, mg, xl, yl, xt) => {
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(xt || 6));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text(xl);
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text(yl);
+  };
+  const W = 800, mg = {l:62, r:24, t:16, b:44};
+
+  function fig1() {
+    const H = 300, svg = d3.select("#vsvg"); svg.selectAll("*").remove();
+    const x = d3.scaleLinear([0, 2], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 4.2], [H-mg.b, mg.t]);
+    const e = eff(), p = pts(e.sig, e.mu);
+    svg.append("rect").attr("x", x(p.lo)).attr("width", x(p.hi)-x(p.lo)).attr("y", mg.t).attr("height", H-mg.b-mg.t).attr("fill", C.gold).attr("opacity", .15);
+    axes(svg, x, y, W, H, mg, "Cost of collection, θ", "Value of the farm, V(θ)");
+    svg.append("path").datum(d3.range(0, 2.001, 0.01)).attr("fill","none").attr("stroke", C.navy).attr("stroke-width", 2.2).attr("d", d3.line().x(t => x(t)).y(t => y(V(t))));
+    [[p.lo,"lowest-cost farmer",C.teal],[p.mu,"cabal",C.rust],[p.hi,"crown directly",C.gray]].forEach(([t,l,c],i) => {
+      svg.append("line").attr("x1", x(t)).attr("x2", x(t)).attr("y1", y(0)).attr("y2", y(V(t))).attr("stroke", c).attr("stroke-dasharray","3 3");
+      svg.append("circle").attr("cx", x(t)).attr("cy", y(V(t))).attr("r", 6).attr("fill", c);
+      svg.append("text").attr("x", x(t) + 8).attr("y", y(V(t)) - 8 - i*2).attr("fill", c).style("font-size","12px").text(l);
+    });
+    d3.select("#r1lo").text(f2(V(p.lo))); d3.select("#r1mu").text(f2(V(p.mu))); d3.select("#r1hi").text(f2(V(p.hi)));
+  }
+
+  function fig2() {
+    const H = 280, svg = d3.select("#bsvg"); svg.selectAll("*").remove();
+    const e = eff(), p = pts(e.sig, e.mu);
+    const auc = EV(2, st.n, p.lo, p.hi), crownK = (V(p.mu) + V(p.hi))/2, cabalK = (V(p.mu) - V(p.hi))/2, dir = V(p.hi);
+    const cats = ["Competitive auction", "Cabal", "Direct collection"];
+    const x = d3.scaleBand(cats, [mg.l, W-mg.r]).padding(.35), y = d3.scaleLinear([0, 4.2], [H-mg.b, mg.t]);
+    axes(svg, x, y, W, H, mg, "", "Revenue per period");
+    const bar = (c, y0, y1, col, op, lab) => { svg.append("rect").attr("x", x(c)).attr("width", x.bandwidth()).attr("y", y(y1)).attr("height", y(y0)-y(y1)).attr("fill", col).attr("opacity", op);
+      if (lab) svg.append("text").attr("x", x(c) + x.bandwidth()/2).attr("y", y(y1) - 6).attr("text-anchor","middle").style("font-size","12px").text(lab); };
+    bar(cats[0], 0, auc, C.teal, 1, null);
+    svg.append("text").attr("x", x(cats[0]) + x.bandwidth()/2).attr("y", y(auc) + 18).attr("text-anchor","middle").style("fill","#fff").style("font-size","12px").text(`crown ${f2(auc)}`);
+    bar(cats[1], 0, crownK, C.rust, 1, null);
+    bar(cats[1], crownK, crownK + cabalK, C.rust, .35, `crown ${f2(crownK)} · cabal ${f2(cabalK)}`);
+    bar(cats[2], 0, dir, C.gray, 1, `crown ${f2(dir)}`);
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(V(p.lo))).attr("y2", y(V(p.lo))).attr("stroke", C.teal).attr("stroke-dasharray","5 4");
+    svg.append("text").attr("x", W-mg.r).attr("y", y(V(p.lo)) - 6).attr("text-anchor","end").attr("fill", C.teal).style("font-size","12px").text(`V(θ̲) = ${f2(V(p.lo))}, the auction price as bidders multiply`);
+  }
+
+  function fig3() {
+    const H = 300, svg = d3.select("#ssvg"); svg.selectAll("*").remove();
+    const x = d3.scaleLinear([0, 0.5], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 4.2], [H-mg.b, mg.t]);
+    axes(svg, x, y, W, H, mg, "Spread of collection costs, σ", "Crown revenue per period");
+    const reg = [["Competition", C.teal, (s,m) => V(m - S3*s)], ["Cabal", C.rust, (s,m) => (V(m) + V(m + S3*s))/2], ["Direct collection", C.gray, (s,m) => V(m + S3*s)]];
+    reg.forEach(([l, c, f]) => {
+      svg.append("path").datum(d3.range(0, 0.5001, 0.005)).attr("fill","none").attr("stroke", c).attr("stroke-width", 2.2).attr("d", d3.line().x(s => x(s)).y(s => y(f(s, 1))));
+      svg.append("circle").attr("cx", x(st.sig)).attr("cy", y(f(st.sig, 1))).attr("r", 6).attr("fill","#fff").attr("stroke", c).attr("stroke-width", 2);
+      svg.append("circle").attr("cx", x(st.sig/2)).attr("cy", y(f(st.sig/2, 0.9))).attr("r", 6).attr("fill", c);
+    });
+    const g = reg.map(([, , f]) => f(st.sig/2, 0.9) - f(st.sig, 1)), sg = v => (v >= 0 ? "" : "−") + f2(Math.abs(v));
+    d3.select("#r3c").text(sg(g[0])); d3.select("#r3k").text(sg(g[1])); d3.select("#r3d").text(sg(g[2]));
+    d3.select("#sleg").html(reg.map(([l, c]) => `<span style="color:${c};font-weight:600">● ${l}</span>`).join(" &nbsp; "));
+  }
+
+  function fig4() {
+    const H = 300, svg = d3.select("#dsvg"); svg.selectAll("*").remove();
+    const e = eff(), p = pts(e.sig, e.mu);
+    const dB = EV(1, st.n, p.lo, p.hi) - EV(2, st.n, p.lo, p.hi), dV = (V(p.mu) - V(p.hi))/4;
+    const x = d3.scaleLinear([0, 3], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 1], [H-mg.b, mg.t]);
+    axes(svg, x, y, W, H, mg, "Loan, x", "Lowest δ at which the crown repays");
+    const dstar = (xx, D) => Math.max(0, (xx - D)/(xx + D));
+    [[dB, C.teal], [dV, C.rust]].forEach(([D, c]) => {
+      svg.append("path").datum(d3.range(0, 3.001, 0.01)).attr("fill","none").attr("stroke", c).attr("stroke-width", 2.2).attr("d", d3.line().x(v => x(v)).y(v => y(dstar(v, D))));
+      const xm = D*(1+st.del)/(1-st.del);
+      if (xm <= 3) svg.append("circle").attr("cx", x(xm)).attr("cy", y(st.del)).attr("r", 5).attr("fill", c);
+    });
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(st.del)).attr("y2", y(st.del)).attr("stroke", C.navy).attr("stroke-dasharray","5 4");
+    svg.append("text").attr("x", W-mg.r).attr("y", y(st.del) - 6).attr("text-anchor","end").attr("fill", C.navy).style("font-size","12px").text(`crown's δ = ${st.del.toFixed(2)}`);
+    d3.select("#r4c").text(f2(dB*(1+st.del)/(1-st.del))); d3.select("#r4k").text(f2(dV*(1+st.del)/(1-st.del)));
+    d3.select("#r4r").text(`${f2(dB)} · ${f2(dV)}`);
+    d3.select("#dleg").html(`<span style="color:${C.teal};font-weight:600">● Competition</span> &nbsp; <span style="color:${C.rust};font-weight:600">● Cabal</span>`);
+  }
+
+  function fig5() {
+    const H = 300, svg = d3.select("#msvg"); svg.selectAll("*").remove();
+    const e = eff(), p = pts(e.sig, e.mu);
+    const x = d3.scaleLinear([0, 0.5], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 8], [H-mg.b, mg.t]);
+    const k = (1 + st.del)/(1 - st.del), cap = v => Math.min(8, v);
+    const dVs = (s, m) => (V(m) - V(m + S3*s))/4;
+    const xmax = dVs(e.sig, e.mu)*k;
+    const dB = EV(1, st.n, p.lo, p.hi) - EV(2, st.n, p.lo, p.hi);
+    axes(svg, x, y, W, H, mg, "Spread of collection costs, higher is more fragmented", "Borrowing per period");
+    if (st.std) svg.append("path").datum(d3.range(0, 0.5001, 0.005)).attr("fill","none").attr("stroke", C.teal).attr("stroke-width", 1.5).attr("opacity", .35).attr("d", d3.line().x(s => x(s)).y(s => y(cap(dVs(s, 1)*k))));
+    const curve = d3.range(0, 0.5001, 0.005).map(s => [s, cap(dVs(s, e.mu)*k)]);
+    svg.append("path").datum(curve.concat([[0.5,0],[0,0]])).attr("fill", C.teal).attr("opacity", .12).attr("d", d3.line().x(q => x(q[0])).y(q => y(q[1])));
+    svg.append("path").datum(curve).attr("fill","none").attr("stroke", C.teal).attr("stroke-width", 2.5).attr("d", d3.line().x(q => x(q[0])).y(q => y(q[1])));
+    svg.append("text").attr("x", x(0.47)).attr("y", y(0.25)).attr("text-anchor","end").attr("fill", C.teal).text("cabal lending is self-enforcing");
+    if (st.std) { svg.append("line").attr("x1", x(st.sig)).attr("x2", x(e.sig)).attr("y1", y(cap(st.x))).attr("y2", y(cap(st.x))).attr("stroke", C.gray).attr("stroke-dasharray","4 3");
+      svg.append("circle").attr("cx", x(st.sig)).attr("cy", y(cap(st.x))).attr("r", 6).attr("fill","none").attr("stroke", C.gray); }
+    svg.append("circle").attr("cx", x(e.sig)).attr("cy", y(cap(st.x))).attr("r", 8).attr("fill", st.x <= xmax ? C.navy : C.rust).attr("stroke","#fff").attr("stroke-width",2);
+    d3.select("#mmax").text(f2(xmax)); d3.select("#mcomp").text(f2(dB*k));
+    let v1, v2;
+    if (st.x === 0) { v1 = "Competition"; v2 = "With no borrowing an auction gives the crown the most."; }
+    else if (st.x <= dB*k) { v1 = "Either works"; v2 = "This loan is small enough for competitive farmers, and the auction pays the crown more."; }
+    else if (st.x <= xmax) { v1 = "Cabal holds"; v2 = "Only a cabal can lend this much, and the crown keeps repaying."; }
+    else { v1 = "Cabal breaks"; v2 = "The crown would default. The loan exceeds what the cabal's punishment can enforce."; }
+    d3.select("#mverdict").text(v1); d3.select("#mverdict2").text(v2);
+  }
+
+  function sync() {
+    d3.selectAll("[data-k]").each(function() { const k = this.dataset.k; if (this.type === "checkbox") this.checked = st[k]; else this.value = st[k]; });
+    d3.selectAll("[data-v]").each(function() { const k = this.dataset.v; this.textContent = k === "n" ? st.n : st[k].toFixed(2); });
+  }
+  function all() { sync(); fig1(); fig2(); fig3(); fig4(); fig5(); }
+  d3.selectAll("[data-k]").on("input change", function() { const k = this.dataset.k; st[k] = this.type === "checkbox" ? this.checked : +this.value; all(); });
+  all();
 }
 
 // ---------- 3. Paths ----------
@@ -326,13 +503,13 @@ function france(fr) {
   tabbed("#ftabs", [
     { tab: "Real lease prices", series: [{ name: "Annual", rows: pick("lease_real_tonnes"), col: "#9aa3ad", w: 1.4 }, { name: "Smoothed, as in the paper", rows: pick("lease_real_tonnes_smoothed"), col: C.rust }],
       opts: { xdom: [1598, 1660], ylab: "Tonnes of silver", tipfmt: tonnes },
-      cap: "<b>Figure 3.</b> Aggregate lease prices of the French revenue farms, 1600–1656, in tonnes of silver. The smoothed series is the one in Figure 4 of the paper." },
+      cap: "<b>Figure 7.</b> Aggregate lease prices of the French revenue farms, 1600–1656, in tonnes of silver. The smoothed series is the one in Figure 4 of the paper." },
     { tab: "Loans over lease prices", series: [{ name: "Annual", rows: pick("loans_over_lease"), col: "#9aa3ad", w: 1.4 }, { name: "Smoothed, as in the paper", rows: pick("loans_over_lease_smoothed"), col: C.navy }],
       opts: { xdom: [1610, 1660], ylab: "Loans as a share of lease price", y0: 0, hline: 1, yfmt: d3.format(".1f"), tipfmt: v => `${(100*v).toFixed(0)} percent of the lease price` },
-      cap: "<b>Figure 3.</b> Loans made through the farms as a share of the lease price. The dashed line marks loans equal to the whole lease. The loan figures are incomplete, so the share is a lower bound. Gaps are years with no loan data. The smoothed series is the one in Figure 5 of the paper." },
+      cap: "<b>Figure 7.</b> Loans made through the farms as a share of the lease price. The dashed line marks loans equal to the whole lease. The loan figures are incomplete, so the share is a lower bound. Gaps are years with no loan data. The smoothed series is the one in Figure 5 of the paper." },
     { tab: "Lease prices by farm", series: [{ name: "Gabelles de France, salt", rows: pick("gabelles"), col: C.rust }, { name: "Cinq Grosses Fermes, customs", rows: pick("cinq_grosses_fermes"), col: C.navy }, { name: "Aides, sales taxes", rows: pick("aides"), col: C.teal }, { name: "Domaines", rows: pick("domaines"), col: C.gold }, { name: "All other farms", rows: other, col: "#9aa3ad" }],
       opts: { xdom: [1598, 1660], ylab: "Nominal livres tournois", tipfmt: v => `${fmt0(v)} livres` },
-      cap: "<b>Figure 3.</b> Nominal lease prices of the largest farms, 1600–1656, from the same records. All other farms is the total lease less the four named farms." } ],
+      cap: "<b>Figure 7.</b> Nominal lease prices of the largest farms, 1600–1656, from the same records. All other farms is the total lease less the four named farms." } ],
     "#fsvg", "#fleg", "#fcap");
 }
 
@@ -342,10 +519,10 @@ function england(en) {
   tabbed("#etabs", [
     { tab: "Rent of the Great Farm", series: [{ name: "Annual rent", rows: pick("rent"), col: C.navy }],
       opts: { xdom: [1602, 1641], ylab: "Pounds sterling", y0: 100000, tipfmt: v => `£${fmt0(v)}` },
-      cap: "<b>Figure 4.</b> Nominal rent of the Great Farm of the Customs, 1604–1639, from Ashton (1957, 1960), as in Figure 6 of the paper." },
+      cap: "<b>Figure 8.</b> Nominal rent of the Great Farm of the Customs, 1604–1639, from Ashton (1957, 1960), as in Figure 6 of the paper." },
     { tab: "Anticipations over rent", series: [{ name: "Anticipations in the year, over rent", rows: en.map(r => [r.year, r.anticipations == null ? null : r.anticipations / r.rent]), col: "#9aa3ad", bars: true }, { name: "Smoothed, as in the paper", rows: pick("anticipations_over_rent_smoothed"), col: C.rust }],
       opts: { xdom: [1602, 1641], ylab: "Share of the annual rent", y0: 0, yfmt: d3.format(".0%"), tipfmt: v => `${(100*v).toFixed(0)} percent of the rent` },
-      cap: "<b>Figure 4.</b> Anticipations, the crown's advance draws on future rent, as a share of the annual rent. The bars are each year's anticipations. The line is the smoothed series in Figure 7 of the paper." } ],
+      cap: "<b>Figure 8.</b> Anticipations, the crown's advance draws on future rent, as a share of the annual rent. The bars are each year's anticipations. The line is the smoothed series in Figure 7 of the paper." } ],
     "#esvg", "#eleg", "#ecap");
 }
 
