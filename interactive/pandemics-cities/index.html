@@ -112,7 +112,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
   <div class="controls">
     <button class="tab on" id="mmode1">Mortality, 1347–1352</button>
     <button class="tab" id="mmode2">Population relative to 1300</button>
-    <label id="myl" style="display:none">Year <input id="my" type="range" min="0" max="6" step="1" value="0"></label><span class="v" id="myv"></span>
+    <label id="myl" style="display:none">Year <input id="my" type="range" min="0" max="7" step="1" value="0"></label><span class="v" id="myv"></span>
   </div>
   <svg id="mapsvg" viewBox="0 0 800 640" role="img" aria-label="Map of Black Death mortality in 165 European cities"></svg>
   <div class="legend" id="mapleg"></div>
@@ -147,7 +147,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
     <div><b id="rn"></b>cities</div>
   </div>
   <svg id="rsvg" viewBox="0 0 800 360" role="img" aria-label="City population change against mortality"></svg>
-  <div class="cap"><b>Figure 4.</b> Percentage change in city population against Black Death mortality for the chosen period. Circle area is population at the start of the period, which is the regression weight. The line is the weighted least squares fit. The readouts are computed from the replication data and match Table 1 of the paper. Cities whose growth runs off the top of the chart are counted under it and still enter the readouts. Hover for any city.</div>
+  <div class="cap"><b>Figure 4.</b> Percentage change in city population against Black Death mortality for the chosen period. Circle area is population at the start of the period, which is the regression weight. The line is the weighted least squares fit. The readouts are computed from the replication data and match Table 1 of the paper. Populations for 2015 are for the city itself rather than its agglomeration, as in the paper. Cities whose growth runs off the top of the chart are counted under it and still enter the readouts. Hover for any city.</div>
 </div>
 <div class="figure">
   <svg id="bsvg" viewBox="0 0 800 260" role="img" aria-label="Standardized effect of mortality over time"></svg>
@@ -163,7 +163,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
   <div class="controls" id="itabs"></div>
   <svg id="isvg" viewBox="0 0 800 320" role="img" aria-label="Recovery effects of city characteristics over time"></svg>
   <div class="legend" id="ileg"></div>
-  <div class="cap"><b>Figure 6.</b> The chosen interaction with mortality and the direct effect of mortality, by period since 1300, with 95 percent intervals from the published robust standard errors. All eleven interactions are estimated together. Values transcribed from Table 8 of the paper. The authors caution that these interactions are associations conditional on mortality and the other characteristics.</div>
+  <div class="cap"><b>Figure 6.</b> The chosen interaction with mortality and the direct effect of mortality, by period since 1300, with 95 percent intervals from robust standard errors. All eleven interactions are estimated together. Computed from the paper's replication data with the specification of Table 8, and every coefficient and standard error matches the published table. The authors caution that these interactions are associations conditional on mortality and the other characteristics.</div>
 </div>
 <p>Coastal cities recovered faster from the start, and by 1500 a coastal city with high mortality had on average fully recovered relative to low-mortality cities. The Hanseatic interaction in 1300–1400 is −0.062 against −0.083 for mortality, so a Hansa town had recovered about three-quarters of its loss by 1400. Road and trade-route intersections mattered most in 1500. Rivers mattered from the seventeenth century, when investment in river transport and canals grew. Potato suitability helped from the seventeenth century, and land suited to pasture slowed recovery in the sixteenth century, when landlords turned to sheep because they needed less labor. The size of a city after the plague and its political institutions show no consistent recovery effect.</p>
 <p>The authors use these estimates to ask which cities would be much smaller today without their favorable locations. Their list of large cities from 1300 is Venice, Florence, Cordoba, Naples, Cologne, Pisa, Toulouse, Rouen, and Marseille. Each was hit hard and each was coastal, on a river, at a road intersection, or in the Hanseatic League. They are outlined in black on the map in Figure 1.</p>
@@ -179,10 +179,10 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
   </div>
   <div class="figure">
     <svg id="trsvg" viewBox="0 0 420 380" role="img" aria-label="Share of urban population near trade factors"></svg>
-    <div class="cap"><b>Figure 8.</b> Share of the population of all 1,801 cities living within 10 km of a coast, a river, or a road intersection, or in a Hanseatic city. The dashed line continues the 1200–1300 trend. Computed from the replication data, which put the share about one point lower in 1100 and higher in 1700 than the published figure.</div>
+    <div class="cap"><b>Figure 8.</b> Share of the population of all 1,801 cities living within 10 km of a coast, a river, or a Roman road or medieval trade-route intersection, or in a Hanseatic city, the definition in the paper's replication code. The dashed line continues the 1200–1300 trend. Computed from the replication data, which give about 89 percent in 1100, 83 percent in 1300, and 78 percent in 1700, with the trend reaching about 62 percent by 1700.</div>
   </div>
 </div>
-<p>The paper reports that 90 percent of the urban population lived near one of these trade factors in 1100 and 83 percent in 1300. Had the decline continued at its pre-plague pace the share would have fallen to about 60 percent by 1700. The actual share in 1700 was 77 percent. The trend broke immediately after the Black Death, which suggests the plague moved Europe's urban population toward better-connected places. The authors attribute this reset to the Black Death with caution, since other shocks could have produced a similar pattern.</p>
+<p>In the replication data 89 percent of the urban population lived near one of these trade factors in 1100 and 83 percent in 1300. Had the decline continued at its pre-plague pace the share would have fallen to about 62 percent by 1700. The actual share in 1700 was 78 percent. The paper's text gives 90, 83, 60, and 77 percent for the same four numbers. The trend broke immediately after the Black Death, which suggests the plague moved Europe's urban population toward better-connected places. The authors attribute this reset to the Black Death with caution, since other shocks could have produced a similar pattern.</p>
 </section>
 
 <section id="policy">
@@ -196,12 +196,12 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 <p>Mortality is measured with error. About a third of the 165 rates are converted from literary descriptions, clergy deaths, or desertion rates. The paper shows the results hold when mortality is coarsely categorized and when only the most and least affected cities are compared.</p>
 <p>Populations before 1500 are estimates, and the sample covers the 165 cities with both a 1300 population and a mortality rate. The paper shows the results hold with imputed mortality for a larger sample and when each major country is dropped in turn.</p>
 <p>The recovery interactions in Section 5 are not instrumented. The paper presents them as associations conditional on the shock, since 165 cities cannot support instruments for eleven interactions.</p>
-<p>Figures 2, 3, 4, 7, and 8 are drawn from the replication data. The coefficients, standard errors, means, and observation counts of Table 1, Table 2, and Figure 3(a) reproduce exactly. The rank regression behind Figure 7 reproduces the published R² of 0.56 but gives a slope of 0.75 against the 0.86 in the paper, so the page does not report the slope. Figure 6 and Figure 5 use the published tables.</p>
+<p>Every figure except Figure 5 is computed from the paper's replication files. Table 1, including the 1300–2015 column, Table 2, Table 8, and Figure 3(a) reproduce exactly. Two numbers in the published text do not come out of the replication code. The rank regression behind Figure 7 gives the published R² of 0.56 and a slope of 0.76 against the 0.86 in the text, so the page does not report the slope. The trade-factor shares behind Figure 8 differ from the text by about one point in 1100 and 1700 and by two points in the 1700 trend, and the page reports the computed values. Figure 5 uses the published Table 1.</p>
 </section>
 
 <footer>
   <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/market-for-ideas/">Mapping the market for ideas</a> · <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/tax-farming/">Tax farming and state capacity</a> · <a href="/interactive/school-choice-religiosity/">School choice and religiosity in France</a> · <a href="/interactive/">All companions</a></p>
-  <p>The data come from the city panel used in the paper's replication code and are checked against the published tables. Mortality is from Christakos et al. (2005) as coded by the authors. City populations are from Bairoch (1988) with the authors' revisions. Locations of coasts, rivers, Roman roads, medieval trade routes, and Hanseatic membership follow the sources listed in the paper. City names follow the spelling of the dataset. The paper circulated earlier as "Pandemics, Places, and Populations."</p>
+  <p>The data come from the paper's replication files and are checked against the published tables. Mortality is from Christakos et al. (2005) as coded by the authors. City populations are from Bairoch (1988) with the authors' revisions. Locations of coasts, rivers, Roman roads, medieval trade routes, and Hanseatic membership follow the sources listed in the paper. City names follow the spelling of the dataset. The paper circulated earlier as "Pandemics, Places, and Populations."</p>
 </footer>
 </main>
 <div class="tip" id="tip"></div>
@@ -230,7 +230,7 @@ function mapView(cities, base) {
   svg.append("rect").attr("width",W).attr("height",H).attr("fill","#e9eef2");
   svg.selectAll("path.l").data(feats).join("path").attr("class","l").attr("d", d3.geoPath(proj)).attr("fill","#fbfaf7").attr("stroke","#c9c9c9");
   const r = d3.scaleSqrt([0, 230000], [0, 18]);
-  const years = [1400,1500,1600,1700,1750,1800,1850];
+  const years = [1400,1500,1600,1700,1750,1800,1850,2015];
   const rcol = d3.scaleDiverging([0.3, 1, 3], d3.interpolateRgbBasis([C.rust, "#f4efe6", C.teal])).clamp(true);
   const dots = svg.append("g").selectAll("circle").data(cities.slice().sort((a,b) => b.pop1300 - a.pop1300)).join("circle")
     .attr("cx", c => proj([c.lon, c.lat])[0]).attr("cy", c => proj([c.lon, c.lat])[1]).attr("r", c => Math.max(2.5, r(c.pop1300)))
@@ -281,7 +281,7 @@ function size(cities) {
 
 // ---------- 4. Recovery ----------
 function recovery(cities, t1) {
-  const periods = [[1400,"1300–1400"],[1500,"1300–1500"],[1600,"1300–1600"],[1700,"1300–1700"],[1750,"1300–1750"],[1850,"1300–1850"]];
+  const periods = [[1400,"1300–1400"],[1500,"1300–1500"],[1600,"1300–1600"],[1700,"1300–1700"],[1750,"1300–1750"],[1850,"1300–1850"],[2015,"1300–2015"]];
   const svg = d3.select("#rsvg"), W = 800, H = 360, mg = {l:62, r:18, t:12, b:42};
   const tabs = d3.select("#rtabs").selectAll("button").data(periods).join("button").attr("class","tab").text(d => d[1]).on("click", (e,d) => draw(d));
   const x = d3.scaleLinear([0, 100], [mg.l, W-mg.r]);

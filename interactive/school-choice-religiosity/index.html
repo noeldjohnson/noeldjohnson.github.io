@@ -356,7 +356,7 @@ function channels(ch) {
     svg.selectAll(null).data(pts).join("circle").attr("cx", d => x(d[k.key])).attr("cy", d => y(d[sex])).attr("r", 5).attr("fill", sex === "girls" ? C.rust : C.navy).attr("opacity", .75)
       .on("mousemove", (e,d) => showTip(e, `<b>${d.name}</b><br>${k.label}: ${d3.format(",.3~f")(d[k.key])}<br>${pct(d[sex])} of ${sex} in Catholic schools, 1878–1902 average`)).on("mouseleave", hideTip);
     d3.select("#cb").text(`${fmt(k.boys[0])}${star(k.boys[0], k.boys[1])}`); d3.select("#cg").text(`${fmt(k.girls[0])}${star(k.girls[0], k.girls[1])}`);
-    d3.select("#ccap").html(`<b>Figure 6.</b> Each dot is a département, ${pts.length} with data${k.log ? ", leaving out those with no death sentences, which a log scale cannot show" : ""}. The readouts give the paper's coefficient on spending times the characteristic, from ${k.table}, with *, **, and *** for significance at the 10, 5, and 1 percent levels. Standard errors are ${fmt(k.boys[1])} for boys and ${fmt(k.girls[1])} for girls. Source: ${k.source}, from the paper's replication data.`);
+    d3.select("#ccap").html(`<b>Figure 6.</b> Each dot is a département, ${pts.length} with data${k.log ? ", leaving out those with no death sentences, which a log scale cannot show" : ""}. The readouts give the paper's coefficient on spending times the characteristic, from ${k.table}, with *, **, and *** for significance at the 10, 5, and 1 percent levels. Standard errors are ${fmt(k.boys[1])} for boys and ${fmt(k.girls[1])} for girls. ${k.note ? " " + k.note : ""} Source: ${k.source}, from the paper's replication data.`);
   }
   draw();
 }
