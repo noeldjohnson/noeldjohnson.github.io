@@ -115,7 +115,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 <p>Ronald Coase set out the argument in "The Problem of Social Cost" in 1960. George Stigler gave it its name in his price theory textbook in 1966, and the version that spread from there is a proposition about a world without transaction costs. In that world rights are traded until they reach their most valuable use, whoever holds them at the start. That is the version taught in most textbooks, and it is often used to argue that the law's assignment of rights washes out and the state can stay out of the way.</p>
 <p>Coase read his own result the other way round. He described the frictionless case as a stepping stone.</p>
 <blockquote class="note">"I tend to regard the Coase Theorem as a stepping stone on the way to an analysis of an economy with positive transaction costs… If we move from a regime of zero transaction costs to one of positive transaction costs, what becomes immediately clear is the crucial importance of the legal system in this new world… It makes little sense for economists to discuss the process of exchange without specifying the institutional setting within which the trading takes place since this affects the incentives to produce and the costs of transacting." Ronald Coase, Nobel Prize lecture, 1991.</blockquote>
-<p>The difference is easiest to see in a small example. A skydiving school earns 100 from operating and a crocodile farm next door earns 50, and the farm imposes a cost of 75 on the school. The best outcome is for the farm to close, which leaves a total of 100. Who holds the right decides whether that outcome is reached once bargaining has a cost.</p>
+<p>The difference is easiest to see in Coase's own example of a farmer and a cattle raiser on neighboring land. Suppose the farmer's crop is worth 100, the herd is worth 50, and straying cattle destroy 75 of the crop. The best use of the land is to grow the crop and not run the herd, which leaves a total of 100. Who holds the right decides whether that outcome is reached once bargaining has a cost.</p>
 <div class="figure">
   <div class="controls">
     <span class="ctl-label">Cost of striking a bargain</span>
@@ -126,11 +126,11 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
     <div><b id="cr2"></b><span id="cr2t"></span></div>
     <div><b id="cr3"></b><span id="cr3t"></span></div>
   </div>
-  <svg id="csvg" viewBox="0 0 800 280" role="img" aria-label="Total surplus under each assignment of the right as the cost of bargaining rises"></svg>
+  <svg id="csvg" viewBox="0 0 800 280" role="img" aria-label="Total value of the land under each assignment of the right as the cost of bargaining rises"></svg>
   <div class="legend" id="cleg"></div>
-  <div class="cap"><b>Figure 1.</b> Total surplus of the school and the farm under each assignment of the right, as the cost of striking a bargain rises. If the school holds the right the farm closes, because the farm's 50 is worth less than the 75 it costs the school, and no bargain is needed. If the farm holds the right the school must pay it to close. The deal creates 25 of surplus and goes through only while it costs less than 25 to strike. Going to court is treated as free. The example follows Noel Johnson's Econ 623 lecture on institutions.</div>
+  <div class="cap"><b>Figure 1.</b> Total value of the land under each assignment of the right, as the cost of striking a bargain rises. If the farmer holds the right the herd is kept off, because the herd's 50 is worth less than the 75 of crop it destroys, and no bargain is needed. If the cattle raiser holds the right the farmer must pay to have the herd removed. The deal creates 25 of value and goes through only while it costs less than 25 to strike. Enforcing the right in court is treated as free. The example is Coase's (1960), with illustrative numbers.</div>
 </div>
-<p>At zero cost the two assignments give the same total and differ only in who is paid, which is Stigler's theorem. Once a bargain costs more than the 25 it would create, the farm stays open under one assignment and closes under the other, and the initial allocation decides the outcome. Which world a given economy is in is an empirical question about transaction costs. McCloskey (1998), whom the paper cites on this point, makes the same argument.</p>
+<p>At zero cost the two assignments give the same total and differ only in who is paid, which is Stigler's theorem. Once a bargain costs more than the 25 it would create, the herd stays on the land under one assignment and off it under the other, and the initial allocation decides the outcome. Which world a given economy is in is an empirical question about transaction costs. McCloskey (1998), whom the paper cites on this point, makes the same argument.</p>
 <p>The French Revolution is a case where the answer can be measured. In 1789 rights were clarified everywhere at once, so the textbook reading predicts that land would move to its best users wherever it started. Transacting in land stayed expensive for decades. The auctions moved Church land to new owners at a single stroke in some districts and not in others. If Coase's reading is right, those districts should have pulled ahead, and the rest should have caught up as transaction costs fell. The sections below test both predictions.</p>
 </section>
 
@@ -417,25 +417,25 @@ function fade(res) {
 function coase() {
   const svg = d3.select("#csvg"), W = 800, H = 280, mg = {l:62, r:24, t:16, b:44};
   const x = d3.scaleLinear([0, 50], [mg.l, W-mg.r]), y = d3.scaleLinear([50, 110], [H-mg.b, mg.t]);
-  const schoolRight = t => 100, farmRight = t => t < 25 ? 100 - t : 75;
+  const farmerRight = t => 100, rancherRight = t => t < 25 ? 100 - t : 75;
   function draw() {
     const t = +d3.select("#ctc").property("value"); d3.select("#ctcv").text(t);
     svg.selectAll("*").remove();
     svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(10));
     svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
     svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Cost of striking a bargain");
-    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Total surplus");
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Total value of the land");
     svg.append("line").attr("x1", x(25)).attr("x2", x(25)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", "#c8c8c8").attr("stroke-dasharray","3 3");
     svg.append("text").attr("x", x(25)+6).attr("y", mg.t+12).style("font-size","11px").text("the bargain stops paying at 25");
     const pts = d3.range(0, 50.01, 0.25);
-    [[schoolRight, C.teal, "School holds the right"], [farmRight, C.rust, "Farm holds the right"]].forEach(([f, c]) => {
-      svg.append("path").datum(pts).attr("fill","none").attr("stroke", c).attr("stroke-width", 2.5).attr("d", d3.line().x(v => x(v)).y(v => y(f(v))).defined((v,i) => !(f === farmRight && Math.abs(v-25) < 0.2)));
+    [[farmerRight, C.teal, "Farmer holds the right"], [rancherRight, C.rust, "Cattle raiser holds the right"]].forEach(([f, c]) => {
+      svg.append("path").datum(pts).attr("fill","none").attr("stroke", c).attr("stroke-width", 2.5).attr("d", d3.line().x(v => x(v)).y(v => y(f(v))).defined((v,i) => !(f === rancherRight && Math.abs(v-25) < 0.2)));
       svg.append("circle").attr("cx", x(t)).attr("cy", y(f(t))).attr("r", 7).attr("fill", c).attr("stroke","#fff").attr("stroke-width",2);
     });
-    d3.select("#cr1").text(`${schoolRight(t)}`); d3.select("#cr1t").text("total if the school holds the right. The farm closes and no bargain is needed.");
-    d3.select("#cr2").text(`${farmRight(t)}`); d3.select("#cr2t").text(t < 25 ? "total if the farm holds the right. The school pays it to close, less the cost of the deal." : "total if the farm holds the right. The deal costs more than it creates, so both stay open.");
-    d3.select("#cr3").text(`${schoolRight(t) - farmRight(t)}`); d3.select("#cr3t").text(t === 0 ? "difference between the two assignments. Only who gets paid changes." : (t < 25 ? "lost to the cost of bargaining under the second assignment." : "lost because the initial allocation now decides the outcome."));
-    d3.select("#cleg").html(`<span style="color:${C.teal};font-weight:600">— School holds the right</span> &nbsp; <span style="color:${C.rust};font-weight:600">— Farm holds the right</span>`);
+    d3.select("#cr1").text(`${farmerRight(t)}`); d3.select("#cr1t").text("total if the farmer holds the right. The herd is kept off and no bargain is needed.");
+    d3.select("#cr2").text(`${rancherRight(t)}`); d3.select("#cr2t").text(t < 25 ? "total if the cattle raiser holds the right. The farmer pays to remove the herd, less the cost of the deal." : "total if the cattle raiser holds the right. The deal costs more than it creates, so the herd stays.");
+    d3.select("#cr3").text(`${farmerRight(t) - rancherRight(t)}`); d3.select("#cr3t").text(t === 0 ? "difference between the two assignments. Only who gets paid changes." : (t < 25 ? "lost to the cost of bargaining under the second assignment." : "lost because the initial allocation now decides the outcome."));
+    d3.select("#cleg").html(`<span style="color:${C.teal};font-weight:600">— Farmer holds the right</span> &nbsp; <span style="color:${C.rust};font-weight:600">— Cattle raiser holds the right</span>`);
   }
   d3.select("#ctc").on("input", draw); draw();
 }
