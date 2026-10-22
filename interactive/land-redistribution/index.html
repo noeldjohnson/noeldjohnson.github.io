@@ -117,20 +117,24 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 <blockquote class="note">"I tend to regard the Coase Theorem as a stepping stone on the way to an analysis of an economy with positive transaction costs… If we move from a regime of zero transaction costs to one of positive transaction costs, what becomes immediately clear is the crucial importance of the legal system in this new world… It makes little sense for economists to discuss the process of exchange without specifying the institutional setting within which the trading takes place since this affects the incentives to produce and the costs of transacting." Ronald Coase, Nobel Prize lecture, 1991.</blockquote>
 <p>The difference is easiest to see in Coase's own example of a farmer and a cattle raiser on neighboring land. Suppose the farmer's crop is worth 100, the herd is worth 50, and straying cattle destroy 75 of the crop. The best use of the land is to grow the crop and not run the herd, which leaves a total of 100. Who holds the right decides whether that outcome is reached once bargaining has a cost.</p>
 <div class="figure">
+  <div class="controls" id="kright"><span class="ctl-label">Right held by</span></div>
   <div class="controls">
-    <span class="ctl-label">Cost of striking a bargain</span>
-    <input id="ctc" type="range" min="0" max="50" step="1" value="0"><span class="v" id="ctcv"></span>
+    <label>Herd's value <input id="kh" type="range" min="0" max="100" step="5" value="50"></label><span class="v" id="khv"></span>
+    <label>Crop the cattle destroy <input id="kd" type="range" min="0" max="100" step="5" value="75"></label><span class="v" id="kdv"></span>
+    <label>Cost of striking a bargain <input id="kt" type="range" min="0" max="50" step="1" value="0"></label><span class="v" id="ktv"></span>
   </div>
   <div class="readout">
-    <div><b id="cr1"></b><span id="cr1t"></span></div>
-    <div><b id="cr2"></b><span id="cr2t"></span></div>
-    <div><b id="cr3"></b><span id="cr3t"></span></div>
+    <div><b id="ko1"></b><span id="ko1t"></span></div>
+    <div><b id="ko2"></b><span id="ko2t"></span></div>
+    <div><b id="ko3"></b><span id="ko3t"></span></div>
   </div>
-  <svg id="csvg" viewBox="0 0 800 280" role="img" aria-label="Total value of the land under each assignment of the right as the cost of bargaining rises"></svg>
-  <div class="legend" id="cleg"></div>
-  <div class="cap"><b>Figure 1.</b> Total value of the land under each assignment of the right, as the cost of striking a bargain rises. If the farmer holds the right the herd is kept off, because the herd's 50 is worth less than the 75 of crop it destroys, and no bargain is needed. If the cattle raiser holds the right the farmer must pay to have the herd removed. The deal creates 25 of value and goes through only while it costs less than 25 to strike. Enforcing the right in court is treated as free. The example is Coase's (1960), with illustrative numbers.</div>
+  <p class="legend" id="kstory" style="font-size:15px;color:var(--ink)"></p>
+  <svg id="ksvg" viewBox="0 0 800 280" role="img" aria-label="Total value of the land under each assignment of the right as the cost of bargaining rises"></svg>
+  <div class="legend" id="kleg"></div>
+  <div class="cap"><b>Figure 1.</b> Coase's farmer and cattle raiser. The farmer's crop is worth 100 before any damage. Choose who holds the right, the value of the herd, the crop the cattle destroy, and the cost of striking a bargain. The chart shows the total value of the land under each assignment as the cost of bargaining rises, with a dot at the chosen cost, and the dashed line is the most the land can produce. A bargain goes through when the gain from moving to the better use exceeds its cost. Enforcing the right in court is treated as free. The example is from Coase (1960), with illustrative numbers.</div>
 </div>
-<p>At zero cost the two assignments give the same total and differ only in who is paid, which is Stigler's theorem. Once a bargain costs more than the 25 it would create, the herd stays on the land under one assignment and off it under the other, and the initial allocation decides the outcome. Which world a given economy is in is an empirical question about transaction costs. McCloskey (1998), whom the paper cites on this point, makes the same argument.</p>
+
+<p>Set the cost of bargaining to zero and switch the right from one owner to the other. The herd runs or is kept off by the same rule either way, and only the direction of the payment changes. That is Stigler's theorem. Raise the cost of bargaining above the gain from the deal and the outcome follows whoever held the right at the start. Which world a given economy is in is an empirical question about transaction costs. McCloskey (1998), whom the paper cites on this point, makes the same argument.</p>
 <p>The French Revolution is a case where the answer can be measured. In 1789 rights were clarified everywhere at once, so the textbook reading predicts that land would move to its best users wherever it started. Transacting in land stayed expensive for decades. The auctions moved Church land to new owners at a single stroke in some districts and not in others. If Coase's reading is right, those districts should have pulled ahead, and the rest should have caught up as transaction costs fell. The sections below test both predictions.</p>
 </section>
 
@@ -415,29 +419,48 @@ function fade(res) {
 
 // ---------- 2. Coase example ----------
 function coase() {
-  const svg = d3.select("#csvg"), W = 800, H = 280, mg = {l:62, r:24, t:16, b:44};
-  const x = d3.scaleLinear([0, 50], [mg.l, W-mg.r]), y = d3.scaleLinear([50, 110], [H-mg.b, mg.t]);
-  const farmerRight = t => 100, rancherRight = t => t < 25 ? 100 - t : 75;
+  const C0 = 100, svg = d3.select("#ksvg"), W = 800, H = 280, mg = {l:62, r:24, t:16, b:44};
+  let right = "farmer";
+  const btn = d3.select("#kright").selectAll("button").data([["farmer","The farmer"],["raiser","The cattle raiser"]]).join("button").attr("class","tab").text(d => d[1]).on("click", (e,d) => { right = d[0]; draw(); });
+  function outcome(r, h, d, t) {
+    if (r === "farmer") {
+      const gain = h - d, deal = gain > t;
+      return { herd: deal, deal, total: deal ? C0 + h - d - t : C0, gain: Math.max(gain, 0), lo: d, hi: h, payer: "cattle raiser", payee: "farmer" };
+    }
+    const gain = d - h, deal = gain > t;
+    return { herd: !deal, deal, total: deal ? C0 - t : C0 + h - d, gain: Math.max(gain, 0), lo: h, hi: d, payer: "farmer", payee: "cattle raiser" };
+  }
   function draw() {
-    const t = +d3.select("#ctc").property("value"); d3.select("#ctcv").text(t);
+    const h = +d3.select("#kh").property("value"), d = +d3.select("#kd").property("value"), t = +d3.select("#kt").property("value");
+    d3.select("#khv").text(h); d3.select("#kdv").text(d); d3.select("#ktv").text(t);
+    btn.classed("on", b => b[0] === right);
+    const best = C0 + Math.max(h - d, 0), o = outcome(right, h, d, t), holder = right === "farmer" ? "farmer" : "cattle raiser";
+    d3.select("#ko1").text(o.herd ? "Herd runs" : "Herd kept off"); d3.select("#ko1t").text(o.deal ? "after a bargain" : "no bargain is struck");
+    d3.select("#ko2").text(`${o.total}`); d3.select("#ko2t").text(`total value of the land, against a best possible ${best}`);
+    d3.select("#ko3").text(`${best - o.total}`); d3.select("#ko3t").text(best - o.total === 0 ? "lost. The land is in its best use." : (o.deal ? "lost to the cost of the bargain." : "lost because the initial allocation decided the outcome."));
+    let story;
+    if (o.gain === 0) story = `The ${holder} holds the right, and using it already puts the land to its best use, so no bargain is needed.`;
+    else if (o.deal) story = `The ${o.payer} would pay up to ${o.hi} and the ${o.payee} would accept ${o.lo}, so a deal creates ${o.gain}. It costs ${t} to strike, so it goes through, with the ${o.payer} paying the ${o.payee} between ${o.lo} and ${o.hi}.`;
+    else story = `A deal would create ${o.gain}, since the ${o.payer} would pay up to ${o.hi} and the ${o.payee} would accept ${o.lo}. Striking it costs ${t}, so it never happens and the land stays where the right put it.`;
+    d3.select("#kstory").text(story);
+    const ts = d3.range(0, 50.01, 0.5), lines = ["farmer","raiser"].map(r => ({ r, pts: ts.map(v => [v, outcome(r, h, d, v).total]) }));
+    const all = lines.flatMap(l => l.pts.map(p => p[1])).concat([best]);
+    const x = d3.scaleLinear([0, 50], [mg.l, W-mg.r]), y = d3.scaleLinear([Math.min(...all) - 8, Math.max(...all) + 8], [H-mg.b, mg.t]);
     svg.selectAll("*").remove();
     svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(10));
     svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
     svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Cost of striking a bargain");
     svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Total value of the land");
-    svg.append("line").attr("x1", x(25)).attr("x2", x(25)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", "#c8c8c8").attr("stroke-dasharray","3 3");
-    svg.append("text").attr("x", x(25)+6).attr("y", mg.t+12).style("font-size","11px").text("the bargain stops paying at 25");
-    const pts = d3.range(0, 50.01, 0.25);
-    [[farmerRight, C.teal, "Farmer holds the right"], [rancherRight, C.rust, "Cattle raiser holds the right"]].forEach(([f, c]) => {
-      svg.append("path").datum(pts).attr("fill","none").attr("stroke", c).attr("stroke-width", 2.5).attr("d", d3.line().x(v => x(v)).y(v => y(f(v))).defined((v,i) => !(f === rancherRight && Math.abs(v-25) < 0.2)));
-      svg.append("circle").attr("cx", x(t)).attr("cy", y(f(t))).attr("r", 7).attr("fill", c).attr("stroke","#fff").attr("stroke-width",2);
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(best)).attr("y2", y(best)).attr("stroke", C.gray).attr("stroke-dasharray","4 4");
+    const col = { farmer: C.teal, raiser: C.rust };
+    lines.forEach(l => {
+      const on = l.r === right;
+      svg.append("path").datum(l.pts).attr("fill","none").attr("stroke", col[l.r]).attr("stroke-width", on ? 3 : 1.5).attr("opacity", on ? 1 : .45).attr("d", d3.line().x(p => x(p[0])).y(p => y(p[1])));
+      svg.append("circle").attr("cx", x(t)).attr("cy", y(outcome(l.r, h, d, t).total)).attr("r", on ? 8 : 5).attr("fill", col[l.r]).attr("opacity", on ? 1 : .5).attr("stroke","#fff").attr("stroke-width",2);
     });
-    d3.select("#cr1").text(`${farmerRight(t)}`); d3.select("#cr1t").text("total if the farmer holds the right. The herd is kept off and no bargain is needed.");
-    d3.select("#cr2").text(`${rancherRight(t)}`); d3.select("#cr2t").text(t < 25 ? "total if the cattle raiser holds the right. The farmer pays to remove the herd, less the cost of the deal." : "total if the cattle raiser holds the right. The deal costs more than it creates, so the herd stays.");
-    d3.select("#cr3").text(`${farmerRight(t) - rancherRight(t)}`); d3.select("#cr3t").text(t === 0 ? "difference between the two assignments. Only who gets paid changes." : (t < 25 ? "lost to the cost of bargaining under the second assignment." : "lost because the initial allocation now decides the outcome."));
-    d3.select("#cleg").html(`<span style="color:${C.teal};font-weight:600">— Farmer holds the right</span> &nbsp; <span style="color:${C.rust};font-weight:600">— Cattle raiser holds the right</span>`);
+    d3.select("#kleg").html(`<span style="color:${C.teal};font-weight:600">— The farmer holds the right</span> &nbsp; <span style="color:${C.rust};font-weight:600">— The cattle raiser holds the right</span> &nbsp; <span style="color:${C.gray};font-weight:600">- - best possible</span>`);
   }
-  d3.select("#ctc").on("input", draw); draw();
+  d3.selectAll("#kh,#kd,#kt").on("input", draw); draw();
 }
 </script>
 </body>
