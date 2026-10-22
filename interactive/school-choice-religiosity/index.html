@@ -160,8 +160,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
   <svg id="rsvg" viewBox="0 0 800 260" role="img" aria-label="Estimated effects on the share of pupils in Catholic schools"></svg>
   <div class="cap" id="rcap"></div>
 </div>
-<p>Spending in the average département rose by about 0.86 log points between 1878 and 1902, a factor of about 2.4. Multiplying that rise by the spending coefficient gives the change in the Catholic share it predicts. Across the eight specifications the answer is a fall of 0.9 to 1.7 percentage points, and the estimate is significant at the 10 percent level only for boys with a time trend. Over the same years the 1901 law alone lowered the share of girls in Catholic schools by 5.5 to 18.6 percentage points, from an average share of 44 percent.</p>
-<p class="note">With year effects the two law markers cannot be told apart from the years themselves, since every département received the laws at the same time. The published year-effect columns keep the law markers by leaving out the year dummies for 1878 and two later years, 1881 with 1901 or 1881 with 1902, and the law estimates in those columns rest on those omitted years. The estimates for the 1901 law move most between specifications.</p>
+<p>Spending in the average département rose by about 0.86 log points between 1878 and 1902, a factor of about 2.4. Multiplying that rise by the spending coefficient gives the change in the Catholic share it predicts. Across the eight specifications the answer is a fall of 0.9 to 1.7 percentage points, and the estimate is significant at the 10 percent level only for boys with a time trend. Over the same years the 1901 law lowered the share of girls in Catholic schools by about 5.5 percentage points against the time trend, from an average share of 44 percent. For boys the estimate is 0.7 to 1.0 points.</p>
 </section>
 
 <section id="channels">
@@ -318,18 +317,21 @@ function results(t2) {
   function draw() {
     btns.forEach((b, i) => b.classed("on", d => d[0] === opts[i][3]()));
     const col = t2.columns.find(k => k.outcome === o && k.time === t && k.controls === c);
-    const est = rows.map(([k, l]) => { const s = k === "spending" ? rise : 1; return { k, l, b: 100*col[k].b*s, lo: 100*(col[k].b - 1.96*col[k].se)*s, hi: 100*(col[k].b + 1.96*col[k].se)*s }; });
+    const fe = t === "yearfe";
+    const est = rows.map(([k, l]) => { const s = k === "spending" ? rise : 1; return { k, l, na: fe && k !== "spending", b: 100*col[k].b*s, lo: 100*(col[k].b - 1.96*col[k].se)*s, hi: 100*(col[k].b + 1.96*col[k].se)*s }; });
     svg.selectAll("*").remove();
     svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(7));
     svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Change in the share in Catholic schools, percentage points");
     svg.append("line").attr("x1", x(0)).attr("x2", x(0)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
     est.forEach(e => { const yc = y(e.k) + y.bandwidth()/2, cc = e.k === "spending" ? C.teal : C.rust;
       svg.append("text").attr("x", mg.l - 12).attr("y", yc + 4).attr("text-anchor","end").attr("class","title").text(e.l);
+      if (e.na) { svg.append("text").attr("x", x(-10)).attr("y", yc + 4).attr("text-anchor","middle").attr("fill", C.gray).text("Not estimated with year effects"); return; }
       svg.append("line").attr("x1", x(Math.max(e.lo, -25))).attr("x2", x(Math.min(e.hi, 5))).attr("y1", yc).attr("y2", yc).attr("stroke", cc).attr("stroke-width", 3);
       svg.append("circle").attr("cx", x(e.b)).attr("cy", yc).attr("r", 7).attr("fill", cc)
         .on("mousemove", ev => showTip(ev, `<b>${e.l}</b><br>${e.b.toFixed(2)} points<br>95% interval ${e.lo.toFixed(2)} to ${e.hi.toFixed(2)}`)).on("mouseleave", hideTip); });
-    d3.select("#r1").text(`${est[0].b.toFixed(1)} points`); d3.select("#r2").text(`${est[1].b.toFixed(1)} points`); d3.select("#r3").text(`${est[2].b.toFixed(1)} points`);
-    d3.select("#rcap").html(`<b>Figure 5.</b> Estimates from column ${col.col} of Table 2, with 95 percent intervals from standard errors clustered by département. The spending row multiplies the coefficient on log spending by the average rise in log spending between 1878 and 1902, ${rise.toFixed(2)}. All specifications include département fixed effects, 87 départements, and 1,131 observations. Within R² ${col.within_r2.toFixed(3)}. Source: Table 2 of the paper, reproduced from the replication data.`);
+    const fmt = e => e.na ? "–" : `${e.b.toFixed(1)} points`;
+    d3.select("#r1").text(fmt(est[0])); d3.select("#r2").text(fmt(est[1])); d3.select("#r3").text(fmt(est[2]));
+    d3.select("#rcap").html(`<b>Figure 5.</b> Estimates from column ${col.col} of Table 2, with 95 percent intervals from standard errors clustered by département. The spending row multiplies the coefficient on log spending by the average rise in log spending between 1878 and 1902, ${rise.toFixed(2)}. All specifications include département fixed effects, 87 départements, and 1,131 observations. Within R² ${col.within_r2.toFixed(3)}.${fe ? " Both laws applied to every département in the same year, so year effects absorb them and the figure reports only spending for these columns." : ""} Source: Table 2 of the paper, reproduced from the replication data.`);
   }
   draw();
 }
