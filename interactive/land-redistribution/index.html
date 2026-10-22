@@ -91,6 +91,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 <nav class="toc" aria-label="Contents">
   <ol>
     <li><a href="#argument">Argument</a></li>
+    <li><a href="#coase">Two readings of the Coase theorem</a></li>
     <li><a href="#sale">The sale of Church land</a></li>
     <li><a href="#map">Where Church land was sold</a></li>
     <li><a href="#results">What followed the auctions</a></li>
@@ -104,23 +105,47 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 
 <section id="argument">
 <h2><span class="num">1</span>Argument</h2>
-<p>The Coase theorem says that when property rights are clear and bargaining is cheap, land ends up with whoever can use it best, whatever the starting allocation. When bargaining is expensive the starting allocation matters, because the transactions that would move land to better uses do not take place. The paper puts it this way. In the presence of large transaction costs, the initial allocation of land mattered a great deal for achieving efficiency in agriculture.</p>
+<p>The paper is a test of the Coase theorem as Coase meant it. The textbook version says that if bargaining were free, property would be traded to whoever could use it best and the starting allocation would not matter. Coase used that frictionless world as a foil. In the world we live in bargaining is costly, so the starting allocation of rights matters, and so do the institutions that set and reassign it. The paper puts it this way. In the presence of large transaction costs, the initial allocation of land mattered a great deal for achieving efficiency in agriculture.</p>
 <p>The French Revolution supplies the test. In August 1789 the Constituent Assembly abolished the feudal system, and every region of France received clearer property rights at the same moment. Transacting in land stayed expensive. Overlapping feudal claims took decades to settle, the Civil Code was enforced unevenly, and many land transactions took place only in the second half of the 19th century, once the cadastre had mapped each plot. In November 1789 the Assembly also confiscated the property of the Catholic Church and sold it at auction to the highest bidder. Where the Church had owned more land, more land changed hands at once.</p>
 <p>The paper compares 194 districts. Those where a larger share of land had belonged to the Church had higher wheat yields in 1841, less fallow land and more land sown with nitrogen-fixing crops in 1852, and more drainage pipe manufacturers nearby. Their largest farms were larger and fewer of their tenant farmers were sharecroppers. The advantage was gone by 1875, as other districts reallocated their land by slower means.</p>
 </section>
 
+<section id="coase">
+<h2><span class="num">2</span>Two readings of the Coase theorem</h2>
+<p>Ronald Coase set out the argument in "The Problem of Social Cost" in 1960. George Stigler gave it its name in his price theory textbook in 1966, and the version that spread from there is a proposition about a world without transaction costs. In that world rights are traded until they reach their most valuable use, whoever holds them at the start. That is the version taught in most textbooks, and it is often used to argue that the law's assignment of rights washes out and the state can stay out of the way.</p>
+<p>Coase read his own result the other way round. He described the frictionless case as a stepping stone.</p>
+<blockquote class="note">"I tend to regard the Coase Theorem as a stepping stone on the way to an analysis of an economy with positive transaction costs… If we move from a regime of zero transaction costs to one of positive transaction costs, what becomes immediately clear is the crucial importance of the legal system in this new world… It makes little sense for economists to discuss the process of exchange without specifying the institutional setting within which the trading takes place since this affects the incentives to produce and the costs of transacting." Ronald Coase, Nobel Prize lecture, 1991.</blockquote>
+<p>The difference is easiest to see in a small example. A skydiving school earns 100 from operating and a crocodile farm next door earns 50, and the farm imposes a cost of 75 on the school. The best outcome is for the farm to close, which leaves a total of 100. Who holds the right decides whether that outcome is reached once bargaining has a cost.</p>
+<div class="figure">
+  <div class="controls">
+    <span class="ctl-label">Cost of striking a bargain</span>
+    <input id="ctc" type="range" min="0" max="50" step="1" value="0"><span class="v" id="ctcv"></span>
+  </div>
+  <div class="readout">
+    <div><b id="cr1"></b><span id="cr1t"></span></div>
+    <div><b id="cr2"></b><span id="cr2t"></span></div>
+    <div><b id="cr3"></b><span id="cr3t"></span></div>
+  </div>
+  <svg id="csvg" viewBox="0 0 800 280" role="img" aria-label="Total surplus under each assignment of the right as the cost of bargaining rises"></svg>
+  <div class="legend" id="cleg"></div>
+  <div class="cap"><b>Figure 1.</b> Total surplus of the school and the farm under each assignment of the right, as the cost of striking a bargain rises. If the school holds the right the farm closes, because the farm's 50 is worth less than the 75 it costs the school, and no bargain is needed. If the farm holds the right the school must pay it to close. The deal creates 25 of surplus and goes through only while it costs less than 25 to strike. Going to court is treated as free. The example follows Noel Johnson's Econ 623 lecture on institutions.</div>
+</div>
+<p>At zero cost the two assignments give the same total and differ only in who is paid, which is Stigler's theorem. Once a bargain costs more than the 25 it would create, the farm stays open under one assignment and closes under the other, and the initial allocation decides the outcome. Which world a given economy is in is an empirical question about transaction costs. McCloskey (1998), whom the paper cites on this point, makes the same argument.</p>
+<p>The French Revolution is a case where the answer can be measured. In 1789 rights were clarified everywhere at once, so the textbook reading predicts that land would move to its best users wherever it started. Transacting in land stayed expensive for decades. The auctions moved Church land to new owners at a single stroke in some districts and not in others. If Coase's reading is right, those districts should have pulled ahead, and the rest should have caught up as transaction costs fell. The sections below test both predictions.</p>
+</section>
+
 <section id="sale">
-<h2><span class="num">2</span>The sale of Church land</h2>
+<h2><span class="num">3</span>The sale of Church land</h2>
 <p>Before 1789 the Church owned between 6 and 10 percent of the land of France. The share varied widely. In towns it ranged from a third in Toulouse to 3 percent in Limoges. Church land was often leased in small, scattered plots, and under the rule of mortmain it could not be sold without a lengthy legal procedure that ended with the king's consent. When the archbishop of Aix sought to sell half his properties in 1782 he needed special permission from the courts.</p>
 <p>The auctions moved this land quickly. Local governments ran them under rules set by the Assembly, and assessors surveyed each property to set an opening bid. About 700,000 Church properties, roughly 6.5 percent of French territory, were sold from 1790. A further 400,000 properties of émigrés, roughly 3.5 percent, were sold from 1793 under more complicated rules, and the paper focuses on the Church sales. The proceeds backed the assignats, which became a fiat currency and lost their value, so the state recovered little from the sales. In the district of Bernay 27 members of the grand bourgeoisie bought 39 percent of the Church land auctioned, while 350 peasants bought 33.2 percent.</p>
 <div class="figure">
   <svg id="tsvg" viewBox="0 0 800 210" role="img" aria-label="Timeline of the sales and the agricultural surveys"></svg>
-  <div class="cap"><b>Figure 1.</b> The sales and the surveys the paper uses to measure their effects. Hover a mark for the event. Source: sections 2 and 3 of the paper.</div>
+  <div class="cap"><b>Figure 2.</b> The sales and the surveys the paper uses to measure their effects. Hover a mark for the event. Source: sections 2 and 3 of the paper.</div>
 </div>
 </section>
 
 <section id="map">
-<h2><span class="num">3</span>Where Church land was sold</h2>
+<h2><span class="num">4</span>Where Church land was sold</h2>
 <p>The share of a district's land confiscated from the Church ranges from 0 to 40 percent across the 194 districts with data, with a mean of 5.9 percent. Bodinier and Teyssier (2000) compiled these figures from regional studies, and the districts they cover held about two-thirds of Church land before the Revolution. Choose a variable to map it, and add the drainage pipe manufacturers of 1862 or the seats of bishoprics.</p>
 <div class="figure">
   <div class="controls" id="mctl"><span class="ctl-label">Map</span></div>
@@ -135,7 +160,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 </section>
 
 <section id="results">
-<h2><span class="num">4</span>What followed the auctions</h2>
+<h2><span class="num">5</span>What followed the auctions</h2>
 <p>The paper regresses each outcome on the percentage of a district's land confiscated from the Church. Controls add the district's soil suitability for wheat from the FAO, or its elevation range for pipe manufacturers, and its market access in 1789. Market access sums the population of every district and of nearby foreign cities, each divided by the lowest-cost travel route to it over the roads, canals, rivers, and seas of 1789. The preferred specifications add 12 region fixed effects, so they compare districts within the same region.</p>
 <div class="figure">
   <div class="controls" id="ro"><span class="ctl-label">Outcome</span></div>
@@ -156,7 +181,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 </section>
 
 <section id="instrument">
-<h2><span class="num">5</span>Bishoprics as an instrument</h2>
+<h2><span class="num">6</span>Bishoprics as an instrument</h2>
 <p>The Church may have owned better land to begin with, which would explain the results without any effect of the sales. No agricultural survey before 1841 can rule this out, so the paper uses an instrument. Between the 4th and 6th centuries the Church acquired vast amounts of land in Gaul, and between the 6th and 11th centuries one of a bishop's main tasks was to keep that land out of lay hands. Almost all French bishoprics existed by 1200. Districts closer to a bishopric therefore held more Church land in 1789, and the distance is plausibly unrelated to where farming became profitable after the Black Death and the opening of the Atlantic.</p>
 <p>One threat is that bishops managed nearby land better. The paper tests this with the assessed value per hectare of 812 Church farms and vineyards, recorded by the revolutionary assessors before the auctions. Plots closer to a bishopric were worth no more.</p>
 <div class="figure">
@@ -166,39 +191,39 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
       <table class="t" id="ivtab"></table>
     </div>
   </div>
-  <div class="cap"><b>Figure 4.</b> Left, the log of assessed value per hectare against distance to the nearest bishopric for 812 Church farms and vineyards in 1790, with the fitted line. The slope is −0.0049 log points per kilometer with a standard error of 0.0043, clustered by department, as in column 1 of Table 1 of the paper. Right, the effect of the percentage confiscated estimated by instrumental variables, with all controls, against ordinary least squares, from Table 5 of the paper. Standard errors in parentheses. The first-stage F statistic is the robust test of the excluded instrument from the replication code.</div>
+  <div class="cap"><b>Figure 5.</b> Left, the log of assessed value per hectare against distance to the nearest bishopric for 812 Church farms and vineyards in 1790, with the fitted line. The slope is −0.0049 log points per kilometer with a standard error of 0.0043, clustered by department, as in column 1 of Table 1 of the paper. Right, the effect of the percentage confiscated estimated by instrumental variables, with all controls, against ordinary least squares, from Table 5 of the paper. Standard errors in parentheses. The first-stage F statistic is the robust test of the excluded instrument from the replication code.</div>
 </div>
 <p>The instrumental-variable estimates are two to six times the ordinary least squares estimates. The paper offers two readings. Ordinary least squares may understate the effect, or the instrument may weight districts near seats of Church administration where the gains from redistribution were larger. The first-stage F statistics run from 10.3 to 11.8, below the Stock and Yogo critical value of 16.4 for a test of 10 percent maximal size.</p>
 </section>
 
 <section id="farms">
-<h2><span class="num">6</span>Larger farms</h2>
+<h2><span class="num">7</span>Larger farms</h2>
 <p>The paper traces the gains to consolidation. Galor and Moav (2004) argue that inequality favors growth when growth depends on physical capital, and drainage, irrigation, and new rotations were investments of that kind. The paper argues that the auctions most likely preserved the unequal holdings of the Old Regime. In the district of Limoux 41 members of the grand bourgeoisie bought 52.6 percent of the Church land auctioned, while 170 peasants bought 15.4 percent.</p>
 <div class="figure">
   <svg id="fsvg" viewBox="0 0 800 280" role="img" aria-label="Effect on average farm size by quantile"></svg>
-  <div class="cap"><b>Figure 5.</b> Change in average farm size in 1862, in hectares, for a district with 10 percentage points more of its land confiscated, by quantile of the farm-size distribution, from Table 6 of the paper. Each regression controls for wheat suitability and market access in 1789, without region fixed effects. Farm size is measured for the department, the first year it was recorded, and assigned to its districts. The paper reports the 75th and 90th quantile estimates as significant at the 1 percent level. The ordinary least squares estimate is 2.1 hectares with a standard error of 1.3, clustered by department. The average is 9.5 hectares and the standard deviation 5.3.</div>
+  <div class="cap"><b>Figure 6.</b> Change in average farm size in 1862, in hectares, for a district with 10 percentage points more of its land confiscated, by quantile of the farm-size distribution, from Table 6 of the paper. Each regression controls for wheat suitability and market access in 1789, without region fixed effects. Farm size is measured for the department, the first year it was recorded, and assigned to its districts. The paper reports the 75th and 90th quantile estimates as significant at the 1 percent level. The ordinary least squares estimate is 2.1 hectares with a standard error of 1.3, clustered by department. The average is 9.5 hectares and the standard deviation 5.3.</div>
 </div>
 <p>Sharecropping points the same way. The 1852 survey counts tenants who paid a fixed rent and tenants who paid a share of the crop. Where more Church land had been sold, sharecroppers made up a smaller share of tenants, by about 10 percentage points for 10 points more land confiscated with all controls and region fixed effects, against an average of 34 percent. Choose that outcome in Figure 3 to see it.</p>
 </section>
 
 <section id="fade">
-<h2><span class="num">7</span>The head start fades</h2>
+<h2><span class="num">8</span>The head start fades</h2>
 <p>If the auctions gave some districts a head start, the other districts should have caught up as they reallocated land by slower means. The paper estimates the effect on wheat yields in 1841, 1852, 1875, 1892, 1912, and 1929. After 1852 yields are recorded only for departments, so each district takes its department's yield and standard errors are clustered by department.</p>
 <div class="figure">
   <svg id="esvg" viewBox="0 0 800 300" role="img" aria-label="Effect on wheat yields by year"></svg>
-  <div class="cap"><b>Figure 6.</b> Change in wheat yields, in percent, for a district with 10 percentage points more of its land confiscated, by year, with 95 percent intervals. Each estimate controls for wheat suitability, market access in 1789, and region, each allowed to differ by year. Column 1 of Table 8 of the paper, 1,152 district-years.</div>
+  <div class="cap"><b>Figure 7.</b> Change in wheat yields, in percent, for a district with 10 percentage points more of its land confiscated, by year, with 95 percent intervals. Each estimate controls for wheat suitability, market access in 1789, and region, each allowed to differ by year. Column 1 of Table 8 of the paper, 1,152 district-years.</div>
 </div>
 <p>The effect falls by about a sixth from 1841 to 1852 and is indistinguishable from zero in 1875 and 1892. It reappears in 1912 and 1929 at about half its 1841 size. The paper shows that two districts produce this later effect, Cambrai, where 40 percent of the land was confiscated, and Arles, where 25 percent was. A robust regression that downweights outliers removes it.</p>
 </section>
 
 <section id="policy">
-<h2><span class="num">8</span>What it means for land reform</h2>
+<h2><span class="num">9</span>What it means for land reform</h2>
 <p>A reform that clarifies property rights everywhere at once does not by itself move land to its best use. Where transacting stays expensive, the allocation the reform inherits persists, and the paper finds that the gains of the Revolution's reforms arrived first where the state itself moved land to new owners. Their head start is visible in 1841 and 1852 and gone by 1875, as the transaction costs that held back the rest of France came down.</p>
 <p>The French sales also differ from most land reforms. They allocated land by auction to the highest bidder rather than equally, and they preserved large holdings. The paper sets this against studies of other reforms. Besley and Burgess (2000) find that Indian states with more land reform saw poverty fall and agricultural wages rise. Bandiera (2003) on 19th-century Sicily, Dell (2012) on Mexico in the 1910s, and Domenech and Herreros (2017) on Spain in the 1930s find reforms that raised conflict and corruption. In the French case productivity rose where, the paper argues, the redistribution kept land concentrated, at a time when agricultural growth depended on investment in drainage, irrigation, and new crops. The paper concludes that the benefits of institutional reform depend a great deal on the transaction costs faced by economic agents.</p>
 </section>
 
 <section id="limits">
-<h2><span class="num">9</span>Limits</h2>
+<h2><span class="num">10</span>Limits</h2>
 <p>The confiscation data cover 194 of the 534 districts of 1790. They come from regional studies that favored well-known and economically central places, and the sampled districts have higher market access than the others. The comparisons within regions and the controls for market access address part of this.</p>
 <p>No agricultural survey exists before 1841, so the paper cannot show that districts with more Church land were no more productive before the Revolution. The controls for soil suitability, the instrument, and the test of plot values bear on this without settling it.</p>
 <p>Farm size is observed only for departments and only from 1862. The mechanism rests on that measure, on sharecropping in 1852, and on case studies of who bought at auction.</p>
@@ -220,7 +245,7 @@ const hideTip = () => tip.style("opacity",0);
 const f1 = d3.format(".1f"), f2 = d3.format(".2f");
 
 Promise.all([d3.json("districts.json"), d3.json("districts.geojson"), d3.json("results.json"), d3.json("pipes.json"), d3.json("bishoprics.json"), d3.json("auctions.json")])
-  .then(([dist, geo, res, pipes, bish, auc]) => { timeline(); mapView(dist, geo, pipes, bish); results(dist, res); instrument(auc, res); farms(res); fade(res); });
+  .then(([dist, geo, res, pipes, bish, auc]) => { coase(); timeline(); mapView(dist, geo, pipes, bish); results(dist, res); instrument(auc, res); farms(res); fade(res); });
 
 // ---------- 2. Timeline ----------
 function timeline() {
@@ -279,7 +304,7 @@ function mapView(dist, geo, pipes, bish) {
     pg.style("display", d3.select("#mpipes").property("checked") ? null : "none");
     bg.style("display", d3.select("#mbish").property("checked") ? null : "none");
     d3.select("#mleg").html(V.legend.map((l, i) => `<span style="display:inline-block;width:12px;height:12px;background:${V.col[i]};vertical-align:-1px;margin-right:4px;border:1px solid #ccc"></span>${l}`).join(" &nbsp; ") + ` &nbsp; <span style="display:inline-block;width:12px;height:12px;background:#e4e2dc;vertical-align:-1px;margin-right:4px"></span>No confiscation data`);
-    d3.select("#mcap").html(`<b>Figure 2.</b> ${V.src} The 194 districts with confiscation data are shaded and the other 340 districts of 1790 are grey. Dots are communes with drainage pipe manufacturers in Barral (1862), sized by their number. Crosses are seats of bishoprics and archbishoprics in 1600 from Bosker, Buringh, and van Zanden (2013). District boundaries are from the paper's map of the 1790 districts.`);
+    d3.select("#mcap").html(`<b>Figure 3.</b> ${V.src} The 194 districts with confiscation data are shaded and the other 340 districts of 1790 are grey. Dots are communes with drainage pipe manufacturers in Barral (1862), sized by their number. Crosses are seats of bishoprics and archbishoprics in 1600 from Bosker, Buringh, and van Zanden (2013). District boundaries are from the paper's map of the 1790 districts.`);
   }
   d3.selectAll("#mpipes,#mbish").on("change", draw); draw();
 }
@@ -336,7 +361,7 @@ function results(dist, res) {
       cs.append("text").attr("x", mg2.l - 8).attr("y", yc + 4).attr("text-anchor","end").style("font-size","11px").style("font-weight", on ? 700 : 400).text(labs[i]);
       cs.append("line").attr("x1", x2(q.b - 1.96*q.se)).attr("x2", x2(q.b + 1.96*q.se)).attr("y1", yc).attr("y2", yc).attr("stroke", on ? C.rust : "#9aa3ad").attr("stroke-width", 3);
       cs.append("circle").attr("cx", x2(q.b)).attr("cy", yc).attr("r", on ? 7 : 5).attr("fill", on ? C.rust : "#9aa3ad"); });
-    d3.select("#rcap").html(`<b>Figure 3.</b> Left, each district's outcome against the percentage of its land confiscated, with a line of the chosen specification's slope through the sample means. Right, the coefficient on the percentage confiscated in all six specifications of ${TABLE[key]} of the paper, with 95 percent intervals from heteroskedasticity-robust standard errors. The chosen specification is in rust. ${key === "sharemetayer1852" ? "Sharecroppers are counted as a share of all tenant farmers, those paying a fixed rent and those paying a share of the crop." : ""} Reproduced from the replication files.`);
+    d3.select("#rcap").html(`<b>Figure 4.</b> Left, each district's outcome against the percentage of its land confiscated, with a line of the chosen specification's slope through the sample means. Right, the coefficient on the percentage confiscated in all six specifications of ${TABLE[key]} of the paper, with 95 percent intervals from heteroskedasticity-robust standard errors. The chosen specification is in rust. ${key === "sharemetayer1852" ? "Sharecroppers are counted as a share of all tenant farmers, those paying a fixed rent and those paying a share of the crop." : ""} Reproduced from the replication files.`);
   }
   draw();
 }
@@ -386,6 +411,33 @@ function fade(res) {
   svg.selectAll(null).data(t).join("line").attr("x1", r => x(r.year)).attr("x2", r => x(r.year)).attr("y1", r => y(r.lo)).attr("y2", r => y(r.hi)).attr("stroke", C.rust).attr("stroke-width", 3).attr("opacity", .45);
   svg.selectAll(null).data(t).join("circle").attr("cx", r => x(r.year)).attr("cy", r => y(r.v)).attr("r", 6).attr("fill", C.rust)
     .on("mousemove", (e,r) => showTip(e, `<b>${r.year}</b><br>${f1(r.v)}% for 10 points more confiscated<br>95% interval ${f1(r.lo)} to ${f1(r.hi)}`)).on("mouseleave", hideTip);
+}
+
+// ---------- 2. Coase example ----------
+function coase() {
+  const svg = d3.select("#csvg"), W = 800, H = 280, mg = {l:62, r:24, t:16, b:44};
+  const x = d3.scaleLinear([0, 50], [mg.l, W-mg.r]), y = d3.scaleLinear([50, 110], [H-mg.b, mg.t]);
+  const schoolRight = t => 100, farmRight = t => t < 25 ? 100 - t : 75;
+  function draw() {
+    const t = +d3.select("#ctc").property("value"); d3.select("#ctcv").text(t);
+    svg.selectAll("*").remove();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(10));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Cost of striking a bargain");
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Total surplus");
+    svg.append("line").attr("x1", x(25)).attr("x2", x(25)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", "#c8c8c8").attr("stroke-dasharray","3 3");
+    svg.append("text").attr("x", x(25)+6).attr("y", mg.t+12).style("font-size","11px").text("the bargain stops paying at 25");
+    const pts = d3.range(0, 50.01, 0.25);
+    [[schoolRight, C.teal, "School holds the right"], [farmRight, C.rust, "Farm holds the right"]].forEach(([f, c]) => {
+      svg.append("path").datum(pts).attr("fill","none").attr("stroke", c).attr("stroke-width", 2.5).attr("d", d3.line().x(v => x(v)).y(v => y(f(v))).defined((v,i) => !(f === farmRight && Math.abs(v-25) < 0.2)));
+      svg.append("circle").attr("cx", x(t)).attr("cy", y(f(t))).attr("r", 7).attr("fill", c).attr("stroke","#fff").attr("stroke-width",2);
+    });
+    d3.select("#cr1").text(`${schoolRight(t)}`); d3.select("#cr1t").text("total if the school holds the right. The farm closes and no bargain is needed.");
+    d3.select("#cr2").text(`${farmRight(t)}`); d3.select("#cr2t").text(t < 25 ? "total if the farm holds the right. The school pays it to close, less the cost of the deal." : "total if the farm holds the right. The deal costs more than it creates, so both stay open.");
+    d3.select("#cr3").text(`${schoolRight(t) - farmRight(t)}`); d3.select("#cr3t").text(t === 0 ? "difference between the two assignments. Only who gets paid changes." : (t < 25 ? "lost to the cost of bargaining under the second assignment." : "lost because the initial allocation now decides the outcome."));
+    d3.select("#cleg").html(`<span style="color:${C.teal};font-weight:600">— School holds the right</span> &nbsp; <span style="color:${C.rust};font-weight:600">— Farm holds the right</span>`);
+  }
+  d3.select("#ctc").on("input", draw); draw();
 }
 </script>
 </body>
