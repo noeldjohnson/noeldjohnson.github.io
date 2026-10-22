@@ -16,7 +16,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 Nine of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
 
-**How Selected Is the Institutional Record? Craft Guilds and City Growth in Europe, 1000–1800**\\
+**Selection in the Institutional Record: Evidence from Craft Guilds and City Growth in Europe, 1000–1800**\\
 (joint with Eric Wilhelm)\\
 [Interactive Companion](/interactive/guilds/)
 

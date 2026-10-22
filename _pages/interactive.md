@@ -7,7 +7,7 @@ header:
 companion_guilds:
   - image_path: /assets/images/interactive/guilds.jpg
     alt: "Map of European cities shaded by when their guilds were first documented"
-    title: "How Selected Is the Institutional Record? Craft Guilds and City Growth in Europe, 1000–1800"
+    title: "Selection in the Institutional Record: Evidence from Craft Guilds and City Growth in Europe, 1000–1800"
     excerpt: "With Eric H. Wilhelm. Cities whose guilds are first documented had been about twice the size of their neighbors for four centuries before the record. Within-city and matched designs put the guild premium near 14 percent."
     url: /interactive/guilds/
     btn_label: "Open the companion"
