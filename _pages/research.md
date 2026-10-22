@@ -14,7 +14,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
-Six of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
+Eight of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
 
 **How Selected Is the Institutional Record? Craft Guilds and City Growth in Europe, 1000–1800**\\
 (joint with Eric Wilhelm)\\
@@ -50,6 +50,7 @@ Six of these papers have [interactive companions](/interactive/), with figures y
 *The Journal of Urban Economics, 2024*\\
 [Download Draft](/assets/papers/pandemics-places-and-populations-the-effects-of-draft.pdf)\\
 [Download Presentation](/assets/papers/pandemics-places-and-populations-the-effects-of-presentation.pdf)\\
+[Interactive Companion](/interactive/pandemics-cities/)\\
 [A Vox piece on the paper](https://voxeu.org/article/how-black-death-changed-europes-cities)
 
 **The Effects of Historical Pandemics: The Black Death**\\
@@ -108,6 +109,7 @@ Six of these papers have [interactive companions](/interactive/), with figures y
 (joint with Raphaël Franck)\\
 *The Economic History Review, 2016*\\
 [Download Paper](/assets/papers/can-public-policies-lower-religiosity-evidence-from-paper.pdf)\\
+[Interactive Companion](/interactive/school-choice-religiosity/)\\
 [Data Sets](https://github.com/noeldjohnson/EHR_2016_Data_Sets.git)
 
 **Taxes, Lawyers, and the Decline of Witch Trials in France**\\

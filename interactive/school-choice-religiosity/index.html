@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can Public Policies Lower Religiosity?</title>
+<meta name="description" content="An interactive companion to Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878-1902, by Raphaël Franck and Noel D. Johnson, Economic History Review, 2016.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Noel D. Johnson">
+<meta property="og:title" content="Can Public Policies Lower Religiosity? An interactive companion">
+<meta property="og:description" content="An interactive companion to Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878-1902, by Raphaël Franck and Noel D. Johnson, Economic History Review, 2016.">
+<meta property="og:url" content="https://noeldjohnson.github.io/interactive/school-choice-religiosity/">
+<meta property="og:image" content="https://noeldjohnson.github.io/assets/images/interactive/school-choice-religiosity.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@noeldjohnson">
+<meta name="twitter:title" content="Can Public Policies Lower Religiosity? An interactive companion">
+<meta name="twitter:description" content="An interactive companion to Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878-1902, by Raphaël Franck and Noel D. Johnson, Economic History Review, 2016.">
+<meta name="twitter:image" content="https://noeldjohnson.github.io/assets/images/interactive/school-choice-religiosity.jpg">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+.byline a { color: var(--teal); }
+nav.toc { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; background: var(--panel); padding: 14px 18px; border-radius: 6px; margin: 0 0 32px; }
+nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+nav.toc a { color: var(--navy); text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+h2 { font-size: 26px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.figure .cap { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 10px; }
+.figure .cap b { color: var(--ink); }
+.controls { font: 15px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 12px; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+.controls .v { font-weight: 600; color: var(--rust); min-width: 3.2em; }
+input[type=range] { width: 180px; max-width: 100%; accent-color: var(--rust); }
+input[type=text] { font: 15px -apple-system, "Helvetica Neue", Arial, sans-serif; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+button.tab { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; border: 1px solid var(--rule); background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; color: var(--navy); }
+button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.readout div { background: #fff; border-radius: 6px; padding: 10px 12px; font: 14px/1.35 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.readout b { display: block; font: 600 24px/1.2 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--navy); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.chips { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.chips a { color: var(--teal); cursor: pointer; margin-right: 8px; text-decoration: underline; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
+svg text.title { font-weight: 600; fill: var(--navy); font-size: 13px; }
+.axis path, .axis line { stroke: #b8b8b8; }
+.tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; max-width: 300px; z-index: 10; }
+.tip b { color: var(--navy); }
+.legend { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 6px; }
+table.t { width: 100%; border-collapse: collapse; font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; margin: 6px 0 4px; }
+table.t th, table.t td { border-bottom: 1px solid var(--rule); padding: 6px 6px; text-align: left; }
+.note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+@media (max-width: 640px) {
+  body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
+  .readout, .two { grid-template-columns: 1fr; }
+}
+h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0 28px; font: 14px/1.3 -apple-system, "Helvetica Neue", Arial, sans-serif; }
+.flow div { background: var(--panel); border-radius: 6px; padding: 8px 10px; color: var(--navy); font-weight: 600; }
+.flow small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+.flow span { color: var(--rust); font-weight: 600; }
+.ctl-label { font-weight: 600; color: var(--navy); min-width: 5em; }
+.timeline-note { font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">Interactive companion</div>
+  <h1>Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878–1902</h1>
+  <div class="byline">Raphaël Franck and Noel D. Johnson · <i>Economic History Review</i>, 2016 · <a href="/assets/papers/can-public-policies-lower-religiosity-evidence-from-paper.pdf">Read the paper</a> · <a href="https://github.com/noeldjohnson/EHR_2016_Data_Sets">Data</a> · <a href="/research/">Research</a></div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#laws">The laws</a></li>
+    <li><a href="#spending">Spending and enrolment</a></li>
+    <li><a href="#map">Catholic schooling by département</a></li>
+    <li><a href="#results">What moved enrolment</a></li>
+    <li><a href="#channels">Where Catholic schooling held</a></li>
+    <li><a href="#policy">What it says about policy</a></li>
+    <li><a href="#limits">Limits</a></li>
+  </ol>
+</nav>
+
+<section id="argument">
+<h2><span class="num">1</span>Argument</h2>
+<p>Between 1878 and 1902 the French Third Republic set out to move children from Catholic primary schools into secular state schools. It used two kinds of policy. It spent heavily on secular schools, and central state spending on education rose fourteenfold between 1875 and 1902. It also passed laws. The laws of 1881 and 1882 made state primary schooling free, secular, and mandatory to age 13. The law on associations of 1 July 1901 in effect barred monks and nuns, who supplied most Catholic teachers, from teaching.</p>
+<p>The paper uses the share of pupils in Catholic primary schools as a measure of religiosity, across the 87 départements of France in 13 years with complete data. The added spending had no robust effect on that share. The laws of 1881 and 1882 lowered it a little. The 1901 law lowered it sharply, especially for girls. Parents who chose Catholic schools were not won over by cheaper and better-equipped secular schools. They moved their children when the law removed the teachers.</p>
+<p>Catholic schooling held on most strongly where the Revolution's violence against the Church had been heaviest. The paper traces its resilience to a political divide dating from 1789.</p>
+</section>
+
+<section id="laws">
+<h2><span class="num">2</span>The laws</h2>
+<p>The Republic's school policy came in two waves. The first, from 1878 to 1886, paid for secular schools and teachers and made state schooling free and compulsory. The second, from 1901 to 1905, went after the religious orders that staffed Catholic schools.</p>
+<div class="figure">
+  <svg id="tsvg" viewBox="0 0 800 260" role="img" aria-label="Timeline of French school laws, 1833 to 1905"></svg>
+  <div class="cap"><b>Figure 1.</b> School laws discussed in the paper. Hover a mark for the law. Rust marks are the laws whose effects the paper estimates, the free and mandatory schooling laws of 1881 and 1882 and the law on associations of 1901. Source: section I of the paper.</div>
+</div>
+</section>
+
+<section id="spending">
+<h2><span class="num">3</span>Spending and enrolment</h2>
+<p>Public spending on primary education nearly tripled between 1878 and 1902 in the paper's data, and the central state took over most of it. Spending by the départements fell to almost nothing.</p>
+<div class="figure">
+  <svg id="ssvg" viewBox="0 0 800 300" role="img" aria-label="Public spending on primary education by level of government"></svg>
+  <div class="legend" id="sleg"></div>
+  <div class="cap"><b>Figure 2.</b> Public spending on primary education summed over the 87 départements, in millions of francs, in the 13 years with complete data. Prices were stable in France over this period, so the figures are comparable across years. Source: Annuaire statistique de la France and the Bulletin de statistique, from the paper's replication data.</div>
+</div>
+<p>The share of pupils in Catholic schools fell slowly through the 1880s and 1890s. Girls were far more likely than boys to attend a Catholic school. In 1878 the average département sent 19 percent of its boys and 55 percent of its girls to Catholic schools. In 1896 the figures were 15 and 42 percent. Then the 1901 law took effect, and by 1902 they were 12 and 27 percent.</p>
+<div class="figure">
+  <svg id="nsvg" viewBox="0 0 800 300" role="img" aria-label="Share of pupils in Catholic schools, 1878 to 1902"></svg>
+  <div class="legend" id="nleg"></div>
+  <div class="cap"><b>Figure 3.</b> Share of pupils in Catholic primary schools, the average over départements, by sex, in every year with enrolment data. The dashed lines mark the 1881 law and the 1901 law. Source: Annuaire statistique de la France, from the paper's replication data.</div>
+</div>
+</section>
+
+<section id="map">
+<h2><span class="num">4</span>Catholic schooling by département</h2>
+<p>The averages hide large differences between départements. In the most Catholic départements close to 60 percent of boys and 92 percent of girls attended Catholic schools in 1878. The regional pattern held through 1902.</p>
+<div class="figure">
+  <div class="controls" id="mctl"><span class="ctl-label">Pupils</span></div>
+  <div class="controls"><label>Year <input id="myr" type="range" min="0" max="20" step="1" value="0"></label><span class="v" id="myrv"></span></div>
+  <svg id="msvg" viewBox="0 0 800 640" role="img" aria-label="Map of the share of pupils in Catholic schools by département"></svg>
+  <div class="legend" id="mleg"></div>
+  <div class="cap"><b>Figure 4.</b> Share of boys or girls in Catholic primary schools by département, with the bins the paper uses in its Figures 5 to 8. Hover a département for its share and its public spending per pupil. Boundaries are modern départements merged to the 87 of 1878, with Seine and Seine-et-Oise rebuilt from their modern successors. Alsace and Moselle, German after 1871, are not shown. Source: Annuaire statistique de la France, from the paper's replication data.</div>
+</div>
+</section>
+
+<section id="results">
+<h2><span class="num">5</span>What moved enrolment</h2>
+<p>The paper regresses the share of boys or girls in Catholic schools on public spending, a marker for the years after the 1881 law, and a marker for the years after the 1901 law. Every specification compares each département with itself over time. Some add controls for fertility, literacy, urbanization, and the structure of the workforce. Some absorb common time patterns with a time trend and some with year effects. Choose a specification to see its estimates.</p>
+<div class="figure">
+  <div class="controls" id="ro"><span class="ctl-label">Pupils</span></div>
+  <div class="controls" id="rt"><span class="ctl-label">Time</span></div>
+  <div class="controls" id="rc"><span class="ctl-label">Controls</span></div>
+  <div class="readout">
+    <div><b id="r1"></b>change from the actual rise in spending, 1878 to 1902</div>
+    <div><b id="r2"></b>change after the 1881 law</div>
+    <div><b id="r3"></b>change after the 1901 law</div>
+  </div>
+  <svg id="rsvg" viewBox="0 0 800 260" role="img" aria-label="Estimated effects on the share of pupils in Catholic schools"></svg>
+  <div class="cap" id="rcap"></div>
+</div>
+<p>Spending in the average département rose by about 0.86 log points between 1878 and 1902, a factor of about 2.4. Multiplying that rise by the spending coefficient gives the change in the Catholic share it predicts. Across the eight specifications the answer is a fall of 0.9 to 1.7 percentage points, and the estimate is significant at the 10 percent level only for boys with a time trend. Over the same years the 1901 law alone lowered the share of girls in Catholic schools by 5.5 to 18.6 percentage points, from an average share of 44 percent.</p>
+<p class="note">With year effects the two law markers cannot be told apart from the years themselves, since every département received the laws at the same time. The published year-effect columns keep the law markers by leaving out the year dummies for 1878 and two later years, 1881 with 1901 or 1881 with 1902, and the law estimates in those columns rest on those omitted years. The estimates for the 1901 law move most between specifications.</p>
+</section>
+
+<section id="channels">
+<h2><span class="num">6</span>Where Catholic schooling held</h2>
+<p>The paper asks where spending did least to move parents. It interacts spending with characteristics of each département that predate the Republic, one at a time. A positive interaction means spending lowered the Catholic share less where the characteristic was larger. Choose a characteristic to see how it lines up with the average Catholic share, 1878 to 1902, and what the paper estimates.</p>
+<div class="figure">
+  <div class="controls" id="cch"></div>
+  <div class="controls" id="cso"><span class="ctl-label">Pupils</span></div>
+  <div class="readout" style="grid-template-columns:1fr 1fr">
+    <div><b id="cb"></b>interaction with spending, boys</div>
+    <div><b id="cg"></b>interaction with spending, girls</div>
+  </div>
+  <svg id="csvg" viewBox="0 0 800 340" role="img" aria-label="Département characteristics against the share of pupils in Catholic schools"></svg>
+  <div class="cap" id="ccap"></div>
+</div>
+<p>The strongest pattern runs through the Revolution. Spending did less to move girls out of Catholic schools in the départements with the most death sentences in the Terror of 1793 and 1794, and in those where the Terror fell most on the clergy. The death sentences were concentrated in the three largest cities and in Loire-Inférieure, Maine-et-Loire, and Vendée, where the revolutionary state carried out mass killings. Spending also did less to move girls in rugged départements, and less to move boys where primary school attendance had been high in 1837. The share of priests who refused the 1791 oath to the civil constitution of the clergy, a measure of religiosity before the violence, does not predict the effect of spending.</p>
+</section>
+
+<section id="policy">
+<h2><span class="num">7</span>What it says about policy</h2>
+<p>The Republic competed with the Catholic schools on price and quality. Secular schooling became free and there were more state schools and teachers. Parents who preferred Catholic schools mostly stayed. The share fell sharply only when a law removed the supply of Catholic teachers. In the paper's words, Catholic parents were not won over by free and mandatory schooling but were coerced into enrolling their children in secular schools.</p>
+<p>The paper reads this as a case in which the state failed to crowd out a private provider by competing on price. Making secular education cheaper by building schools and hiring teachers was not enough to break the links between religion and politics that dated from the Revolution's assault on the Church a century earlier. Only a restriction on who could teach moved large numbers of children.</p>
+</section>
+
+<section id="limits">
+<h2><span class="num">8</span>Limits</h2>
+<p>Enrolment in Catholic schools measures religiosity indirectly. The paper's online appendix shows it correlates with other historical measures of religiosity, but school choice also reflects tuition, distance, and the quality of the local schools.</p>
+<p>Spending and enrolment are observed together in only 13 years, 1878 to 1882, 1886 and 1887, 1896 and 1897, and 1899 to 1902. The data say nothing about schooling after the 1904 law or the 1905 separation of church and state.</p>
+<p>The laws applied to every département in the same year, so their estimated effects rest on timing alone. They cannot be separated from anything else that changed nationally in 1881 or in 1901 and 1902.</p>
+<p>The channels in Section 6 are correlations across départements. They describe where spending worked least and do not establish why.</p>
+</section>
+
+<footer>
+  <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/market-for-ideas/">Mapping the market for ideas</a> · <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/tax-farming/">Tax farming and state capacity</a> · <a href="/interactive/pandemics-cities/">Pandemics and cities</a> · <a href="/interactive/">All companions</a></p>
+  <p>The data are the paper's public replication files and are checked against the published tables. The page reproduces Table 2 from those files. Enrolment, schools, teachers, and spending are from the Annuaire statistique de la France and the Bulletin de statistique et de législation comparée. The Terror figures are from Greer, the 1791 oath from Tackett, and school attendance in 1837 from Diebolt and Trabelsi. The text of the paper gives communal spending in 1902 as 79,875,903 francs, while the data file sums to 79,889,155.</p>
+</footer>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
+const tip = d3.select("#tip");
+const showTip = (ev, html) => tip.html(html).style("opacity",1).style("left", Math.min(ev.clientX + 14, window.innerWidth - 310) + "px").style("top", (ev.clientY + 14) + "px");
+const hideTip = () => tip.style("opacity",0);
+const pct = v => (100*v).toFixed(1) + "%";
+const REGYEARS = [1878,1879,1880,1881,1882,1886,1887,1896,1897,1899,1900,1901,1902];
+
+Promise.all([d3.json("enrolment.json"), d3.json("table2.json"), d3.json("channels.json"), d3.json("departements.geojson")])
+  .then(([en, t2, ch, geo]) => { timeline(); spending(en); national(en); mapView(en, geo); results(t2); channels(ch); });
+
+// ---------- 2. Timeline ----------
+function timeline() {
+  const ev = [
+    [1833, "Guizot law. Reorganizes primary schooling and lets the Church run its own private schools.", 0],
+    [1850, "Falloux laws of 1850 and 1851. Towns with a Catholic school need not fund a public one.", 0],
+    [1878, "Law of 1 June 1878. Communes take responsibility for school finance from the Church.", 0],
+    [1879, "Law of 9 August 1879. A teacher-training college in every département. Laws of 1879 to 1885 raise funding for building secular schools.", 0],
+    [1881, "Laws of 1881. State primary schooling becomes free, secular, and mandatory to age 13, and the school fee is abolished.", 1],
+    [1882, "Law of 28 March 1882. The state school system is made neutral in religion.", 1],
+    [1884, "Leo XIII's encyclical on the religious question in France restates the Church's opposition to state schooling.", 0],
+    [1886, "Law of 30 October 1886. Communes may no longer fund private Catholic primary schools.", 0],
+    [1901, "Law on associations of 1 July 1901. In effect bars monks and nuns from teaching.", 1],
+    [1904, "Law of 7 July 1904. Bars members of the religious congregations from teaching.", 0],
+    [1905, "Separation of church and state.", 0]];
+  const svg = d3.select("#tsvg"), W = 800, H = 260, mg = {l:30, r:30, t:30, b:40};
+  const x = d3.scaleLinear([1830, 1908], [mg.l, W-mg.r]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(8).tickFormat(d3.format("d")));
+  svg.append("rect").attr("x", x(1878)).attr("width", x(1902)-x(1878)).attr("y", mg.t).attr("height", H-mg.b-mg.t).attr("fill", C.gold).attr("opacity", .12);
+  svg.append("text").attr("x", x(1890)).attr("y", mg.t + 14).attr("text-anchor","middle").style("font-size","11px").text("years the paper studies");
+  const yc = 150;
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", yc).attr("y2", yc).attr("stroke", C.navy).attr("opacity", .35).attr("stroke-width", 2);
+  svg.selectAll(null).data(ev).join("circle").attr("cx", d => x(d[0])).attr("cy", yc).attr("r", d => d[2] ? 9 : 6)
+    .attr("fill", d => d[2] ? C.rust : C.navy).attr("stroke","#fff").attr("stroke-width",2)
+    .on("mousemove", (e,d) => showTip(e, `<b>${d[0]}</b><br>${d[1]}`)).on("mouseleave", hideTip);
+  svg.selectAll(null).data(ev).join("text").attr("x", d => x(d[0])).attr("y", (d,i) => yc + (i % 2 ? 30 : -18)).attr("text-anchor","middle")
+    .style("font-size","11px").attr("fill", d => d[2] ? C.rust : C.navy).text(d => d[0]);
+}
+
+// ---------- 3. Spending and national shares ----------
+function spending(en) {
+  const rows = en.spending.filter(r => REGYEARS.includes(r.year));
+  const keys = [["state","Central state",C.navy],["communes","Communes",C.teal],["departements","Départements",C.gold]];
+  const st = d3.stack().keys(keys.map(k => k[0]))(rows);
+  const svg = d3.select("#ssvg"), W = 800, H = 300, mg = {l:56, r:16, t:14, b:40};
+  const x = d3.scaleBand(rows.map(r => r.year), [mg.l, W-mg.r]).padding(.25);
+  const y = d3.scaleLinear([0, d3.max(rows, r => r.state + r.communes + r.departements)/1e6 * 1.05], [H-mg.b, mg.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Millions of francs");
+  st.forEach((layer, i) => svg.selectAll(null).data(layer).join("rect").attr("x", d => x(d.data.year)).attr("width", x.bandwidth())
+    .attr("y", d => y(d[1]/1e6)).attr("height", d => y(d[0]/1e6) - y(d[1]/1e6)).attr("fill", keys[i][2])
+    .on("mousemove", (e,d) => showTip(e, `<b>${d.data.year}</b><br>Central state ${(d.data.state/1e6).toFixed(1)}m<br>Communes ${(d.data.communes/1e6).toFixed(1)}m<br>Départements ${(d.data.departements/1e6).toFixed(1)}m`)).on("mouseleave", hideTip));
+  d3.select("#sleg").html(keys.map(k => `<span style="color:${k[2]};font-weight:600">■ ${k[1]}</span>`).join(" &nbsp; "));
+}
+function national(en) {
+  const rows = en.national;
+  const svg = d3.select("#nsvg"), W = 800, H = 300, mg = {l:56, r:16, t:14, b:40};
+  const x = d3.scaleLinear([1877, 1903], [mg.l, W-mg.r]), y = d3.scaleLinear([0, 0.6], [H-mg.b, mg.t]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(10).tickFormat(d3.format("d")));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6).tickFormat(d3.format(".0%")));
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Share in Catholic schools");
+  [[1881,"1881 law"],[1901,"1901 law"]].forEach(([yr,l]) => { svg.append("line").attr("x1", x(yr)).attr("x2", x(yr)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.rust).attr("stroke-dasharray","4 3");
+    svg.append("text").attr("x", x(yr) + 4).attr("y", mg.t + 12).attr("fill", C.rust).style("font-size","11px").text(l); });
+  [["girls","Girls",C.rust],["boys","Boys",C.navy]].forEach(([k,l,c]) => {
+    svg.append("path").datum(rows).attr("fill","none").attr("stroke", c).attr("stroke-width", 2.4).attr("d", d3.line().x(r => x(r.year)).y(r => y(r[k])));
+    svg.selectAll(null).data(rows).join("circle").attr("cx", r => x(r.year)).attr("cy", r => y(r[k])).attr("r", 3.5).attr("fill", c)
+      .on("mousemove", (e,r) => showTip(e, `<b>${l}, ${r.year}</b><br>${pct(r[k])} in Catholic schools`)).on("mouseleave", hideTip); });
+  d3.select("#nleg").html(`<span style="color:${C.rust};font-weight:600">● Girls</span> &nbsp; <span style="color:${C.navy};font-weight:600">● Boys</span>`);
+}
+
+// ---------- 4. Map ----------
+function mapView(en, geo) {
+  // d3 expects clockwise exterior rings; the exported file follows RFC 7946, so rewind where needed
+  geo.features.forEach(f => { if (d3.geoArea(f) > 2 * Math.PI) {
+    const polys = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates;
+    polys.forEach(poly => poly.forEach(ring => ring.reverse())); } });
+  const byId = new Map(en.panel.map(p => [p.id, p]));
+  const years = en.national.map(r => r.year);
+  d3.select("#myr").attr("max", years.length - 1);
+  const bins = { boys: { th: [0.15, 0.30, 0.45], lab: ["Less than 15%","15–30%","30–45%","45% or more"] },
+                 girls: { th: [0.25, 0.50, 0.75], lab: ["Less than 25%","25–50%","50–75%","More than 75%"] } };
+  const pal = ["#eef1f4", "#b9c4d3", "#6f84a3", "#1B2A4A"];
+  let sex = "boys";
+  const proj = d3.geoConicConformal().parallels([44, 49]).rotate([-3, 0]).fitSize([780, 620], geo);
+  const path = d3.geoPath(proj), svg = d3.select("#msvg");
+  const g = svg.append("g").attr("transform","translate(10,10)");
+  const shapes = g.selectAll("path").data(geo.features).join("path").attr("d", path).attr("stroke","#fff").attr("stroke-width",.7);
+  const tabs = d3.select("#mctl").selectAll("button").data(["boys","girls"]).join("button").attr("class","tab").text(d => d === "boys" ? "Boys" : "Girls").on("click", (e,d) => { sex = d; draw(); });
+  function val(id, yr) { const p = byId.get(id); if (!p) return null; const i = p.years.indexOf(yr); return i < 0 ? null : { s: p[sex][i], sp: p.spending_pupil[i], name: p.name }; }
+  function draw() {
+    const yr = years[+d3.select("#myr").property("value")]; d3.select("#myrv").text(yr);
+    tabs.classed("on", d => d === sex);
+    const b = bins[sex], col = d3.scaleThreshold(b.th, pal);
+    shapes.attr("fill", f => { const v = val(f.properties.id, yr); return v ? col(v.s) : "#fff"; })
+      .on("mousemove", (e,f) => { const v = val(f.properties.id, yr); if (v) showTip(e, `<b>${v.name}, ${yr}</b><br>${pct(v.s)} of ${sex} in Catholic schools` + (v.sp != null && REGYEARS.includes(yr) ? `<br>Public spending ${v.sp.toFixed(1)} francs per pupil` : "")); })
+      .on("mouseleave", hideTip);
+    d3.select("#mleg").html(b.lab.map((l,i) => `<span style="display:inline-block;width:14px;height:12px;background:${pal[i]};border:1px solid #ccc;vertical-align:-1px"></span> ${l}`).join(" &nbsp; "));
+  }
+  d3.select("#myr").on("input", draw); draw();
+}
+
+// ---------- 5. Results ----------
+function results(t2) {
+  const rise = t2.mean_log_rise_1878_1902;
+  let o = "girls", t = "trend", c = true;
+  const opts = [["#ro", [["boys","Boys"],["girls","Girls"]], v => o = v, () => o],
+                ["#rt", [["trend","Time trend"],["yearfe","Year effects"]], v => t = v, () => t],
+                ["#rc", [[false,"Without"],[true,"With"]], v => c = v, () => c]];
+  const btns = opts.map(([sel, items, set, get]) => d3.select(sel).selectAll("button").data(items).join("button").attr("class","tab").text(d => d[1]).on("click", (e,d) => { set(d[0]); draw(); }));
+  const svg = d3.select("#rsvg"), W = 800, H = 260, mg = {l:230, r:30, t:16, b:40};
+  const x = d3.scaleLinear([-25, 5], [mg.l, W-mg.r]);
+  const rows = [["spending","Actual rise in spending"],["law1881","1881 law"],["law1901","1901 law"]];
+  const y = d3.scaleBand(rows.map(r => r[0]), [mg.t, H-mg.b]).padding(.4);
+  function draw() {
+    btns.forEach((b, i) => b.classed("on", d => d[0] === opts[i][3]()));
+    const col = t2.columns.find(k => k.outcome === o && k.time === t && k.controls === c);
+    const est = rows.map(([k, l]) => { const s = k === "spending" ? rise : 1; return { k, l, b: 100*col[k].b*s, lo: 100*(col[k].b - 1.96*col[k].se)*s, hi: 100*(col[k].b + 1.96*col[k].se)*s }; });
+    svg.selectAll("*").remove();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(7));
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Change in the share in Catholic schools, percentage points");
+    svg.append("line").attr("x1", x(0)).attr("x2", x(0)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+    est.forEach(e => { const yc = y(e.k) + y.bandwidth()/2, cc = e.k === "spending" ? C.teal : C.rust;
+      svg.append("text").attr("x", mg.l - 12).attr("y", yc + 4).attr("text-anchor","end").attr("class","title").text(e.l);
+      svg.append("line").attr("x1", x(Math.max(e.lo, -25))).attr("x2", x(Math.min(e.hi, 5))).attr("y1", yc).attr("y2", yc).attr("stroke", cc).attr("stroke-width", 3);
+      svg.append("circle").attr("cx", x(e.b)).attr("cy", yc).attr("r", 7).attr("fill", cc)
+        .on("mousemove", ev => showTip(ev, `<b>${e.l}</b><br>${e.b.toFixed(2)} points<br>95% interval ${e.lo.toFixed(2)} to ${e.hi.toFixed(2)}`)).on("mouseleave", hideTip); });
+    d3.select("#r1").text(`${est[0].b.toFixed(1)} points`); d3.select("#r2").text(`${est[1].b.toFixed(1)} points`); d3.select("#r3").text(`${est[2].b.toFixed(1)} points`);
+    d3.select("#rcap").html(`<b>Figure 5.</b> Estimates from column ${col.col} of Table 2, with 95 percent intervals from standard errors clustered by département. The spending row multiplies the coefficient on log spending by the average rise in log spending between 1878 and 1902, ${rise.toFixed(2)}. All specifications include département fixed effects, 87 départements, and 1,131 observations. Within R² ${col.within_r2.toFixed(3)}. Source: Table 2 of the paper, reproduced from the replication data.`);
+  }
+  draw();
+}
+
+// ---------- 6. Channels ----------
+function channels(ch) {
+  let k = ch.channels[0], sex = "girls";
+  const tc = d3.select("#cch").selectAll("button").data(ch.channels).join("button").attr("class","tab").text(d => d.label.replace(/ \(.*\)$/, "")).on("click", (e,d) => { k = d; draw(); });
+  const ts = d3.select("#cso").selectAll("button").data(["boys","girls"]).join("button").attr("class","tab").text(d => d === "boys" ? "Boys" : "Girls").on("click", (e,d) => { sex = d; draw(); });
+  const svg = d3.select("#csvg"), W = 800, H = 340, mg = {l:62, r:20, t:14, b:46};
+  const fmt = v => Math.abs(v) < 0.001 ? v.toExponential(2) : v.toFixed(4);
+  const star = (b, se) => { const z = Math.abs(b/se); return z > 2.576 ? "***" : z > 1.96 ? "**" : z > 1.645 ? "*" : ""; };
+  function draw() {
+    tc.classed("on", d => d === k); ts.classed("on", d => d === sex);
+    const pts = ch.departements.filter(d => d[k.key] != null && d[sex] != null && (!k.log || d[k.key] > 0));
+    svg.selectAll("*").remove();
+    const xv = pts.map(d => d[k.key]);
+    const x = (k.log ? d3.scaleLog().domain([Math.max(1, d3.min(xv)), d3.max(xv)]) : d3.scaleLinear().domain(d3.extent(xv))).range([mg.l, W-mg.r]).nice();
+    const y = d3.scaleLinear().domain([0, d3.max(pts, d => d[sex]) * 1.05]).range([H-mg.b, mg.t]).nice();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(k.log ? d3.axisBottom(x).ticks(6, "~s") : d3.axisBottom(x).ticks(7));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6).tickFormat(d3.format(".0%")));
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text(k.label + (k.log ? ", log scale" : ""));
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text(`Average share of ${sex} in Catholic schools`);
+    svg.selectAll(null).data(pts).join("circle").attr("cx", d => x(d[k.key])).attr("cy", d => y(d[sex])).attr("r", 5).attr("fill", sex === "girls" ? C.rust : C.navy).attr("opacity", .75)
+      .on("mousemove", (e,d) => showTip(e, `<b>${d.name}</b><br>${k.label}: ${d3.format(",.3~f")(d[k.key])}<br>${pct(d[sex])} of ${sex} in Catholic schools, 1878–1902 average`)).on("mouseleave", hideTip);
+    d3.select("#cb").text(`${fmt(k.boys[0])}${star(k.boys[0], k.boys[1])}`); d3.select("#cg").text(`${fmt(k.girls[0])}${star(k.girls[0], k.girls[1])}`);
+    d3.select("#ccap").html(`<b>Figure 6.</b> Each dot is a département, ${pts.length} with data${k.log ? ", leaving out those with no death sentences, which a log scale cannot show" : ""}. The readouts give the paper's coefficient on spending times the characteristic, from ${k.table}, with *, **, and *** for significance at the 10, 5, and 1 percent levels. Standard errors are ${fmt(k.boys[1])} for boys and ${fmt(k.girls[1])} for girls. Source: ${k.source}, from the paper's replication data.`);
+  }
+  draw();
+}
+</script>
+</body>
+</html>

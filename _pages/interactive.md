@@ -52,6 +52,22 @@ companion_taxfarming:
     url: /interactive/tax-farming/
     btn_label: "Open the companion"
     btn_class: "btn--primary"
+companion_pandemics:
+  - image_path: /assets/images/interactive/pandemics-cities.jpg
+    alt: "Map of European cities colored by Black Death mortality in 1347 to 1352, sized by population in 1300"
+    title: "Pandemics, Places, and Populations: The Effects of the Black Death on Urban Development"
+    excerpt: "With Remi Jedwab and Mark Koyama. Journal of Urban Economics, 2024. A city with 10 points higher Black Death mortality was about 8.7 percent smaller in 1400, and on average the gap closed within two centuries as migrants moved in. Cities on coasts, rivers, and trade networks recovered fastest, and cities without those advantages could stay smaller for centuries."
+    url: /interactive/pandemics-cities/
+    btn_label: "Open the companion"
+    btn_class: "btn--primary"
+companion_school:
+  - image_path: /assets/images/interactive/school-choice-religiosity.jpg
+    alt: "Map of French départements shaded by the share of girls in Catholic primary schools in 1878"
+    title: "Can Public Policies Lower Religiosity? Evidence from School Choice in France, 1878–1902"
+    excerpt: "With Raphaël Franck. Economic History Review, 2016. The Third Republic multiplied spending on secular schools between 1878 and 1902, and the share of French children in Catholic schools barely moved. It fell sharply only when the 1901 law barred monks and nuns from teaching, and Catholic schooling held on most where the Revolution's violence against the Church had been heaviest."
+    url: /interactive/school-choice-religiosity/
+    btn_label: "Open the companion"
+    btn_class: "btn--primary"
 ---
 
 Each companion walks through one paper with figures you can move. Every number on these pages is computed from data exported by the paper's replication code and checked against the manuscript. The papers themselves are on the [Research](/research/) page.
@@ -67,3 +83,7 @@ Each companion walks through one paper with figures you can move. Every number o
 {% include feature_row id="companion_bdp" type="left" %}
 
 {% include feature_row id="companion_taxfarming" type="left" %}
+
+{% include feature_row id="companion_pandemics" type="left" %}
+
+{% include feature_row id="companion_school" type="left" %}
