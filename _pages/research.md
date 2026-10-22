@@ -45,10 +45,10 @@ Eight of these papers have [interactive companions](/interactive/), with figures
 
 ## Refereed Publications
 
-**Pandemics, Places, and Populations:  The Effects of the Black Death on Urban Development**\\
+**Pandemics and Cities: Evidence from the Black Death and the Long Run**\\
 (joint with Remi Jedwab and Mark Koyama)\\
 *The Journal of Urban Economics, 2024*\\
-[Download Draft](/assets/papers/pandemics-places-and-populations-the-effects-of-draft.pdf)\\
+[Download Paper](/assets/papers/pandemics-places-and-populations-the-effects-of-draft.pdf)\\
 [Download Presentation](/assets/papers/pandemics-places-and-populations-the-effects-of-presentation.pdf)\\
 [Interactive Companion](/interactive/pandemics-cities/)\\
 [A Vox piece on the paper](https://voxeu.org/article/how-black-death-changed-europes-cities)

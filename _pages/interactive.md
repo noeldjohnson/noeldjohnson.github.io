@@ -55,7 +55,7 @@ companion_taxfarming:
 companion_pandemics:
   - image_path: /assets/images/interactive/pandemics-cities.jpg
     alt: "Map of European cities colored by Black Death mortality in 1347 to 1352, sized by population in 1300"
-    title: "Pandemics, Places, and Populations: The Effects of the Black Death on Urban Development"
+    title: "Pandemics and Cities: Evidence from the Black Death and the Long Run"
     excerpt: "With Remi Jedwab and Mark Koyama. Journal of Urban Economics, 2024. A city with 10 points higher Black Death mortality was about 8.7 percent smaller in 1400, and on average the gap closed within two centuries as migrants moved in. Cities on coasts, rivers, and trade networks recovered fastest, and cities without those advantages could stay smaller for centuries."
     url: /interactive/pandemics-cities/
     btn_label: "Open the companion"
