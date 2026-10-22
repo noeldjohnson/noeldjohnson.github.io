@@ -101,18 +101,18 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 
 <section id="argument">
 <h2><span class="num">1</span>Argument</h2>
-<p>Early modern rulers faced two costs. Collecting taxes was expensive in economies that were fragmented and hard to monitor, so rulers sold the right to collect a tax to a private farmer, who paid a fixed lease and kept whatever he collected. Borrowing was expensive too, because a king could not credibly promise to repay, so rulers depended on loans from the people closest to their revenues, including their tax farmers.</p>
-<p>The paper builds a model that connects the two. When the crown does not need to borrow, competitive auctions are the best way to allocate tax farms, because bidding reveals which farmer can collect at lowest cost. When the crown needs large loans, competition fails, because a crown can default on any single farmer and re-lease the farm to another. A small group of financiers holding all the farms, a cabal, can punish a default together, so it can lend far more. Both England and France moved from competitive farming to cabal farming as their borrowing grew after 1600.</p>
-<p>Cabal farming gave the crown a reason to invest in standardizing laws, taxes, and weights and measures, since it no longer learned collection costs from auctions. That investment undermined the cabal, because a more uniform fiscal system made direct collection a better outside option and lowered the cost of defaulting on the farmers. England, which was more uniform to begin with, abandoned its Customs farm in 1671 and its Excise farm in 1683. France kept its General Farms until the Revolution.</p>
+<p>Early modern rulers faced two costs. Collecting taxes was expensive in economies that were fragmented and hard to monitor so rulers sold the right to collect a tax to a private farmer, who paid a fixed lease and kept whatever he collected. Borrowing was expensive too because a king could not credibly promise to repay. Rulers therefore depended on loans from the people closest to their revenues, including their tax farmers.</p>
+<p>We build a model that connects the two. When the crown does not need to borrow, competitive auctions are the best way to allocate tax farms because bidding reveals which farmer can collect at lowest cost. When the crown needs large loans competition fails because a crown can default on any single farmer and re-lease the farm to another. A small group of financiers holding all the farms, a cabal, can punish a default together so it can lend far more. Both England and France moved from competitive farming to cabal farming as their borrowing grew after 1600.</p>
+<p>Cabal farming gave the crown a reason to invest in standardizing laws, taxes, and weights and measures, since it no longer learned collection costs from auctions. That investment undermined the cabal because a more uniform fiscal system made direct collection a better outside option and lowered the cost of defaulting on the farmers. England, which was more uniform to begin with, abandoned its Customs farm in 1671 and its Excise farm in 1683. France kept its General Farms until the Revolution.</p>
 </section>
 
 <section id="model">
 <h2><span class="num">2</span>The model</h2>
-<p>The paper is an analytic narrative. A model of how a crown allocates the right to collect its taxes yields four propositions, and the sections after this one read the English and French record against them. The model has a crown and many tax farmers and runs in three steps. The crown chooses how to allocate the farm. It chooses whether to invest in standardizing the fiscal system. It then borrows against the farm and decides whether to repay.</p>
+<p>The paper is an analytic narrative. A model of how a crown allocates the right to collect its taxes yields four propositions and the sections after this one read the English and French record against them. The model has a crown and many tax farmers and runs in three steps. The crown chooses how to allocate the farm. It chooses whether to invest in standardizing the fiscal system. It then borrows against the farm and decides whether to repay.</p>
 <p>The controls in this section are linked. Moving a slider in one figure moves the same slider in every other figure.</p>
 
 <h3>Collection costs and the value of a farm</h3>
-<p>Each farmer has a private cost of collecting the tax. Costs are spread uniformly between a lowest cost θ̲ and a highest cost θ̄ with mean μ and standard deviation σ. Both depend on the country's underlying fiscal heterogeneity, which the paper ties to geography, and on whether the crown has invested in standardization. A farmer with cost θ values the farm at V(θ). Value falls as cost rises and falls faster at higher costs.</p>
+<p>Each farmer has a private cost of collecting the tax. Costs are spread uniformly between a lowest cost θ̲ and a highest cost θ̄ with mean μ and standard deviation σ. Both depend on the country's underlying fiscal heterogeneity, which we tie to geography, and on whether the crown has invested in standardization. A farmer with cost θ values the farm at V(θ). Value falls as cost rises and falls faster at higher costs.</p>
 <p>Three points on the distribution carry the model. The lowest-cost farmer has cost θ̲. A cabal is assumed to collect at the average cost, θ̂ = μ. A crown that collects directly faces the cost of the worst farmer, θ̄. With a uniform distribution θ̲ = μ − √3σ and θ̄ = μ + √3σ, so the spread of costs sets how far apart the three values lie.</p>
 <div class="figure">
   <div class="controls">
@@ -125,7 +125,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
     <div><b id="r1hi"></b>value to the crown collecting directly, V(θ̄)</div>
   </div>
   <svg id="vsvg" viewBox="0 0 800 300" role="img" aria-label="Value of the farm against the cost of collection"></svg>
-  <div class="cap"><b>Figure 1.</b> The value of the farm against the cost of collection. The shaded band is the range of farmers' costs. The paper assumes only that V falls and is concave. This page uses V(θ) = 4 − θ² with a mean cost of 1, and standardization halves σ and lowers μ by a tenth. Every number in this section is in those illustrative units.</div>
+  <div class="cap"><b>Figure 1.</b> The value of the farm against the cost of collection. The shaded band is the range of farmers' costs. Our model assumes only that V falls and is concave. This page uses V(θ) = 4 − θ² with a mean cost of 1, and standardization halves σ and lowers μ by a tenth. Every number in this section is in those illustrative units.</div>
 </div>
 
 <h3>Allocating the farm when the crown does not borrow</h3>
@@ -142,8 +142,8 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 </div>
 
 <h3>Why a cabal makes standardization worth more</h3>
-<p>Standardization means common weights and measures, a more uniform tax code, and fewer openings for evasion. In the model it lowers both the mean and the spread of collection costs at a fixed cost. A lower mean helps the crown under every allocation. A narrower spread helps the crown when it collects directly or bargains with a cabal, because both payoffs rest on the high-cost end of the distribution. Under competition a narrower spread hurts the crown. The auction already pays it the value of the best farmer, and standardization erodes the advantage that farmer drew from local and tacit knowledge.</p>
-<p>The crown therefore gains least from standardizing when it farms competitively. This is Proposition 2. An auction already reveals collection costs, so markets and standardization substitute for one another.</p>
+<p>Standardization means common weights and measures, a more uniform tax code, and fewer openings for evasion. In the model it lowers both the mean and the spread of collection costs at a fixed cost. A lower mean helps the crown under every allocation. A narrower spread helps the crown when it collects directly or bargains with a cabal because both payoffs rest on the high-cost end of the distribution. Under competition a narrower spread hurts the crown. The auction already pays it the value of the best farmer and standardization erodes the advantage that farmer drew from local and tacit knowledge.</p>
+<p>The crown therefore gains least from standardizing when it farms competitively. This is Proposition 2. An auction already reveals collection costs so markets and standardization substitute for one another.</p>
 <div class="figure">
   <div class="controls">
     <label>Fiscal fragmentation, σ <input data-k="sig" type="range" min="0.05" max="0.5" step="0.01"></label><span class="v" data-v="sig"></span>
@@ -159,8 +159,8 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 </div>
 
 <h3>Borrowing and the commitment problem</h3>
-<p>Now the crown borrows an amount x against the second period of the lease. These advances are the anticipations of the sources. At the start of the second period the crown chooses whether to repay. Under competition a crown that defaults keeps the loan and re-leases the farm to one of the other bidders. Its only loss is the gap ΔB between what the original farmer would have paid and what the next bidder offers. The crown defaults whenever x ≥ ΔB. As bidders multiply ΔB shrinks toward zero, and a crown facing a perfectly competitive market defaults on any loan at all.</p>
-<p>The paper treats the relationship as infinitely repeated and draws on two approaches to sovereign debt. Bulow and Rogoff (1989) show that many separate lenders cannot sustain lending without outside sanctions. Kletzer and Wright (2000) show that lenders who collude to punish a default together can. A cabal can punish together. If the crown defaults the cabal stops farming and the crown is left with direct collection in every later period. The crown repays when its discount factor δ satisfies δ ≥ (x − ΔV)/(x + ΔV), where ΔV = [V(θ̂) − V(θ̄)]/4. The same condition with ΔB in place of ΔV governs competition. A cabal's punishment is larger than the gap between two bidders, so a cabal can carry more lending. This is Proposition 3.</p>
+<p>Now the crown borrows an amount x against the second period of the lease. These advances are the anticipations of the sources. At the start of the second period the crown chooses whether to repay. Under competition a crown that defaults keeps the loan and re-leases the farm to one of the other bidders. Its only loss is the gap ΔB between what the original farmer would have paid and what the next bidder offers. The crown defaults whenever x ≥ ΔB. As bidders multiply ΔB shrinks toward zero and a crown facing a perfectly competitive market defaults on any loan at all.</p>
+<p>We treat the relationship as infinitely repeated and draw on two approaches to sovereign debt. Bulow and Rogoff (1989) show that many separate lenders cannot sustain lending without outside sanctions. Kletzer and Wright (2000) show that lenders who collude to punish a default together can. A cabal can punish together. If the crown defaults the cabal stops farming and the crown is left with direct collection in every later period. The crown repays when its discount factor δ satisfies δ ≥ (x − ΔV)/(x + ΔV), where ΔV = [V(θ̂) − V(θ̄)]/4. The same condition with ΔB in place of ΔV governs competition. A cabal's punishment is larger than the gap between two bidders so a cabal can carry more lending. This is Proposition 3.</p>
 <div class="figure">
   <div class="controls">
     <label>Patience of the crown, δ <input data-k="del" type="range" min="0.5" max="0.97" step="0.01"></label><span class="v" data-v="del"></span>
@@ -193,9 +193,9 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
     <div><b id="mcomp"></b>most competitive farmers can lend at the same δ</div>
   </div>
   <svg id="msvg" viewBox="0 0 800 300" role="img" aria-label="Maximum sustainable lending by fiscal fragmentation"></svg>
-  <div class="cap"><b>Figure 5.</b> The most a cabal can lend at each spread of costs, ΔV(1 + δ)/(1 − δ). Below the curve lending is self-enforcing and above it the crown prefers to default. The dot is the crown. With the default settings a loan of 2.5 is self-enforcing. Standardizing moves the dot left to the narrower spread and lowers the curve slightly through the lower mean cost, and the crown then defaults on the same loan. The faint curve is the curve before standardizing.</div>
+  <div class="cap"><b>Figure 5.</b> The most a cabal can lend at each spread of costs, ΔV(1 + δ)/(1 − δ). Below the curve lending is self-enforcing and above it the crown prefers to default. The dot is the crown. With the default settings a loan of 2.5 is self-enforcing. Standardizing moves the dot left to the narrower spread and lowers the curve slightly through the lower mean cost and the crown then defaults on the same loan. The faint curve is the curve before standardizing.</div>
 </div>
-<p>Propositions 2 and 4 together make cabal farming an intermediate institution. A crown that needs credit turns to a cabal. The cabal gives the crown a reason to standardize. Standardization shrinks the punishment the cabal can impose, and the crown's promise to repay stops being credible. The paper argues that the farmers could foresee this, and in both countries they tried to protect their position through ties to political elites.</p>
+<p>Propositions 2 and 4 together make cabal farming an intermediate institution. A crown that needs credit turns to a cabal. The cabal gives the crown a reason to standardize. Standardization shrinks the punishment the cabal can impose and the crown's promise to repay stops being credible. We argue that the farmers could foresee this. In both countries they tried to protect their position through ties to political elites.</p>
 <div class="flow">
   <div>Borrowing needs rise</div><span>→</span>
   <div>Cabal farming<small>Proposition 3</small></div><span>→</span>
@@ -206,12 +206,12 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 </div>
 
 <h3>Risk aversion as an alternative explanation</h3>
-<p>A common explanation for tax farming is that a risk-averse crown traded expected revenue for a fixed payment. The paper gives three reasons this cannot carry the story. It says nothing about whether farming is competitive or centralized. In both countries farmers were granted defalcations, reductions in the lease after wars and other shocks, so the crown's receipts were far from fixed. And nothing suggests the English crown's attitude to risk changed in 1604, 1671, or 1683.</p>
+<p>A common explanation for tax farming is that a risk-averse crown traded expected revenue for a fixed payment. We give three reasons this cannot carry the story. It says nothing about whether farming is competitive or centralized. In both countries farmers were granted defalcations, reductions in the lease after wars and other shocks, so the crown's receipts were far from fixed. And nothing suggests the English crown's attitude to risk changed in 1604, 1671, or 1683.</p>
 </section>
 
 <section id="paths">
 <h2><span class="num">3</span>Two paths through the model</h2>
-<p>The paper's Figure 3 places England and France on two axes, standardization and inside finance, between 1500 and 1800. Both began with competitive farming and low borrowing. Both moved up into cabal farming as borrowing grew. England started more standardized, so its cabal became unstable sooner and it moved to direct management after 1670. France stayed in the cabal region until the Revolution.</p>
+<p>The paper's Figure 3 places England and France on two axes, standardization and inside finance, between 1500 and 1800. Both began with competitive farming and low borrowing. Both moved up into cabal farming as borrowing grew. England started more standardized so its cabal became unstable sooner and it moved to direct management after 1670. France stayed in the cabal region until the Revolution.</p>
 <div class="figure">
   <div class="controls">
     <button class="tab" id="pplay">Play</button>
@@ -219,7 +219,7 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
   </div>
   <svg id="psvg" viewBox="0 0 800 460" role="img" aria-label="Equilibria and the historical paths of England and France"></svg>
   <div class="legend" id="pleg"></div>
-  <div class="cap"><b>Figure 6.</b> The four equilibria and the paths of England and France, redrawn from Figure 3 of the paper. The figure is a schematic, so positions are qualitative. The dots move between the dated points the paper marks, which are 1500, 1600, 1700, and 1800 for France and 1500, 1632, 1670, and 1800 for England.</div>
+  <div class="cap"><b>Figure 6.</b> The four equilibria and the paths of England and France, redrawn from Figure 3 of the paper. The figure is a schematic so positions are qualitative. The dots move between the dated points the paper marks, which are 1500, 1600, 1700, and 1800 for France and 1500, 1632, 1670, and 1800 for England.</div>
 </div>
 </section>
 
@@ -244,15 +244,15 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
   <div class="legend" id="eleg"></div>
   <div class="cap" id="ecap"></div>
 </div>
-<p>The rent of the first farm was £112,400. The crown did not push the rent up to what the farm could bear, and Ashton reads the low rent as the price the crown chose to pay for the new services the farmers performed. Under Charles I the crown began anticipating the rent several years ahead, and anticipations rose to almost half the annual rent by the mid-1630s. In 1641 Parliament expropriated the farmers. They were restored in 1660, but in 1671 the Customs farm was cancelled and the Customs placed under government supervision. The Excise followed in 1683. Both changes came before the Glorious Revolution.</p>
+<p>The rent of the first farm was £112,400. The crown did not push the rent up to what the farm could bear and Ashton reads the low rent as the price the crown chose to pay for the new services the farmers performed. Under Charles I the crown began anticipating the rent several years ahead and anticipations rose to almost half the annual rent by the mid-1630s. In 1641 Parliament expropriated the farmers. They were restored in 1660, but in 1671 the Customs farm was cancelled and the Customs placed under government supervision. The Excise followed in 1683. Both changes came before the Glorious Revolution.</p>
 </section>
 
 <section id="arrets">
 <h2><span class="num">6</span>Standardization in France</h2>
-<p>To measure investment in standardization the paper counts the royal arrêts and edicts that limited five seigneurial institutions. These are the terrier, or seigneurial land register, seigneurial justice, the péages, or local tolls, corvée labor, and weights and measures. The list comes from Renauldon's 1765 treatise on seigneurial rights, and each rule change in an edict counts once.</p>
+<p>To measure investment in standardization we count the royal arrêts and edicts that limited five seigneurial institutions. These are the terrier (the seigneurial land register), seigneurial justice, the péages (local tolls), corvée labor, and weights and measures. The list comes from Renauldon's 1765 treatise on seigneurial rights and each rule change in an edict counts once.</p>
 <div class="figure">
   <svg id="asvg" viewBox="0 0 800 280" role="img" aria-label="Standardizing arrets by quarter century"></svg>
-  <div class="cap"><b>Figure 9.</b> Standardizing arrêts and edicts issued by the French monarchy by quarter century, 1500–1749, as in Figure 8 of the paper. The counts come from the authors' data file. The published figure shows 15 for 1725–1749, one more than the file holds.</div>
+  <div class="cap"><b>Figure 9.</b> Standardizing arrêts and edicts issued by the French monarchy by quarter century, 1500–1749, as in Figure 8 of the paper. The counts come from our data file. The published figure shows 15 for 1725–1749, one more than the file holds.</div>
 </div>
 <p>The two jumps match the two waves of consolidation in the farms. The first follows the failure of the Grand Parti de Lyon in 1559, which ended the crown's use of outside finance. The second follows 1661, when Colbert was uniting the farms into the General Farms. Pick an institution to see each arrêt.</p>
 <div class="figure">
@@ -273,15 +273,15 @@ h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
 
 <section id="limits">
 <h2><span class="num">8</span>Limits</h2>
-<p>The French loan figures are incomplete, so the ratio of loans to lease price is a lower bound, and no French series exists before 1600.</p>
+<p>The French loan figures are incomplete so the ratio of loans to lease price is a lower bound. No French series exists before 1600.</p>
 <p>The paper's Figure 3 is a schematic. The positions of England and France on it are qualitative and the figures in Section 2 use one illustrative form of the value function.</p>
-<p>The arrêt counts come from one treatise written by a seigneur. Renauldon wrote as an aid to other seigneurs facing royal encroachment, so the paper argues his list should if anything be biased against rulings that knocked down traditional rights.</p>
-<p>The model explains why cabal farming was less stable in England. The paper also names the contingencies of the 1660s and 1670s, including a quarrel between the Lord Treasurer and the head of the farming syndicate, the costs of the Dutch War, and the king's spending.</p>
+<p>The arrêt counts come from one treatise written by a seigneur. Renauldon wrote as an aid to other seigneurs facing royal encroachment so we argue his list should if anything be biased against rulings that knocked down traditional rights.</p>
+<p>The model explains why cabal farming was less stable in England. We also name the contingencies of the 1660s and 1670s, including a quarrel between the Lord Treasurer and the head of the farming syndicate, the costs of the Dutch War, and the king's spending.</p>
 </section>
 
 <footer>
   <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/market-for-ideas/">Mapping the market for ideas</a> · <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/pandemics-cities/">Pandemics and cities</a> · <a href="/interactive/school-choice-religiosity/">School choice and religiosity in France</a> · <a href="/interactive/land-redistribution/">Land redistribution and the Coase theorem</a> · <a href="/interactive/">All companions</a></p>
-  <p>The data come from the paper's replication files and are checked against the published figures. French lease prices and loans are from the Malet records published by Bonney and Bonney. Real values are grams of silver, shown in tonnes. English rents and anticipations are from Ashton (1957, 1960). The arrêts are from Renauldon (1765). The text of the published paper dates the £172,500 rent to 1638, while Ashton's series and the paper's Figure 6 put it in 1639. The paper captions the loan series as starting in 1614. The data file has its first loan figure in 1617.</p>
+  <p>The data come from the paper's replication files and are checked against the published figures. French lease prices and loans are from the Malet records published by Bonney and Bonney. Real values are grams of silver, shown in tonnes. English rents and anticipations are from Ashton (1957, 1960). The arrêts are from Renauldon (1765). The text of the published paper dates the £172,500 rent to 1638 while Ashton's series and the paper's Figure 6 put it in 1639. The paper captions the loan series as starting in 1614. The data file has its first loan figure in 1617.</p>
 </footer>
 </main>
 <div class="tip" id="tip"></div>
@@ -407,8 +407,8 @@ function model() {
     d3.select("#mmax").text(f2(xmax)); d3.select("#mcomp").text(f2(dB*k));
     let v1, v2;
     if (st.x === 0) { v1 = "Competition"; v2 = "With no borrowing an auction gives the crown the most."; }
-    else if (st.x <= dB*k) { v1 = "Either works"; v2 = "This loan is small enough for competitive farmers, and the auction pays the crown more."; }
-    else if (st.x <= xmax) { v1 = "Cabal holds"; v2 = "Only a cabal can lend this much, and the crown keeps repaying."; }
+    else if (st.x <= dB*k) { v1 = "Either works"; v2 = "This loan is small enough for competitive farmers and the auction pays the crown more."; }
+    else if (st.x <= xmax) { v1 = "Cabal holds"; v2 = "Only a cabal can lend this much and the crown keeps repaying."; }
     else { v1 = "Cabal breaks"; v2 = "The crown would default. The loan exceeds what the cabal's punishment can enforce."; }
     d3.select("#mverdict").text(v1); d3.select("#mverdict2").text(v2);
   }
@@ -506,7 +506,7 @@ function france(fr) {
       cap: "<b>Figure 7.</b> Aggregate lease prices of the French revenue farms, 1600–1656, in tonnes of silver. The smoothed series is the one in Figure 4 of the paper." },
     { tab: "Loans over lease prices", series: [{ name: "Annual", rows: pick("loans_over_lease"), col: "#9aa3ad", w: 1.4 }, { name: "Smoothed, as in the paper", rows: pick("loans_over_lease_smoothed"), col: C.navy }],
       opts: { xdom: [1610, 1660], ylab: "Loans as a share of lease price", y0: 0, hline: 1, yfmt: d3.format(".1f"), tipfmt: v => `${(100*v).toFixed(0)} percent of the lease price` },
-      cap: "<b>Figure 7.</b> Loans made through the farms as a share of the lease price. The dashed line marks loans equal to the whole lease. The loan figures are incomplete, so the share is a lower bound. Gaps are years with no loan data. The smoothed series is the one in Figure 5 of the paper." },
+      cap: "<b>Figure 7.</b> Loans made through the farms as a share of the lease price. The dashed line marks loans equal to the whole lease. The loan figures are incomplete so the share is a lower bound. Gaps are years with no loan data. The smoothed series is the one in Figure 5 of the paper." },
     { tab: "Lease prices by farm", series: [{ name: "Gabelles de France, salt", rows: pick("gabelles"), col: C.rust }, { name: "Cinq Grosses Fermes, customs", rows: pick("cinq_grosses_fermes"), col: C.navy }, { name: "Aides, sales taxes", rows: pick("aides"), col: C.teal }, { name: "Domaines", rows: pick("domaines"), col: C.gold }, { name: "All other farms", rows: other, col: "#9aa3ad" }],
       opts: { xdom: [1598, 1660], ylab: "Nominal livres tournois", tipfmt: v => `${fmt0(v)} livres` },
       cap: "<b>Figure 7.</b> Nominal lease prices of the largest farms, 1600–1656, from the same records. All other farms is the total lease less the four named farms." } ],
@@ -522,7 +522,7 @@ function england(en) {
       cap: "<b>Figure 8.</b> Nominal rent of the Great Farm of the Customs, 1604–1639, from Ashton (1957, 1960), as in Figure 6 of the paper." },
     { tab: "Anticipations over rent", series: [{ name: "Anticipations in the year, over rent", rows: en.map(r => [r.year, r.anticipations == null ? null : r.anticipations / r.rent]), col: "#9aa3ad", bars: true }, { name: "Smoothed, as in the paper", rows: pick("anticipations_over_rent_smoothed"), col: C.rust }],
       opts: { xdom: [1602, 1641], ylab: "Share of the annual rent", y0: 0, yfmt: d3.format(".0%"), tipfmt: v => `${(100*v).toFixed(0)} percent of the rent` },
-      cap: "<b>Figure 8.</b> Anticipations, the crown's advance draws on future rent, as a share of the annual rent. The bars are each year's anticipations. The line is the smoothed series in Figure 7 of the paper." } ],
+      cap: "<b>Figure 8.</b> Anticipations as a share of the annual rent. Anticipations were the crown's advance draws on future rent. The bars are each year's anticipations. The line is the smoothed series in Figure 7 of the paper." } ],
     "#esvg", "#eleg", "#ecap");
 }
 

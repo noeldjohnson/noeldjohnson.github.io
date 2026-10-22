@@ -96,21 +96,21 @@ footer a { color: var(--teal); }
 <h2><span class="num">1</span>Argument</h2>
 <p>From the 1860s the British colonial state sent vaccinators across India with free smallpox vaccine. Smallpox killed 20 to 30 percent of those it infected and up to 80 percent of children under five. Uptake was uneven across districts and many districts kept high smallpox mortality even with the vaccine on offer.</p>
 <p>The Great Revolt of 1857 began as a mutiny in the Bengal Army and became a popular rising across North India. Its center in Awadh was Lucknow, where rebels besieged the British Residency from June to November 1857. The British response included mass executions, the destruction of at least 1,500 houses in Lucknow, and the confiscation of over half a million acres in Awadh. A decade later the same administration that had carried out the reprisals came to the same villages offering to vaccinate children.</p>
-<p>The paper asks whether that memory reduced vaccination. With a new district panel digitized from colonial vaccination reports for 1870 to 1919, districts closer to Lucknow vaccinated fewer infants. The gap was largest in the 1880s and faded as the generation that lived through 1857 died. Districts closer to Lucknow also had higher smallpox mortality in the 1890s.</p>
-<p>The contribution is that the injury was not medical. Earlier work traced medical mistrust to medical abuses such as the Tuskegee study and French colonial sleeping-sickness campaigns. Here the suppression of a political revolt depressed participation in an unrelated health campaign a generation later.</p>
+<p>We ask whether that memory reduced vaccination. With a new district panel digitized from colonial vaccination reports for 1870 to 1919, districts closer to Lucknow vaccinated fewer infants. The gap was largest in the 1880s and faded as the generation that lived through 1857 died. Districts closer to Lucknow also had higher smallpox mortality in the 1890s.</p>
+<p>The injury in this case was political. Earlier work traced medical mistrust to medical abuses such as the Tuskegee study and French colonial sleeping-sickness campaigns. Here the suppression of a political revolt depressed participation in an unrelated health campaign a generation later.</p>
 </section>
 
 <section id="infants">
 <h2><span class="num">2</span>Why infants</h2>
-<p>The vaccination reports give the number vaccinated each year. That flow falls on its own as the vaccinated share of the population rises, because fewer unvaccinated people remain. A falling all-ages rate could be fading mistrust or simply saturation, and the data cannot tell them apart.</p>
-<p>The Bass model of diffusion makes the point. Each year an unvaccinated person adopts with a probability that rises with the share already vaccinated. Move the sliders. The all-ages rate climbs and then falls as the population fills up. Infants are a fresh cohort every year, so the share of each new birth cohort vaccinated rises and never falls back.</p>
+<p>The vaccination reports give the number vaccinated each year. That flow falls on its own as the vaccinated share of the population rises because fewer unvaccinated people remain. A falling all-ages rate could be fading mistrust or simply saturation, and the data cannot tell them apart.</p>
+<p>The Bass model of diffusion makes the point. Each year an unvaccinated person adopts with a probability that rises with the share already vaccinated. Move the sliders. The all-ages rate climbs and then falls as the population fills up. Infants are a fresh cohort every year so the share of each new birth cohort vaccinated rises and never falls back.</p>
 <div class="figure">
   <div class="controls">
     <label>Innovation, p <input id="bp" type="range" min="0.005" max="0.10" step="0.005" value="0.03"> <span id="bpv" style="font-weight:600;color:var(--rust);min-width:3em"></span></label>
     <label>Imitation, q <input id="bq" type="range" min="0.05" max="0.8" step="0.01" value="0.38"> <span id="bqv" style="font-weight:600;color:var(--rust);min-width:3em"></span></label>
   </div>
   <svg id="bass" viewBox="0 0 800 300" role="img" aria-label="Bass diffusion model"></svg>
-  <div class="cap"><b>Figure 1.</b> The Bass model with the paper's illustrative values of p = 0.03 and q = 0.38 as defaults. The rust line is the share of the whole population vaccinated each year, drawn at five times its size so it is visible. The teal line is the share of each new birth cohort vaccinated in its first year. The dashed line is the cumulative share vaccinated.</div>
+  <div class="cap"><b>Figure 1.</b> The Bass model with our illustrative values of p = 0.03 and q = 0.38 as defaults. The rust line is the share of the whole population vaccinated each year, drawn at five times its size so it is visible. The teal line is the share of each new birth cohort vaccinated in its first year. The dashed line is the cumulative share vaccinated.</div>
 </div>
 <p>The reports show the same divergence. The all-ages rate climbed in the 1870s and then stayed near 3.4 to 3.7 percent a year. The infant rate rose from about 7 per 1,000 in the 1870s to about 20 per 1,000 in the 1910s, with a small dip in the 1890s. The paper therefore uses infant vaccination as its outcome.</p>
 <div class="figure">
@@ -121,7 +121,7 @@ footer a { color: var(--teal); }
 
 <section id="cohort">
 <h2><span class="num">3</span>The cohort</h2>
-<p>Beliefs about institutions form mostly between the ages of 10 and 25. The people most shaped by 1857 were born between 1832 and 1847, and they would have been deciding whether to vaccinate their own infants through the 1870s and 1880s. If the memory of 1857 traveled with them, the effect should fade as they died.</p>
+<p>Beliefs about institutions form mostly between the ages of 10 and 25. The people most shaped by 1857 were born between 1832 and 1847 and they would have been deciding whether to vaccinate their own infants through the 1870s and 1880s. If the memory of 1857 traveled with them the effect should fade as they died.</p>
 <div class="figure">
   <svg id="surv" viewBox="0 0 800 240" role="img" aria-label="Survival of the 1832 to 1847 birth cohort by decade"></svg>
   <div class="cap"><b>Figure 3.</b> Probability that a member of the cohort aged 10 to 25 in 1857 is still alive in each decade, given alive in 1857. Exponential survival with hazards from Visaria and Visaria (1982), as in Appendix Table C.1 of the paper.</div>
@@ -146,52 +146,52 @@ footer a { color: var(--teal); }
 
 <section id="gradient">
 <h2><span class="num">5</span>The gradient by decade</h2>
-<p>For each decade the paper regresses a district's infant vaccination rate on its travel cost to Lucknow over the historical road, river, and rail network, with controls for terrain, caloric suitability, distance to sea and rivers, population, vaccination spending per head, and railway access. Both variables are standardized within the decade. A positive coefficient means districts farther from Lucknow vaccinated more.</p>
+<p>For each decade we regress a district's infant vaccination rate on its travel cost to Lucknow over the historical road, river, and rail network, with controls for terrain, caloric suitability, distance to sea and rivers, population, vaccination spending per head, and railway access. Both variables are standardized within the decade. A positive coefficient means districts farther from Lucknow vaccinated more.</p>
 <p>Switch between specifications. The gray bars behind each panel show the share of the 1857 cohort still alive.</p>
 <div class="figure">
   <div class="controls" id="grad-tabs"></div>
   <svg id="grad" viewBox="0 0 800 330" role="img" aria-label="Decade coefficients"></svg>
   <div class="cap" id="grad-cap"></div>
 </div>
-<p>With province fixed effects the coefficient peaks at 1.06 in the 1880s. A district one standard deviation closer to Lucknow had an infant vaccination rate about one standard deviation lower, which the paper puts at 9 to 11 fewer infant vaccinations per 1,000 inhabitants a year. The pattern holds within districts as the rail network changed their access, under straight-line distance, and in close-kin linguistic distance to Lucknow. The broad-cultural linguistic measure grows over time instead, which the paper reads as a separate and longer-lived channel.</p>
+<p>With province fixed effects the coefficient peaks at 1.06 in the 1880s. A district one standard deviation closer to Lucknow had an infant vaccination rate about one standard deviation lower, which we put at 9 to 11 fewer infant vaccinations per 1,000 inhabitants a year. The pattern holds within districts as the rail network changed their access, under straight-line distance, and in close-kin linguistic distance to Lucknow. The broad-cultural linguistic measure grows over time instead, which the paper reads as a separate and longer-lived channel.</p>
 </section>
 
 <section id="sepoy">
 <h2><span class="num">6</span>Where the violence was</h2>
-<p>If the effect runs through the memory of 1857, it should be strongest where the fighting was. The paper interacts access to Lucknow with whether a district lies within 50 or 100 kilometers of a documented sepoy event.</p>
+<p>If the effect runs through the memory of 1857 it should be strongest where the fighting was. We interact access to Lucknow with whether a district lies within 50 or 100 kilometers of a documented sepoy event.</p>
 <div class="figure">
   <div class="controls" id="sepoy-tabs"></div>
   <svg id="sepsvg" viewBox="0 0 800 280" role="img" aria-label="Sepoy interaction coefficients"></svg>
-  <div class="cap"><b>Figure 5.</b> Coefficient on access to Lucknow interacted with sepoy exposure, by decade, with province fixed effects and 95 percent Conley intervals. A positive value means the gradient is steeper in districts near sepoy activity.</div>
+  <div class="cap"><b>Figure 6.</b> Coefficient on access to Lucknow interacted with sepoy exposure, by decade, with province fixed effects and 95 percent Conley intervals. A positive value means the gradient is steeper in districts near sepoy activity.</div>
 </div>
 <p>In the 1880s the gradient was about twice as steep in districts within 50 kilometers of sepoy activity. The interaction is positive in most other decades and significant in none of them.</p>
 </section>
 
 <section id="placebo">
 <h2><span class="num">7</span>Other cities</h2>
-<p>A gradient around Lucknow could be a gradient around any major center. The paper runs the same regressions with travel cost to Delhi, Calcutta, and Bombay in place of Lucknow.</p>
+<p>A gradient around Lucknow could be a gradient around any major center. We run the same regressions with travel cost to Delhi, Calcutta, and Bombay in place of Lucknow.</p>
 <div class="figure">
   <svg id="plsvg" viewBox="0 0 800 300" role="img" aria-label="Placebo cities"></svg>
   <div class="legend" id="pllegend"></div>
-  <div class="cap"><b>Figure 6.</b> Decade coefficients on access to each city, province fixed effects, 95 percent Conley intervals, districts within 1,000 kilometers of each city.</div>
+  <div class="cap"><b>Figure 7.</b> Decade coefficients on access to each city, province fixed effects, 95 percent Conley intervals, districts within 1,000 kilometers of each city.</div>
 </div>
-<p>None of the other cities reproduces the rise and fade. Delhi runs the other way. Delhi saw severe fighting in 1857 but the violence was concentrated in the city, and the British re-established administration around it quickly. In Awadh the Oudh Settlement dispossessed about 21,000 taluqdars and dissolved the patron relationships through which rural authority had run. With both cities in the same 1880s regression, Lucknow is 0.88 and Delhi is −0.90, both significant at one percent.</p>
+<p>None of the other cities reproduces the rise and fade. Delhi runs the other way. Delhi saw severe fighting in 1857 but the violence was concentrated in the city and the British re-established administration around it quickly. In Awadh the Oudh Settlement dispossessed about 21,000 taluqdars and dissolved the patron relationships through which rural authority had run. With both cities in the same 1880s regression Lucknow is 0.88 and Delhi is −0.90, both significant at one percent.</p>
 <p>The same test works for language. Interacting linguistic distance to Lucknow with the cohort's survival gives a positive coefficient against each of six comparison cities, significant in five. The comparison city's own interaction is indistinguishable from zero in five of six.</p>
 </section>
 
 <section id="awadh">
 <h2><span class="num">8</span>Awadh</h2>
-<p>The smooth gradient has two parts. Awadh as a whole took a region-wide shock from annexation in 1856 and the Oudh Settlement after 1858, so it should be uniformly low. Outside Awadh, exposure should fall off with distance from Lucknow. Within the historical northwestern province the paper estimates both.</p>
+<p>The smooth gradient has two parts. Awadh as a whole took a region-wide shock from annexation in 1856 and the Oudh Settlement after 1858 so it should be uniformly low. Outside Awadh, exposure should fall off with distance from Lucknow. Within the historical northwestern province the paper estimates both.</p>
 <div class="figure">
   <svg id="awsvg" viewBox="0 0 800 300" role="img" aria-label="Awadh decomposition"></svg>
-  <div class="cap"><b>Figure 7.</b> Implied infant vaccination, in standard deviations, against standardized access to Lucknow, from the pooled regression of Appendix Table F.5 with decade fixed effects. Ticks along the bottom are the districts' access values.</div>
+  <div class="cap"><b>Figure 8.</b> Implied infant vaccination, in standard deviations, against standardized access to Lucknow, from the pooled regression of Appendix Table F.5 with decade fixed effects. Ticks along the bottom are the districts' access values.</div>
 </div>
 <p>Awadh districts sit 0.75 standard deviations lower. Outside Awadh the gradient is 0.40. Inside Awadh it is 0.04, which is flat. The cohort fade and the concentration near sepoy events both live in the gradient outside Awadh. Dropping the twelve Awadh districts from the full sample leaves the headline coefficient positive in every decade.</p>
 </section>
 
 <section id="welfare">
 <h2><span class="num">9</span>Mortality and welfare</h2>
-<p>The reports also record smallpox deaths. In the 1890s districts with one standard deviation better access to Lucknow had 0.279 standard deviations more smallpox deaths. The 1900s and 1910s estimates are near zero, and the 1870s and 1880s have too little mortality data to estimate.</p>
+<p>The reports also record smallpox deaths. In the 1890s districts with one standard deviation better access to Lucknow had 0.279 standard deviations more smallpox deaths. The 1900s and 1910s estimates are near zero and the 1870s and 1880s have too little mortality data to estimate.</p>
 <p>The medical literature bounds what the vaccination shortfall could have cost. Set the parameters below. The ceiling assumes every missed vaccination left a child fully exposed in an unvaccinated population. The observed gradient sits far below it, as partial coverage and herd immunity would lead one to expect.</p>
 <div class="figure">
   <div class="controls">
@@ -205,7 +205,7 @@ footer a { color: var(--teal); }
     <div><b id="wobs"></b>observed in the 1890s, per 1,000 a year</div>
     <div><b id="wtot"></b>excess deaths a year in the districts nearest Lucknow</div>
   </div>
-  <div class="cap"><b>Figure 8.</b> The ceiling is missed vaccinations times the attack rate times case fatality times efficacy. The observed value is the 1890s coefficient of 0.279 times the standard deviation of 1890s smallpox mortality, 0.266 per 1,000. The total applies the observed value to the 48.8 million people in the third of the 1890s sample closest to Lucknow. The paper rounds these inputs to 0.28, 0.27, and 50 million and states the result as on the order of 4,000 deaths a year.</div>
+  <div class="cap"><b>Figure 9.</b> The ceiling is missed vaccinations times the attack rate times case fatality times efficacy. The observed value is the 1890s coefficient of 0.279 times the standard deviation of 1890s smallpox mortality, 0.266 per 1,000. The total applies the observed value to the 48.8 million people in the third of the 1890s sample closest to Lucknow. The paper rounds these inputs to 0.28, 0.27, and 50 million and states the result as on the order of 4,000 deaths a year.</div>
 </div>
 <p>The observed figure does not prove that vaccination was the only channel. Economic disruption after the Oudh Settlement could raise mortality on its own. The exercise shows that the observed gradient has the direction and timing that the vaccination shortfall predicts and lies well inside its medical bound.</p>
 </section>
@@ -215,13 +215,13 @@ footer a { color: var(--teal); }
 <p>The panel is unbalanced. Coverage grew from 79 districts in the 1870s to 206 in the 1910s within the 1,000 kilometer sample. The within-district fade survives on a balanced panel of 62 districts.</p>
 <p>Distance and access are smooth gradients and they also track other features of the Gangetic heartland. The case rests on the timing, which follows the cohort, and on the concentration near sepoy events. Static geography produces neither.</p>
 <p>The mortality data come from the vaccination reports and are uneven. Only the 1890s gradient is significant.</p>
-<p>District boundaries changed over the period, so each district is located at its largest city.</p>
+<p>District boundaries changed over the period so each district is located at its largest city.</p>
 <p class="note">This page follows the circulating draft of 6 July 2026. The paper is under revision and the page will be updated when the revised version circulates.</p>
 </section>
 
 <footer>
   <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/market-for-ideas/">Mapping the market for ideas</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/tax-farming/">Tax farming and state capacity</a> · <a href="/interactive/pandemics-cities/">Pandemics and cities</a> · <a href="/interactive/school-choice-religiosity/">School choice and religiosity in France</a> · <a href="/interactive/land-redistribution/">Land redistribution and the Coase theorem</a> · <a href="/interactive/">All companions</a></p>
-  <p>Every number on this page is computed from data exported by the paper's replication code (<code>companion_export_10_17.R</code>), which checks each coefficient against the manuscript. Standard errors are the Conley errors the paper reports. Vaccination data are digitized from the provincial vaccination reports held by the National Library of Scotland.</p>
+  <p>Every number on this page is computed from data exported by the paper's replication code (<code>companion_export_10_17.R</code>), which checks each coefficient against the manuscript. Standard errors are the Conley errors we report. Vaccination data are digitized from the provincial vaccination reports held by the National Library of Scotland.</p>
 </footer>
 </main>
 <div class="tip" id="tip"></div>
@@ -414,7 +414,7 @@ function gradient(est, surv) {
   function draw(s) {
     tabs.classed("on", d => d === s);
     coefPlot(d3.select("#grad"), s[1], { H: 330, decades: [1870,1880,1890,1900,1910], surv: surv.by_decade, ylab: "Coefficient (standard deviations)" });
-    d3.select("#grad-cap").html(`<b>Figure.</b> ${s[2]} Bars show 95 percent intervals, Conley unless noted. Gray columns are the share of the 1857 cohort alive in the decade, on a scale from zero to one.`);
+    d3.select("#grad-cap").html(`<b>Figure 5.</b> ${s[2]} Bars show 95 percent intervals, Conley unless noted. Gray columns are the share of the 1857 cohort alive in the decade, on a scale from zero to one.`);
   }
   draw(specs[0]);
 }

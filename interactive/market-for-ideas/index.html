@@ -98,15 +98,15 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="argument">
 <h2><span class="num">1</span>Argument</h2>
-<p>Between 1450 and 1650 European print grew from a Mainz craft producing about 3,000 Latin editions a decade into a market of nearly 800,000 editions in seven major languages and 1,300 cities. The paper asks two questions. Did access to larger markets change what a city printed? Did what a city printed predict whether it grew?</p>
-<p>Three traditions give different answers to the first question. Adam Smith says the division of labor is limited by the extent of the market, so better-connected cities should print narrower, more distinctive niches. New trade theory, with love of variety and spatial product differentiation, says the opposite. Larger markets support more firms printing more varieties, and those varieties sit near the European mainstream of demand. Joel Mokyr's account of the Industrial Enlightenment adds that the useful-knowledge part of what cities printed should matter for growth.</p>
-<p>Frankfurt and Tübingen show the contrast. Frankfurt in 1580 to 1620 sat near the top of European market access, home to the continent's leading book fair. It printed humanist and scientific Latin that could have come from Antwerp, Leiden, Basel, or Venice with the imprint changed. Tübingen in the later sixteenth century was a modest university town off the main trade routes. It printed Lutheran disputations, Hebrew philology, medical dissertations, and astronomy from Michael Mästlin's chair, a mix found nowhere else.</p>
-<p>The answers. Across six languages, when a city's market access rose its print became more diverse, closer to the European mainstream, and more evenly spread across topics. That is the new trade theory pattern and the reverse of Smith. And the share of useful-knowledge titles predicts a city's growth over the next 50 years, beyond what market access predicts.</p>
+<p>Between 1450 and 1650 European print grew from a Mainz craft producing about 3,000 Latin editions a decade into a market of nearly 800,000 editions in seven major languages and 1,300 cities. We ask two questions. Did access to larger markets change what a city printed? Did what a city printed predict whether it grew?</p>
+<p>Three traditions give different answers to the first question. Adam Smith says the division of labor is limited by the extent of the market so better-connected cities should print narrower, more distinctive niches. New trade theory, with love of variety and spatial product differentiation, says the opposite. Larger markets support more firms printing more varieties and those varieties sit near the European mainstream of demand. Joel Mokyr's account of the Industrial Enlightenment adds that the useful-knowledge part of what cities printed should matter for growth.</p>
+<p>Frankfurt and Tübingen show the contrast. Frankfurt in 1580 to 1620 sat near the top of European market access, home to the continent's leading book fair. It printed humanist and scientific Latin that could have come from Antwerp, Leiden, Basel, or Venice with the imprint changed. Tübingen in the later sixteenth century was a modest university town off the main trade routes. It printed Lutheran disputations, Hebrew philology, medical dissertations, and astronomy from Michael Mästlin's chair. No other city printed that mix.</p>
+<p>Across six languages, when a city's market access rose its print became more diverse, closer to the European mainstream, and more evenly spread across topics. That is the new trade theory pattern and the reverse of Smith. And the share of useful-knowledge titles predicts a city's growth over the next 50 years, beyond what market access predicts.</p>
 </section>
 
 <section id="vectors">
 <h2><span class="num">2</span>Titles as vectors</h2>
-<p>The Universal Short Title Catalogue gives each edition about twenty broad subject classes. The largest, Religious, holds 215,000 titles and lumps Lutheran polemic together with Catholic devotion and Hebrew biblical commentary. The paper measures content instead with word embeddings. A word is represented by the words it appears near, so words used in similar titles end up close together. Each language's vectors are trained separately on its own titles.</p>
+<p>The Universal Short Title Catalogue gives each edition about 20 broad subject classes. The largest, Religious, holds 215,000 titles and lumps Lutheran polemic together with Catholic devotion and Hebrew biblical commentary. We measure content instead with word embeddings. A word is represented by the words it appears near, so words used in similar titles end up close together. Each language's vectors are trained separately on its own titles.</p>
 <p>Search a word to see its ten nearest neighbors. The list covers the 1,500 most common words in each language.</p>
 <div class="figure">
   <div class="controls">
@@ -129,19 +129,19 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="metrics">
 <h2><span class="num">3</span>Three measures of what a city printed</h2>
-<p>For each city, language, and period the paper computes three numbers from its titles' vectors. Each tab shows the paper's own pair of examples from the Latin titles of 1600 to 1609. The dots are titles placed on a two-dimensional map of the Latin embedding. The measures themselves are computed in all 200 dimensions, so the pictures illustrate them rather than compute them.</p>
+<p>For each city, language, and period we compute three numbers from its titles' vectors. Each tab shows our own pair of examples from the Latin titles of 1600 to 1609. The dots are titles placed on a two-dimensional map of the Latin embedding. The measures themselves are computed in all 200 dimensions so the pictures illustrate them rather than compute them.</p>
 <div class="figure">
   <div class="controls" id="mtabs"></div>
   <div id="mdesc" style="font: 15px/1.5 -apple-system, 'Helvetica Neue', Arial, sans-serif; margin-bottom: 10px"></div>
   <div class="two"><svg id="m1" viewBox="0 0 400 360"></svg><svg id="m2" viewBox="0 0 400 360"></svg></div>
-  <div class="cap"><b>Figure 3.</b> Latin titles from each city in 1600 to 1609, placed by the fitted Latin UMAP. Cities with more than 300 titles show a random 300. The ring is the city's centroid and the star is the European Latin centroid for the decade. In the entropy tab, the bars are the city's shares across the ten topic clusters.</div>
+  <div class="cap"><b>Figure 3.</b> Latin titles from each city in 1600 to 1609, placed by the fitted Latin UMAP. Cities with more than 300 titles show a random 300. The ring is the city's centroid and the star is the European Latin centroid for the decade. In the entropy tab the bars are the city's shares across the ten topic clusters.</div>
 </div>
 <p>The three measures are separate. Louvain's entropy is near zero, with nearly all its titles in one cluster of Counter-Reformation theology, yet its diversity is 0.83 because the titles within that cluster vary widely.</p>
 </section>
 
 <section id="ma">
 <h2><span class="num">4</span>Market access</h2>
-<p>A city's market access sums the populations of every other city, each discounted by the cost of reaching it. Costs come from least-cost paths over Roman roads, medieval routes, rivers, and seas, with sea travel cheapest and overland portage dearest. As populations shifted over two centuries, every city's market access changed. Amsterdam grew from about 3,000 to 175,000 people and Bruges shrank from 125,000 to 35,000.</p>
+<p>A city's market access sums the populations of every other city, each discounted by the cost of reaching it. Costs come from least-cost paths over Roman roads, medieval routes, rivers, and seas, with sea travel cheapest and overland portage dearest. As populations shifted over two centuries every city's market access changed. Amsterdam grew from about 3,000 to 175,000 people and Bruges shrank from 125,000 to 35,000.</p>
 <div class="figure">
   <div class="controls" id="matabs"></div>
   <div class="controls"><label><input type="checkbox" id="showpaths"> Two least-cost paths</label></div>
@@ -153,7 +153,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="composition">
 <h2><span class="num">5</span>Market access and composition</h2>
-<p>The paper asks how a city's measures moved when its own market access rose above its usual level. City fixed effects in a Mundlak specification absorb everything fixed about a city, and period and language effects absorb common trends. The two theories predict opposite signs on all three measures.</p>
+<p>We ask how a city's measures moved when its own market access rose above its usual level. City fixed effects in a Mundlak specification absorb everything fixed about a city and period and language effects absorb common trends. The two theories predict opposite signs on all three measures.</p>
 <table class="pred">
   <tr><th>Measure</th><th>Smith predicts</th><th>New trade theory predicts</th><th>Pooled estimate</th></tr>
   <tr><td>Diversity</td><td>falls</td><td>rises</td><td id="pd"></td></tr>
@@ -165,7 +165,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
   <svg id="csvg" viewBox="0 0 800 330" role="img" aria-label="Within-city slopes by language"></svg>
   <div class="cap"><b>Figure 5.</b> Within-city slope of each measure on log market access, pooled and by language, with 95 percent intervals clustered by city. Filled points are significant at 5 percent. Observations weighted by the square root of title counts.</div>
 </div>
-<p>All three pooled signs match new trade theory. Distinctiveness falls in all six languages and diversity rises in five. Two languages stand apart. German diversity does not move, which may reflect confessional narrowing after 1517 or the Thirty Years' War. Latin distinctiveness does not move either, because Latin already served a pan-European readership and had no further to converge.</p>
+<p>All three pooled signs match new trade theory. Distinctiveness falls in all six languages and diversity rises in five. Two languages stand apart. German diversity does not move, which may reflect confessional narrowing after 1517 or the Thirty Years' War. Latin distinctiveness does not move either because Latin already served a pan-European readership and had no further to converge.</p>
 <div class="figure">
   <svg id="wsvg" viewBox="0 0 800 240" role="img" aria-label="War sensitivity"></svg>
   <div class="cap"><b>Figure 6.</b> Pooled slopes on the full sample and after dropping German print in 1600 to 1649 and the Latin print of German territories in the same period. Removing the war years strengthens every slope.</div>
@@ -174,7 +174,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="growth">
 <h2><span class="num">6</span>Composition and growth</h2>
-<p>New trade theory says composition is a product of market access, so once market access and initial size are held fixed it should not predict growth. The Mokyr channel says the useful-knowledge part of composition should. The paper regresses the next 50 years of population growth on each measure, with log market access and log population as controls.</p>
+<p>New trade theory says composition is a product of market access, so once market access and initial size are held fixed it should not predict growth. The Mokyr channel says the useful-knowledge part of composition should. We regress the next 50 years of population growth on each measure, with log market access and log population as controls.</p>
 <div class="figure">
   <svg id="gsvg" viewBox="0 0 800 220" role="img" aria-label="Growth coefficients"></svg>
   <div class="cap"><b>Figure 7.</b> Pooled coefficient on each measure in a regression of 50-year growth in log population, controlling for log market access and log population, with period and language fixed effects. 95 percent intervals clustered by city.</div>
@@ -193,12 +193,12 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="latin">
 <h2><span class="num">7</span>The Latin asymmetry</h2>
-<p>The useful-knowledge signal travels by different routes in Latin and in the vernaculars. Vernacular print served a local readership, so the share of a city's vernacular titles that were useful predicts its growth, strongly in German and Italian. Latin served a pan-European scholarly readership, so what mattered was the depth of a city's Latin useful-knowledge print. Diversity within useful Latin titles predicts growth, and it does in no other language.</p>
+<p>The useful-knowledge signal travels by different routes in Latin and in the vernaculars. Vernacular print served a local readership so the share of a city's vernacular titles that were useful predicts its growth, strongly in German and Italian. Latin served a pan-European scholarly readership so what mattered was the depth of a city's Latin useful-knowledge print. Diversity within useful Latin titles predicts growth. It does in no other language.</p>
 <div class="two">
   <div class="figure" style="margin:0"><svg id="l1" viewBox="0 0 400 300"></svg><div class="cap"><b>Figure 9a.</b> Share of useful-knowledge titles and 50-year growth, by language.</div></div>
   <div class="figure" style="margin:0"><svg id="l2" viewBox="0 0 400 300"></svg><div class="cap"><b>Figure 9b.</b> Diversity within useful titles and 50-year growth, by language.</div></div>
 </div>
-<p style="margin-top:20px">The same fact about Latin explains its null in Section 5. Latin print was already centered on the European mainstream, so market access could not pull it closer. Dropping Bologna, Padua, Leiden, or Pavia one at a time leaves the Latin coefficient between 0.436 and 0.442.</p>
+<p style="margin-top:20px">The same fact about Latin explains its null in Section 5. Latin print was already centered on the European mainstream so market access could not pull it closer. Dropping Bologna, Padua, Leiden, or Pavia one at a time leaves the Latin coefficient between 0.436 and 0.442.</p>
 </section>
 
 <section id="explorer">
@@ -218,13 +218,13 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 <section id="limits">
 <h2><span class="num">9</span>Limits</h2>
 <p>Most variation in market access is between cities. Within a city it is 4.5 to 8.6 percent of the total, depending on language, so the identifying variation is thin and partly tracks the rise of the northwestern European urban complex. The slopes are associations consistent with the framework rather than separately identified structural parameters.</p>
-<p>Larger cells can sample a wider vocabulary. Holding each cell at 30 titles, the diversity slope stays positive in all 100 permutations but falls to between 0.12 and 0.17, so part of the headline magnitude is mechanical.</p>
-<p>English is left out because London printed 85 percent of English titles. The catalog records surviving editions, and the growth results are 50-year correlations that cannot separate composition's own effect from the market forces that shape both.</p>
+<p>Larger cells can sample a wider vocabulary. Holding each cell at 30 titles, the diversity slope stays positive in all 100 permutations but falls to between 0.12 and 0.17 so part of the headline magnitude is mechanical.</p>
+<p>English is left out because London printed 85 percent of English titles. The catalog records surviving editions and the growth results are 50-year correlations that cannot separate composition's own effect from the market forces that shape both.</p>
 </section>
 
 <footer>
   <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/tax-farming/">Tax farming and state capacity</a> · <a href="/interactive/pandemics-cities/">Pandemics and cities</a> · <a href="/interactive/school-choice-religiosity/">School choice and religiosity in France</a> · <a href="/interactive/land-redistribution/">Land redistribution and the Coase theorem</a> · <a href="/interactive/">All companions</a></p>
-  <p>Every number on this page is computed from data exported by the paper's replication code, which checks 44 values against the manuscript. Print data come from the Universal Short Title Catalogue and population data from Buringh's European urban population dataset.</p>
+  <p>Every number on this page is computed from data exported by our replication code, which checks 44 values against the manuscript. Print data come from the Universal Short Title Catalogue and population data from Buringh's European urban population dataset.</p>
 </footer>
 </main>
 <div class="tip" id="tip"></div>
