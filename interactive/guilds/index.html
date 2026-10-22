@@ -153,8 +153,8 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="ratios">
 <h2><span class="num">4</span>Which cities enter the record</h2>
-<p>A lead before the first record could be true of any institution dated this way. To see whether guilds are unusual, the paper puts eight other institutions through the same comparison. Two grew from below like guilds, the first printing press and the commune. Four were conferred from above. Market rights and town charters were granted by a lord, and capitals and new bishoprics and archbishoprics were seats placed in a city. Universities are left unclassified.</p>
-<p>Each institution is dated by a different source, so each can only be compared within the cities its source covers. The printing press covers the full panel. Market rights and charters come from the Deutsches Städtebuch and cover German and Austrian towns. Communes, capitals, sees, and universities come from Bosker, Buringh, and van Zanden (2013) and cover the cities in their data. Each comparison in Figure 5 therefore shows guilds in the same set of cities as a benchmark.</p>
+<p>A lead before the first record could be true of any institution dated this way. To see whether guilds are unusual, the paper puts seven other institutions through the same comparison. Two grew from below like guilds, the first printing press and the commune. Four were conferred from above. Market rights and town charters were granted by a lord, and capitals and new bishoprics and archbishoprics were seats placed in a city.</p>
+<p>Each institution is dated by a different source, so each can only be compared within the cities its source covers. The printing press covers the full panel. Market rights and charters come from the Deutsches Städtebuch and cover German and Austrian towns. Communes, capitals, and sees come from Bosker, Buringh, and van Zanden (2013) and cover the cities in their data. Each comparison in Figure 5 therefore shows guilds in the same set of cities as a benchmark.</p>
 <p>Two measures are compared. Population is the first. The second is notable births, the number of people born in a city in a century who appear in the database of Laouenan et al. (2022), about two million notable people assembled from Wikipedia and Wikidata biographies. It measures a city's prominence and does not depend on its population estimate. For each institution and each century from four before its first record to four after, the paper compares the cities that acquired it with the cities that did not. The population comparison uses every city in the comparison pool and counts a city with no estimate as small. The notable-births comparison uses cities whose population one century before the event was within a factor of about 2.7 of the event cities' mean, so it measures prominence given size. Per-inhabitant births remove the size difference that remains inside that band.</p>
 <div class="figure">
   <div class="controls" id="rpanel"><span class="ctl-label">Compare</span></div>
@@ -174,7 +174,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="exclusivity">
 <h2><span class="num">5</span>Exclusivity</h2>
-<p>The model orders institutions by how hard they were to have. This figure places the nine on one scale. The horizontal axis is the share of cities in the comparison pool that ever acquired the institution. The vertical axis is the early-window lead over the average city in the pool.</p>
+<p>The model orders institutions by how hard they were to have. This figure places the eight on one scale. The horizontal axis is the share of cities in the comparison pool that ever acquired the institution. The vertical axis is the early-window lead over the average city in the pool.</p>
 <div class="figure">
   <svg id="exsvg" viewBox="0 0 800 380" role="img" aria-label="Exclusivity"></svg>
   <div class="legend" id="exleg"></div>
@@ -382,7 +382,7 @@ function ratioView(ratios, windows) {
   const panels = [
     ["Guilds and the printing press", ["guild_full","press"], "All 1,754 cities in the panel."],
     ["Guilds, market rights, and charters", ["guild_de","market","charter"], "German and Austrian towns, where the Deutsches Städtebuch dates all three from the same urban histories."],
-    ["Guilds, communes, seats, and universities", ["guild_bbz","commune","capital","bishop","archbishop","university"], "Cities in Bosker, Buringh, and van Zanden (2013), the source for the other five institutions."] ];
+    ["Guilds, communes, and seats", ["guild_bbz","commune","capital","bishop","archbishop"], "Cities in Bosker, Buringh, and van Zanden (2013), the source for the other four institutions."] ];
   const measures = [["Population", "population","zeros_counted", "Mean population, counting cities with no estimate as small."],
                     ["Population, recorded cities only", "population","recorded_only", "Mean population among cities with a population estimate."],
                     ["Notable births, size-matched", "births","per_city", "Notable births per city, against comparison cities of similar size one century before."],
@@ -424,7 +424,7 @@ function ratioView(ratios, windows) {
 
 // ---------- 5. Exclusivity ----------
 function exclusivity(excl) {
-  const pts = excl.points, svg = d3.select("#exsvg"), W = 800, H = 380, mg = {l:62, r:30, t:16, b:44};
+  const pts = excl.points.filter(p => p.key !== "university"), svg = d3.select("#exsvg"), W = 800, H = 380, mg = {l:62, r:30, t:16, b:44};
   const x = d3.scaleLog([0.03, 0.9], [mg.l, W-mg.r]), y = d3.scaleLog([0.8, d3.max(pts, p => p.hi) * 1.05], [H-mg.b, mg.t]);
   const col = c => /below/.test(c) ? C.rust : /Conferred/.test(c) ? C.navy : C.gray;
   svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickValues([.05,.1,.2,.4,.7]).tickFormat(d3.format(".0%")));
@@ -437,10 +437,10 @@ function exclusivity(excl) {
   g.append("circle").attr("cx", p => x(p.share_acquiring)).attr("cy", p => y(p.lead)).attr("r", 7)
     .attr("fill", p => /below/.test(p.category) ? col(p.category) : "#fff").attr("stroke", p => col(p.category)).attr("stroke-width", 2)
     .on("mousemove", (ev,p) => showTip(ev, `<b>${p.label}</b><br>${Math.round(100*p.share_acquiring)}% of cities acquire it<br>Lead ${p.lead.toFixed(2)} [${p.lo.toFixed(2)}, ${p.hi.toFixed(2)}]`)).on("mouseleave", hideTip);
-  const dy = { Guild: 18, Commune: -12, "Market right": 20, "Town charter": -12, "First press": -10, University: -10 };
+  const dy = { Guild: 18, Commune: -12, "Market right": 20, "Town charter": -12, "First press": -10 };
   const left = new Set(["Market right"]);
   g.append("text").attr("x", p => x(p.share_acquiring) + (left.has(p.label) ? -10 : 10)).attr("text-anchor", p => left.has(p.label) ? "end" : "start").attr("y", p => y(p.lead) + (left.has(p.label) ? 16 : (dy[p.label] ?? -8))).style("font-weight",600).attr("fill", p => col(p.category)).text(p => p.label);
-  d3.select("#exleg").html(`<span style="color:${C.rust};font-weight:600">● Grew from below</span> &nbsp; <span style="color:${C.navy};font-weight:600">○ Conferred from above</span> &nbsp; <span style="color:${C.gray};font-weight:600">○ Not classified</span>`);
+  d3.select("#exleg").html(`<span style="color:${C.rust};font-weight:600">● Grew from below</span> &nbsp; <span style="color:${C.navy};font-weight:600">○ Conferred from above</span>`);
 }
 
 // ---------- 6. City explorer ----------
@@ -450,7 +450,7 @@ function explorer(sample) {
   const label = new Map(names.map(n => [tc(n), n]));
   d3.select("#citylist").selectAll("option").data([...label.keys()].sort()).join("option").attr("value", d => d);
   d3.select("#cchips").html("Try ").selectAll("a").data(["GENT","ANTWERPEN","FIRENZE","LONDON","PARIS"].filter(n => byCity.has(n))).join("a").text(d => tc(d)).on("click", (e,d) => { d3.select("#city").property("value", tc(d)); draw(d); });
-  const inst = [["press_century","First press"],["commune_century","Commune"],["capital_century","Capital"],["bishopric_century","Bishopric"],["archbishopric_century","Archbishopric"],["market_right_century","Market right"],["town_charter_century","Town charter"],["university_century","University"]];
+  const inst = [["press_century","First press"],["commune_century","Commune"],["capital_century","Capital"],["bishopric_century","Bishopric"],["archbishopric_century","Archbishopric"],["market_right_century","Market right"],["town_charter_century","Town charter"]];
   const svg = d3.select("#cvis"), W = 800, H = 330, mg = {l:62, r:56, t:30, b:36};
   function draw(key) {
     svg.selectAll("*").remove();
