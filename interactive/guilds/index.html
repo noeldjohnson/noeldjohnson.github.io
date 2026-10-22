@@ -100,7 +100,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 <h2><span class="num">1</span>Argument</h2>
 <p>In the year 1000 Ghent held about 5,000 people. By 1300 it held 64,000 and only Paris and London were larger north of the Alps. Its craft guilds enter the surviving record in the thirteenth century, near the peak of that rise. Over the next three centuries the city lost half its people. Read one way, guilds arrived and growth stopped. Read another, guilds were first written down in a city that had been rising for 300 years.</p>
 <p>Much of what economists know about institutions and growth comes from designs that date an institution by its first appearance in the record. Guilds, communes, universities, printing presses, and market rights have all been used this way. The record is built from documents that survived and cities that grew wrote more and kept more. We ask how selected that record is and offer a portable way to measure how severe that selection is in any design that dates a treatment by its first record.</p>
-<p>We use a panel of 1,754 European cities from 1000 to 1800, with documented guild activity in 724 of them. Cities whose guilds are first documented had been about twice the size of their neighbors for four centuries before the record. They also had twice the notable births of cities their own size. Seven other institutions go through the same comparison. The first printing press shows the same long lead. Towns that received a market right or a charter were ordinary towns. Capitals and sees went to large cities.</p>
+<p>We use a panel of 1,754 European cities from 1000 to 1800, with documented guild activity in 724 of them. Cities whose guilds are first documented had been about twice the size of their neighbors for four centuries before the record. They also had twice the notable births of cities their own size. Eight other institutions go through the same comparison. The first printing press shows the same long lead. Towns that received a market right or a charter were ordinary towns. Capitals and sees went to large cities.</p>
 <p>Once the selection is measured the guild evidence reads differently. Cross-city regressions imply that a century of guild presence goes with a city twice as large in the long run. Within-city and matched designs put the premium near 14 percent. The apparent decline of guild cities after their guilds appear is mean reversion, which never-documented cities of the same size share.</p>
 </section>
 
@@ -153,7 +153,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="ratios">
 <h2><span class="num">4</span>Which cities enter the record</h2>
-<p>A lead before the first record could be true of any institution dated this way. To see whether guilds are unusual we put seven other institutions through the same comparison. Two grew from below like guilds, the first printing press and the commune. Four were conferred from above. Market rights and town charters were granted by a lord, and capitals and new bishoprics and archbishoprics were seats placed in a city.</p>
+<p>A lead before the first record could be true of any institution dated this way. To see whether guilds are unusual we put eight other institutions through the same comparison. Two grew from below like guilds, the first printing press and the commune. Five were conferred from above. Market rights and town charters were granted by a lord, and capitals and new bishoprics and archbishoprics were seats placed in a city. The eighth, the university, was founded by masters in some cities and by rulers in others and we do not assign it a category.</p>
 <p>Each institution is dated by a different source so each can only be compared within the cities its source covers. The printing press covers the full panel. Market rights and charters come from the Deutsches Städtebuch and cover German and Austrian towns. Communes, capitals, and sees come from Bosker, Buringh, and van Zanden (2013) and cover the cities in their data. Each comparison in Figure 5 therefore shows guilds in the same set of cities as a benchmark.</p>
 <p>Two measures are compared. Population is the first. The second is notable births, the number of people born in a city in a century who appear in the database of Laouenan et al. (2022), about two million notable people assembled from Wikipedia and Wikidata biographies. It measures a city's prominence and does not depend on its population estimate. For each institution and each century from four before its first record to four after, we compare the cities that acquired it with the cities that did not. The population comparison uses every city in the comparison pool and counts a city with no estimate as small. The notable-births comparison uses cities whose population one century before the event was within a factor of about 2.7 of the event cities' mean so it measures prominence given size. Per-inhabitant births remove the size difference that remains inside that band.</p>
 <div class="figure">
@@ -174,7 +174,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="exclusivity">
 <h2><span class="num">5</span>Exclusivity</h2>
-<p>The model orders institutions by how hard they were to have. This figure places the eight on one scale. The horizontal axis is the share of cities in the comparison pool that ever acquired the institution. The vertical axis is the early-window lead over the average city in the pool.</p>
+<p>The model orders institutions by how hard they were to have. This figure places the nine on one scale. The horizontal axis is the share of cities in the comparison pool that ever acquired the institution. The vertical axis is the early-window lead over the average city in the pool. The university, which about one city in eight acquired, sits between the seats and the guild and press with a lead of 1.7.</p>
 <div class="figure">
   <svg id="exsvg" viewBox="0 0 800 380" role="img" aria-label="Exclusivity"></svg>
   <div class="legend" id="exleg"></div>
@@ -424,7 +424,7 @@ function ratioView(ratios, windows) {
 
 // ---------- 5. Exclusivity ----------
 function exclusivity(excl) {
-  const pts = excl.points.filter(p => p.key !== "university"), svg = d3.select("#exsvg"), W = 800, H = 380, mg = {l:62, r:30, t:16, b:44};
+  const pts = excl.points, svg = d3.select("#exsvg"), W = 800, H = 380, mg = {l:62, r:30, t:16, b:44};
   const x = d3.scaleLog([0.03, 0.9], [mg.l, W-mg.r]), y = d3.scaleLog([0.8, d3.max(pts, p => p.hi) * 1.05], [H-mg.b, mg.t]);
   const col = c => /below/.test(c) ? C.rust : /Conferred/.test(c) ? C.navy : C.gray;
   svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickValues([.05,.1,.2,.4,.7]).tickFormat(d3.format(".0%")));
@@ -434,13 +434,16 @@ function exclusivity(excl) {
   svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Early lead over the average city (log)");
   const g = svg.selectAll("g.p").data(pts).join("g");
   g.append("line").attr("x1", p => x(p.share_acquiring)).attr("x2", p => x(p.share_acquiring)).attr("y1", p => y(Math.max(p.lo, .8))).attr("y2", p => y(p.hi)).attr("stroke", p => col(p.category)).attr("stroke-width", 2);
+  const unc = p => p.category === "Not classified";
+  g.filter(unc).append("path").attr("d", p => { const cx = x(p.share_acquiring), cy = y(p.lead); return `M${cx-6},${cy-6}L${cx+6},${cy+6}M${cx-6},${cy+6}L${cx+6},${cy-6}`; })
+    .attr("stroke", p => col(p.category)).attr("stroke-width", 2.5);
   g.append("circle").attr("cx", p => x(p.share_acquiring)).attr("cy", p => y(p.lead)).attr("r", 7)
-    .attr("fill", p => /below/.test(p.category) ? col(p.category) : "#fff").attr("stroke", p => col(p.category)).attr("stroke-width", 2)
+    .attr("fill", p => unc(p) ? "transparent" : /below/.test(p.category) ? col(p.category) : "#fff").attr("stroke", p => unc(p) ? "none" : col(p.category)).attr("stroke-width", 2)
     .on("mousemove", (ev,p) => showTip(ev, `<b>${p.label}</b><br>${Math.round(100*p.share_acquiring)}% of cities acquire it<br>Lead ${p.lead.toFixed(2)} [${p.lo.toFixed(2)}, ${p.hi.toFixed(2)}]`)).on("mouseleave", hideTip);
   const dy = { Guild: 18, Commune: -12, "Market right": 20, "Town charter": -12, "First press": -10 };
-  const left = new Set(["Market right"]);
+  const left = new Set(["Market right", "University"]);
   g.append("text").attr("x", p => x(p.share_acquiring) + (left.has(p.label) ? -10 : 10)).attr("text-anchor", p => left.has(p.label) ? "end" : "start").attr("y", p => y(p.lead) + (left.has(p.label) ? 16 : (dy[p.label] ?? -8))).style("font-weight",600).attr("fill", p => col(p.category)).text(p => p.label);
-  d3.select("#exleg").html(`<span style="color:${C.rust};font-weight:600">● Grew from below</span> &nbsp; <span style="color:${C.navy};font-weight:600">○ Conferred from above</span>`);
+  d3.select("#exleg").html(`<span style="color:${C.rust};font-weight:600">● Grew from below</span> &nbsp; <span style="color:${C.navy};font-weight:600">○ Conferred from above</span> &nbsp; <span style="color:${C.gray};font-weight:600">× University, not classified</span>`);
 }
 
 // ---------- 6. City explorer ----------
