@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Effects of Land Redistribution</title>
+<meta name="description" content="An interactive companion to The Effects of Land Redistribution. Evidence from the French Revolution, by Theresa Finley, Raphaël Franck, and Noel D. Johnson, Journal of Law and Economics, 2021.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Noel D. Johnson">
+<meta property="og:title" content="The Effects of Land Redistribution. An interactive companion">
+<meta property="og:description" content="An interactive companion to The Effects of Land Redistribution. Evidence from the French Revolution, by Theresa Finley, Raphaël Franck, and Noel D. Johnson, Journal of Law and Economics, 2021.">
+<meta property="og:url" content="https://noeldjohnson.github.io/interactive/land-redistribution/">
+<meta property="og:image" content="https://noeldjohnson.github.io/assets/images/interactive/land-redistribution.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@noeldjohnson">
+<meta name="twitter:title" content="The Effects of Land Redistribution. An interactive companion">
+<meta name="twitter:description" content="An interactive companion to The Effects of Land Redistribution. Evidence from the French Revolution, by Theresa Finley, Raphaël Franck, and Noel D. Johnson, Journal of Law and Economics, 2021.">
+<meta name="twitter:image" content="https://noeldjohnson.github.io/assets/images/interactive/land-redistribution.jpg">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+.byline a { color: var(--teal); }
+nav.toc { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; background: var(--panel); padding: 14px 18px; border-radius: 6px; margin: 0 0 32px; }
+nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+nav.toc a { color: var(--navy); text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+h2 { font-size: 26px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.figure .cap { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 10px; }
+.figure .cap b { color: var(--ink); }
+.controls { font: 15px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 12px; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+.controls .v { font-weight: 600; color: var(--rust); min-width: 3.2em; }
+input[type=range] { width: 180px; max-width: 100%; accent-color: var(--rust); }
+input[type=text] { font: 15px -apple-system, "Helvetica Neue", Arial, sans-serif; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+button.tab { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; border: 1px solid var(--rule); background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; color: var(--navy); }
+button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.readout div { background: #fff; border-radius: 6px; padding: 10px 12px; font: 14px/1.35 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.readout b { display: block; font: 600 24px/1.2 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--navy); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.chips { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.chips a { color: var(--teal); cursor: pointer; margin-right: 8px; text-decoration: underline; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
+svg text.title { font-weight: 600; fill: var(--navy); font-size: 13px; }
+.axis path, .axis line { stroke: #b8b8b8; }
+.tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; max-width: 300px; z-index: 10; }
+.tip b { color: var(--navy); }
+.legend { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 6px; }
+table.t { width: 100%; border-collapse: collapse; font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; margin: 6px 0 4px; }
+table.t th, table.t td { border-bottom: 1px solid var(--rule); padding: 6px 6px; text-align: left; }
+.note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+@media (max-width: 640px) {
+  body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
+  .readout, .two { grid-template-columns: 1fr; }
+}
+h3 { font-size: 20px; color: var(--navy); margin: 32px 0 10px; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0 28px; font: 14px/1.3 -apple-system, "Helvetica Neue", Arial, sans-serif; }
+.flow div { background: var(--panel); border-radius: 6px; padding: 8px 10px; color: var(--navy); font-weight: 600; }
+.flow small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+.flow span { color: var(--rust); font-weight: 600; }
+.ctl-label { font-weight: 600; color: var(--navy); min-width: 5em; }
+.timeline-note { font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">Interactive companion</div>
+  <h1>The Effects of Land Redistribution</h1>
+  <div class="byline">Evidence from the French Revolution · Theresa Finley, Raphaël Franck, and Noel D. Johnson · <i>Journal of Law and Economics</i>, 2021 · <a href="/assets/papers/the-effects-of-land-redistribution-evidence-from-paper.pdf">Read the paper</a> · <a href="/research/">Research</a></div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#sale">The sale of Church land</a></li>
+    <li><a href="#map">Where Church land was sold</a></li>
+    <li><a href="#results">What followed the auctions</a></li>
+    <li><a href="#instrument">Bishoprics as an instrument</a></li>
+    <li><a href="#farms">Larger farms</a></li>
+    <li><a href="#fade">The head start fades</a></li>
+    <li><a href="#policy">What it means for land reform</a></li>
+    <li><a href="#limits">Limits</a></li>
+  </ol>
+</nav>
+
+<section id="argument">
+<h2><span class="num">1</span>Argument</h2>
+<p>The Coase theorem says that when property rights are clear and bargaining is cheap, land ends up with whoever can use it best, whatever the starting allocation. When bargaining is expensive the starting allocation matters, because the transactions that would move land to better uses do not take place. The paper puts it this way. In the presence of large transaction costs, the initial allocation of land mattered a great deal for achieving efficiency in agriculture.</p>
+<p>The French Revolution supplies the test. In August 1789 the Constituent Assembly abolished the feudal system, and every region of France received clearer property rights at the same moment. Transacting in land stayed expensive. Overlapping feudal claims took decades to settle, the Civil Code was enforced unevenly, and many land transactions took place only in the second half of the 19th century, once the cadastre had mapped each plot. In November 1789 the Assembly also confiscated the property of the Catholic Church and sold it at auction to the highest bidder. Where the Church had owned more land, more land changed hands at once.</p>
+<p>The paper compares 194 districts. Those where a larger share of land had belonged to the Church had higher wheat yields in 1841, less fallow land and more land sown with nitrogen-fixing crops in 1852, and more drainage pipe manufacturers nearby. Their largest farms were larger and fewer of their tenant farmers were sharecroppers. The advantage was gone by 1875, as other districts reallocated their land by slower means.</p>
+</section>
+
+<section id="sale">
+<h2><span class="num">2</span>The sale of Church land</h2>
+<p>Before 1789 the Church owned between 6 and 10 percent of the land of France. The share varied widely. In towns it ranged from a third in Toulouse to 3 percent in Limoges. Church land was often leased in small, scattered plots, and under the rule of mortmain it could not be sold without a lengthy legal procedure that ended with the king's consent. When the archbishop of Aix sought to sell half his properties in 1782 he needed special permission from the courts.</p>
+<p>The auctions moved this land quickly. Local governments ran them under rules set by the Assembly, and assessors surveyed each property to set an opening bid. About 700,000 Church properties, roughly 6.5 percent of French territory, were sold from 1790. A further 400,000 properties of émigrés, roughly 3.5 percent, were sold from 1793 under more complicated rules, and the paper focuses on the Church sales. The proceeds backed the assignats, which became a fiat currency and lost their value, so the state recovered little from the sales. In the district of Bernay 27 members of the grand bourgeoisie bought 39 percent of the Church land auctioned, while 350 peasants bought 33.2 percent.</p>
+<div class="figure">
+  <svg id="tsvg" viewBox="0 0 800 210" role="img" aria-label="Timeline of the sales and the agricultural surveys"></svg>
+  <div class="cap"><b>Figure 1.</b> The sales and the surveys the paper uses to measure their effects. Hover a mark for the event. Source: sections 2 and 3 of the paper.</div>
+</div>
+</section>
+
+<section id="map">
+<h2><span class="num">3</span>Where Church land was sold</h2>
+<p>The share of a district's land confiscated from the Church ranges from 0 to 40 percent across the 194 districts with data, with a mean of 5.9 percent. Bodinier and Teyssier (2000) compiled these figures from regional studies, and the districts they cover held about two-thirds of Church land before the Revolution. Choose a variable to map it, and add the drainage pipe manufacturers of 1862 or the seats of bishoprics.</p>
+<div class="figure">
+  <div class="controls" id="mctl"><span class="ctl-label">Map</span></div>
+  <div class="controls">
+    <label><input type="checkbox" id="mpipes"> Drainage pipe manufacturers, 1862</label>
+    <label><input type="checkbox" id="mbish"> Bishoprics, 1600</label>
+  </div>
+  <svg id="msvg" viewBox="0 0 800 640" role="img" aria-label="Map of French districts"></svg>
+  <div class="legend" id="mleg"></div>
+  <div class="cap" id="mcap"></div>
+</div>
+</section>
+
+<section id="results">
+<h2><span class="num">4</span>What followed the auctions</h2>
+<p>The paper regresses each outcome on the percentage of a district's land confiscated from the Church. Controls add the district's soil suitability for wheat from the FAO, or its elevation range for pipe manufacturers, and its market access in 1789. Market access sums the population of every district and of nearby foreign cities, each divided by the lowest-cost travel route to it over the roads, canals, rivers, and seas of 1789. The preferred specifications add 12 region fixed effects, so they compare districts within the same region.</p>
+<div class="figure">
+  <div class="controls" id="ro"><span class="ctl-label">Outcome</span></div>
+  <div class="controls" id="rc"><span class="ctl-label">Controls</span></div>
+  <div class="controls" id="rf"><span class="ctl-label">Regions</span></div>
+  <div class="readout">
+    <div><b id="r1"></b><span id="r1t"></span></div>
+    <div><b id="r2"></b>coefficient on the percentage confiscated, with its robust standard error</div>
+    <div><b id="r3"></b><span id="r3t"></span></div>
+  </div>
+  <div class="two">
+    <svg id="rsvg" viewBox="0 0 500 360" role="img" aria-label="Outcome against percentage confiscated"></svg>
+    <svg id="csvg" viewBox="0 0 400 360" role="img" aria-label="Estimates across the six specifications"></svg>
+  </div>
+  <div class="cap" id="rcap"></div>
+</div>
+<p>With all controls and region fixed effects, a district with 10 percentage points more of its land confiscated had wheat yields about 10 percent higher in 1841. In 1852 it left 3.8 percentage points less of its arable land fallow, against an average of 20, and sowed 1.6 percentage points more with artificial prairie, against an average of 10. It had 1.6 more pipe manufacturers within 25 kilometers, against an average of 5.4. Ten percentage points is about 1.7 standard deviations of the share confiscated.</p>
+</section>
+
+<section id="instrument">
+<h2><span class="num">5</span>Bishoprics as an instrument</h2>
+<p>The Church may have owned better land to begin with, which would explain the results without any effect of the sales. No agricultural survey before 1841 can rule this out, so the paper uses an instrument. Between the 4th and 6th centuries the Church acquired vast amounts of land in Gaul, and between the 6th and 11th centuries one of a bishop's main tasks was to keep that land out of lay hands. Almost all French bishoprics existed by 1200. Districts closer to a bishopric therefore held more Church land in 1789, and the distance is plausibly unrelated to where farming became profitable after the Black Death and the opening of the Atlantic.</p>
+<p>One threat is that bishops managed nearby land better. The paper tests this with the assessed value per hectare of 812 Church farms and vineyards, recorded by the revolutionary assessors before the auctions. Plots closer to a bishopric were worth no more.</p>
+<div class="figure">
+  <div class="two">
+    <svg id="asvg" viewBox="0 0 450 330" role="img" aria-label="Auction plot value against distance to bishopric"></svg>
+    <div>
+      <table class="t" id="ivtab"></table>
+    </div>
+  </div>
+  <div class="cap"><b>Figure 4.</b> Left, the log of assessed value per hectare against distance to the nearest bishopric for 812 Church farms and vineyards in 1790, with the fitted line. The slope is −0.0049 log points per kilometer with a standard error of 0.0043, clustered by department, as in column 1 of Table 1 of the paper. Right, the effect of the percentage confiscated estimated by instrumental variables, with all controls, against ordinary least squares, from Table 5 of the paper. Standard errors in parentheses. The first-stage F statistic is the robust test of the excluded instrument from the replication code.</div>
+</div>
+<p>The instrumental-variable estimates are two to six times the ordinary least squares estimates. The paper offers two readings. Ordinary least squares may understate the effect, or the instrument may weight districts near seats of Church administration where the gains from redistribution were larger. The first-stage F statistics run from 10.3 to 11.8, below the Stock and Yogo critical value of 16.4 for a test of 10 percent maximal size.</p>
+</section>
+
+<section id="farms">
+<h2><span class="num">6</span>Larger farms</h2>
+<p>The paper traces the gains to consolidation. Galor and Moav (2004) argue that inequality favors growth when growth depends on physical capital, and drainage, irrigation, and new rotations were investments of that kind. The paper argues that the auctions most likely preserved the unequal holdings of the Old Regime. In the district of Limoux 41 members of the grand bourgeoisie bought 52.6 percent of the Church land auctioned, while 170 peasants bought 15.4 percent.</p>
+<div class="figure">
+  <svg id="fsvg" viewBox="0 0 800 280" role="img" aria-label="Effect on average farm size by quantile"></svg>
+  <div class="cap"><b>Figure 5.</b> Change in average farm size in 1862, in hectares, for a district with 10 percentage points more of its land confiscated, by quantile of the farm-size distribution, from Table 6 of the paper. Each regression controls for wheat suitability and market access in 1789, without region fixed effects. Farm size is measured for the department, the first year it was recorded, and assigned to its districts. The paper reports the 75th and 90th quantile estimates as significant at the 1 percent level. The ordinary least squares estimate is 2.1 hectares with a standard error of 1.3, clustered by department. The average is 9.5 hectares and the standard deviation 5.3.</div>
+</div>
+<p>Sharecropping points the same way. The 1852 survey counts tenants who paid a fixed rent and tenants who paid a share of the crop. Where more Church land had been sold, sharecroppers made up a smaller share of tenants, by about 10 percentage points for 10 points more land confiscated with all controls and region fixed effects, against an average of 34 percent. Choose that outcome in Figure 3 to see it.</p>
+</section>
+
+<section id="fade">
+<h2><span class="num">7</span>The head start fades</h2>
+<p>If the auctions gave some districts a head start, the other districts should have caught up as they reallocated land by slower means. The paper estimates the effect on wheat yields in 1841, 1852, 1875, 1892, 1912, and 1929. After 1852 yields are recorded only for departments, so each district takes its department's yield and standard errors are clustered by department.</p>
+<div class="figure">
+  <svg id="esvg" viewBox="0 0 800 300" role="img" aria-label="Effect on wheat yields by year"></svg>
+  <div class="cap"><b>Figure 6.</b> Change in wheat yields, in percent, for a district with 10 percentage points more of its land confiscated, by year, with 95 percent intervals. Each estimate controls for wheat suitability, market access in 1789, and region, each allowed to differ by year. Column 1 of Table 8 of the paper, 1,152 district-years.</div>
+</div>
+<p>The effect falls by about a sixth from 1841 to 1852 and is indistinguishable from zero in 1875 and 1892. It reappears in 1912 and 1929 at about half its 1841 size. The paper shows that two districts produce this later effect, Cambrai, where 40 percent of the land was confiscated, and Arles, where 25 percent was. A robust regression that downweights outliers removes it.</p>
+</section>
+
+<section id="policy">
+<h2><span class="num">8</span>What it means for land reform</h2>
+<p>A reform that clarifies property rights everywhere at once does not by itself move land to its best use. Where transacting stays expensive, the allocation the reform inherits persists, and the paper finds that the gains of the Revolution's reforms arrived first where the state itself moved land to new owners. Their head start is visible in 1841 and 1852 and gone by 1875, as the transaction costs that held back the rest of France came down.</p>
+<p>The French sales also differ from most land reforms. They allocated land by auction to the highest bidder rather than equally, and they preserved large holdings. The paper sets this against studies of other reforms. Besley and Burgess (2000) find that Indian states with more land reform saw poverty fall and agricultural wages rise. Bandiera (2003) on 19th-century Sicily, Dell (2012) on Mexico in the 1910s, and Domenech and Herreros (2017) on Spain in the 1930s find reforms that raised conflict and corruption. In the French case productivity rose where, the paper argues, the redistribution kept land concentrated, at a time when agricultural growth depended on investment in drainage, irrigation, and new crops. The paper concludes that the benefits of institutional reform depend a great deal on the transaction costs faced by economic agents.</p>
+</section>
+
+<section id="limits">
+<h2><span class="num">9</span>Limits</h2>
+<p>The confiscation data cover 194 of the 534 districts of 1790. They come from regional studies that favored well-known and economically central places, and the sampled districts have higher market access than the others. The comparisons within regions and the controls for market access address part of this.</p>
+<p>No agricultural survey exists before 1841, so the paper cannot show that districts with more Church land were no more productive before the Revolution. The controls for soil suitability, the instrument, and the test of plot values bear on this without settling it.</p>
+<p>Farm size is observed only for departments and only from 1862. The mechanism rests on that measure, on sharecropping in 1852, and on case studies of who bought at auction.</p>
+<p>The instrument is moderately strong and its estimates are much larger than ordinary least squares. The effects in 1912 and 1929 rest on two districts.</p>
+</section>
+
+<footer>
+  <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/market-for-ideas/">Mapping the market for ideas</a> · <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/tax-farming/">Tax farming and state capacity</a> · <a href="/interactive/pandemics-cities/">Pandemics and cities</a> · <a href="/interactive/school-choice-religiosity/">School choice and religiosity in France</a> · <a href="/interactive/">All companions</a></p>
+  <p>Every estimate on this page is computed from the paper's replication files, which reproduce Tables 1 through 4 and 7, the coefficients of Tables 5 and 6, and column 1 of Table 8. Confiscations are from Bodinier and Teyssier (2000), wheat yields from the Statistique agricole of 1841, land use and tenancy from the agricultural survey of 1852, farm size from the survey of 1862, pipe manufacturers from Barral (1862), soil suitability from the FAO, and bishoprics from Bosker, Buringh, and van Zanden (2013). District boundaries are the paper's map of the 1790 districts. The first-stage F statistics printed in Table 5 of the paper, 10.63, 8.54, 11.09, and 7.89, differ from those the replication code produces, 11.64, 11.75, 11.84, and 10.33, and this page reports the latter.</p>
+</footer>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
+const tip = d3.select("#tip");
+const showTip = (ev, html) => tip.html(html).style("opacity",1).style("left", Math.min(ev.clientX + 14, window.innerWidth - 310) + "px").style("top", (ev.clientY + 14) + "px");
+const hideTip = () => tip.style("opacity",0);
+const f1 = d3.format(".1f"), f2 = d3.format(".2f");
+
+Promise.all([d3.json("districts.json"), d3.json("districts.geojson"), d3.json("results.json"), d3.json("pipes.json"), d3.json("bishoprics.json"), d3.json("auctions.json")])
+  .then(([dist, geo, res, pipes, bish, auc]) => { timeline(); mapView(dist, geo, pipes, bish); results(dist, res); instrument(auc, res); farms(res); fade(res); });
+
+// ---------- 2. Timeline ----------
+function timeline() {
+  const ev = [[1789.6, "4 August 1789", "The Constituent Assembly abolishes the feudal system, including seigneurial rights and tithes."],
+              [1789.84, "2 November 1789", "The Assembly places all Church property at the disposal of the nation."],
+              [1790.95, "December 1790", "Local governments begin to auction Church property."],
+              [1791.99, "End of 1791", "About 40 percent of Church properties have been sold."],
+              [1793, "1793", "Sales of émigré property begin."],
+              [1804, "1804", "Napoleon's Civil Code."],
+              [1841, "1841", "Statistique agricole. Wheat yields by arrondissement."],
+              [1852, "1852", "Agricultural survey. Fallow, artificial prairie, and tenancy."],
+              [1862, "1862", "Agricultural survey. Farm size by department. Barral's list of drainage pipe manufacturers."]];
+  const svg = d3.select("#tsvg"), W = 800, H = 210, mg = {l:30, r:30};
+  const x = d3.scaleLinear([1788, 1796, 1865], [mg.l, 330, W-mg.r]), yc = 110;
+  svg.append("rect").attr("x", x(1790)).attr("width", x(1795) - x(1790)).attr("y", 40).attr("height", 120).attr("fill", C.gold).attr("opacity", .15);
+  svg.append("text").attr("x", x(1792.5)).attr("y", 34).attr("text-anchor","middle").style("font-size","11px").text("most sales");
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", yc).attr("y2", yc).attr("stroke", C.gray);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${yc+60})`).call(d3.axisBottom(x).tickValues([1789,1791,1793,1795,1800,1810,1820,1830,1840,1850,1860]).tickFormat(d3.format("d")));
+  svg.selectAll(null).data(ev).join("circle").attr("cx", d => x(d[0])).attr("cy", yc).attr("r", 7)
+    .attr("fill", d => d[0] < 1795 ? C.rust : C.navy).attr("stroke","#fff").attr("stroke-width",2)
+    .on("mousemove", (e,d) => showTip(e, `<b>${d[1]}</b><br>${d[2]}`)).on("mouseleave", hideTip);
+  const lab = [[1789.6,"Aug 1789",-16],[1789.84,"Nov 1789",24],[1790.95,"Dec 1790",-16],[1791.99,"1791",24],[1793,"1793",-16],[1804,"1804",-16],[1841,"1841",-16],[1852,"1852",-16],[1862,"1862",-16]];
+  svg.selectAll(null).data(lab).join("text").attr("x", d => x(d[0])).attr("y", d => yc + d[2]).attr("text-anchor","middle").style("font-size","11px").text(d => d[1]);
+}
+
+// ---------- 3. Map ----------
+const VARS = {
+  conf:    { lab: "Percentage confiscated", fmt: v => f1(v) + "%", th: [2, 5, 10, 20], col: d3.schemeOranges[5], legend: ["Under 2%","2–5%","5–10%","10–20%","20% or more"], src: "Percentage of the district's land confiscated from the Church, from Bodinier and Teyssier (2000)." },
+  yield:   { lab: "Wheat yield, 1841", fmt: v => f1(v) + " hl/ha", th: [10, 12.5, 15, 17.5], col: d3.schemeGreens[5], legend: ["Under 10","10–12.5","12.5–15","15–17.5","17.5 or more"], unit: " hectoliters per hectare", src: "Wheat yield in hectoliters per hectare, from the Statistique agricole of 1841, matched from arrondissements to districts." },
+  fallow:  { lab: "Fallow, 1852", fmt: v => f1(100*v) + "%", th: [.1, .2, .3, .4], col: d3.schemeGreys[5], legend: ["Under 10%","10–20%","20–30%","30–40%","40% or more"], src: "Share of arable land left fallow, from the agricultural survey of 1852." },
+  prairie: { lab: "Artificial prairie, 1852", fmt: v => f1(100*v) + "%", th: [.05, .1, .15, .2], col: d3.schemeGreens[5], legend: ["Under 5%","5–10%","10–15%","15–20%","20% or more"], src: "Share of arable land sown with nitrogen-fixing crops such as alfalfa, sainfoin, and clover, from the agricultural survey of 1852." },
+  share:   { lab: "Sharecroppers, 1852", fmt: v => f1(100*v) + "%", th: [.1, .25, .5, .75], col: d3.schemeBlues[5], legend: ["Under 10%","10–25%","25–50%","50–75%","75% or more"], src: "Sharecroppers as a share of tenant farmers, from the agricultural survey of 1852." } };
+function mapView(dist, geo, pipes, bish) {
+  geo.features.forEach(f => { if (d3.geoArea(f) > 2 * Math.PI) {
+    const polys = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates;
+    polys.forEach(poly => poly.forEach(ring => ring.reverse())); } });
+  const byId = new Map(dist.map(d => [d.id, d]));
+  const proj = d3.geoConicConformal().parallels([44, 49]).rotate([-3, 0]).fitSize([780, 620], geo);
+  const path = d3.geoPath(proj), svg = d3.select("#msvg");
+  const g = svg.append("g").attr("transform","translate(10,10)");
+  const shapes = g.selectAll("path").data(geo.features).join("path").attr("d", path).attr("stroke","#fff").attr("stroke-width",.5);
+  const pg = g.append("g"), bg = g.append("g");
+  pg.selectAll("circle").data(pipes).join("circle").attr("cx", d => proj([d.lon, d.lat])[0]).attr("cy", d => proj([d.lon, d.lat])[1])
+    .attr("r", d => 2 + Math.sqrt(d.n)).attr("fill", C.navy).attr("opacity", .75).attr("stroke","#fff").attr("stroke-width",.5);
+  bg.selectAll("path").data(bish).join("path").attr("d", d3.symbol(d3.symbolCross, 42)).attr("transform", d => `translate(${proj([d.lon, d.lat])})`)
+    .attr("fill", C.rust).attr("stroke","#fff").attr("stroke-width",.6)
+    .on("mousemove", (e,d) => showTip(e, `<b>${d.city}</b><br>Bishopric in 1600`)).on("mouseleave", hideTip);
+  let key = "conf";
+  const tabs = d3.select("#mctl").selectAll("button").data(Object.keys(VARS)).join("button").attr("class","tab").text(k => VARS[k].lab).on("click", (e,k) => { key = k; draw(); });
+  function draw() {
+    const V = VARS[key], sc = d3.scaleThreshold(V.th, V.col);
+    tabs.classed("on", k => k === key);
+    shapes.attr("fill", f => { const d = byId.get(f.properties.id); return d && d[key] != null ? sc(d[key]) : "#e4e2dc"; })
+      .on("mousemove", (e,f) => { const d = byId.get(f.properties.id); showTip(e, d ? `<b>${d.name}</b>, ${d.dept}<br>Confiscated ${f1(d.conf)}%<br>${V.lab} ${d[key] != null ? V.fmt(d[key]) : "no data"}` : "No confiscation data"); })
+      .on("mouseleave", hideTip);
+    pg.style("display", d3.select("#mpipes").property("checked") ? null : "none");
+    bg.style("display", d3.select("#mbish").property("checked") ? null : "none");
+    d3.select("#mleg").html(V.legend.map((l, i) => `<span style="display:inline-block;width:12px;height:12px;background:${V.col[i]};vertical-align:-1px;margin-right:4px;border:1px solid #ccc"></span>${l}`).join(" &nbsp; ") + ` &nbsp; <span style="display:inline-block;width:12px;height:12px;background:#e4e2dc;vertical-align:-1px;margin-right:4px"></span>No confiscation data`);
+    d3.select("#mcap").html(`<b>Figure 2.</b> ${V.src} The 194 districts with confiscation data are shaded and the other 340 districts of 1790 are grey. Dots are communes with drainage pipe manufacturers in Barral (1862), sized by their number. Crosses are seats of bishoprics and archbishoprics in 1600 from Bosker, Buringh, and van Zanden (2013). District boundaries are from the paper's map of the 1790 districts.`);
+  }
+  d3.selectAll("#mpipes,#mbish").on("change", draw); draw();
+}
+
+// ---------- 4. Results ----------
+const OUTS = [
+  ["lwheatyield", "Wheat yield, 1841", "yield", v => `${f1(100*(Math.exp(10*v)-1))}%`, "higher wheat yield", "Wheat yield (hl/ha, log scale)", true],
+  ["lwheat_hect", "Wheat acreage, 1841", null, v => `${f1(100*(Math.exp(10*v)-1))}%`, "more land in wheat", "", false],
+  ["ALTjacheres1852", "Fallow, 1852", "fallow", v => `${f1(1000*v)} points`, "change in the share of arable land left fallow", "Share of arable land fallow", false],
+  ["ALTprairies1852", "Artificial prairie, 1852", "prairie", v => `${f1(1000*v)} points`, "change in the share of arable land in artificial prairie", "Share of arable land in artificial prairie", false],
+  ["fabriques_25kbuffer", "Pipe manufacturers, 1862", "pipes", v => `${f1(10*v)}`, "more drainage pipe manufacturers within 25 km", "Pipe manufacturers within 25 km", false],
+  ["sharemetayer1852", "Sharecropping, 1852", "share", v => `${f1(1000*v)} points`, "change in sharecroppers as a share of tenant farmers", "Sharecroppers as a share of tenants", false] ];
+const TABLE = { lwheatyield: "Table 2", lwheat_hect: "Table 2", ALTjacheres1852: "Table 3", ALTprairies1852: "Table 3", fabriques_25kbuffer: "Table 4", sharemetayer1852: "Table 7" };
+function results(dist, res) {
+  let o = 0, c = 2, f = 1;
+  const ctrl = k => OUTS[k][0] === "fabriques_25kbuffer" ? ["None","Elevation range","Elevation range and market access"] : ["None","Soil suitability","Soil suitability and market access"];
+  const to = d3.select("#ro").selectAll("button").data(OUTS).join("button").attr("class","tab").text(d => d[1]).on("click", (e,d) => { o = OUTS.indexOf(d); draw(); });
+  const tf = d3.select("#rf").selectAll("button").data([0,1]).join("button").attr("class","tab").text(d => d ? "Within region" : "All of France").on("click", (e,d) => { f = d; draw(); });
+  function draw() {
+    const [key, lab, dkey, eff, efflab, ylab] = OUTS[o];
+    const tc = d3.select("#rc").selectAll("button").data(ctrl(o)).join("button").attr("class","tab").text(d => d).on("click", (e,d) => { c = ctrl(o).indexOf(d); draw(); });
+    to.classed("on", d => d === OUTS[o]); tc.classed("on", (d,i) => i === c); tf.classed("on", d => d === f);
+    const all = res.ols[key], r = all[c + 3*f];
+    d3.select("#r1").text(eff(r.b)); d3.select("#r1t").text(`${efflab} for 10 percentage points more of the land confiscated`);
+    d3.select("#r2").text(`${r.b.toFixed(4)} (${r.se.toFixed(4)})`);
+    d3.select("#r3").text(`${r.ar2.toFixed(3)}`); d3.select("#r3t").text(`adjusted R², ${r.n} districts, column ${r.col} of ${TABLE[key]}`);
+    // scatter
+    const svg = d3.select("#rsvg"), W = 500, H = 360, mg = {l:56, r:14, t:14, b:42}; svg.selectAll("*").remove();
+    if (dkey) {
+      const pts = dist.filter(d => d[dkey] != null);
+      const yv = d => key === "lwheatyield" ? d.lyield : d[dkey];
+      const x = d3.scaleLinear([0, 42], [mg.l, W-mg.r]), y = d3.scaleLinear(d3.extent(pts, yv), [H-mg.b, mg.t]).nice();
+      svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(6).tickFormat(v => v + "%"));
+      svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(key === "lwheatyield" ? d3.axisLeft(y).tickValues([7,9,11,14,18,22,27].map(Math.log)).tickFormat(v => Math.round(Math.exp(v))) : d3.axisLeft(y).ticks(6).tickFormat(dkey === "pipes" ? d3.format("d") : d3.format(".0%")));
+      svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Percentage of land confiscated");
+      svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text(ylab);
+      svg.selectAll(null).data(pts).join("circle").attr("cx", d => x(d.conf)).attr("cy", d => y(yv(d))).attr("r", 3.5).attr("fill", C.teal).attr("opacity", .55)
+        .on("mousemove", (e,d) => showTip(e, `<b>${d.name}</b>, ${d.dept}<br>Confiscated ${f1(d.conf)}%<br>${VARS[dkey] ? VARS[dkey].lab + " " + VARS[dkey].fmt(d[dkey]) : "Pipe manufacturers " + d.pipes}`)).on("mouseleave", hideTip);
+      const mx = d3.mean(pts, d => d.conf), my = d3.mean(pts, yv);
+      svg.append("line").attr("x1", x(0)).attr("x2", x(41)).attr("y1", y(my + r.b*(0-mx))).attr("y2", y(my + r.b*(41-mx))).attr("stroke", C.rust).attr("stroke-width", 2.5);
+    } else {
+      svg.append("text").attr("x", W/2).attr("y", H/2).attr("text-anchor","middle").attr("fill", C.gray).text("District acreage is not mapped here. See the estimates at right.");
+    }
+    // coefficient chart across the six specifications
+    const cs = d3.select("#csvg"), W2 = 400, mg2 = {l:160, r:16, t:14, b:42}; cs.selectAll("*").remove();
+    const short = OUTS[o][0] === "fabriques_25kbuffer" ? ["None","Elevation","Elevation + MA"] : ["None","Suitability","Suitability + MA"];
+    const labs = all.map(q => `${short[(q.col-1)%3]}${q.col > 3 ? ", regions" : ""}`);
+    const lo = d3.min(all, q => q.b - 1.96*q.se), hi = d3.max(all, q => q.b + 1.96*q.se);
+    const x2 = d3.scaleLinear([Math.min(0, lo), Math.max(0, hi)], [mg2.l, W2-mg2.r]).nice(), y2 = d3.scaleBand(all.map(q => q.col), [mg2.t, H-mg2.b]).padding(.4);
+    cs.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg2.b})`).call(d3.axisBottom(x2).ticks(4));
+    cs.append("line").attr("x1", x2(0)).attr("x2", x2(0)).attr("y1", mg2.t).attr("y2", H-mg2.b).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+    cs.append("text").attr("x",(W2+mg2.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Coefficient with 95% interval");
+    all.forEach((q, i) => { const yc = y2(q.col) + y2.bandwidth()/2, on = q === r;
+      cs.append("text").attr("x", mg2.l - 8).attr("y", yc + 4).attr("text-anchor","end").style("font-size","11px").style("font-weight", on ? 700 : 400).text(labs[i]);
+      cs.append("line").attr("x1", x2(q.b - 1.96*q.se)).attr("x2", x2(q.b + 1.96*q.se)).attr("y1", yc).attr("y2", yc).attr("stroke", on ? C.rust : "#9aa3ad").attr("stroke-width", 3);
+      cs.append("circle").attr("cx", x2(q.b)).attr("cy", yc).attr("r", on ? 7 : 5).attr("fill", on ? C.rust : "#9aa3ad"); });
+    d3.select("#rcap").html(`<b>Figure 3.</b> Left, each district's outcome against the percentage of its land confiscated, with a line of the chosen specification's slope through the sample means. Right, the coefficient on the percentage confiscated in all six specifications of ${TABLE[key]} of the paper, with 95 percent intervals from heteroskedasticity-robust standard errors. The chosen specification is in rust. ${key === "sharemetayer1852" ? "Sharecroppers are counted as a share of all tenant farmers, those paying a fixed rent and those paying a share of the crop." : ""} Reproduced from the replication files.`);
+  }
+  draw();
+}
+
+// ---------- 5. Instrument ----------
+function instrument(auc, res) {
+  const svg = d3.select("#asvg"), W = 450, H = 330, mg = {l:52, r:12, t:12, b:42};
+  const x = d3.scaleLinear([0, d3.max(auc, d => d.km)], [mg.l, W-mg.r]).nice(), y = d3.scaleLinear(d3.extent(auc, d => d.lv), [H-mg.b, mg.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(6));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Distance to nearest bishopric, km");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Log value per hectare, 1790");
+  svg.selectAll(null).data(auc).join("circle").attr("cx", d => x(d.km)).attr("cy", d => y(d.lv)).attr("r", 2.5).attr("fill", C.navy).attr("opacity", .35);
+  const mx = d3.mean(auc, d => d.km), my = d3.mean(auc, d => d.lv), b = -0.00487;
+  svg.append("line").attr("x1", x(0)).attr("x2", x(x.domain()[1])).attr("y1", y(my + b*(0-mx))).attr("y2", y(my + b*(x.domain()[1]-mx))).attr("stroke", C.rust).attr("stroke-width", 2.5);
+  const labs = { lwheatyield: "Wheat yield", fabriques_25kbuffer: "Pipe manufacturers", ALTjacheres1852: "Fallow share", ALTprairies1852: "Prairie share" };
+  const rows = res.iv.map(r => { const o = res.ols[r.outcome][r.region_fe ? 5 : 2];
+    const fm = r.outcome === "fabriques_25kbuffer" ? (v => v.toFixed(3)) : (v => v.toFixed(4));
+    return `<tr><td>${labs[r.outcome]}${r.region_fe ? ", region FE" : ""}</td><td>${fm(r.b)}<br><span style="color:var(--muted)">(${fm(r.se)})</span></td><td>${fm(o.b)}<br><span style="color:var(--muted)">(${fm(o.se)})</span></td><td>${r.F.toFixed(2)}</td></tr>`; });
+  d3.select("#ivtab").html(`<tr><th>Outcome</th><th>IV</th><th>OLS</th><th>First-stage F</th></tr>` + rows.join(""));
+}
+
+// ---------- 6. Farm size ----------
+function farms(res) {
+  const svg = d3.select("#fsvg"), W = 800, H = 280, mg = {l:60, r:20, t:20, b:44};
+  const rows = res.farm.quantiles.map(q => ({ lab: `${Math.round(100*q.q)}th`, v: 10*q.b })).concat([{ lab: "Mean (OLS)", v: 10*res.farm.ols.b }]);
+  const x = d3.scaleBand(rows.map(r => r.lab), [mg.l, W-mg.r]).padding(.4), y = d3.scaleLinear([0, 7], [H-mg.b, mg.t]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(7));
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Quantile of average farm size");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",16).attr("text-anchor","middle").text("Hectares");
+  svg.selectAll(null).data(rows).join("rect").attr("x", r => x(r.lab)).attr("width", x.bandwidth()).attr("y", r => y(r.v)).attr("height", r => y(0) - y(r.v))
+    .attr("fill", r => r.lab.startsWith("Mean") ? "#9aa3ad" : C.teal);
+  svg.selectAll(null).data(rows).join("text").attr("x", r => x(r.lab) + x.bandwidth()/2).attr("y", r => y(r.v) - 6).attr("text-anchor","middle").style("font-size","12px").text(r => `${f1(r.v)} ha`);
+}
+
+// ---------- 7. Over time ----------
+function fade(res) {
+  const svg = d3.select("#esvg"), W = 800, H = 300, mg = {l:60, r:20, t:20, b:44};
+  const t = res.table8.map(r => ({ year: r.year, v: 100*(Math.exp(10*r.b)-1), lo: 100*(Math.exp(10*(r.b-1.96*r.se))-1), hi: 100*(Math.exp(10*(r.b+1.96*r.se))-1) }));
+  const x = d3.scaleLinear([1835, 1935], [mg.l, W-mg.r]), y = d3.scaleLinear([-10, 22], [H-mg.b, mg.t]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickValues(t.map(r => r.year)).tickFormat(d3.format("d")));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6).tickFormat(v => v + "%"));
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",16).attr("text-anchor","middle").text("Change in wheat yield");
+  svg.append("path").datum(t).attr("fill","none").attr("stroke", C.rust).attr("stroke-width", 2).attr("d", d3.line().x(r => x(r.year)).y(r => y(r.v)));
+  svg.selectAll(null).data(t).join("line").attr("x1", r => x(r.year)).attr("x2", r => x(r.year)).attr("y1", r => y(r.lo)).attr("y2", r => y(r.hi)).attr("stroke", C.rust).attr("stroke-width", 3).attr("opacity", .45);
+  svg.selectAll(null).data(t).join("circle").attr("cx", r => x(r.year)).attr("cy", r => y(r.v)).attr("r", 6).attr("fill", C.rust)
+    .on("mousemove", (e,r) => showTip(e, `<b>${r.year}</b><br>${f1(r.v)}% for 10 points more confiscated<br>95% interval ${f1(r.lo)} to ${f1(r.hi)}`)).on("mouseleave", hideTip);
+}
+</script>
+</body>
+</html>

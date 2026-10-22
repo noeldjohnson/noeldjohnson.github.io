@@ -68,6 +68,14 @@ companion_school:
     url: /interactive/school-choice-religiosity/
     btn_label: "Open the companion"
     btn_class: "btn--primary"
+companion_land:
+  - image_path: /assets/images/interactive/land-redistribution.jpg
+    alt: "Map of French districts of 1790 shaded by the share of land confiscated from the Church and auctioned during the Revolution"
+    title: "The Effects of Land Redistribution: Evidence from the French Revolution"
+    excerpt: "With Theresa Finley and Raphaël Franck. Journal of Law and Economics, 2021. When transaction costs are high the initial allocation of property matters, and the Revolution's auctions of Church land gave some French districts a head start in reallocating feudal land. Districts with more land sold had higher wheat yields, less fallow, and more drainage investment by mid-century, an advantage that faded by 1875."
+    url: /interactive/land-redistribution/
+    btn_label: "Open the companion"
+    btn_class: "btn--primary"
 ---
 
 Each companion walks through one paper with figures you can move. Every number on these pages is computed from data exported by the paper's replication code and checked against the manuscript. The papers themselves are on the [Research](/research/) page.
@@ -87,3 +95,5 @@ Each companion walks through one paper with figures you can move. Every number o
 {% include feature_row id="companion_pandemics" type="left" %}
 
 {% include feature_row id="companion_school" type="left" %}
+
+{% include feature_row id="companion_land" type="left" %}

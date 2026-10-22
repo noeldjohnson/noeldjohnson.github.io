@@ -14,7 +14,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
-Eight of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
+Nine of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
 
 **How Selected Is the Institutional Record? Craft Guilds and City Growth in Europe, 1000–1800**\\
 (joint with Eric Wilhelm)\\
@@ -69,6 +69,7 @@ Eight of these papers have [interactive companions](/interactive/), with figures
 (joint with Theresa Finley and Raphaël Franck)\\
 *Journal of Law and Economics, 2021*\\
 [Download Paper](/assets/papers/the-effects-of-land-redistribution-evidence-from-paper.pdf)\\
+[Interactive Companion](/interactive/land-redistribution/)\\
 [Download the Online Appendix](/assets/papers/the-effects-of-land-redistribution-evidence-from-online-appendix.pdf)
 [Download Presentation](/assets/papers/the-effects-of-land-redistribution-evidence-from-presentation.pdf)\\
 [A discussion of the paper on the Economics Detective podcast](https://economicsdetective.com/2017/07/french-revolution-property-rights-coase-theorem-noel-johnson/)\\
