@@ -70,6 +70,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
   body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
   .readout, .two { grid-template-columns: 1fr; }
 }
+.ctl-label { font-weight: 600; color: var(--navy); min-width: 5em; }
 </style>
 </head>
 <body>
@@ -152,13 +153,16 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="ratios">
 <h2><span class="num">4</span>Which cities enter the record</h2>
-<p>For each institution and each century from four before its first record to four after, the paper compares the cities that acquired it with the cities that did not. The population comparison uses every city in the comparison pool and counts a city with no estimate as small. The notable-births comparison uses cities whose population one century before the event was within a factor of about 2.7 of the event cities' mean, so it measures prominence given size. Per-inhabitant births remove the size difference that remains inside that band.</p>
+<p>A lead before the first record could be true of any institution dated this way. To see whether guilds are unusual, the paper puts eight other institutions through the same comparison. Two grew from below like guilds, the first printing press and the commune. Four were conferred from above. Market rights and town charters were granted by a lord, and capitals and new bishoprics and archbishoprics were seats placed in a city. Universities are left unclassified.</p>
+<p>Each institution is dated by a different source, so each can only be compared within the cities its source covers. The printing press covers the full panel. Market rights and charters come from the Deutsches Städtebuch and cover German and Austrian towns. Communes, capitals, sees, and universities come from Bosker, Buringh, and van Zanden (2013) and cover the cities in their data. Each comparison in Figure 5 therefore shows guilds in the same set of cities as a benchmark.</p>
+<p>Two measures are compared. Population is the first. The second is notable births, the number of people born in a city in a century who appear in the database of Laouenan et al. (2022), about two million notable people assembled from Wikipedia and Wikidata biographies. It measures a city's prominence and does not depend on its population estimate. For each institution and each century from four before its first record to four after, the paper compares the cities that acquired it with the cities that did not. The population comparison uses every city in the comparison pool and counts a city with no estimate as small. The notable-births comparison uses cities whose population one century before the event was within a factor of about 2.7 of the event cities' mean, so it measures prominence given size. Per-inhabitant births remove the size difference that remains inside that band.</p>
 <div class="figure">
-  <div class="controls" id="rpanel"></div>
-  <div class="controls" id="rmeasure"></div>
+  <div class="controls" id="rpanel"><span class="ctl-label">Compare</span></div>
+  <div class="controls" id="rmeasure"><span class="ctl-label">Measure</span></div>
+  <div class="legend" id="rdesc" style="margin:0 0 8px"></div>
   <svg id="rsvg" viewBox="0 0 800 360" role="img" aria-label="Ratios by century"></svg>
   <div class="legend" id="rleg"></div>
-  <div class="cap"><b>Figure 5.</b> Ratio of the mean for cities that acquired the institution to the mean for comparison cities, by century relative to the first record, on a log scale. Solid lines grew from below and dashed lines were conferred from above. Hover for the 95 percent interval. The paper prints intervals for the pooled windows only. The century-by-century intervals here use the paper's bootstrap of 500 draws, resampling event and comparison cities separately.</div>
+  <div class="cap"><b>Figure 5.</b> Ratio of the mean for cities that acquired the institution to the mean for comparison cities, by century relative to the first record, on a log scale. The Compare buttons choose which institutions are shown, each against guilds in the same cities. The Measure buttons choose what is compared. Solid lines grew from below and dashed lines were conferred from above. Hover for the 95 percent interval. The paper prints intervals for the pooled windows only. The century-by-century intervals here use the paper's bootstrap of 500 draws, resampling event and comparison cities separately.</div>
 </div>
 <p>Four centuries before their guilds appear the average guild city held about 2,600 people and the average comparison city about 1,400. Market and charter towns were level with their neighbors at every date. Within the German and Austrian towns, where guild records, market rights, and charters all come from the same urban histories, guild towns were 1.5 to 2.1 times the size of other towns before the record and market and charter towns were not.</p>
 <div class="figure">
@@ -375,11 +379,13 @@ function cohorts(coh) {
 function ratioView(ratios, windows) {
   const R = ratios.institutions, Wn = windows.institutions;
   const panels = [
-    ["Full panel", ["guild_full","press"]],
-    ["German and Austrian towns", ["guild_de","market","charter"]],
-    ["Cities in Bosker et al.", ["guild_bbz","commune","capital","bishop","archbishop","university"]] ];
-  const measures = [["Population", "population","zeros_counted"], ["Population, recorded cities", "population","recorded_only"],
-                    ["Notable births", "births","per_city"], ["Births per inhabitant", "births","per_inhabitant"]];
+    ["Guilds and the printing press", ["guild_full","press"], "All 1,754 cities in the panel."],
+    ["Guilds, market rights, and charters", ["guild_de","market","charter"], "German and Austrian towns, where the Deutsches Städtebuch dates all three from the same urban histories."],
+    ["Guilds, communes, seats, and universities", ["guild_bbz","commune","capital","bishop","archbishop","university"], "Cities in Bosker, Buringh, and van Zanden (2013), the source for the other five institutions."] ];
+  const measures = [["Population", "population","zeros_counted", "Mean population, counting cities with no estimate as small."],
+                    ["Population, recorded cities only", "population","recorded_only", "Mean population among cities with a population estimate."],
+                    ["Notable births, size-matched", "births","per_city", "Notable births per city, against comparison cities of similar size one century before."],
+                    ["Notable births per inhabitant", "births","per_inhabitant", "Notable births per inhabitant, which removes the size difference left inside the size band."]];
   const color = { guild_full: C.rust, guild_de: C.rust, guild_bbz: C.rust, press: C.navy, commune: C.teal, market: C.gold, charter: "#7a5195",
                   capital: C.navy, bishop: C.gold, archbishop: "#7a5195", university: C.gray };
   const dashed = k => /Conferred/.test(R[k].category) ? "6 4" : (R[k].category === "Not classified" ? "2 3" : null);
@@ -389,6 +395,7 @@ function ratioView(ratios, windows) {
   const svg = d3.select("#rsvg"), W = 800, H = 360, mg = {l:56, r:20, t:14, b:40};
   function draw() {
     tp.classed("on", d => d === P); tm.classed("on", d => d === M);
+    d3.select("#rdesc").html(`<b>Cities compared.</b> ${P[2]} <b>Measure.</b> ${M[3]}`);
     svg.selectAll("*").remove();
     const series = P[1].map(k => ({ k, rows: R[k][M[1]][M[2]].filter(d => d.ratio > 0) }));
     const vals = series.flatMap(s => s.rows.map(d => d.ratio));
@@ -405,7 +412,7 @@ function ratioView(ratios, windows) {
       svg.selectAll(null).data(s.rows).join("circle").attr("cx", d => x(d.k)).attr("cy", d => y(d.ratio)).attr("r", 4.5).attr("fill", color[s.k])
         .on("mousemove", (ev,d) => showTip(ev, `<b>${R[s.k].label}, century ${d.k > 0 ? "+" : ""}${d.k}</b><br>Ratio ${d.ratio.toFixed(2)}<br>95% interval ${d.lo.toFixed(2)} to ${d.hi.toFixed(2)}`)).on("mouseleave", hideTip);
     });
-    d3.select("#rleg").html(series.map(s => `<span style="color:${color[s.k]};font-weight:600">${dashed(s.k) ? "- -" : "—"} ${R[s.k].label}</span>`).join(" &nbsp; ") + `<br>${R[P[1][0]].sample_label}`);
+    d3.select("#rleg").html(series.map(s => `<span style="color:${color[s.k]};font-weight:600">${dashed(s.k) ? "- -" : "—"} ${R[s.k].label}</span>`).join(" &nbsp; "));
     // pooled windows table
     const keyW = M[1] === "population" ? M[2] : M[2];
     const rows = P[1].map(k => { const w = Wn[k][M[1]][keyW]; return [Wn[k].label, ...["early","late","after"].map(p => w && w[p] ? `${w[p].ratio.toFixed(2)} <span style="color:var(--muted)">[${w[p].lo.toFixed(2)}, ${w[p].hi.toFixed(2)}]</span>` : "–")]; });
