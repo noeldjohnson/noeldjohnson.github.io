@@ -174,14 +174,14 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 
 <section id="exclusivity">
 <h2><span class="num">5</span>Exclusivity</h2>
-<p>The model orders institutions by how hard they were to have. This figure places the nine on one scale. The horizontal axis is the share of cities in the comparison pool that ever acquired the institution. The vertical axis is the early-window lead over the average city in the pool. The university, which about one city in eight acquired, sits between the seats and the guild and press with a lead of 1.7.</p>
+<p>The model orders institutions by how hard they were to have. This figure places the nine on one scale. The horizontal axis is the share of cities in the comparison pool that ever acquired the institution. The vertical axis is the lead over the average city in the pool in the late window, the second and first centuries before the record. The university, which about one city in eight acquired, sits among the seats with a lead of 2.1.</p>
 <div class="figure">
   <svg id="exsvg" viewBox="0 0 800 380" role="img" aria-label="Exclusivity"></svg>
   <div class="legend" id="exleg"></div>
-  <div class="cap"><b>Figure 6.</b> Early-window lead over the average city against the share of cities acquiring the institution, on log scales, with 95 percent intervals. We present this as an illustration of the model and do not test the relation.</div>
+  <div class="cap"><b>Figure 6.</b> Late-window lead over the average city against the share of cities acquiring the institution, on log scales, with 95 percent intervals. We present this as an illustration of the model and do not test the relation.</div>
 </div>
 <p>The sharpest contrast is between an institution with a threshold and one without. In Germany guilds and charters were about equally common. Guild cities were ahead and charter towns were not. Exclusivity alone does not separate them. Whether a town had to be large to have the institution does.</p>
-<p>Figure 6 uses only the early window and only population and it measures the lead over the average city rather than over cities without the institution. That is why communes sit near 1 here while Figure 5 shows them ahead. Commune cities were the same size as other cities four and three centuries before the record and their lead built in the two centuries just before it. Communes were also common. About 58 percent of the cities in the pool acquired one and when most cities have an institution the average city is mostly made of them, which pulls the lead over the average toward 1.</p>
+<p>Figure 6 uses only population and it measures the lead over the average city rather than over cities without the institution. That is why communes sit only a little above 1 here while Figure 5 shows them well ahead. Commune cities were the same size as other cities four and three centuries before the record and their lead built in the two centuries just before it. Communes were also common. About 58 percent of the cities in the pool acquired one and when most cities have an institution the average city is mostly made of them, which pulls the lead over the average toward 1.</p>
 </section>
 
 <section id="explorer">
@@ -428,10 +428,10 @@ function exclusivity(excl) {
   const x = d3.scaleLog([0.03, 0.9], [mg.l, W-mg.r]), y = d3.scaleLog([0.8, d3.max(pts, p => p.hi) * 1.05], [H-mg.b, mg.t]);
   const col = c => /below/.test(c) ? C.rust : /Conferred/.test(c) ? C.navy : C.gray;
   svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickValues([.05,.1,.2,.4,.7]).tickFormat(d3.format(".0%")));
-  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).tickValues([1,1.5,2,3]).tickFormat(d => d));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).tickValues([1,1.5,2,3,4]).tickFormat(d => d));
   svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(1)).attr("y2", y(1)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
   svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-8).attr("text-anchor","middle").text("Share of cities in the comparison pool that acquire the institution (log)");
-  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Early lead over the average city (log)");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Late lead over the average city (log)");
   const g = svg.selectAll("g.p").data(pts).join("g");
   g.append("line").attr("x1", p => x(p.share_acquiring)).attr("x2", p => x(p.share_acquiring)).attr("y1", p => y(Math.max(p.lo, .8))).attr("y2", p => y(p.hi)).attr("stroke", p => col(p.category)).attr("stroke-width", 2);
   const unc = p => p.category === "Not classified";
@@ -440,9 +440,10 @@ function exclusivity(excl) {
   g.append("circle").attr("cx", p => x(p.share_acquiring)).attr("cy", p => y(p.lead)).attr("r", 7)
     .attr("fill", p => unc(p) ? "transparent" : /below/.test(p.category) ? col(p.category) : "#fff").attr("stroke", p => unc(p) ? "none" : col(p.category)).attr("stroke-width", 2)
     .on("mousemove", (ev,p) => showTip(ev, `<b>${p.label}</b><br>${Math.round(100*p.share_acquiring)}% of cities acquire it<br>Lead ${p.lead.toFixed(2)} [${p.lo.toFixed(2)}, ${p.hi.toFixed(2)}]`)).on("mouseleave", hideTip);
-  const dy = { Guild: 18, Commune: -12, "Market right": 20, "Town charter": -12, "First press": -10 };
+  const dy = { Guild: 18, Commune: -12, "Market right": 20, "Town charter": -12, "First press": -10, Capital: 18 };
   const left = new Set(["Market right", "University"]);
-  g.append("text").attr("x", p => x(p.share_acquiring) + (left.has(p.label) ? -10 : 10)).attr("text-anchor", p => left.has(p.label) ? "end" : "start").attr("y", p => y(p.lead) + (left.has(p.label) ? 16 : (dy[p.label] ?? -8))).style("font-weight",600).attr("fill", p => col(p.category)).text(p => p.label);
+  const top = new Set(["Archbishopric"]);  // crowded at the left edge, so labeled above its interval
+  g.append("text").attr("x", p => x(p.share_acquiring) + (top.has(p.label) ? 0 : left.has(p.label) ? -10 : 10)).attr("text-anchor", p => top.has(p.label) ? "middle" : left.has(p.label) ? "end" : "start").attr("y", p => top.has(p.label) ? y(p.hi) - 6 : y(p.lead) + (left.has(p.label) ? 16 : (dy[p.label] ?? -8))).style("font-weight",600).attr("fill", p => col(p.category)).text(p => p.label);
   d3.select("#exleg").html(`<span style="color:${C.rust};font-weight:600">● Grew from below</span> &nbsp; <span style="color:${C.navy};font-weight:600">○ Conferred from above</span> &nbsp; <span style="color:${C.gray};font-weight:600">× University, not classified</span>`);
 }
 
