@@ -18,6 +18,7 @@ Nine of these papers have [interactive companions](/interactive/), with figures 
 
 **Selection in the Institutional Record: Evidence from Craft Guilds and City Growth in Europe, 1000–1800**\\
 (joint with Eric Wilhelm)\\
+[Download Paper](/assets/papers/selection-in-the-institutional-record.pdf)\\
 [Interactive Companion](/interactive/guilds/)
 
 **Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach**\\
