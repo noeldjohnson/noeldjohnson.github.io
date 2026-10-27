@@ -131,46 +131,76 @@ Method. Regular expressions over title pages in the Universal Short Title Catalo
 
 </details>
 
-## Made orders are born legible and grown orders turn legible late
+## Guild cities were twice the size of other cities four centuries before their guilds were recorded
 
-![Event study contrasting guilds with market grants and town charters](/assets/data-essays/guilds_hook.png)
+![Line chart of cities whose craft guilds enter the record relative to cities with no guild record, by century from four before to four after the first record, log scale. Population runs from 1.9 times four centuries before to 3.1 times four centuries after. Notable births run from 2.0 times to 6.3 times.](/assets/data-essays/guilds_hook_pop_births.png)
 
-A charter exists the moment it is written, so first mention dates its founding. A guild ran for years before anyone wrote it down and enters the record once its city is already doing well. Matched to undocumented cities of the same region and size, guild cities outproduce their matches in notable people for two or three centuries before their guilds reach the record. The same design around market rights and town charters shows no such climb. Our reading is that guilds enter the record on the way up while charters enter on the grantor's schedule. The comparison measures an association. This is work with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home).
+Craft guilds first appear in the record in cities that had already been about twice the size of other cities for four centuries. A standard cross-city regression says a century of guild presence goes with a city twice as large. Against cities that were the same size beforehand the premium is about 14 percent, and the gap between the two is selection. Rights that rulers granted, such as market rights and town charters, went to towns no bigger than their neighbors. Two questions predict how selected the places holding an institution will be. Does it pay only once a place is big, and how many places can have it? The 14 percent is an association. This is work with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home).
 
 <details markdown="1">
 <summary><strong>Read the whole thread</strong></summary>
 
-1/ Made orders are born legible. Grown orders turn legible late. A charter exists the moment it's written. A guild ran for years before anyone wrote it down. That one difference has warped eight centuries of evidence on institutions and growth — and now we can measure it.
+1/ Did craft guilds help medieval cities grow or hold them back? Economists have argued about it since Adam Smith. Guild cities were bigger. They were also twice the size of other cities four centuries before their guilds first appear in the record.
 
-![Event study contrasting guilds with market grants and town charters](/assets/data-essays/guilds_hook.png)
+![Line chart of cities whose craft guilds enter the record relative to cities with no guild record, by century from four before to four after the first record, log scale. Population runs from 1.9 times four centuries before to 3.1 times four centuries after. Notable births run from 2.0 times to 6.3 times.](/assets/data-essays/guilds_hook_pop_births.png)
 
-2/ Ghent: 5,000 people in the year 1000, 64,000 by 1300 — only Paris and London were bigger north of the Alps. Its guilds enter the record in the 1200s, near the peak. Over the next three centuries the city lost half its people. Read naively: guilds arrived, growth stopped.
+2/ Ghent grew from 5,000 in 1000 to 64,000 in 1300, third north of the Alps after Paris and London. Its guilds first appear in the record in the 1200s. By 1600 it had lost half its people. Read naively, guilds arrived and the city declined. The record caught them near the peak.
 
-![Ghent population against the date its guilds enter the record](/assets/data-essays/guilds_ghent.png)
+![Line chart of Ghent's population by century, 1000 to 1800. 5,000, 8,000, 25,000, 64,000, 64,000, 45,000, 31,000, 52,000, and 55,000. A shaded band over the thirteenth century is labeled craft guilds first recorded.](/assets/data-essays/guilds_ghent_rise.png)
 
-3/ But who writes things down? Growing cities. A guild ran for years before anyone recorded it, so its first mention dates the city's success. The post-guild "decline" is mean reversion in disguise: big cities shrank with or without documented guilds.
+3/ We extended Sheilagh Ogilvie's guild database to 1,754 European cities, 1000-1800. Craft guilds are documented in 724 of them, each dated by its first record.
 
-4/ Eric Wilhelm and I test it with something the guild archive doesn't touch: where notable people were born. Match each guild city to undocumented cities of the same region and size. Guild cities out-produced their matches in notable births for 2–3 centuries BEFORE their guilds reached the record.
+![Map of Europe with 1,754 cities. 724 filled points mark cities with documented craft guilds, shaded from gold for the earliest first records to dark navy for the latest. Open gray points mark cities with no guild record. Guild records begin in the Mediterranean commercial core and northern France, spread through the Holy Roman Empire and the Low Countries in the 1200s and 1300s, and reach the periphery late.](/assets/data-essays/guilds_map.png)
 
-![Matched event study of population and notable births around first guild documentation](/assets/data-essays/guilds_panel.png)
+4/ A standard cross-city regression on these data says a century of guild presence makes a city about twice as large. Compare guild cities with cities that were the same size beforehand and the premium falls to about 14 percent. The gap is selection.
 
-5/ Antwerp is a concrete example. Notable people born there: 1 in the 1300s, 17 in the 1400s, 309 in the 1500s. Its guilds enter the record in the 1400s — the exact moment the rise becomes visible.
+![Dot plot of the implied percent difference in city population associated with a century of guild activity. Across cities, a growth regression gives 100 percent with an interval from about 40 to 160. Matched against never-documented cities of the same size, 14 percent with an interval from about 10 to 19.](/assets/data-essays/guilds_designs.png)
 
-![Notable births in Antwerp by century against the date its guilds enter the record](/assets/data-essays/guilds_antwerp.png)
+5/ Ghent's decline is consistent with reversion to the mean. A city that clears the size bar near its peak owes part of its size to good shocks that fade. Only against cities of comparable size does the 14 percent guild premium persist.
 
-6/ Now, look at the same design around orders a ruler made: market rights and town charters. The climb is gone. Before a charter, the city's edge is already shrinking. Our interpretation: guilds enter the record on the way up, charters on the grantor's schedule. (German/Austrian cities; wide CIs.)
+![Event-study coefficients with 95 percent intervals for log population of guild cities relative to comparison cities, four centuries before to four after the first guild record. Against all never-documented cities, guild cities rise before the record and fall back to zero after it. Against never-documented cities of the same size and guild strength, the pre-period coefficients are near zero and the post-period coefficients hold near 0.13 for four centuries.](/assets/data-essays/guilds_event_study.png)
 
-7/ That's the result. A made order, like a market grant, is legible by construction: document and institution are one act, so first mention dates the birth. A grown order, like a guild, turns legible once it's worth confirming, taxing, or fighting over, so first mention dates the ascent.
+6/ Is this special to guilds? We ran the same comparison on eight other institutions. Rights that rulers granted went to ordinary places. German towns that received a market right or a town charter were no bigger than their neighbors before the grant.
 
-8/ Menger called the two origins organic and pragmatic. Hayek called them grown and made orders. Nobody designs a grown order, so nobody documents its design. Hayek's knowledge problem is an archivist's problem too. Which works better is another question.
+![Line chart of mean population of German and Austrian towns that acquired an institution relative to towns that never did, log scale, four centuries before to four after the first record. The craft-guild line starts near 1.4 times, rises to about 2.2 times the century before the record, and stays near 2.2 after. The market-right line sits near 1 times throughout. The town-charter line sits near 1 times before the grant and rises to about 1.4 times after.](/assets/data-essays/guilds_vs_grants.png)
 
-9/ Much of economic history dates its treatment by first surviving mention. That date means different things for made and grown orders, so the record is biased against seeing grown institutions early — and blind to them where they succeeded. Ask what the record measures. /end
+7/ What explains this difference? Most towns are small and a few are huge. If an institution pays only above some size, only the tail gets it, and the tail averages far above the typical town. If only a few places can have it, they go to the very top.
 
-Method. A panel of 1,754 Western European cities from 1000 to 1800 built on Sheilagh Ogilvie's guild databases. A staggered event study matches guild cities to never documented cities of the same region and similar baseline size. Notable births are the outcome the guild archive does not touch. Market grants and town charters from the Deutsches Städtebuch supply the placebo events.
+![Schematic curve of how many towns there are at each size, in multiples of the median town, with a long right tail. The average town is about twice the median. The largest 40 percent of towns average 2.0 times the average town and the top 5 percent average 6.1 times. An illustration with the paper's model parameters, not an estimate.](/assets/data-essays/guilds_skew.png)
+
+8/ So two questions predict how selected institutions will be. Does it pay to create it only once a place is big? How many places can have it? Capitals and archbishoprics, which few cities held, sit near 3x the average. Rights most towns got sit at 1x.
+
+![Scatter plot on log scales of the lead of cities that acquired each of nine institutions over the average city, against the share of cities that acquired it. Archbishoprics and capitals, held by about 4 and 5 percent of cities, sit at about 3 times. The university sits at 2.1 times and bishoprics at 1.8. Guilds and the first press, held by about 40 percent, sit near 1.5. The commune and the guild in German towns sit near 1.2. Market rights and town charters, held by 54 and 70 percent of towns, sit at 1.](/assets/data-essays/guilds_nine_institutions.png)
+
+9/ The sharpest contrast is inside Germany. Guilds and town charters were about equally common there, about two towns in three. Guild towns were ahead of the average town before the record and charter towns were not. Exclusivity does not separate them. The size bar does.
+
+10/ The record also dates them differently. A market grant is written down the day it exists, so its first mention dates a birth. A guild gets written down once it is worth confirming, taxing, or fighting over, so its first mention dates an ascent.
+
+11/ The same problem runs through policy today. Occupational licensing is the modern guild. Before copying an institution from the places that built it themselves, ask whether your place clears the bar those places had already cleared.
+
+12/ Menger called the two origins organic and pragmatic. Hayek called them grown and made orders. Nobody designs a grown order, so nobody documents its design. Hayek's knowledge problem is an archivist's problem too. Which kind works better is a separate question.
+
+13/ What we cannot say. The data do not tell us whether guilds caused city growth. The 14 percent is an association. Market rights and charters are observed only for German and Austrian towns, so that comparison is narrow and its intervals are wide.
+
+14/ Populations are Buringh's. Paper with Eric Wilhelm, with an interactive companion. /end
+
+One city, concretely. Notable people born in Antwerp. 1 in the 1300s, 17 in the 1400s, 309 in the 1500s. In our data its guilds enter the record in the 1400s, as the rise becomes visible.
+
+![Bar chart of notable people born in Antwerp by century. 1200s 1, 1300s 1, 1400s 17, 1500s 309, 1600s 300. An arrow labeled craft guilds first recorded points to the 1400s bar.](/assets/data-essays/guilds_antwerp_births.png)
+
+The second measure. Among cities of the same size, guild cities had about twice the notable births in the four centuries before their guilds were recorded, so the lead is prominence as well as size.
+
+![Two panels for guild cities relative to comparison cities by century from the first guild record, log scale. Population against all comparison cities runs from 1.9 times four centuries before to about 3 times four centuries after. Notable births against cities of the same size run from 1.8 times to about 6 times.](/assets/data-essays/guilds_pop_vs_births.png)
+
+Capitals show the second question at work. Future capitals were ordinary four centuries before the court came, 3.6x other cities a century before, and 6x a century after. A scarce prize went to whichever city had just surged.
+
+![Line chart of mean population relative to comparison cities, log scale, four centuries before to four after the first record. Cities that became capitals start near 1 times, reach 3.6 times the century before, and about 6 times after. Craft guild cities run from 1.9 times to about 3 times. Market-right towns stay near 1 times.](/assets/data-essays/guilds_capitals.png)
+
+Method. A panel of 1,754 European cities from 1000 to 1800, with populations from Buringh and guild records that extend Sheilagh Ogilvie's databases. Each institution's cities are compared century by century with cities in the same pool that never acquired it. The 14 percent comes from a stacked event study that matches guild cities to never-documented cities of the same size and guild strength. Market rights and town charters come from the Deutsches Städtebuch as coded by Cantoni, Mohr, and Weigand. Notable births come from Laouenan and coauthors (2022).
 
 </details>
 
-The paper behind this essay has an [interactive companion](/interactive/guilds/).
+The paper, [Selection in the Institutional Record](/research/), has an [interactive companion](/interactive/guilds/) where you can move the two levers yourself.
 
 ## The model learns queen from 500-year-old titles
 
