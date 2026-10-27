@@ -133,7 +133,7 @@ Method. Regular expressions over title pages in the Universal Short Title Catalo
 
 ## Guild cities were twice the size of other cities four centuries before their guilds were recorded
 
-![Line chart of cities whose craft guilds enter the record relative to cities with no guild record, by century from four before to four after the first record, log scale. Population runs from 1.9 times four centuries before to 3.1 times four centuries after. Notable births run from 2.0 times to 6.3 times.](/assets/data-essays/guilds_hook_pop_births.png)
+![Line chart of cities whose craft guilds enter the record relative to cities with no guild record, by century from four before to four after the first record, log scale. Population runs from 1.9 times four centuries before to 3.1 times four centuries after. Notable births run from 2.1 times to 6.3 times.](/assets/data-essays/guilds_hook_pop_births.png)
 
 Craft guilds first appear in the record in cities that had already been about twice the size of other cities for four centuries. A standard cross-city regression says a century of guild presence goes with a city twice as large. Against cities that were the same size beforehand the premium is about 14 percent, and the gap between the two is selection. Rights that rulers granted, such as market rights and town charters, went to towns no bigger than their neighbors. Two questions predict how selected the places holding an institution will be. Does it pay only once a place is big, and how many places can have it? The 14 percent is an association. This is work with [Eric Wilhelm](https://sites.google.com/view/ehwilhelm/home).
 
@@ -142,7 +142,7 @@ Craft guilds first appear in the record in cities that had already been about tw
 
 1/ Did craft guilds help medieval cities grow or hold them back? Economists have argued about it since Adam Smith. Guild cities were bigger. They were also twice the size of other cities four centuries before their guilds first appear in the record.
 
-![Line chart of cities whose craft guilds enter the record relative to cities with no guild record, by century from four before to four after the first record, log scale. Population runs from 1.9 times four centuries before to 3.1 times four centuries after. Notable births run from 2.0 times to 6.3 times.](/assets/data-essays/guilds_hook_pop_births.png)
+![Line chart of cities whose craft guilds enter the record relative to cities with no guild record, by century from four before to four after the first record, log scale. Population runs from 1.9 times four centuries before to 3.1 times four centuries after. Notable births run from 2.1 times to 6.3 times.](/assets/data-essays/guilds_hook_pop_births.png)
 
 2/ Ghent grew from 5,000 in 1000 to 64,000 in 1300, third north of the Alps after Paris and London. Its guilds first appear in the record in the 1200s. By 1600 it had lost half its people. Read naively, guilds arrived and the city declined. The record caught them near the peak.
 
@@ -190,7 +190,7 @@ One city, concretely. Notable people born in Antwerp. 1 in the 1300s, 17 in the 
 
 The second measure. Among cities of the same size, guild cities had about twice the notable births in the four centuries before their guilds were recorded, so the lead is prominence as well as size.
 
-![Two panels for guild cities relative to comparison cities by century from the first guild record, log scale. Population against all comparison cities runs from 1.9 times four centuries before to about 3 times four centuries after. Notable births against cities of the same size run from 1.8 times to about 6 times.](/assets/data-essays/guilds_pop_vs_births.png)
+![Two panels for guild cities relative to comparison cities by century from the first guild record, log scale. Population against all comparison cities runs from 1.9 times four centuries before to about 3 times four centuries after. Notable births against cities of the same size run from 1.9 times to about 6 times.](/assets/data-essays/guilds_pop_vs_births.png)
 
 Capitals show the second question at work. Future capitals were ordinary four centuries before the court came, 3.6x other cities a century before, and 6x a century after. A scarce prize went to whichever city had just surged.
 
