@@ -36,6 +36,14 @@ companion_revolt:
     url: /interactive/great-revolt/
     btn_label: "Open the companion"
     btn_class: "btn--primary"
+companion_jp:
+  - image_path: /assets/images/interactive/jewish-persecutions.jpg
+    alt: "Map of European cities with Jewish communities between 1100 and 1800, sized by the number of persecutions recorded in each"
+    title: "Jewish Persecutions and Weather Shocks: 1100–1800"
+    excerpt: "With Robert Warren Anderson and Mark Koyama. The Economic Journal, 2017. A one standard deviation fall in the growing season temperature raised the probability that a Jewish community was persecuted in the next five years by about half, and by twice as much where the state was weak. After 1600 the link disappeared as states grew stronger."
+    url: /interactive/jewish-persecutions/
+    btn_label: "Open the companion"
+    btn_class: "btn--primary"
 companion_bdp:
   - image_path: /assets/images/interactive/black-death-press.jpg
     alt: "Map of European cities colored by Black Death mortality and marked by whether they had a press by 1500"
@@ -83,6 +91,8 @@ Each companion walks through one paper with figures you can move. Every number o
 ## Policy and institutions
 
 {% include feature_row id="companion_revolt" type="left" %}
+
+{% include feature_row id="companion_jp" type="left" %}
 
 {% include feature_row id="companion_pandemics" type="left" %}
 

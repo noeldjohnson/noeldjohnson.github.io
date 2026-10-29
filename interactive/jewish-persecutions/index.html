@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jewish Persecutions and Weather Shocks</title>
+<meta name="description" content="An interactive companion to Jewish Persecutions and Weather Shocks, 1100 to 1800, by Robert Warren Anderson, Noel D. Johnson, and Mark Koyama, Economic Journal, 2017.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Noel D. Johnson">
+<meta property="og:title" content="Jewish Persecutions and Weather Shocks. An interactive companion">
+<meta property="og:description" content="An interactive companion to Jewish Persecutions and Weather Shocks, 1100 to 1800, by Robert Warren Anderson, Noel D. Johnson, and Mark Koyama, Economic Journal, 2017.">
+<meta property="og:url" content="https://noeldjohnson.github.io/interactive/jewish-persecutions/">
+<meta property="og:image" content="https://noeldjohnson.github.io/assets/images/interactive/jewish-persecutions.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@noeldjohnson">
+<meta name="twitter:title" content="Jewish Persecutions and Weather Shocks. An interactive companion">
+<meta name="twitter:description" content="An interactive companion to Jewish Persecutions and Weather Shocks, 1100 to 1800, by Robert Warren Anderson, Noel D. Johnson, and Mark Koyama, Economic Journal, 2017.">
+<meta name="twitter:image" content="https://noeldjohnson.github.io/assets/images/interactive/jewish-persecutions.jpg">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+.byline a { color: var(--teal); }
+nav.toc { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; background: var(--panel); padding: 14px 18px; border-radius: 6px; margin: 0 0 32px; }
+nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+nav.toc a { color: var(--navy); text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+h2 { font-size: 26px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.figure .cap { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 10px; }
+.figure .cap b { color: var(--ink); }
+.controls { font: 15px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 12px; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+.controls .v { font-weight: 600; color: var(--rust); min-width: 3.2em; }
+input[type=range] { width: 180px; max-width: 100%; accent-color: var(--rust); }
+button.tab { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; border: 1px solid var(--rule); background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; color: var(--navy); }
+button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.readout div { background: #fff; border-radius: 6px; padding: 10px 12px; font: 14px/1.35 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.readout b { display: block; font: 600 24px/1.2 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--navy); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
+.axis path, .axis line { stroke: #b8b8b8; }
+.tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; max-width: 300px; z-index: 10; }
+.tip b { color: var(--navy); }
+.legend { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 6px; }
+table.t { width: 100%; border-collapse: collapse; font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; margin: 6px 0 4px; }
+table.t th, table.t td { border-bottom: 1px solid var(--rule); padding: 6px 6px; text-align: left; }
+table.t td.n, table.t th.n { text-align: right; }
+.note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; margin: 0 0 16px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.ctl-label { font-weight: 600; color: var(--navy); min-width: 5em; }
+.story { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0 0 10px; }
+@media (max-width: 640px) {
+  body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
+  .readout, .two { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">Interactive companion</div>
+  <h1>Jewish Persecutions and Weather Shocks</h1>
+  <div class="byline">1100 to 1800 · Robert Warren Anderson, Noel D. Johnson, and Mark Koyama · <i>The Economic Journal</i>, 2017 · <a href="/assets/papers/jewish-persecutions-and-weather-shocks-1100-1800-paper.pdf">Read the paper</a> · <a href="/research/">Research</a></div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#bargain">The bargain and when it broke</a></li>
+    <li><a href="#map">Cities and their communities</a></li>
+    <li><a href="#timeline">Seven centuries of persecutions and temperature</a></li>
+    <li><a href="#baseline">Colder growing seasons raised the risk of persecution</a></li>
+    <li><a href="#mechanisms">Weak states and poor soil</a></li>
+    <li><a href="#timing">The timing of the effect</a></li>
+    <li><a href="#decline">The decline after 1600</a></li>
+    <li><a href="#policy">What it means for the protection of minorities</a></li>
+    <li><a href="#limits">Limits</a></li>
+  </ol>
+</nav>
+
+<section id="argument">
+<h2><span class="num">1</span>Argument</h2>
+<p>Between 1100 and 1800 the <i>Encyclopaedia Judaica</i> records 1,366 persecutions of Jewish communities in European cities, 821 expulsions and 545 pogroms. We ask what triggered them and why they became rare after 1600. The hypothesis we test is the one historians have long advanced. Jews were convenient scapegoats for economic hardship. When the harvest failed, unrest followed, and a ruler who could not put down that unrest or who needed money turned on the community he had been protecting.</p>
+<p>The shock we use is the temperature of the growing season, reconstructed year by year from tree rings, ice cores, pollen, and documents by Guiot and Corona (2010). In Europe a colder growing season cut grain yields, and a run of cold years meant dearth. We join these temperatures to 936 cities with a Jewish community and ask whether a persecution was more likely after a cold spell.</p>
+<p>A one standard deviation fall in the average growing season temperature of the previous five years, about a third of a degree Celsius, raised the probability that a community was persecuted in the next five years by about 1 percentage point, against a baseline of 2.2 percent. The effect was about twice as large in regions ruled by weak states and larger where the soil was poor. After 1600 the link between cold and persecution disappeared. We argue that the decline tracks the rise of stronger states and better integrated markets.</p>
+</section>
+
+<section id="bargain">
+<h2><span class="num">2</span>The bargain and when it broke</h2>
+<p>Medieval rulers encouraged Jewish settlement. The Bishop of Speyer wrote in 1084 that the glory of his town would be augmented a thousandfold if he were to bring Jews. Jews specialized as merchants and then as moneylenders. The Church condemned usury but secular rulers permitted it, because credit was necessary and because a community that lent at interest was a tax base the ruler could reach. In Baron's phrase the Jews were fiscal sponges. They soaked up money from the population and the ruler squeezed it out of them. In return the ruler promised protection against popular and elite hostility.</p>
+<p>The weakness of the bargain was commitment. A ruler could not always protect the community against unrest, and in a fiscal crisis the community's wealth was the easiest thing to seize. We model the trigger as a temperature shock. Cold growing seasons lowered output and incomes. Peasants rebelled directly or elites faced a crisis of surplus extraction, and in either case Jews were targets, blamed for the hardship or simply vulnerable and thought to be rich. A ruler with the capacity to put down unrest and to raise revenue elsewhere could keep his promise. A ruler without it could not, and often expropriated the community himself before the mob did.</p>
+<p>The Pastoureaux of 1320 show the mechanism. Jews had been readmitted to France in 1315 on condition that they act as moneylenders and fiscal agents for the crown. Harvests then failed year after year from 1315 to 1321, in what Campbell calls possibly the worst subsistence crisis in recorded European history. The Shepherds' Crusade attacked royal castles in Normandy and then moved south and massacred Jews in Toulouse, Cahors, Albi, and a dozen other towns of Languedoc. The king protected the Jews where he could. The massacres fell wherever royal authority was weak.</p>
+<p>The framework makes two predictions we can test. Colder growing seasons raise the probability of persecution, and the effect is larger under weak states. Poor soil could cut either way, since it makes a shock bite harder but also makes Jewish lending more valuable to the ruler.</p>
+<div class="figure">
+  <div class="controls" id="kdrv"><span class="ctl-label">Mechanism</span></div>
+  <div class="controls">
+    <label>Temperature shock, standard deviations <input id="kt" type="range" min="-3" max="3" step="0.25" value="-1"></label><span class="v" id="ktv"></span>
+    <label id="kml">State antiquity <input id="km" type="range" min="19" max="50" step="1" value="30"></label><span class="v" id="kmv"></span>
+  </div>
+  <div class="readout">
+    <div><b id="ko1"></b><span id="ko1t"></span></div>
+    <div><b id="ko2"></b><span id="ko2t"></span></div>
+    <div><b id="ko3"></b><span id="ko3t"></span></div>
+  </div>
+  <p class="story" id="kstory"></p>
+  <svg id="ksvg" viewBox="0 0 800 300" role="img" aria-label="Effect of a one degree fall in temperature on the five-year probability of persecution, across the mechanism variable"></svg>
+  <div class="cap" id="kcap"></div>
+</div>
+<p>Set the shock to one standard deviation of cold and move the state antiquity slider from 50 to 20. The marginal effect of a degree of cold grows from about 1.9 to about 4.9 percentage points. The same cold spell that raised persecution risk by less than a point under an old state raised it by more than a point and a half under a young one, against a baseline of 2.2 percent. Soil works the same way. On the best land the effect of cold is close to zero and on the worst it is about 5 points per degree.</p>
+</section>
+
+<section id="map">
+<h2><span class="num">3</span>Cities and their communities</h2>
+<p>The <i>Encyclopaedia Judaica</i> records when Jews entered a city, when they were expelled or attacked, and when they were readmitted. From its entries we built a panel of 1,069 cities and marked every five-year period in which a community was present. A community is present in the average city about 40 percent of the time. Our outcome is a persecution, an expulsion or a pogrom, in the city during the period. The temperature data are a 32-point grid of reconstructed growing season temperatures, April to September, interpolated to each city and expressed as deviations from the 1961 to 1990 average. The regressions add a control for urban density within about 100 kilometers of the city, built from the cities of Bosker, Buringh, and van Zanden (2013), and that control leaves 936 cities.</p>
+<div class="figure">
+  <div class="controls" id="mmode"><span class="ctl-label">View</span></div>
+  <div class="controls" id="mper">
+    <label>Period <input id="mp" type="range" min="0" max="138" step="1" value="48"></label><span class="v" id="mpv" style="min-width:7em"></span>
+    <button class="tab" id="mplay">Play</button>
+  </div>
+  <svg id="msvg" viewBox="0 0 800 640" role="img" aria-label="Map of European cities with Jewish communities"></svg>
+  <div class="legend" id="mleg"></div>
+  <div class="cap" id="mcap"></div>
+</div>
+<p>In the period view each community is shaded by the temperature deviation of the previous five years, blue for cold and red for warm, and a rust ring marks a community persecuted in the period. The five years ending in 1349 stand out. The Black Death reached Europe in 1348 and Jewish communities were massacred across Germany as scapegoats for the plague, 150 persecutions in one period. We control for those years rather than let them drive the estimates. The five years from 1490 hold 130 persecutions, most of them the national expulsions from Spain in 1492 and Portugal in 1497, and we show the results with and without them.</p>
+</section>
+
+<section id="timeline">
+<h2><span class="num">4</span>Seven centuries of persecutions and temperature</h2>
+<p>Persecutions were concentrated between 1300 and 1500. The two spikes are the Black Death and the Iberian expulsions. The temperature series is the mean deviation across cities with a community, so it is smoother than any one city's weather, and the fourteenth and fifteenth centuries were cold on average and more variable than the centuries around them.</p>
+<div class="figure">
+  <svg id="tsvg" viewBox="0 0 800 320" role="img" aria-label="Persecutions and mean temperature deviation by five-year period"></svg>
+  <div class="legend" id="tleg"></div>
+  <div class="cap"><b>Figure 3.</b> Persecutions of Jewish communities in each five-year period, in bars, and the mean growing season temperature deviation across cities with a community in that period, in the line, 1105 to 1799. Hover a bar for the count. Sources are the <i>Encyclopaedia Judaica</i> and Guiot and Corona (2010). Figure 2 of the paper.</div>
+</div>
+</section>
+
+<section id="baseline">
+<h2><span class="num">5</span>Colder growing seasons raised the risk of persecution</h2>
+<p>We regress a persecution indicator for city <i>i</i> in five-year period <i>t</i> on the average temperature deviation in the previous period. The specifications add city fixed effects and then period fixed effects, so the preferred estimate compares a city with itself in colder and warmer periods net of everything that happened to all cities at once. Every regression controls for urban density and for the ten years around the Black Death. Standard errors are clustered by the nearest point of the temperature grid, since cities near the same grid point receive correlated shocks. Coefficients are multiplied by 100 and read as percentage points.</p>
+<div class="figure">
+  <div class="controls" id="bo"><span class="ctl-label">Outcome</span></div>
+  <div class="controls" id="bs"><span class="ctl-label">Sample</span></div>
+  <div class="controls" id="bf"><span class="ctl-label">Design</span></div>
+  <div class="readout">
+    <div><b id="b1"></b><span id="b1t"></span></div>
+    <div><b id="b2"></b><span id="b2t"></span></div>
+    <div><b id="b3"></b><span id="b3t"></span></div>
+  </div>
+  <svg id="bsvg" viewBox="0 0 800 260" role="img" aria-label="Coefficient on lagged temperature across the six specifications"></svg>
+  <div class="cap" id="bcap"></div>
+</div>
+<p>In the preferred specification a one degree fall in the average temperature of the previous five years raised the probability of a persecution in the next five years by 3.2 percentage points. A degree is a large change. One standard deviation of the temperature series is 0.34 degrees, and a one standard deviation fall raised the probability by about 1.1 points, which is about half the sample mean of 2.2 percent. Expulsions alone give 2.3 points per degree. Dropping the Iberian expulsions of 1492 and 1497 halves the coefficients. The preferred estimate then is 1.6 points per degree, or half a point for a standard deviation of cold, and it remains significant at the 1 percent level.</p>
+</section>
+
+<section id="mechanisms">
+<h2><span class="num">6</span>Weak states and poor soil</h2>
+<p>We interact the temperature shock with four conditions, each coded as one where the framework predicts more persecution. Poor soil is a wheat suitability index from the FAO that marks a city whose surroundings are moderately or severely constrained for wheat. Weak state is a state antiquity score below the sample average, from the index of Bockstette, Chanda, and Putterman (2002) that records for each territory in each 50-year interval whether a government existed above the tribal level, whether it was local or foreign, and how much of the territory it ruled. Few constraints on the executive and weak protection of capital are from Acemoglu, Johnson, and Robinson (2005), coded below the sample average. The levels of the soil variable are absorbed by the city effects.</p>
+<div class="figure">
+  <div class="controls" id="xf"><span class="ctl-label">Design</span></div>
+  <svg id="xsvg" viewBox="0 0 800 320" role="img" aria-label="Effect of a one degree fall in temperature where each mechanism is absent and present"></svg>
+  <div class="legend" id="xleg"></div>
+  <table class="t" id="xtab"></table>
+  <div class="cap" id="xcap"></div>
+</div>
+<p>Weak states carry the result. With city and period effects a degree of cold raised persecution probability by 2.2 points where the state was old and by 4.5 points where it was young, and the interaction is estimated precisely. Poor soil adds 2.8 points per degree with city effects alone and 1.1 points, imprecisely, once period effects are added. The two measures of constraints on rulers do not interact with cold at all, and with city effects alone cities in less constrained polities were less likely to persecute. What mattered in the medieval and early modern period was a state's capacity to keep order and raise revenue, and not the constraints on its ruler.</p>
+</section>
+
+<section id="timing">
+<h2><span class="num">7</span>The timing of the effect</h2>
+<p>If temperature is as good as random the weather after a persecution should not predict it. We estimate the yearly version of the baseline regression, with city and year effects, replacing the temperature of the five years before each persecution with single years from ten years before to five years after.</p>
+<div class="figure">
+  <svg id="psvg" viewBox="0 0 800 300" role="img" aria-label="Coefficient on temperature by lead and lag in years"></svg>
+  <div class="cap"><b>Figure 6.</b> The coefficient on the growing season temperature of a single year, from ten years before the persecution to five years after, with 90 percent intervals as in Figure 3 of the paper. Yearly data, 276,359 city-years, city and year effects, standard errors clustered by temperature grid. Coefficients are in percentage points per degree for the probability of a persecution in the year.</div>
+</div>
+<p>Cold in each of the five years before a persecution raises its probability and cold six to ten years before does not. That is why the five-year average is our treatment. The leads are small, and four of the five are indistinguishable from zero. The third year ahead is the exception, with a negative coefficient at conventional levels, which we report as it comes out of the data. On yearly data a degree of cold over the previous five years raises the probability of a persecution in the next year by about 0.46 points with city effects and by 0.27 points with year effects added, about a fifth of the five-year estimates, as the arithmetic implies.</p>
+</section>
+
+<section id="decline">
+<h2><span class="num">8</span>The decline after 1600</h2>
+<p>Estimated century by century, the effect of cold on persecution was large in the fourteenth and fifteenth centuries and gone after 1600. In the seventeenth century the sign reverses. We consider five explanations. There were fewer communities in the west to persecute. Agriculture and markets improved so that cold mattered less. States grew stronger. The weather improved. And values changed.</p>
+<div class="figure">
+  <svg id="csvg" viewBox="0 0 800 280" role="img" aria-label="Effect of a one degree fall in temperature on persecution probability by century"></svg>
+  <div class="cap"><b>Figure 7.</b> The effect of a one degree fall in the previous five years' temperature on the probability of a persecution in the next five years, by century, with 95 percent intervals. The baseline specification with city and period effects, with the temperature term interacted with century dummies and the twelfth century as the reference, standard errors clustered by city. Figure 4 of the paper, shown as the total effect in each century.</div>
+</div>
+<p>Communities did move east after the expulsions from the west, and Spain and Portugal had no open communities after 1497. Poland is the only country in our data with more city-years after 1600 than before. Yet most countries kept many communities and persecuted them far less often per city-year.</p>
+<div class="figure">
+  <table class="t" id="t5"></table>
+  <div class="cap"><b>Table 1.</b> City-years with a Jewish community and persecutions before and after 1600, by country, with persecutions per thousand city-years. The year 1600 is counted in both halves, as in Table 5 of the paper. England's communities were expelled in 1290 and readmitted in 1655.</div>
+</div>
+<p>Markets did part of the work. We regress the log wheat price in 98 European cities from the Allen and Unger database on the growing season temperature of the same year. With city effects a degree of cold raised wheat prices by about 9 percent over the whole period, and by about 25 percent before 1600 against 6.5 percent after. With year effects the estimates are smaller, 4.4 percent overall and 9.7 percent before 1600, and they shrink further with a lagged price. Cold still moved prices after 1600, so market integration cannot be the whole explanation.</p>
+<div class="figure">
+  <div class="readout" id="w6"></div>
+  <div class="cap"><b>Table 2.</b> The change in the log wheat price, in percent, for a one degree fall in the growing season temperature of the same year, from Table 6 of the paper. The whole period is 1209 to 1799, 16,171 city-years in 108 cities. Standard errors in parentheses, clustered by city. The before 1600 figures are the sum of the temperature coefficient and its interaction with a dummy for years before 1600.</div>
+</div>
+<p>The weather did not improve. The late seventeenth century brought the cold winters of the Maunder Minimum, and a sustained warming began only in the eighteenth century. Values changed late. Luther's <i>On the Jews and their Lies</i> of 1543 called for expulsion, Erasmus held an unbound hatred of Jews, and Voltaire called them the most detestable nation to have sullied the earth. The Enlightenment case for emancipation arrived at the end of the eighteenth century, after persecutions had already declined.</p>
+<p>That leaves the state. Cromwell readmitted Jews to England in 1655 as the English fiscal state expanded, and a 1660 petition to Parliament to expel them was ignored. Richelieu protected Portuguese crypto-Jews in France for their value as merchants while he built the French tax state, and by 1722 French Jews could practice openly in law. The Dutch Republic codified the rights of its Jews in 1619 as its taxes and army grew. Frederick William gave Prussia's Jews a charter of permanent residence in 1671 while he built a professional standing army. Popular antisemitism survived everywhere. The states that grew stronger after 1600 were less responsive to it. The worst early modern massacres, during the Khmelnytsky uprising of 1648, fell in the ungoverned periphery of Poland-Lithuania and not in the new states of the west.</p>
+</section>
+
+<section id="policy">
+<h2><span class="num">9</span>What it means for the protection of minorities</h2>
+<p>In the societies we study toleration was conditional. A ruler protected a minority because it paid, and the protection lasted only as long as he could afford to honor it. A negative shock to incomes unravelled the arrangement where the state could not contain unrest or replace the revenue it stood to seize. The evidence says that the capacity of the state, and not the constraints on it, decided whether a community survived a bad decade. Investments in fiscal and military capacity preceded constraints on the executive in most of Europe, and in the medium run it was capacity that protected minorities.</p>
+<p>The same arithmetic applies to any minority whose protection rests on its usefulness rather than on rights. Weather shocks remain a trigger for violence in poor agrarian economies, and the regions where they translate into persecution are the ones where the state is weak. State capacity is a two-edged instrument. The same capacity that protected minorities in early modern Europe made the industrial killing of the twentieth century possible. Between 1600 and 1800 it reduced violence against them.</p>
+</section>
+
+<section id="limits">
+<h2><span class="num">10</span>Limits</h2>
+<p>The persecution data come from one source. The <i>Encyclopaedia Judaica</i> records what its contributors found worth recording, and a persecution in a large and well documented community is more likely to appear than one in a small community. The expulsion dates it gives can differ by a year or two from other sources, which is one reason we work with five-year periods.</p>
+<p>The temperature series is a reconstruction. Guiot and Corona (2010) build it from proxies on a 32-point grid and calibrate it on instrumental records from 1850 onward, and we interpolate between the grid points. The shocks of nearby cities are therefore correlated by construction, and we cluster on the grid. The regression sample uses 29 grid clusters, which is few.</p>
+<p>The mechanism variables are coarse. State antiquity, executive constraints, and capital protection are measured for modern countries or large territories and interpolated across 50-year or century intervals. Soil suitability is time invariant. The heterogeneity results are consistent with the framework and cannot identify the channel.</p>
+<p>The outcome is a linear probability model of a rare event. We prefer it to nonlinear models with fixed effects, which suffer from the incidental parameters problem, and the results are robust to spatial and serial correlation corrections reported in the paper's appendix.</p>
+<p>Two sets of events dominate the raw counts, the Black Death massacres of 1348 to 1350 and the Iberian expulsions. We control for the first and show the results without the second. The coefficients halve without Iberia and remain significant.</p>
+</section>
+
+<footer>
+  <p>More interactive companions. <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/pandemics-cities/">Pandemics and cities</a> · <a href="/interactive/land-redistribution/">Land redistribution and the Coase theorem</a> · <a href="/interactive/tax-farming/">Tax farming and state capacity</a> · <a href="/interactive/school-choice-religiosity/">School choice and religiosity in France</a> · <a href="/interactive/market-for-ideas/">Mapping the market for ideas</a> · <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/">All companions</a></p>
+  <p>Every estimate on this page is computed from the paper's <a href="https://github.com/noeldjohnson/EJ_2017_Replication">replication files</a>, which reproduce Tables 1, 2, 3, 5, and 6 and Figures 3 and 4 of the paper and the continuous interactions of online Appendix B. The code checks 159 published values and matches 156. The three that differ are a standard error the paper rounds to one decimal, the sample mean of the persecution indicator, which is 2.24 percent in the regression sample against the 2.22 the paper reports, and the number of cities, 933 once the first period of each city is dropped for lack of a lagged temperature against the 936 the paper counts. Persecutions are from the <i>Encyclopaedia Judaica</i> (2007), temperatures from Guiot and Corona (2010), urban density from Bosker, Buringh, and van Zanden (2013), wheat suitability from the FAO, state antiquity from Bockstette, Chanda, and Putterman (2002), constraints and capital protection from Acemoglu, Johnson, and Robinson (2005), and wheat prices from the Allen and Unger database.</p>
+</footer>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
+const tip = d3.select("#tip");
+const showTip = (ev, html) => tip.html(html).style("opacity",1).style("left", Math.min(ev.clientX + 14, window.innerWidth - 310) + "px").style("top", (ev.clientY + 14) + "px");
+const hideTip = () => tip.style("opacity",0);
+const f1 = d3.format(".1f"), f2 = d3.format(".2f"), fc = d3.format(",");
+const plabel = p => { const s = 5 * Math.floor(p / 5); return `${s} to ${s + 4}`; };
+const CENT = { 1: "12th", 2: "13th", 3: "14th", 4: "15th", 5: "16th", 6: "17th", 7: "18th" };
+
+Promise.all([d3.json("cities.json"), d3.json("panel.json"), d3.json("timeline.json"), d3.json("estimates.json"), d3.json("basemap.geojson")])
+  .then(([cities, panel, tl, E, base]) => { calculator(E); mapView(cities, panel, base); timeline(tl); baseline(E); mechanisms(E); placebo(E); decline(E); });
+
+// ---------- 2. Calculator ----------
+function calculator(E) {
+  const sd = E.descriptives.sd_lag1temperature, mean = E.descriptives.mean_persecution;
+  let drv = "antiq";
+  const D = {
+    antiq: { lab: "State antiquity", min: 19, max: 50, step: 1, init: 30, curve: E.antiquity_curve.map(c => ({ x: c.antiquity, b: c.b, se: c.se })), xlab: "State antiquity score (50 is an old, stable, locally ruled state)", fmt: v => `${v}`, which: "state antiquity" },
+    soil:  { lab: "Soil suitability", min: 1, max: 7, step: 0.25, init: 4.5, curve: E.soil_curve.map(c => ({ x: c.suit, b: c.b, se: c.se })), xlab: "FAO wheat suitability class (higher is more constrained)", fmt: v => f2(v), which: "soil" } };
+  const btn = d3.select("#kdrv").selectAll("button").data(Object.keys(D)).join("button").attr("class","tab").text(k => D[k].lab).on("click", (e,k) => { drv = k; const d = D[k]; d3.select("#km").attr("min", d.min).attr("max", d.max).attr("step", d.step).property("value", d.init); d3.select("#kml").node().firstChild.textContent = d.lab + " "; draw(); });
+  function at(d, x) { const c = d.curve; let best = c[0]; for (const p of c) if (Math.abs(p.x - x) < Math.abs(best.x - x)) best = p; return best; }
+  function draw() {
+    const d = D[drv], t = +d3.select("#kt").property("value"), m = +d3.select("#km").property("value");
+    btn.classed("on", k => k === drv); d3.select("#ktv").text((t > 0 ? "+" : "") + f2(t)); d3.select("#kmv").text(d.fmt(m));
+    const p = at(d, m), dT = t * sd, change = p.b * dT, prob = Math.max(0, mean + change);
+    d3.select("#ko1").text(`${f1(prob)}%`); d3.select("#ko1t").text(`predicted five-year probability of a persecution, against a baseline of ${f1(mean)}%`);
+    d3.select("#ko2").text(`${change >= 0 ? "+" : ""}${f2(change)} points`); d3.select("#ko2t").text(`change for a temperature shock of ${f2(dT)} degrees over the previous five years`);
+    d3.select("#ko3").text(`${f2(-p.b)} (${f2(p.se)})`); d3.select("#ko3t").text(`points per degree of cold at this ${d.which}, with its standard error`);
+    d3.select("#kstory").text(t === 0 ? "No shock. The community faces the baseline risk." : `A ${Math.abs(t) === 1 ? "one standard deviation" : f2(Math.abs(t)) + " standard deviation"} ${t < 0 ? "fall" : "rise"} in the growing season temperature is ${f2(Math.abs(dT))} degrees. At this ${d.which} it ${change >= 0 ? "raises" : "lowers"} the five-year persecution probability by ${f2(Math.abs(change))} points, ${change >= 0 ? "from" : "from"} ${f1(mean)} to ${f1(prob)} percent.`);
+    const svg = d3.select("#ksvg"), W = 800, H = 300, mg = {l:62, r:24, t:16, b:46}; svg.selectAll("*").remove();
+    const x = d3.scaleLinear([d.min, d.max], [mg.l, W-mg.r]), ys = d.curve.flatMap(c => [-(c.b + 1.96*c.se), -(c.b - 1.96*c.se)]);
+    const y = d3.scaleLinear([Math.min(0, d3.min(ys)), d3.max(ys)], [H-mg.b, mg.t]).nice();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(7));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-8).attr("text-anchor","middle").text(d.xlab);
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Points per degree of cold");
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+    svg.append("path").datum(d.curve).attr("fill", C.rust).attr("opacity", .15).attr("d", d3.area().x(c => x(c.x)).y0(c => y(-(c.b - 1.96*c.se))).y1(c => y(-(c.b + 1.96*c.se))));
+    svg.append("path").datum(d.curve).attr("fill","none").attr("stroke", C.rust).attr("stroke-width", 2.5).attr("d", d3.line().x(c => x(c.x)).y(c => y(-c.b)));
+    svg.append("circle").attr("cx", x(p.x)).attr("cy", y(-p.b)).attr("r", 8).attr("fill", C.navy).attr("stroke","#fff").attr("stroke-width",2);
+    d3.select("#kcap").html(`<b>Figure 1.</b> The effect of a one degree fall in the previous five years' growing season temperature on the probability of a persecution in the next five years, in percentage points, as ${d.which} varies, with a 95 percent band. ${drv === "antiq" ? "The regression interacts temperature with the continuous state antiquity score, reversed so that a higher value is a younger state, with city and period effects and standard errors clustered by temperature grid." : "The regression interacts temperature with the continuous FAO wheat suitability class, with city and period effects and standard errors clustered by temperature grid."} From the continuous interactions of online Appendix B, reproduced from the replication code. The readout multiplies the effect at the chosen setting by the shock and adds it to the sample mean. The two mechanisms are estimated in separate regressions, so the calculator uses one at a time.`);
+  }
+  d3.selectAll("#kt,#km").on("input", draw); draw();
+}
+
+// ---------- 3. Map ----------
+function mapView(cities, panel, base) {
+  const svg = d3.select("#msvg"), W = 800, H = 640;
+  const fix = f => { if (d3.geoArea(f) > 2*Math.PI) { const rv = p => p.map(r => r.slice().reverse()); const g = f.geometry;
+    return { ...f, geometry: { ...g, coordinates: g.type === "Polygon" ? rv(g.coordinates) : g.coordinates.map(rv) } }; } return f; };
+  const feats = (base.features || [base]).map(fix);
+  const box = { type:"MultiPoint", coordinates: [[-12,34],[30,34],[-12,63],[30,63],[9,64],[9,34]] };
+  const proj = d3.geoConicConformal().rotate([-9,0]).parallels([40,58]).fitExtent([[10,10],[W-10,H-10]], box).clipExtent([[0,0],[W,H]]);
+  const path = d3.geoPath(proj);
+  svg.append("rect").attr("width",W).attr("height",H).attr("fill","#e9eef2");
+  svg.selectAll("path.l").data(feats).join("path").attr("class","l").attr("d", path).attr("fill","#fbfaf7").attr("stroke","#c9c9c9");
+  const idx = new Map(panel.ids.map((id, i) => [id, i]));
+  const pts = cities.map(c => ({ ...c, i: idx.get(c.id), xy: proj([c.lon, c.lat]) })).filter(c => c.xy);
+  const g = svg.append("g"), rings = svg.append("g");
+  const col = t => d3.interpolateRdBu(1 - (Math.max(-1, Math.min(1, t)) + 1) / 2);
+  let mode = "period", timer = null;
+  const dots = g.selectAll("circle").data(pts.slice().sort((a,b) => a.persecutions - b.persecutions)).join("circle").attr("cx", c => c.xy[0]).attr("cy", c => c.xy[1]);
+  const mb = d3.select("#mmode").selectAll("button").data([["period","By period"],["all","Whole span"]]).join("button").attr("class","tab").text(d => d[1]).on("click", (e,d) => { mode = d[0]; draw(); });
+  function draw() {
+    mb.classed("on", d => d[0] === mode); d3.select("#mper").style("display", mode === "period" ? null : "none");
+    rings.selectAll("*").remove();
+    if (mode === "all") {
+      dots.attr("r", c => c.persecutions ? 2.2 + 1.6*Math.sqrt(c.persecutions) : 1.8).attr("fill", c => c.persecutions ? C.rust : "none").attr("stroke", c => c.persecutions ? "#fff" : "#9a9a9a").attr("stroke-width", .6).attr("opacity", .9)
+        .on("mousemove", (ev,c) => showTip(ev, `<b>${c.city}</b>, ${c.country}<br>${c.persecutions} persecution${c.persecutions === 1 ? "" : "s"} in the sample, ${c.expulsions} of them expulsions<br>Community present ${c.n_periods} of 139 periods, ${plabel(c.first).split(" ")[0]} to ${plabel(c.last).split(" ")[2]}<br>State antiquity ${c.antiquity}, wheat suitability class ${f1(c.suit)}`)).on("mouseleave", hideTip);
+      const tot = d3.sum(pts, c => c.persecutions);
+      d3.select("#mleg").html(`<b style="color:var(--navy)">${fc(tot)}</b> persecutions in ${pts.filter(c => c.persecutions).length} of the ${pts.length} cities in the regression sample, 1105 to 1799. Circles are sized by the count and hollow circles mark cities with a community and no recorded persecution.`);
+      d3.select("#mcap").html(`<b>Figure 2.</b> Cities with a Jewish community at some point between 1100 and 1800, from the <i>Encyclopaedia Judaica</i>, with the number of persecutions recorded in each. Hover a city for its record. Figure 1 of the paper on the regression sample of 933 cities.`);
+      return;
+    }
+    const k = +d3.select("#mp").property("value"), per = panel.periods[k], T = panel.temp[k], P = panel.pres[k], S = panel.pers[k], X = panel.exp[k];
+    d3.select("#mpv").text(plabel(per));
+    dots.attr("r", c => P[c.i] === "1" ? 3.4 : 1.6).attr("fill", c => P[c.i] === "1" ? (T[c.i] == null ? "#bbb" : col(T[c.i] / 100)) : "none").attr("stroke", c => P[c.i] === "1" ? "#666" : "#b5b5b5").attr("stroke-width", .5).attr("opacity", c => P[c.i] === "1" ? .95 : .7)
+      .on("mousemove", (ev,c) => showTip(ev, `<b>${c.city}</b>, ${c.country}<br>${P[c.i] === "1" ? `Community present in ${plabel(per)}<br>Temperature deviation in the previous five years ${T[c.i] == null ? "not available" : (T[c.i] > 0 ? "+" : "") + f2(T[c.i]/100) + " °C"}<br>${S[c.i] === "1" ? (X[c.i] === "1" ? "Expulsion in this period" : "Pogrom in this period") : "No persecution in this period"}` : "No community recorded in " + plabel(per)}`)).on("mouseleave", hideTip);
+    const hit = pts.filter(c => S[c.i] === "1");
+    rings.selectAll("circle").data(hit).join("circle").attr("cx", c => c.xy[0]).attr("cy", c => c.xy[1]).attr("r", 8).attr("fill","none").attr("stroke", C.rust).attr("stroke-width", 2.2).style("pointer-events","none");
+    const n = pts.filter(c => P[c.i] === "1").length, ne = hit.filter(c => X[c.i] === "1").length, tm = d3.mean(pts.filter(c => P[c.i] === "1" && T[c.i] != null), c => T[c.i] / 100);
+    d3.select("#mleg").html(`<b style="color:var(--navy)">${n}</b> communities present in ${plabel(per)}, <b style="color:var(--rust)">${hit.length}</b> persecuted, ${ne} of them expelled. Mean temperature deviation in the previous five years ${tm == null ? "n/a" : (tm > 0 ? "+" : "") + f2(tm)} °C. &nbsp; ${[-1,-.5,0,.5,1].map(v => `<span style="display:inline-block;width:12px;height:12px;background:${col(v)};vertical-align:-1px;border:1px solid #ccc"></span>`).join("")} cold to warm`);
+    d3.select("#mcap").html(`<b>Figure 2.</b> Communities present in the five-year period, shaded by the growing season temperature deviation of the previous five years, from the Guiot and Corona (2010) reconstruction interpolated to each city. A rust ring marks a persecution in the period. Small hollow circles are cities whose community was absent. Drag the slider or press play. Hover a city for its record.`);
+  }
+  d3.select("#mp").on("input", draw);
+  d3.select("#mplay").on("click", function() { if (timer) { timer.stop(); timer = null; d3.select(this).text("Play"); return; }
+    d3.select(this).text("Pause"); timer = d3.interval(() => { const s = d3.select("#mp"); let v = +s.property("value") + 1; if (v > 138) v = 0; s.property("value", v); draw(); }, 320); });
+  draw();
+}
+
+// ---------- 4. Timeline ----------
+function timeline(tl) {
+  const svg = d3.select("#tsvg"), W = 800, H = 320, mg = {l:56, r:56, t:40, b:44};
+  const x = d3.scaleLinear([1100, 1800], [mg.l, W-mg.r]), y = d3.scaleLinear([0, d3.max(tl, d => d.persecutions)], [H-mg.b, mg.t]).nice(), y2 = d3.scaleLinear([-1, 1], [H-mg.b, mg.t]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(8).tickFormat(d3.format("d")));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${W-mg.r},0)`).call(d3.axisRight(y2).ticks(5).tickFormat(v => (v > 0 ? "+" : "") + v));
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Persecutions in the period");
+  svg.append("text").attr("transform","rotate(90)").attr("x",(H-mg.b+mg.t)/2).attr("y",-(W-14)).attr("text-anchor","middle").text("Temperature deviation, °C");
+  const bw = (x(1105) - x(1100)) - .6;
+  svg.selectAll(null).data(tl).join("rect").attr("x", d => x(5*Math.floor(d.fiveyear/5))).attr("width", bw).attr("y", d => y(d.persecutions)).attr("height", d => y(0) - y(d.persecutions)).attr("fill", C.rust).attr("opacity", .8)
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${plabel(d.fiveyear)}</b><br>${d.persecutions} persecutions, ${d.expulsions} expulsions<br>${d.cities} communities present<br>Mean temperature deviation ${(d.temp > 0 ? "+" : "") + f2(d.temp)} °C`)).on("mouseleave", hideTip);
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y2(0)).attr("y2", y2(0)).attr("stroke", "#aaa").attr("stroke-dasharray","3 3");
+  svg.append("path").datum(tl).attr("fill","none").attr("stroke", C.navy).attr("stroke-width", 1.8).attr("d", d3.line().x(d => x(5*Math.floor(d.fiveyear/5) + 2.5)).y(d => y2(d.temp)));
+  [[1320, "Pastoureaux, 1320", 45, "end"], [1348, "Black Death", 150, "start"], [1492, "Iberian expulsions", 130, "start"]].forEach(([yr, lab, v, anc]) => {
+    svg.append("text").attr("x", x(yr) + (anc === "start" ? 9 : -8)).attr("y", y(v) - 6).attr("text-anchor", anc).style("font-size","11px").style("fill", C.ink).text(lab); });
+  d3.select("#tleg").html(`<span style="color:${C.rust};font-weight:600">▮ Persecutions</span> &nbsp; <span style="color:${C.navy};font-weight:600">— Mean temperature deviation, right axis</span>`);
+}
+
+// ---------- 5. Baseline ----------
+function baseline(E) {
+  const sd = E.descriptives.sd_lag1temperature, mean = E.descriptives.mean_persecution, meanx = E.descriptives.mean_expulsion;
+  let o = 0, s = 0, f = 2;
+  const SPEC = ["Ordinary least squares", "City effects", "City and period effects"];
+  const to = d3.select("#bo").selectAll("button").data(["Persecutions","Expulsions"]).join("button").attr("class","tab").text(d => d).on("click", (e,d,i) => { o = d === "Persecutions" ? 0 : 1; draw(); });
+  const ts = d3.select("#bs").selectAll("button").data(["All cities","Without the Iberian expulsions"]).join("button").attr("class","tab").text(d => d).on("click", (e,d) => { s = d === "All cities" ? 0 : 1; draw(); });
+  const tf = d3.select("#bf").selectAll("button").data(SPEC).join("button").attr("class","tab").text(d => d).on("click", (e,d) => { f = SPEC.indexOf(d); draw(); });
+  function draw() {
+    to.classed("on", (d,i) => i === o); ts.classed("on", (d,i) => i === s); tf.classed("on", (d,i) => i === f);
+    const all = (s ? E.table1.b : E.table1.a), rows = all.slice(3*o, 3*o + 3), r = rows[f], m = o ? meanx : mean;
+    d3.select("#b1").text(`${f2(-r.b)} points`); d3.select("#b1t").text(`higher probability of ${o ? "an expulsion" : "a persecution"} in the next five years for a one degree colder previous five years, coefficient ${f2(r.b)} with standard error ${f2(r.se)}`);
+    d3.select("#b2").text(`${f2(-r.b * sd)} points`); d3.select("#b2t").text(`for a one standard deviation fall of ${f2(sd)} degrees`);
+    d3.select("#b3").text(`${f1(100 * -r.b * sd / m)}%`); d3.select("#b3t").text(`of the sample mean of ${f2(m)} percent, ${fc(r.n)} city-periods, column ${3*o + f + 1} of Table 1 panel ${s ? "b" : "a"}`);
+    const svg = d3.select("#bsvg"), W = 800, H = 260, mg = {l:200, r:30, t:16, b:42}; svg.selectAll("*").remove();
+    const both = all.map((q, i) => ({ ...q, i, lab: `${i < 3 ? "Persecutions" : "Expulsions"}, ${SPEC[i % 3].toLowerCase()}` }));
+    const x = d3.scaleLinear([0, d3.max(both, q => -(q.b - 1.96*q.se))], [mg.l, W-mg.r]).nice(), yb = d3.scaleBand(both.map(q => q.i), [mg.t, H-mg.b]).padding(.4);
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(6));
+    svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-6).attr("text-anchor","middle").text("Percentage points per degree of cold, with 95 percent intervals");
+    both.forEach(q => { const yc = yb(q.i) + yb.bandwidth()/2, on = q.i === 3*o + f;
+      svg.append("text").attr("x", mg.l - 8).attr("y", yc + 4).attr("text-anchor","end").style("font-size","11px").style("font-weight", on ? 700 : 400).text(q.lab);
+      svg.append("line").attr("x1", x(-(q.b + 1.96*q.se))).attr("x2", x(-(q.b - 1.96*q.se))).attr("y1", yc).attr("y2", yc).attr("stroke", on ? C.rust : "#9aa3ad").attr("stroke-width", 3);
+      svg.append("circle").attr("cx", x(-q.b)).attr("cy", yc).attr("r", on ? 7 : 5).attr("fill", on ? C.rust : "#9aa3ad"); });
+    d3.select("#bcap").html(`<b>Figure 4.</b> The coefficient on the previous five years' temperature deviation in the six specifications of Table 1 of the paper, ${s ? "excluding the Iberian national expulsions of 1492 and 1497" : "on all cities"}, shown as the effect of a one degree fall with 95 percent intervals from standard errors clustered by temperature grid. The chosen specification is in rust. Controls are urban density and a dummy and slope for the ten years around the Black Death. Reproduced from the replication files.`);
+  }
+  draw();
+}
+
+// ---------- 6. Mechanisms ----------
+function mechanisms(E) {
+  let did = true;
+  const tf = d3.select("#xf").selectAll("button").data([["City effects", false], ["City and period effects", true]]).join("button").attr("class","tab").text(d => d[0]).on("click", (e,d) => { did = d[1]; draw(); });
+  function draw() {
+    tf.classed("on", d => d[1] === did);
+    const rows = E.table2.filter(r => r.did === did);
+    const svg = d3.select("#xsvg"), W = 800, H = 320, mg = {l:60, r:20, t:16, b:70}; svg.selectAll("*").remove();
+    const x0 = d3.scaleBand(rows.map(r => r.mechanism), [mg.l, W-mg.r]).padding(.3), x1 = d3.scaleBand(["absent","present"], [0, x0.bandwidth()]).padding(.15);
+    const vals = rows.flatMap(r => [-(r.b_temp - 1.96*r.se_temp), -(r.total - 1.96*r.total_se), -(r.b_temp + 1.96*r.se_temp), -(r.total + 1.96*r.total_se)]);
+    const y = d3.scaleLinear([Math.min(0, d3.min(vals)), d3.max(vals)], [H-mg.b, mg.t]).nice();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x0)).selectAll("text").call(t => t.each(function(d) { const w = d.split(" "), el = d3.select(this).text(null); let line = [], ln = 0; w.forEach(wd => { line.push(wd); if (line.join(" ").length > 16) { el.append("tspan").attr("x",0).attr("dy", ln ? "1.1em" : "0.8em").text(line.join(" ")); line = []; ln++; } }); if (line.length) el.append("tspan").attr("x",0).attr("dy", ln ? "1.1em" : "0.8em").text(line.join(" ")); }));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Points per degree of cold");
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray);
+    rows.forEach(r => { [["absent", -r.b_temp, r.se_temp, "#9aa3ad"], ["present", -r.total, r.total_se, C.rust]].forEach(([k, v, se, cl]) => {
+      const xx = x0(r.mechanism) + x1(k), bw = x1.bandwidth();
+      svg.append("rect").attr("x", xx).attr("width", bw).attr("y", y(Math.max(0, v))).attr("height", Math.abs(y(v) - y(0))).attr("fill", cl)
+        .on("mousemove", (ev) => showTip(ev, `<b>${r.mechanism} ${k}</b><br>${f2(v)} points per degree of cold (${f2(se)})${k === "present" ? `<br>Interaction ${f2(r.b_int)} (${f2(r.se_int)})` : ""}`)).on("mouseleave", hideTip);
+      svg.append("line").attr("x1", xx + bw/2).attr("x2", xx + bw/2).attr("y1", y(v - 1.96*se)).attr("y2", y(v + 1.96*se)).attr("stroke", C.navy).attr("stroke-width", 2); }); });
+    d3.select("#xleg").html(`<span style="color:#9aa3ad;font-weight:600">▮ Condition absent</span> &nbsp; <span style="color:${C.rust};font-weight:600">▮ Condition present</span> &nbsp; with 95 percent intervals`);
+    d3.select("#xtab").html(`<tr><th>Condition</th><th class="n">Temperature</th><th class="n">Level</th><th class="n">Interaction</th><th class="n">Total where present</th></tr>` +
+      rows.map(r => `<tr><td>${r.mechanism}</td><td class="n">${f2(r.b_temp)}<br><span style="color:var(--muted)">(${f2(r.se_temp)})</span></td><td class="n">${r.b_level == null ? "absorbed" : f2(r.b_level) + "<br><span style=\"color:var(--muted)\">(" + f2(r.se_level) + ")</span>"}</td><td class="n">${f2(r.b_int)}<br><span style="color:var(--muted)">(${f2(r.se_int)})</span></td><td class="n">${f2(r.total)}<br><span style="color:var(--muted)">(${f2(r.total_se)})</span></td></tr>`).join(""));
+    d3.select("#xcap").html(`<b>Figure 5.</b> The effect of a one degree fall in the previous five years' temperature on the five-year probability of a persecution, in points, where each condition is absent and where it is present, ${did ? "with city and period effects" : "with city effects"}. Each condition is a separate regression. The table gives the coefficients as the paper reports them, with the temperature term negative for cold, standard errors clustered by temperature grid in parentheses, and the total as the sum of the temperature coefficient and the interaction. Columns ${did ? "2, 4, 6, and 8" : "1, 3, 5, and 7"} of Table 2 of the paper, 55,698 city-periods.`);
+  }
+  draw();
+}
+
+// ---------- 7. Placebo ----------
+function placebo(E) {
+  const P = E.placebo.slice().sort((a,b) => a.k - b.k);
+  const svg = d3.select("#psvg"), W = 800, H = 300, mg = {l:60, r:20, t:16, b:46};
+  const x = d3.scaleLinear([-10.5, 5.5], [mg.l, W-mg.r]), vals = P.flatMap(p => [p.b - 1.645*p.se, p.b + 1.645*p.se]);
+  const y = d3.scaleLinear(d3.extent(vals.concat([0])), [H-mg.b, mg.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickValues(d3.range(-10, 6)).tickFormat(v => v > 0 ? "+" + v : v));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+  svg.append("text").attr("x",(W+mg.l)/2).attr("y",H-8).attr("text-anchor","middle").text("Years before (negative) or after the persecution");
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Coefficient on temperature");
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray);
+  svg.append("line").attr("x1", x(-.5)).attr("x2", x(-.5)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.gray).attr("stroke-dasharray","4 4");
+  svg.append("path").datum(P).attr("fill", C.rust).attr("opacity", .15).attr("d", d3.area().x(p => x(p.k)).y0(p => y(p.b - 1.645*p.se)).y1(p => y(p.b + 1.645*p.se)));
+  svg.append("path").datum(P).attr("fill","none").attr("stroke", C.rust).attr("stroke-width", 2).attr("d", d3.line().x(p => x(p.k)).y(p => y(p.b)));
+  svg.selectAll(null).data(P).join("circle").attr("cx", p => x(p.k)).attr("cy", p => y(p.b)).attr("r", 5).attr("fill", p => p.k <= 0 ? C.rust : C.navy)
+    .on("mousemove", (ev,p) => showTip(ev, `<b>${p.k < 0 ? Math.abs(p.k) + " years before" : p.k === 0 ? "Same year" : p.k + " years after"}</b><br>Coefficient ${f2(p.b)}, standard error ${f2(p.se)}`)).on("mouseleave", hideTip);
+}
+
+// ---------- 8. Decline ----------
+function decline(E) {
+  const svg = d3.select("#csvg"), W = 800, H = 280, mg = {l:60, r:20, t:16, b:46};
+  const Cn = E.century.map(c => ({ ...c, v: -c.b, lo: -(c.b + 1.96*c.se), hi: -(c.b - 1.96*c.se) }));
+  const x = d3.scaleBand(Cn.map(c => c.century), [mg.l, W-mg.r]).padding(.5), y = d3.scaleLinear([d3.min(Cn, c => c.lo), d3.max(Cn, c => c.hi)], [H-mg.b, mg.t]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickFormat(c => CENT[c] + " century"));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+  svg.append("text").attr("transform","rotate(-90)").attr("x",-(H-mg.b+mg.t)/2).attr("y",14).attr("text-anchor","middle").text("Points per degree of cold");
+  svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray);
+  svg.selectAll(null).data(Cn).join("line").attr("x1", c => x(c.century) + x.bandwidth()/2).attr("x2", c => x(c.century) + x.bandwidth()/2).attr("y1", c => y(c.lo)).attr("y2", c => y(c.hi)).attr("stroke", C.rust).attr("stroke-width", 3).attr("opacity", .45);
+  svg.selectAll(null).data(Cn).join("circle").attr("cx", c => x(c.century) + x.bandwidth()/2).attr("cy", c => y(c.v)).attr("r", 7).attr("fill", C.rust)
+    .on("mousemove", (ev,c) => showTip(ev, `<b>${CENT[c.century]} century</b><br>${f2(c.v)} points per degree of cold<br>95% interval ${f2(c.lo)} to ${f2(c.hi)}`)).on("mouseleave", hideTip);
+  // Table 5
+  const rows = E.table5.map(r => `<tr><td>${r.country}</td><td class="n">${fc(r.cy_before)}</td><td class="n">${fc(r.cy_after)}</td><td class="n">${r.p_before}</td><td class="n">${r.p_after}</td><td class="n">${f1(1000*r.p_before/r.cy_before)}</td><td class="n">${r.cy_after ? f1(1000*r.p_after/r.cy_after) : "no communities"}</td></tr>`);
+  d3.select("#t5").html(`<tr><th>Country</th><th class="n">City-years before 1600</th><th class="n">After 1600</th><th class="n">Persecutions before</th><th class="n">After</th><th class="n">Per 1,000 city-years before</th><th class="n">After</th></tr>` + rows.join(""));
+  // Table 6
+  const T = E.table6, cell = (lab, b, se, sub) => `<div><b>${f1(-b)}%</b>${lab}, coefficient ${f2(b)} (${f2(se)})${sub ? "<br>" + sub : ""}</div>`;
+  d3.select("#w6").html(cell("whole period, city effects", T[0].b, T[0].se) + cell("whole period, city and year effects", T[1].b, T[1].se) + cell("with a lagged price", T[2].b, T[2].se, "15,193 city-years")
+    + cell("before 1600, city effects", T[3].total, T[3].total_se, `after 1600 ${f1(-T[3].b)}% (${f2(T[3].se)})`) + cell("before 1600, city and year effects", T[4].total, T[4].total_se, `after 1600 ${f1(-T[4].b)}% (${f2(T[4].se)})`) + cell("before 1600, with a lagged price", T[5].total, T[5].total_se, `after 1600 ${f1(-T[5].b)}% (${f2(T[5].se)})`));
+}
+</script>
+</body>
+</html>

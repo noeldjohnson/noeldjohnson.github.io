@@ -14,7 +14,7 @@ You can purchase my book (written with Mark Koyama) here: [Persecution & Tolerat
 
 ## Working Papers and Research in Progress
 
-Nine of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
+Ten of these papers have [interactive companions](/interactive/), with figures you can move and data you can explore.
 
 **Selection in the Institutional Record: Evidence from Craft Guilds and City Growth in Europe, 1000–1800**\\
 (joint with Eric Wilhelm)\\
@@ -102,6 +102,7 @@ Nine of these papers have [interactive companions](/interactive/), with figures 
 (joint with Warren Anderson and Mark Koyama)\\
 *The Economic Journal, 2017*\\
 [Download Paper](/assets/papers/jewish-persecutions-and-weather-shocks-1100-1800-paper.pdf)\\
+[Interactive Companion](/interactive/jewish-persecutions/)\\
 [Download Presentation](/assets/papers/jewish-persecutions-and-weather-shocks-1100-1800-presentation.pdf)\\
 [Replication Files](https://github.com/noeldjohnson/EJ_2017_Replication.git)\\
 [A Vox piece on the paper](https://voxeu.org/article/persecuting-protective-state-jewish-expulsions-and-weather-shocks-1100-1800)\\
