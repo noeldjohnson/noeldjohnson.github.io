@@ -3,7 +3,7 @@ title: "Interactive Companions"
 permalink: /interactive/
 excerpt: "Interactive companions to Noel D. Johnson's papers, with figures you can move and data you can explore."
 header:
-  og_image: /assets/images/interactive/market-for-ideas.jpg
+  og_image: /assets/images/interactive/guilds.jpg
 companion_guilds:
   - image_path: /assets/images/interactive/guilds.jpg
     alt: "Map of European cities shaded by when their guilds were first documented"
@@ -18,14 +18,6 @@ companion_plague:
     title: "How Do Information Markets Respond to a Crisis? Plague, Print, and Persecution in Early Modern Europe"
     excerpt: "With Alexander Taylor. When plague returned to a city the medical share of its print nearly doubled in the onset year. Print aimed at Jews and accused witches did not rise and neither did witch trials or persecutions of Jewish communities."
     url: /interactive/plague-print/
-    btn_label: "Open the companion"
-    btn_class: "btn--primary"
-companion_mfi:
-  - image_path: /assets/images/interactive/market-for-ideas.jpg
-    alt: "Map of European printing cities colored by market access in 1600"
-    title: "Mapping the Market for Ideas in Europe, 1450–1650"
-    excerpt: "With Alexander Taylor. When a city's market access rose its print became more diverse and closer to the European mainstream. The share of useful-knowledge titles predicts a city's growth over the next 50 years."
-    url: /interactive/market-for-ideas/
     btn_label: "Open the companion"
     btn_class: "btn--primary"
 companion_revolt:
@@ -103,8 +95,6 @@ Each companion walks through one paper with figures you can move. Every number o
 {% include feature_row id="companion_school" type="left" %}
 
 ## Information, technology, and the historical record
-
-{% include feature_row id="companion_mfi" type="left" %}
 
 {% include feature_row id="companion_guilds" type="left" %}
 

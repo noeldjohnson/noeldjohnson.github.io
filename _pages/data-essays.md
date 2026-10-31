@@ -237,7 +237,6 @@ The classic word analogy asks the model for king minus man plus woman. Run on em
 
 </details>
 
-The paper behind this essay has an [interactive companion](/interactive/market-for-ideas/).
 
 ## The word for witchcraft pointed at a different fear in each language
 
@@ -276,7 +275,6 @@ Everyone in early modern Europe feared witches and they did not fear the same th
 
 </details>
 
-The paper behind this essay has an [interactive companion](/interactive/market-for-ideas/).
 
 ## Every city printed something different
 
@@ -309,7 +307,6 @@ Take the average embedding of everything a city printed in Latin and subtract th
 
 </details>
 
-The paper behind this essay has an [interactive companion](/interactive/market-for-ideas/).
 
 ## Women in the printing trade
 
@@ -387,7 +384,6 @@ Method. Word vectors are PMI plus truncated SVD on titles. Neighbors are cosine 
 
 </details>
 
-The paper behind this essay has an [interactive companion](/interactive/market-for-ideas/).
 
 ## What the Thirty Years' War did to German print
 
