@@ -43,6 +43,10 @@
 "Theta curve, pooled diversity per SD at 0.5, 1, 2","0.045 0.04 0.011","0.0450445 0.0403495 0.0114079",5e-04,TRUE
 "Theta curve, vernacular distinctiveness per SD at 0.5, 1, 2","-0.065 -0.068 -0.017","-0.0649584 -0.0681318 -0.0173136",5e-04,TRUE
 "Theta curve, German distinctiveness per SD at 1","-0.231","-0.231048",5e-04,TRUE
+"Regimes, doctrine diversity, free entry and licensing (Table E)","0.683 0.022","0.683317 0.0217254",5e-04,TRUE
+"Regimes, doctrine diversity SEs, city and bracketed","0.111 0.138 0.087 0.088","0.1105 0.137853 0.0869366 0.0884091",5e-04,TRUE
+"Regimes, doctrine distinctiveness, free entry and licensing","-1.304 -0.061","-1.30387 -0.0607637",5e-04,TRUE
+"Regimes, doctrine observations","371 217 349 208","371 217 349 208",0,TRUE
 "Castile, doctrine diversity before and from 1560","1.375 -0.221","1.37495 -0.220713",5e-04,TRUE
 "Castile, doctrine diversity before and from 1570","1.057 -0.197","1.05733 -0.196631",5e-04,TRUE
 "Castile records 1550-54 and 1555-59","436 189","436 189",0,TRUE

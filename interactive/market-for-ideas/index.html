@@ -50,6 +50,10 @@ button.tab { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; bord
 button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
 .readline { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0 0 10px; min-height: 44px; }
 .readline b { color: var(--rust); }
+.readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 6px 0 14px; }
+.readout div { background: #fff; border-radius: 6px; padding: 10px 12px; font: 14px/1.35 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.readout b { display: block; font: 600 24px/1.2 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--navy); }
+input[type=range] { accent-color: var(--rust); }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .chips { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
 .chips a { color: var(--teal); cursor: pointer; margin-right: 8px; text-decoration: underline; }
@@ -73,7 +77,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px;
 footer a { color: var(--teal); }
 @media (max-width: 640px) {
   body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
-  .two { grid-template-columns: 1fr; }
+  .two, .readout { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -97,6 +101,7 @@ footer a { color: var(--teal); }
     <li><a href="#theta">How far books traveled</a></li>
     <li><a href="#entry">Where printers could not enter</a></li>
     <li><a href="#variety">What the added variety was</a></li>
+    <li><a href="#policy">What the results say about policy</a></li>
     <li><a href="#explorer">City explorer</a></li>
     <li><a href="#limits">Limits</a></li>
     <li><a href="#references">References</a></li>
@@ -240,6 +245,7 @@ footer a { color: var(--teal); }
   <svg id="gsvg" viewBox="0 0 800 230" role="img" aria-label="Slopes by regime"></svg>
   <div class="cap"><b>Figure 9.</b> Within-city slopes on log market access with German and Italian pooled and with French and Spanish pooled. Intervals as in Figure 6.</div>
 </div>
+<p>Where entry was free a rise of one within-city standard deviation in market access went with doctrine diversity higher by 0.92 standard deviations. The slope is 0.683 with a standard error of 0.111. Where the crown licensed the presses the same rise went with a change of 0.03 standard deviations, a slope of 0.022 with a standard error of 0.087. The licensing slope is close to zero and precisely estimated. Estimated together the difference between the two is −0.66 with a standard error of 0.14. Distinctiveness fell by 0.80 standard deviations where entry was free and did not move under licensing.</p>
 <p>Six languages are six observations so the regimes are a reading of the framework and not a test of it. Castile offers one comparison within a language. In decade cells the Spanish doctrine diversity slope is positive before 1560 and negative from 1560.</p>
 <div class="figure">
   <div class="controls" id="cttabs"></div>
@@ -281,8 +287,33 @@ footer a { color: var(--teal); }
 <p>These are the inputs that accounts of idea production take as given. A new variety is the good whose fixed cost a larger market covers and a title between subjects is a combination of existing ones. The crossing of ideas between fields is what Jacobs (1969) and Glaeser et al. (1992) put behind the growth of cities. Whether a city with such titles grew or produced more ideas is a question the paper does not reach.</p>
 </section>
 
+<section id="policy">
+<h2><span class="num">10</span>What the results say about policy</h2>
+<p>A license to print is a rule about who may enter a market. The results of Section 8 give its cost in the unit that matters to readers, the variety a larger market would otherwise have produced. The literature on occupational licensing measures the cost of entry rules in wages and employment (Kleiner and Krueger 2013). In a market for ideas the cost is the range of titles that were never printed, and it can be read from the text of what was printed.</p>
+<p>The calculator applies the two slopes of Section 8 to a rise in market access you choose. The default is one within-city standard deviation of market access in German and Italian, 0.14 log units, about the rise a typical city saw over half a century. At the default the readouts match the magnitudes above.</p>
+<div class="figure">
+  <div class="controls"><label>Rise in market access <input id="pol" type="range" min="0" max="0.5" step="0.001" value="0.144" style="width:260px"></label><span id="polv" style="font-weight:600;color:var(--rust)"></span></div>
+  <div class="readout">
+    <div><b id="polf"></b>change in doctrine diversity where entry was free, in standard deviations</div>
+    <div><b id="poll"></b>change where the crown licensed the presses</div>
+    <div><b id="polg"></b>the variety licensing forwent, in standard deviations</div>
+  </div>
+  <div class="readline" id="polci" style="min-height:22px"></div>
+  <div class="cap"><b>Figure 15.</b> Implied change in doctrine diversity from the pooled slopes of Figure 9, in standard deviations of each regime's diversity. Intervals use the bracketed standard errors of Figure 9. The calculation applies an association and assumes the slope is the same at every size of rise.</div>
+</div>
+<p>Readers bore that cost. In German and Italian a reader's gain from a larger market came as a wider range of titles printed nearby. In France and Castile the same growth in reach brought no such range. Readers there lost the variety a larger market would have brought, less what they could buy from presses outside the license's reach. The Crown of Aragon was one such place. Its share of the Spanish-language printing in Spain rose from under a fifth to about a third after 1558.</p>
+<p>Political fragmentation kept most of the European market free to enter (Jones 1981, Mokyr 2017). The state that could license every press was the state that could enforce conformity (Johnson and Koyama 2019), and the costs of that enforcement are measurable in Spanish municipalities centuries later (Drelichman, Vidal-Robert, and Voth 2021).</p>
+<p>Three modern markets have the same structure.</p>
+<ul>
+  <li><b>Platforms.</b> One fear about cheaper distribution is that it fragments a public into narrower audiences (Sunstein 2017). In the early modern market, where reach grew and entry was free, producers broadened their range and moved toward the center of demand at once. Online the ideological segregation of news readers is modest (Gentzkow and Shapiro 2011). A platform that decides who may produce holds the position the Council of Castile held and the prediction for that market is the Castilian one (Stigler Committee on Digital Platforms 2019). Cheaper reach changes little where the response to a larger market runs through entry.</li>
+  <li><b>Local news.</b> News is the product that did not respond to reach. It sold where it was printed and a larger market neither broadened it nor pulled it toward a center. The modern counterpart is local journalism, a product sold where it is made, whose decline tracks the entry and exit of newspapers more than the reach of the ones that remain (Gentzkow, Shapiro, and Sinkinson 2011, Hayes and Lawless 2021).</li>
+  <li><b>Scientific publishing.</b> Latin shows what a market that is already continental does when its producers' reach improves. Better access did not move Latin print toward any center while its diversity rose. Scientific publishing is one worldwide market in one language whose distribution cost has collapsed and in which five firms publish more than half of all papers (Larivière, Haustein, and Mongeon 2015). A scholarly market with a gatekeeper has the Latin geography and the Castilian precondition.</li>
+</ul>
+<p class="note">These are the paper's readings of its results. The regime comparison rests on six languages and the Castilian timing is a single case, so the policy readings carry the same caveat. The paper reads its slopes as associations.</p>
+</section>
+
 <section id="explorer">
-<h2><span class="num">10</span>City explorer</h2>
+<h2><span class="num">11</span>City explorer</h2>
 <p>Pick any city in the doctrine sample to see its market access and its doctrine measures by period, in each language it printed. City names are in the catalog's form, so Venice is Venezia and Cologne is Köln.</p>
 <div class="figure">
   <div class="controls">
@@ -291,12 +322,12 @@ footer a { color: var(--teal); }
   </div>
   <div id="cinfo" class="legend"></div>
   <svg id="cityvis" viewBox="0 0 800 440" role="img" aria-label="City panel"></svg>
-  <div class="cap"><b>Figure 15.</b> One line per language the city printed in, at the four 50-year periods. A measure appears only where the city had enough doctrine titles in the period to compute it.</div>
+  <div class="cap"><b>Figure 16.</b> One line per language the city printed in, at the four 50-year periods. A measure appears only where the city had enough doctrine titles in the period to compute it.</div>
 </div>
 </section>
 
 <section id="limits">
-<h2><span class="num">11</span>Limits</h2>
+<h2><span class="num">12</span>Limits</h2>
 <p>The slopes are associations. Market access changes within a city because populations in other cities change, which is outside the control of a city's printers, and period effects absorb what all cities shared. A war, a confessional change, or a regional boom can still change the populations around a city and what its presses print at once.</p>
 <p>The German fall in distinctiveness comes from the first half of the seventeenth century. Without the 1600 to 1649 period the German doctrine slope is −0.116 with a standard error of 0.779. The German diversity slope survives that cut at 0.949 with a standard error of 0.450. Without German altogether the six-language diversity slope is 0.198 and the vernacular distinctiveness slope is −0.376.</p>
 <p>The French and Spanish slopes are imprecise and Dutch is the smallest panel. The regime comparison rests on six languages and the Castilian timing is a single case. English is left out because London printed 85 percent of English titles.</p>
@@ -305,7 +336,7 @@ footer a { color: var(--teal); }
 
 <section id="references">
 <h2>References</h2>
-<!--REFS:Smith1776_wealth,Stigler1951_division,Krugman1979_increasing_returns,Krugman1980_scale_economies,HelpmanKrugman1985_market_structure,Dixit1977_monopolistic,Hotelling1929_stability,Salop1979_monopolistic,Lancaster1979_variety,Anderson1992_discrete_choice,DonaldsonHornbeck2016_railroads,Donaldson2018_railways,Mikolov2013_word2vec,Pennington2014_glove,LevyGoldberg2014_pmi_svd,Arora2017_sif,Buringh2021_dataset,Buringh2021_paper,Bosker2013_baghdad_london,Bairoch1988_cities,Romer1990_endogenous,Weitzman1998_recombinant,Jacobs1969_economy,Glaeser1992_growth,USTC_catalogue,Conley1999_gmm,ReyesGomez2000_libro,Isambert1829_recueil14-->
+<!--REFS:Smith1776_wealth,Stigler1951_division,Krugman1979_increasing_returns,Krugman1980_scale_economies,HelpmanKrugman1985_market_structure,Dixit1977_monopolistic,Hotelling1929_stability,Salop1979_monopolistic,Lancaster1979_variety,Anderson1992_discrete_choice,DonaldsonHornbeck2016_railroads,Donaldson2018_railways,Mikolov2013_word2vec,Pennington2014_glove,LevyGoldberg2014_pmi_svd,Arora2017_sif,Buringh2021_dataset,Buringh2021_paper,Bosker2013_baghdad_london,Bairoch1988_cities,Romer1990_endogenous,Weitzman1998_recombinant,Jacobs1969_economy,Glaeser1992_growth,USTC_catalogue,Conley1999_gmm,ReyesGomez2000_libro,Isambert1829_recueil14,KleinerKrueger2013_licensing,Jones1981_european_miracle,Mokyr2017_culture,JohnsonKoyama2019_persecution,DrelichmanVidalRobertVoth2021_inquisition,Sunstein2017_republic,GentzkowShapiro2011_segregation,Stigler2019_platforms,GentzkowShapiroSinkinson2011_newspapers,HayesLawless2021_news_hole,Lariviere2015_oligopoly-->
 <ul class="refs">
   <li>Simon P. Anderson, André de Palma, and Jacques-François Thisse (1992). <i>Discrete Choice Theory of Product Differentiation</i>. Cambridge, MA, MIT Press.</li>
   <li>Sanjeev Arora, Yingyu Liang, and Tengyu Ma (2017). A Simple but Tough-to-Beat Baseline for Sentence Embeddings. <i>International Conference on Learning Representations (ICLR)</i>.</li>
@@ -317,22 +348,33 @@ footer a { color: var(--teal); }
   <li>Avinash K. Dixit and Joseph E. Stiglitz (1977). Monopolistic Competition and Optimum Product Diversity. <i>American Economic Review</i> 67(3), 297–308.</li>
   <li>Dave Donaldson and Richard Hornbeck (2016). Railroads and American Economic Growth: A "Market Access" Approach. <i>Quarterly Journal of Economics</i> 131(2), 799–858.</li>
   <li>Dave Donaldson (2018). Railroads of the Raj: Estimating the Impact of Transportation Infrastructure. <i>American Economic Review</i> 108(4–5), 899–934.</li>
+  <li>Mauricio Drelichman, Jordi Vidal-Robert, and Hans-Joachim Voth (2021). The Long-Run Effects of Religious Persecution: Evidence from the Spanish Inquisition. <i>Proceedings of the National Academy of Sciences</i> 118(33), e2022881118.</li>
+  <li>Matthew Gentzkow and Jesse M. Shapiro (2011). Ideological Segregation Online and Offline. <i>Quarterly Journal of Economics</i> 126(4), 1799–1839.</li>
+  <li>Matthew Gentzkow, Jesse M. Shapiro, and Michael Sinkinson (2011). The Effect of Newspaper Entry and Exit on Electoral Politics. <i>American Economic Review</i> 101(7), 2980–3018.</li>
   <li>Edward L. Glaeser, Hedi D. Kallal, José A. Scheinkman, and Andrei Shleifer (1992). Growth in Cities. <i>Journal of Political Economy</i> 100(6), 1126–1152.</li>
+  <li>Danny Hayes and Jennifer L. Lawless (2021). <i>News Hole: The Demise of Local Journalism and Political Engagement</i>. Cambridge, Cambridge University Press.</li>
   <li>Elhanan Helpman and Paul R. Krugman (1985). <i>Market Structure and Foreign Trade: Increasing Returns, Imperfect Competition, and the International Economy</i>. Cambridge, MA, MIT Press.</li>
   <li>Harold Hotelling (1929). Stability in Competition. <i>Economic Journal</i> 39(153), 41–57.</li>
   <li>François-André Isambert, Decrusy, and Alphonse-Honoré Taillandier (1829). <i>Recueil général des anciennes lois françaises, depuis l'an 420 jusqu'à la Révolution de 1789</i>, vol. 14. Paris, Belin-Leprieur.</li>
   <li>Jane Jacobs (1969). <i>The Economy of Cities</i>. New York, Random House.</li>
+  <li>Noel D. Johnson and Mark Koyama (2019). <i>Persecution and Toleration: The Long Road to Religious Freedom</i>. Cambridge, Cambridge University Press.</li>
+  <li>Eric L. Jones (1981). <i>The European Miracle: Environments, Economies and Geopolitics in the History of Europe and Asia</i>. Cambridge, Cambridge University Press.</li>
+  <li>Morris M. Kleiner and Alan B. Krueger (2013). Analyzing the Extent and Influence of Occupational Licensing on the Labor Market. <i>Journal of Labor Economics</i> 31(S1), S173–S202.</li>
   <li>Paul Krugman (1979). Increasing Returns, Monopolistic Competition, and International Trade. <i>Journal of International Economics</i> 9(4), 469–479.</li>
   <li>Paul Krugman (1980). Scale Economies, Product Differentiation, and the Pattern of Trade. <i>American Economic Review</i> 70(5), 950–959.</li>
   <li>Kelvin Lancaster (1979). <i>Variety, Equity, and Efficiency: Product Variety in an Industrial Society</i>. New York, Columbia University Press.</li>
+  <li>Vincent Larivière, Stefanie Haustein, and Philippe Mongeon (2015). The Oligopoly of Academic Publishers in the Digital Era. <i>PLOS ONE</i> 10(6), e0127502.</li>
   <li>Omer Levy and Yoav Goldberg (2014). Neural Word Embedding as Implicit Matrix Factorization. <i>Advances in Neural Information Processing Systems 27 (NeurIPS 2014)</i>, 2177–2185.</li>
   <li>Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean (2013). Distributed Representations of Words and Phrases and their Compositionality. <i>Advances in Neural Information Processing Systems</i>, 3111–3119.</li>
+  <li>Joel Mokyr (2017). <i>A Culture of Growth: The Origins of the Modern Economy</i>. Princeton, NJ, Princeton University Press.</li>
   <li>Jeffrey Pennington, Richard Socher, and Christopher D. Manning (2014). GloVe: Global Vectors for Word Representation. <i>Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)</i>, 1532–1543.</li>
   <li>Fermín de los Reyes Gómez (2000). <i>El libro en España y América: legislación y censura (siglos XV–XVIII)</i>. Madrid, Arco/Libros.</li>
   <li>Paul M. Romer (1990). Endogenous Technological Change. <i>Journal of Political Economy</i> 98(5), S71–S102.</li>
   <li>Steven C. Salop (1979). Monopolistic Competition with Outside Goods. <i>Bell Journal of Economics</i> 10(1), 141–156.</li>
   <li>Adam Smith (1776). <i>An Inquiry into the Nature and Causes of the Wealth of Nations</i>. London, W. Strahan and T. Cadell.</li>
   <li>George J. Stigler (1951). The Division of Labor is Limited by the Extent of the Market. <i>Journal of Political Economy</i> 59(3), 185–193.</li>
+  <li>Stigler Committee on Digital Platforms (2019). Stigler Committee on Digital Platforms: Final Report. <i>Working paper, Stigler Center for the Study of the Economy and the State, University of Chicago Booth School of Business</i>.</li>
+  <li>Cass R. Sunstein (2017). <i>\#Republic: Divided Democracy in the Age of Social Media</i>. Princeton, Princeton University Press.</li>
   <li>Universal Short Title Catalogue (2022). USTC Database. <i>University of St Andrews, https://ustc.ac.uk</i>.</li>
   <li>Martin L. Weitzman (1998). Recombinant Growth. <i>Quarterly Journal of Economics</i> 113(2), 331–360.</li>
 </ul><!--/REFS-->
@@ -372,7 +414,7 @@ Promise.all([
 ]).then(([est, tn, l16, cells, ma, base, paths, ca, vr]) => {
   neighbors(); titles(tn); latin(l16); signatures(l16); maMap(ma, base, paths);
   results(est); scatter(cells, est); theta(est); regimes(est); castileTiming(est); castileAragon(ca);
-  variety(est); binscatter(vr); bridging(vr); explorer(cells);
+  variety(est); binscatter(vr); bridging(vr); policy(est); explorer(cells);
 });
 d3.csv("checks.csv").then(c => d3.select("#nchecks").text(c.length)).catch(() => {});
 
@@ -690,7 +732,19 @@ function bridging(vr) {
   sel.on("change", function(){ draw(this.value); }); draw(vr.examples[0].k);
 }
 
-// ---------- 10. City explorer ----------
+// ---------- 10. Policy calculator ----------
+function policy(est) {
+  const g = r => est.regimes.find(d => d.sample === "doctrine" && d.regime === r && d.measure === "diversity");
+  const F = g("free"), L = g("licensing"), D = est.regime_difference.rows.find(d => d.measure === "diversity");
+  const upd = () => { const dx = +d3.select("#pol").property("value");
+    const k = e => dx / e.sd_y, sw = F.sd_within_x;
+    d3.select("#polv").text(`${Math.round(100 * (Math.exp(dx) - 1))} percent, ${f2(dx / sw)} within-city standard deviations`);
+    d3.select("#polf").text(f2(F.est * k(F))); d3.select("#poll").text(f2(L.est * k(L))); d3.select("#polg").text(f2(F.est * k(F) - L.est * k(L)));
+    d3.select("#polci").html(`95 percent intervals. Free entry ${f2((F.est - 1.96 * F.se_bracket) * k(F))} to ${f2((F.est + 1.96 * F.se_bracket) * k(F))}. Licensing ${f2((L.est - 1.96 * L.se_bracket) * k(L))} to ${f2((L.est + 1.96 * L.se_bracket) * k(L))}. The difference between the slopes is ${f3(D.diff)} with a standard error of ${f3(D.diff_se)}.`); };
+  d3.select("#pol").property("value", F.sd_within_x).on("input", upd); upd();
+}
+
+// ---------- 11. City explorer ----------
 function explorer(cells) {
   const cities = [...new Set(cells.map(d => d.city))].sort((a,b) => a.localeCompare(b));
   d3.select("#citylist").selectAll("option").data(cities).join("option").attr("value", d => d);
