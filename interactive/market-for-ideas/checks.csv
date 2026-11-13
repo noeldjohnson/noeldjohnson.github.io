@@ -93,8 +93,8 @@
 "Harvey neighbors span three catalog classes","3","3",0,TRUE
 "Brahe neighbors span four catalog classes","4","4",0,TRUE
 "Variety binscatter: 20 bins per measure","20 20","20 20",0,TRUE
-"Curated bridging examples found among the German doctrine titles","8","8",0,TRUE
-"Every curated example is in the top tenth of German bridging (lowest percentile)","90","90.9487",1,TRUE
+"Curated bridging examples found among the German doctrine titles","3","3",0,TRUE
+"Every curated example is in the top tenth of German bridging (lowest percentile at least 90)","1","1",0,TRUE
 "Top-decile cutoff of German bridging","0.931","0.930824",5e-04,TRUE
 "Print regimes table: seven languages","7","7",0,TRUE
 "German and Italian share of vernacular titles (percent)","52","52.1771",0.5,TRUE
