@@ -261,12 +261,12 @@ footer a { color: var(--teal); }
   <svg id="bsvg" viewBox="0 0 800 330" role="img" aria-label="Binned scatter of novelty or bridging against market access"></svg>
   <div class="cap"><b>Figure 13.</b> Vernacular doctrine cells with city-and-language and period means removed, sorted into 20 equal bins of log market access. Points are weighted bin means and the line is the vernacular slope.</div>
 </div>
-<p>The last figure shows what bridging picks up. The circles are the 30 German subject clusters. Choose a title to see the two subjects it sits between.</p>
+<p>The last figure shows what bridging picks up. The circles are the 30 German subject clusters. The eight titles are works of useful and scientific knowledge that we chose from the top tenth of German bridging. They include the first printed book on mining, two books by Peter Apian, Otto Brunfels's herbal, and a dialogue on whether the Earth moves. Choose one to see the two subjects it sits between. Most German print was religious so the second subject of a scientific title is often a religious one.</p>
 <div class="figure">
   <div class="controls"><select id="exsel" aria-label="Example title" style="max-width:100%"></select></div>
   <svg id="xsvg" viewBox="0 0 800 430" role="img" aria-label="German subject clusters and a bridging title"></svg>
   <div class="legend" id="xleg"></div>
-  <div class="cap"><b>Figure 14.</b> The 30 German subject clusters, placed on a two-dimensional projection of their centers and labeled by their nearest vocabulary words. Circle area is proportional to the number of titles. The measure itself is computed in 200 dimensions.</div>
+  <div class="cap"><b>Figure 14.</b> The 30 German subject clusters, placed on a two-dimensional projection of their centers. Circle area is proportional to the number of titles. Hover a circle for its nearest vocabulary words. The English names of the subjects, the translations of the titles, and the identifications of the works are ours and are not in the catalog. The measure itself is computed in 200 dimensions.</div>
 </div>
 <p>These are the inputs that accounts of idea production take as given. A new variety is the good whose fixed cost a larger market covers and a title between subjects is a combination of existing ones. Whether a city with such titles grew or produced more ideas is a question the paper does not reach.</p>
 </section>
@@ -304,6 +304,7 @@ footer a { color: var(--teal); }
 const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
 const LANGS = ["Latin","German","Italian","French","Dutch","Spanish"];
 const LC = { Latin:C.gold, German:C.navy, Italian:C.teal, French:C.rust, Dutch:"#7a5195", Spanish:"#6b8e23", "Six languages":"#111", "Five vernaculars":"#111" };
+const SEEDGLOSS = { anatomia:"anatomy", geometria:"geometry", ius:"law", kirche:"church", krieg:"war", recht:"law", chiesa:"church", guerra:"war", legge:"law", eglise:"church", guerre:"war", loy:"law", kercke:"church", oorloghen:"wars", iglesia:"church", ley:"law" };
 const SANS = '-apple-system, "Helvetica Neue", Arial, sans-serif';
 const tip = d3.select("#tip");
 const showTip = (ev, html) => tip.html(html).style("opacity",1).style("left", Math.min(ev.clientX + 14, window.innerWidth - 330) + "px").style("top", (ev.clientY + 14) + "px");
@@ -355,7 +356,7 @@ function neighbors() {
   function setLang(lang, word) {
     load(lang).then(j => {
       d3.select("#nwlist").selectAll("option").data(j.words.map(w => w.word)).join("option").attr("value", d => d);
-      d3.select("#nchips").html("Try ").selectAll("a").data(j.seeds).join("a").text(d => d).on("click", (e,d) => { d3.select("#nw").property("value", d); draw(j, d); });
+      d3.select("#nchips").html("Try ").selectAll("a").data(j.seeds).join("a").text(d => SEEDGLOSS[d] ? `${d} (${SEEDGLOSS[d]})` : d).on("click", (e,d) => { d3.select("#nw").property("value", d); draw(j, d); });
       const wd = word || j.seeds[0]; d3.select("#nw").property("value", wd); draw(j, wd);
     });
   }
@@ -620,15 +621,15 @@ function binscatter(vr) {
 }
 function bridging(vr) {
   const svg = d3.select("#xsvg"), W = 800, H = 430, mg = 34, cl = vr.clusters, by = new Map(cl.map(c => [c.cluster, c]));
-  const x = d3.scaleLinear(d3.extent(cl, c => c.x), [mg+40, W-mg-40]), y = d3.scaleLinear(d3.extent(cl, c => c.y), [H-mg, mg]);
+  const x = d3.scaleLinear(d3.extent(cl, c => c.x), [mg+70, W-mg-70]), y = d3.scaleLinear(d3.extent(cl, c => c.y), [H-mg, mg+16]);
   const r = d3.scaleSqrt([0, d3.max(cl, c => c.size)], [0, 26]);
   svg.append("rect").attr("width", W).attr("height", H).attr("fill","#fff").attr("rx", 6);
   const gl = svg.append("g");
   const circ = svg.append("g").selectAll("circle").data(cl).join("circle").attr("cx", c => x(c.x)).attr("cy", c => y(c.y)).attr("r", c => r(c.size)).attr("stroke","#fff")
-    .on("mousemove", (ev,c) => showTip(ev, `<b>Cluster ${c.cluster}</b><br>${c.size.toLocaleString()} titles<br>${c.label}`)).on("mouseleave", hideTip);
+    .on("mousemove", (ev,c) => showTip(ev, `<b>${c.gloss}</b><br>${c.size.toLocaleString()} titles<br>Nearest words. ${c.label}`)).on("mouseleave", hideTip);
   const lab = svg.append("g");
   const sel = d3.select("#exsel");
-  sel.selectAll("option").data(vr.examples).join("option").attr("value", d => d.k).text(d => `${d.title.slice(0, 70)}${d.title.length > 70 ? "…" : ""} (${d.city}, ${d.year})`);
+  sel.selectAll("option").data(vr.examples).join("option").attr("value", d => d.k).text(d => `${d.about.replace(/\.$/, "")} (${d.city}, ${d.year})`);
   function draw(k) {
     const e = vr.examples.find(d => d.k === +k), a = by.get(e.c1), b = by.get(e.c2);
     circ.attr("fill", c => c.cluster === e.c1 || c.cluster === e.c2 ? C.rust : C.teal).attr("fill-opacity", c => c.cluster === e.c1 || c.cluster === e.c2 ? .85 : .3);
@@ -637,8 +638,9 @@ function bridging(vr) {
     gl.append("line").attr("x1", x(a.x)).attr("y1", y(a.y)).attr("x2", x(b.x)).attr("y2", y(b.y)).attr("stroke", C.rust).attr("stroke-width", 2).attr("stroke-dasharray","5 4");
     lab.selectAll("*").remove();
     lab.append("path").attr("transform",`translate(${mx},${my})`).attr("d", d3.symbol(d3.symbolStar, 220)).attr("fill", C.gold).attr("stroke","#fff");
-    [a, b].forEach(c => lab.append("text").attr("class","title").attr("x", x(c.x)).attr("y", y(c.y) - r(c.size) - 6).attr("text-anchor","middle").text(c.short));
-    d3.select("#xleg").html(`<b style="color:var(--navy)">${e.title}</b> (${e.city}, ${e.year}). Bridging ${f2(e.bridging)}. Nearest subject <span style="color:${C.rust};font-weight:600">${a.short}</span> and second-nearest <span style="color:${C.rust};font-weight:600">${b.short}</span>. The star is drawn halfway between them for illustration.`);
+    const up = y(a.y) <= y(b.y) ? a : b;
+    [a, b].forEach(c => lab.append("text").attr("class","title").attr("x", x(c.x)).attr("y", c === up ? y(c.y) - r(c.size) - 6 : y(c.y) + r(c.size) + 16).attr("text-anchor","middle").text(c.gloss));
+    d3.select("#xleg").html(`<b style="color:var(--navy)">${e.about}</b> ${e.city}, ${e.year}.<br>German title. <i>${e.title}</i><br>In English. ${e.english}.<br>Bridging ${f2(e.bridging)}, higher than ${e.percentile} percent of German doctrine titles. Nearest subject <span style="color:${C.rust};font-weight:600">${a.gloss}</span> and second-nearest <span style="color:${C.rust};font-weight:600">${b.gloss}</span>. The star is drawn halfway between them for illustration.`);
   }
   sel.on("change", function(){ draw(this.value); }); draw(vr.examples[0].k);
 }
