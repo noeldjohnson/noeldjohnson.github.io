@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapping the Market for Ideas</title>
+<meta name="description" content="An interactive companion to Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach by Noel Johnson and Alexander Taylor.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Noel D. Johnson">
+<meta property="og:title" content="Mapping the Market for Ideas. An interactive companion">
+<meta property="og:description" content="An interactive companion to Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach by Noel Johnson and Alexander Taylor.">
+<meta property="og:url" content="https://noeldjohnson.github.io/interactive/market-for-ideas/">
+<meta property="og:image" content="https://noeldjohnson.github.io/assets/images/interactive/market-for-ideas.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@noeldjohnson">
+<meta name="twitter:title" content="Mapping the Market for Ideas. An interactive companion">
+<meta name="twitter:description" content="An interactive companion to Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach by Noel Johnson and Alexander Taylor.">
+<meta name="twitter:image" content="https://noeldjohnson.github.io/assets/images/interactive/market-for-ideas.jpg">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<style>
+:root {
+  --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
+  --ink: #1d1d1f; --muted: #5f6368; --rule: #d9d9d9; --panel: #f6f5f2; --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+header.top { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 28px; }
+.kicker { font: 600 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+h1 { font-size: 34px; line-height: 1.2; margin: 8px 0 10px; color: var(--navy); }
+.byline { color: var(--muted); font-size: 16px; }
+.byline a { color: var(--teal); }
+nav.toc { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; background: var(--panel); padding: 14px 18px; border-radius: 6px; margin: 0 0 32px; }
+nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+nav.toc a { color: var(--navy); text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+h2 { font-size: 26px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
+h2 .num { color: var(--rust); margin-right: 8px; }
+p { margin: 0 0 16px; }
+.figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
+.figure .cap { font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 10px; }
+.figure .cap b { color: var(--ink); }
+.controls { font: 15px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin-bottom: 12px; }
+.controls .sep { width: 14px; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+input[type=text], select { font: 15px -apple-system, "Helvetica Neue", Arial, sans-serif; padding: 6px 8px; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+button.tab { font: 14px -apple-system, "Helvetica Neue", Arial, sans-serif; border: 1px solid var(--rule); background: #fff; padding: 6px 10px; border-radius: 4px; cursor: pointer; color: var(--navy); }
+button.tab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.readline { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0 0 10px; min-height: 44px; }
+.readline b { color: var(--rust); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.chips { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+.chips a { color: var(--teal); cursor: pointer; margin-right: 8px; text-decoration: underline; }
+svg { display: block; width: 100%; height: auto; }
+svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
+svg text.title { font-weight: 600; fill: var(--navy); font-size: 14px; }
+.axis path, .axis line { stroke: #b8b8b8; }
+.tip { position: fixed; pointer-events: none; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px; font: 13px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; max-width: 320px; z-index: 10; }
+.tip b { color: var(--navy); }
+.legend { font: 13px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 6px; }
+table.pred { width: 100%; border-collapse: collapse; font: 15px -apple-system, "Helvetica Neue", Arial, sans-serif; margin: 8px 0 20px; }
+table.pred th, table.pred td { border-bottom: 1px solid var(--rule); padding: 8px 6px; text-align: center; }
+table.pred th:first-child, table.pred td:first-child { text-align: left; }
+ol.assume { font-size: 17px; padding-left: 26px; }
+ol.assume li { margin-bottom: 4px; }
+.note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
+footer a { color: var(--teal); }
+@media (max-width: 640px) {
+  body { font-size: 17px; } h1 { font-size: 27px; } nav.toc ol { columns: 1; }
+  .two { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="top">
+  <div class="kicker">Interactive companion</div>
+  <h1>Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach</h1>
+  <div class="byline">Noel Johnson and Alexander Taylor · The paper is being revised and will be posted here · <a href="/research/">Research</a></div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#argument">Argument</a></li>
+    <li><a href="#vectors">Titles as vectors</a></li>
+    <li><a href="#measures">Two measures of what a city printed</a></li>
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#ma">Market access</a></li>
+    <li><a href="#results">Diversity and distinctiveness</a></li>
+    <li><a href="#theta">How far books traveled</a></li>
+    <li><a href="#entry">Where printers could not enter</a></li>
+    <li><a href="#variety">What the added variety was</a></li>
+    <li><a href="#explorer">City explorer</a></li>
+    <li><a href="#limits">Limits</a></li>
+  </ol>
+</nav>
+
+<section id="argument">
+<h2><span class="num">1</span>Argument</h2>
+<p>Between 1450 and 1650 European print grew from a Mainz craft producing about 3,000 Latin editions a decade into a market of nearly 800,000 editions in 1,338 cities. As the number of printing cities and the populations around them grew each press came within reach of more readers. We ask whether that integration made what a city printed broader and more like the rest of its market or narrower and more its own.</p>
+<p>Two accounts of a growing market give opposite answers. For Adam Smith the division of labor is limited by the extent of the market. A printing city with better access to readers should concentrate on a narrower range of titles and set itself further apart from other cities. Monopolistic competition says a larger market supports more producers of more varieties and that a producer with good access to its market positions near that market's center. A better-connected city should print a wider range of titles and move toward what the rest of its market printed.</p>
+<table class="pred">
+  <tr><th>When a city's market access rises</th><th>Smith</th><th>Monopolistic competition</th></tr>
+  <tr><td>Diversity, how widely its titles range</td><td>falls</td><td>rises</td></tr>
+  <tr><td>Distinctiveness, how far its print sits from the rest of its language</td><td>rises</td><td>falls in a vernacular</td></tr>
+</table>
+<p>We measure both from the titles of the Universal Short Title Catalogue and relate them to a panel of market access. In doctrine, the religious, scholarly, and literary print a press could sell beyond its own city, a better-connected city printed a wider range of titles and moved nearer the mainstream of its language. The response is strongest in German and Italian. The titles a larger vernacular market added were further from anything the language had printed before and lay between established subjects.</p>
+<p>The response appeared where printers were free to enter. German and Italian were printed across hundreds of polities where no single authority licensed the trade and they carry both results. French and Spanish came under royal licensing in the 1550s and 1560s and show neither.</p>
+</section>
+
+<section id="vectors">
+<h2><span class="num">2</span>Titles as vectors</h2>
+<p>The catalog gives each edition a short title, a place and year of printing, a language, and one of about 20 subject classes. The largest class, Religious, holds 215,000 titles and puts Lutheran polemic from Wittenberg beside Catholic devotional manuals from Lyon and Calvinist catechisms from Geneva. We measure content with word embeddings trained on the titles themselves. A word is represented by the words it appears near so words used in similar titles end up close together. Each language's vectors are trained separately on its own titles.</p>
+<p>Search a word to see its ten nearest neighbors. The list covers the 1,500 most common words in each language. Click a neighbor to move to it.</p>
+<div class="figure">
+  <div class="controls">
+    <select id="nl" aria-label="Language"></select>
+    <input id="nw" type="text" list="nwlist" placeholder="Type a word" style="width:200px" aria-label="Word">
+    <datalist id="nwlist"></datalist>
+  </div>
+  <div class="chips" id="nchips"></div>
+  <svg id="nsvg" viewBox="0 0 800 330" role="img" aria-label="Nearest neighbors of the selected word"></svg>
+  <div class="cap"><b>Figure 1.</b> The ten nearest words by cosine similarity in the 200-dimensional embedding of the selected language. Words are in early modern spelling as the catalog records them.</div>
+</div>
+<p>A title's vector is a weighted average of its words. The nearest titles to William Harvey's <i>De motu cordis</i> are reprints of Harvey and other works on the circulation of the blood. The catalog files them under three different classes.</p>
+<div class="figure">
+  <div class="controls" id="ttabs"></div>
+  <svg id="tsvg" viewBox="0 0 800 300" role="img" aria-label="Nearest titles to the seed"></svg>
+  <div class="legend" id="tleg"></div>
+  <div class="cap"><b>Figure 2.</b> The eight nearest Latin titles to each seed work, colored by the catalog's subject class. Hover for the full title.</div>
+</div>
+</section>
+
+<section id="measures">
+<h2><span class="num">3</span>Two measures of what a city printed</h2>
+<p>For each city, language, and decade with at least five titles we compute two numbers and average them over 50-year periods. Diversity is the average cosine distance between pairs of the city's titles. A city printing across many subjects has titles far apart from one another and a city printing a tight niche has titles close together. Distinctiveness is the distance between the city's average title and the average title of every other city in the same language and decade, corrected for the noise in an average taken over few titles.</p>
+<p>The figure shows both for Latin print in 1600 to 1609. Paris printed 1,041 Latin titles across theology, classical authors, law, and history and has a diversity of 0.97. Coimbra printed 74, mostly scholastic philosophy and theology, and has 0.71, the lowest of any city shown. Venice printed religion, music, law, and medicine and is the most distinctive at 1.38. Wittenberg was the largest Latin center of the decade with 2,017 titles and sits at 0.76, below the median.</p>
+<div class="figure">
+  <svg id="lsvg" viewBox="0 0 800 440" role="img" aria-label="Diversity and distinctiveness of Latin print by city, 1600 to 1609"></svg>
+  <div class="cap"><b>Figure 3.</b> Latin print by city in 1600 to 1609, for cities with at least 60 Latin titles in the decade. Circle area is proportional to the number of titles. Hover for any city.</div>
+</div>
+<p>Distinctiveness says how far a city's print sits from the rest of its language. The city's signature says in which direction. It is the set of words whose vectors point most nearly from the rest of the language toward the city's average title.</p>
+<div class="figure">
+  <div class="controls" id="stabs"></div>
+  <svg id="ssvg" viewBox="0 0 800 300" role="img" aria-label="City signature"></svg>
+  <div class="cap"><b>Figure 4.</b> The ten words nearest each city's direction, for Latin titles of 1450 to 1649, with the city's own place names removed. Lyon's are the titles of the <i>Corpus iuris</i>, Louvain's the vocabulary of polyphony, Wittenberg's the vocabulary of academic theses, and Ingolstadt's the Jesuit colleges at Dillingen and Munich.</div>
+</div>
+</section>
+
+<section id="framework">
+<h2><span class="num">4</span>Framework</h2>
+<p>The hypothesis is that the early modern book trade worked like a market for differentiated goods. A title is a variety and its position is its place in the embedding. A printer sells to readers in every city, and demand from each city arrives discounted by the cost of shipping. Six assumptions carry the model.</p>
+<ol class="assume">
+  <li>Readers value variety.</li>
+  <li>Each title has a fixed cost of typesetting and editing that is large relative to the cost of a copy.</li>
+  <li>Readers in different cities want different titles.</li>
+  <li>Shipping costs rise with distance and books still move between cities.</li>
+  <li>Printers are free to enter so a title is printed wherever its sales cover its fixed cost.</li>
+  <li>Printers choose what to print in light of the demand they face.</li>
+</ol>
+<p>The first prediction is that diversity rises with market access. A title for tastes far from the center of a market covers its fixed cost only when enough readers are within reach so a larger market adds titles further from the center. This needs assumptions 1, 2, 4, and 5. The second prediction is that distinctiveness falls with market access where the market is bounded by language. A vernacular market has a center, the cities where most of its readers live, and a printer whose access to those cities rises moves toward them. Latin was sold to the whole continent through the fairs so a Latin printer's market had no nearer center and the prediction is no fall.</p>
+<p>Both predictions concern a product a printer can ship. Doctrine kept its value for years and traveled through the fairs. News lost its value within weeks and sold where it was printed so the framework predicts that neither measure of news moves with market access. News is the comparison.</p>
+<table class="pred">
+  <tr><th>Within-city slope on market access</th><th>Framework</th><th>Smith</th><th>Needs assumptions</th></tr>
+  <tr><td>Diversity of doctrine</td><td>positive</td><td>negative</td><td>1, 2, 4, 5</td></tr>
+  <tr><td>Distinctiveness of vernacular doctrine</td><td>negative</td><td>positive</td><td>1 to 4, 6</td></tr>
+  <tr><td>Distinctiveness of Latin doctrine</td><td>zero or positive</td><td>positive</td><td>1 to 4, 6</td></tr>
+  <tr><td>Both measures of vernacular news</td><td>zero</td><td></td><td>1 to 6</td></tr>
+</table>
+<p>The framework also says where the predictions should fail. A central authority that licensed entry and fixed where presses worked breaks assumptions 5 and 6 and with them both predictions. Section 8 takes this up.</p>
+</section>
+
+<section id="ma">
+<h2><span class="num">5</span>Market access</h2>
+<p>A city's market access sums the populations of other cities, each discounted by the cost of reaching it. Costs come from least-cost paths over roads, rivers, and seas, with sea travel cheapest and overland portage dearest. A city's own population is left out so its own growth does not count as access to readers. For a vernacular the sum runs over the cities that printed in that language and for Latin over the university cities.</p>
+<p>Market access changes within a city because populations elsewhere change. Paris grew from about 94,000 people in 1500 to about 387,000 in 1650 and Amsterdam from about 12,000 to about 104,000, while Bruges fell from about 35,000 to about 27,000 by 1600.</p>
+<div class="figure">
+  <div class="controls" id="matabs"></div>
+  <div class="controls"><label><input type="checkbox" id="showpaths"> Two least-cost paths</label></div>
+  <svg id="masvg" viewBox="0 0 800 640" role="img" aria-label="Map of market access"></svg>
+  <div class="legend" id="malegend"></div>
+  <div class="cap"><b>Figure 5.</b> Log market access summed over every city, at each anchor year, for cities that printed in the preceding 50 years. The paths run from Mainz to Venice by the Rhine, the Brenner, and the Po, and from Antwerp to Madrid by sea around Iberia.</div>
+</div>
+</section>
+
+<section id="results">
+<h2><span class="num">6</span>Diversity and distinctiveness</h2>
+<p>We ask how a city's print in a language changed when its market access rose relative to that city's own average and to the change common to all cities in the period. Each slope compares a city with itself over time so a city's university, its size, and its position on the trade routes do not enter. The panel has 1,876 observations of a city, a language, and a 50-year period, across 504 cities. Doctrine has 1,578 across 441.</p>
+<p>Choose a product and a measure. Magnitudes in standard deviations are for a rise of one within-city standard deviation of log market access, 0.16 log units, about the rise a typical city saw over half a century.</p>
+<div class="figure">
+  <div class="controls"><span id="ptabs"></span><span class="sep"></span><span id="mtabs"></span><span class="sep"></span><span id="utabs"></span></div>
+  <div class="readline" id="rread"></div>
+  <svg id="rsvg" viewBox="0 0 800 340" role="img" aria-label="Within-city slopes by language"></svg>
+  <div class="cap"><b>Figure 6.</b> Within-city slope of each measure on log market access, pooled and by language. Weighted two-way fixed effects with city-and-language and period effects. Intervals are 95 percent and use the larger of the city-clustered standard error and a standard error that allows correlation between cities within 250 km. Filled points have intervals that exclude zero. Latin doctrine excludes academic dissertations.</div>
+</div>
+<p>Doctrine diversity rises. Pooled over six languages the move goes with diversity higher by 0.39 standard deviations. The response is 1.28 standard deviations in German, 0.63 in Italian, and 0.30 in Latin. Over all titles, news included, the pooled rise is a quarter of a standard deviation.</p>
+<p>Vernacular doctrine distinctiveness falls. Pooled over the five vernaculars the same move brings a city's doctrine nearer the mainstream of its language by 0.32 standard deviations, and by 1.35 in German and 0.86 in Italian. Latin doctrine shows no fall. Its interval excludes the German and Italian falls and contains zero.</p>
+<p>News shows neither pattern. The move that raises vernacular doctrine diversity by 0.34 standard deviations raises news diversity by 0.12 and news distinctiveness rises by 0.15, both imprecisely. The framework does not sign practical print, the medical, agricultural, military, and technical handbooks.</p>
+<p>The next figure shows the variation behind each language's doctrine slope. Each point is one city in one period after its own average and the period average are removed.</p>
+<div class="figure">
+  <div class="controls"><span id="sltabs"></span><span class="sep"></span><span id="smtabs"></span></div>
+  <div class="readline" id="sread" style="min-height:22px"></div>
+  <svg id="scsvg" viewBox="0 0 800 400" role="img" aria-label="Within-city scatter"></svg>
+  <div class="cap"><b>Figure 7.</b> Doctrine cells with the city's mean and the period mean removed, weighted as in the regression. Circle area is proportional to the regression weight, the square root of the number of doctrine titles. The line is the language's slope from Figure 6. Cities observed in one period carry no within-city variation and are not shown.</div>
+</div>
+</section>
+
+<section id="theta">
+<h2><span class="num">7</span>How far books traveled</h2>
+<p>Market access depends on how fast it discounts distant cities. The trade elasticity sets that rate. A low value counts readers far away nearly as much as readers nearby and a high value counts mainly the neighbors. The framework puts the diversity response at a low elasticity, where distant readers count, and the pull toward the center at an intermediate one. Our headline value is 1.</p>
+<div class="figure">
+  <div class="two">
+    <svg id="th1" viewBox="0 0 400 320" role="img" aria-label="Diversity slope by trade elasticity"></svg>
+    <svg id="th2" viewBox="0 0 400 320" role="img" aria-label="Distinctiveness slope by trade elasticity"></svg>
+  </div>
+  <div class="legend" id="thleg"></div>
+  <div class="cap"><b>Figure 8.</b> Doctrine slopes per within-city standard deviation of log market access, by trade elasticity, with 95 percent intervals clustered by city. Pooled is six languages for diversity and the five vernaculars for distinctiveness.</div>
+</div>
+<p>Pooled doctrine diversity is larger at elasticities of 0.5 and 0.75 than at 1 and falls toward zero from 3. Distinctiveness is most negative between 0.75 and 1. Books were a good with low trade costs and the data place the response where such a good should have it.</p>
+</section>
+
+<section id="entry">
+<h2><span class="num">8</span>Where printers could not enter</h2>
+<p>German and Italian were printed across hundreds of polities. Venice and the Empire had censors but no single authority licensed the trade across either language and a printer refused in one state could print in another. They are 52 percent of vernacular titles. French and Spanish are a further 36 percent. The ordinances of Mantes in 1563 and Moulins in 1566 made royal permission the condition of printing a book in France. The pragmática of 1558 required every book printed in Castile to be licensed by the Council of Castile. A license that can be refused caps entry.</p>
+<div class="figure">
+  <div class="controls" id="gtabs"></div>
+  <svg id="gsvg" viewBox="0 0 800 230" role="img" aria-label="Slopes by regime"></svg>
+  <div class="cap"><b>Figure 9.</b> Within-city slopes on log market access with German and Italian pooled and with French and Spanish pooled. Intervals as in Figure 6.</div>
+</div>
+<p>Six languages are six observations so the regimes are a reading of the framework and not a test of it. Castile offers one comparison within a language. In decade cells the Spanish doctrine diversity slope is positive before 1560 and negative from 1560.</p>
+<div class="figure">
+  <div class="controls" id="cttabs"></div>
+  <svg id="ctsvg" viewBox="0 0 800 200" role="img" aria-label="Spanish diversity slope before and after the licensing law"></svg>
+  <div class="cap"><b>Figure 10.</b> The Spanish diversity slope on log market access in decade cells, before and from the cut, with 95 percent intervals clustered by city. This is one case. The Valdés Index of 1559 coincides with the pragmática and the timing alone cannot separate them.</div>
+</div>
+<p>A border can. The Council of Castile licensed books printed in Castile. The Inquisition and its Index covered the Crown of Aragon as well. Castilian output fell from 436 records in 1550 to 1554 to 189 in 1555 to 1559. Aragon's share of the Spanish-language printing in Spain was 14 to 18 percent in every five-year bin from 1540 to 1554 and 27 to 37 percent in every bin from 1560 to 1599. The Castilian fall began in 1555, before the law.</p>
+<div class="figure">
+  <div class="controls" id="catabs"></div>
+  <svg id="casvg" viewBox="0 0 800 340" role="img" aria-label="Spanish-language printing in Castile and Aragon"></svg>
+  <div class="legend" id="caleg"></div>
+  <div class="cap"><b>Figure 11.</b> Spanish-language catalog records with a recorded place and year, in five-year bins from 1540 to 1599. The dashed line marks the pragmática of 1558 and the Index of 1559.</div>
+</div>
+</section>
+
+<section id="variety">
+<h2><span class="num">9</span>What the added variety was</h2>
+<p>A larger market added titles. Two measures ask what kind. The novelty of a title is one minus its cosine with the nearest title printed earlier in the same language. A reprint scores near zero. Bridging uses 30 subject clusters per language. It is the title's cosine with its second-nearest cluster divided by its cosine with the nearest. A title inside one subject scores low and a title between two subjects scores near one.</p>
+<div class="figure">
+  <div class="controls" id="vtabs"></div>
+  <div class="readline" id="vread"></div>
+  <svg id="vsvg" viewBox="0 0 800 300" role="img" aria-label="Novelty and bridging slopes"></svg>
+  <div class="cap"><b>Figure 12.</b> Within-city slopes of novelty and bridging on log market access, on the doctrine cells of Figure 6. Each is the mean over a cell's doctrine titles. Intervals as in Figure 6.</div>
+</div>
+<p>Within cities a rise of one within-city standard deviation in vernacular market access went with doctrine titles further from anything printed before in their language by 0.37 standard deviations and with titles that sat between subjects by 0.45. German shows the largest response on both. Latin moves on neither although Latin diversity rises with access. The Latin stock was large, 273,168 titles against 87,800 in German and 57,951 in Italian, so a title a Latin city had not yet printed was more often a title another city had.</p>
+<div class="figure">
+  <div class="controls" id="btabs"></div>
+  <svg id="bsvg" viewBox="0 0 800 330" role="img" aria-label="Binned scatter of novelty or bridging against market access"></svg>
+  <div class="cap"><b>Figure 13.</b> Vernacular doctrine cells with city-and-language and period means removed, sorted into 20 equal bins of log market access. Points are weighted bin means and the line is the vernacular slope.</div>
+</div>
+<p>The last figure shows what bridging picks up. The circles are the 30 German subject clusters. Choose a title to see the two subjects it sits between.</p>
+<div class="figure">
+  <div class="controls"><select id="exsel" aria-label="Example title" style="max-width:100%"></select></div>
+  <svg id="xsvg" viewBox="0 0 800 430" role="img" aria-label="German subject clusters and a bridging title"></svg>
+  <div class="legend" id="xleg"></div>
+  <div class="cap"><b>Figure 14.</b> The 30 German subject clusters, placed on a two-dimensional projection of their centers and labeled by their nearest vocabulary words. Circle area is proportional to the number of titles. The measure itself is computed in 200 dimensions.</div>
+</div>
+<p>These are the inputs that accounts of idea production take as given. A new variety is the good whose fixed cost a larger market covers and a title between subjects is a combination of existing ones. Whether a city with such titles grew or produced more ideas is a question the paper does not reach.</p>
+</section>
+
+<section id="explorer">
+<h2><span class="num">10</span>City explorer</h2>
+<p>Pick any city in the doctrine sample to see its market access and its doctrine measures by period, in each language it printed. City names are in the catalog's form, so Venice is Venezia and Cologne is Köln.</p>
+<div class="figure">
+  <div class="controls">
+    <input id="city" type="text" list="citylist" placeholder="Type a city" style="width:240px" aria-label="City"><datalist id="citylist"></datalist>
+    <span class="chips" id="cchips"></span>
+  </div>
+  <div id="cinfo" class="legend"></div>
+  <svg id="cityvis" viewBox="0 0 800 440" role="img" aria-label="City panel"></svg>
+  <div class="cap"><b>Figure 15.</b> One line per language the city printed in, at the four 50-year periods. A measure appears only where the city had enough doctrine titles in the period to compute it.</div>
+</div>
+</section>
+
+<section id="limits">
+<h2><span class="num">11</span>Limits</h2>
+<p>The slopes are associations. Market access changes within a city because populations in other cities change, which is outside the control of a city's printers, and period effects absorb what all cities shared. A war, a confessional change, or a regional boom can still change the populations around a city and what its presses print at once.</p>
+<p>The German fall in distinctiveness comes from the first half of the seventeenth century. Without the 1600 to 1649 period the German doctrine slope is −0.116 with a standard error of 0.779. The German diversity slope survives that cut at 0.949 with a standard error of 0.450. Without German altogether the six-language diversity slope is 0.198 and the vernacular distinctiveness slope is −0.376.</p>
+<p>The French and Spanish slopes are imprecise and Dutch is the smallest panel. The regime comparison rests on six languages and the Castilian timing is a single case. English is left out because London printed 85 percent of English titles.</p>
+<p>The catalog records what survives of what cities printed. What readers bought and read is not observed. Novelty and bridging describe the titles a larger market added and say nothing about whether those titles changed what a city later produced.</p>
+</section>
+
+<footer>
+  <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/tax-farming/">Tax farming and state capacity</a> · <a href="/interactive/pandemics-cities/">Pandemics and cities</a> · <a href="/interactive/school-choice-religiosity/">School choice and religiosity in France</a> · <a href="/interactive/land-redistribution/">Land redistribution and the Coase theorem</a> · <a href="/interactive/jewish-persecutions/">Jewish persecutions and weather shocks</a> · <a href="/interactive/">All companions</a></p>
+  <p>Every number on this page comes from data exported by our replication code, which checks <span id="nchecks">93</span> values against the manuscript. They match the draft of 12 November 2026. Print data come from the Universal Short Title Catalogue and population data from Buringh's European urban population dataset.</p>
+</footer>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
+const LANGS = ["Latin","German","Italian","French","Dutch","Spanish"];
+const LC = { Latin:C.gold, German:C.navy, Italian:C.teal, French:C.rust, Dutch:"#7a5195", Spanish:"#6b8e23", "Six languages":"#111", "Five vernaculars":"#111" };
+const SANS = '-apple-system, "Helvetica Neue", Arial, sans-serif';
+const tip = d3.select("#tip");
+const showTip = (ev, html) => tip.html(html).style("opacity",1).style("left", Math.min(ev.clientX + 14, window.innerWidth - 330) + "px").style("top", (ev.clientY + 14) + "px");
+const hideTip = () => tip.style("opacity",0);
+const pfmt = p => p < .001 ? "<0.001" : p.toFixed(3);
+const f3 = d3.format(".3f"), f2 = d3.format(".2f");
+const cap = s => s[0].toUpperCase() + s.slice(1);
+function tabs(sel, items, onpick, label = d => d) {
+  const b = d3.select(sel).selectAll("button").data(items).join("button").attr("class","tab").style("margin-right","6px").text(label);
+  let cur = items[0];
+  const set = v => { cur = v; b.classed("on", d => d === v); onpick(v); };
+  b.on("click", (e,d) => set(d));
+  return { set, get: () => cur, mark: v => { cur = v; b.classed("on", d => d === v); } };
+}
+
+Promise.all([
+  d3.json("estimates.json"), d3.json("title_neighbors.json"), d3.json("latin1600.json"),
+  d3.csv("cells.csv", d3.autoType), d3.csv("ma_by_anchor.csv", d3.autoType),
+  d3.json("basemap.geojson"), d3.json("paths.geojson"), d3.json("castile_aragon.json"), d3.json("variety.json")
+]).then(([est, tn, l16, cells, ma, base, paths, ca, vr]) => {
+  neighbors(); titles(tn); latin(l16); signatures(l16); maMap(ma, base, paths);
+  results(est); scatter(cells, est); theta(est); regimes(est); castileTiming(est); castileAragon(ca);
+  variety(est); binscatter(vr); bridging(vr); explorer(cells);
+});
+d3.csv("checks.csv").then(c => d3.select("#nchecks").text(c.length)).catch(() => {});
+
+// ---------- 2. Word neighbors ----------
+function neighbors() {
+  const cache = {};
+  const sel = d3.select("#nl"); sel.selectAll("option").data(LANGS).join("option").attr("value", d => d).text(d => d);
+  const svg = d3.select("#nsvg"), W = 800, H = 330, mg = {l:170, r:60, t:52, b:30};
+  const load = lang => cache[lang] ? Promise.resolve(cache[lang]) : d3.json("neighbors_" + lang.toLowerCase() + ".json").then(j => {
+    j.map = new Map(j.words.map(w => [w.word, w])); cache[lang] = j; return j; });
+  function draw(j, word) {
+    svg.selectAll("*").remove();
+    const w = j.map.get((word || "").toLowerCase().trim());
+    if (!w) { svg.append("text").attr("x", W/2).attr("y", H/2).attr("text-anchor","middle").text(word ? `“${word}” is not among the ${j.n_words.toLocaleString()} listed ${j.language} words.` : ""); return; }
+    const y = d3.scaleBand(w.neighbors.map(d => d.word), [mg.t, H-mg.b]).padding(.2);
+    const x = d3.scaleLinear([0, 1], [mg.l, W-mg.r]);
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(5));
+    svg.append("text").attr("x", 10).attr("y", 18).attr("class","title").text(w.word);
+    svg.append("text").attr("x", 10).attr("y", 36).text(`appears ${w.frequency.toLocaleString()} times`);
+    const g = svg.selectAll("g.r").data(w.neighbors).join("g").attr("transform", d => `translate(0,${y(d.word)})`).style("cursor","pointer")
+      .on("click", (e,d) => { d3.select("#nw").property("value", d.word); draw(j, d.word); });
+    g.append("rect").attr("x", x(0)).attr("width", d => Math.max(0, x(d.cos) - x(0))).attr("height", y.bandwidth()).attr("fill", C.teal).attr("opacity", .8);
+    g.append("text").attr("x", mg.l - 8).attr("y", y.bandwidth()/2).attr("dy","0.35em").attr("text-anchor","end").style("font-size","14px").attr("fill", C.navy).text(d => d.word);
+    g.append("text").attr("x", d => x(d.cos) + 6).attr("y", y.bandwidth()/2).attr("dy","0.35em").text(d => d.cos.toFixed(2));
+  }
+  function setLang(lang, word) {
+    load(lang).then(j => {
+      d3.select("#nwlist").selectAll("option").data(j.words.map(w => w.word)).join("option").attr("value", d => d);
+      d3.select("#nchips").html("Try ").selectAll("a").data(j.seeds).join("a").text(d => d).on("click", (e,d) => { d3.select("#nw").property("value", d); draw(j, d); });
+      const wd = word || j.seeds[0]; d3.select("#nw").property("value", wd); draw(j, wd);
+    });
+  }
+  sel.on("change", function(){ setLang(this.value); });
+  d3.select("#nw").on("change", function(){ load(sel.property("value")).then(j => draw(j, this.value)); });
+  setLang("Latin", "geometria");
+}
+
+// ---------- Title neighbors ----------
+function titles(tn) {
+  const seeds = Object.keys(tn.seeds), cls = [...new Set(seeds.flatMap(k => tn.seeds[k].map(d => d.classification)))];
+  const col = d3.scaleOrdinal(cls, [C.rust, C.teal, C.navy, C.gold, "#7a5195", "#6b8e23", C.gray]);
+  const svg = d3.select("#tsvg"), W = 800, H = 300, mg = {l:360, r:50, t:6, b:28};
+  function draw(k) {
+    svg.selectAll("*").remove();
+    const rows = tn.seeds[k];
+    const y = d3.scaleBand(rows.map(d => d.rank), [mg.t, H-mg.b]).padding(.18), x = d3.scaleLinear([0, 1], [mg.l, W-mg.r]);
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(5));
+    const g = svg.selectAll("g.r").data(rows).join("g").attr("transform", d => `translate(0,${y(d.rank)})`)
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${d.title}</b><br>${d.city}, ${d.year}<br>${d.classification}<br>Cosine ${d.cos.toFixed(2)}`)).on("mouseleave", hideTip);
+    g.append("rect").attr("x", x(0)).attr("width", d => x(d.cos)-x(0)).attr("height", y.bandwidth()).attr("fill", d => col(d.classification));
+    g.append("text").attr("x", mg.l-8).attr("y", y.bandwidth()/2).attr("dy","0.35em").attr("text-anchor","end").text(d => `${d.title.slice(0,34)}${d.title.length>34?"…":""} (${d.city}, ${d.year})`);
+    g.append("text").attr("x", d => x(d.cos)+6).attr("y", y.bandwidth()/2).attr("dy","0.35em").text(d => d.cos.toFixed(2));
+    const used = [...new Set(rows.map(d => d.classification))];
+    d3.select("#tleg").html(used.map(c => `<span style="color:${col(c)};font-weight:600">■ ${c}</span>`).join(" &nbsp; "));
+  }
+  tabs("#ttabs", seeds, draw, d => d.replace("Seed: ", "")).set(seeds[0]);
+}
+
+// ---------- 3. Latin cells of 1600-1609 ----------
+function latin(l16) {
+  const svg = d3.select("#lsvg"), W = 800, H = 440, mg = {l:56, r:20, t:14, b:44};
+  const rows = l16.cells.slice().sort((a,b) => b.n - a.n);
+  const x = d3.scaleLinear(d3.extent(rows, d => d.D), [mg.l, W-mg.r]).nice(), y = d3.scaleLinear(d3.extent(rows, d => d.X), [H-mg.b, mg.t]).nice();
+  const r = d3.scaleSqrt([0, d3.max(rows, d => d.n)], [0, 22]);
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(6));
+  svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+  svg.append("text").attr("x", (W+mg.l)/2).attr("y", H-8).attr("text-anchor","middle").text("Diversity");
+  svg.append("text").attr("transform",`translate(14,${H/2}) rotate(-90)`).attr("text-anchor","middle").text("Distinctiveness");
+  const named = { Paris:"Paris", Coimbra:"Coimbra", Wittenberg:"Wittenberg", Venezia:"Venice" };
+  svg.selectAll("circle").data(rows).join("circle").attr("cx", d => x(d.D)).attr("cy", d => y(d.X)).attr("r", d => r(d.n))
+    .attr("fill", d => named[d.city] ? C.rust : C.teal).attr("fill-opacity", d => named[d.city] ? .85 : .35).attr("stroke","#fff")
+    .on("mousemove", (ev,d) => showTip(ev, `<b>${d.city}</b><br>${d.n.toLocaleString()} Latin titles<br>Diversity ${f2(d.D)}<br>Distinctiveness ${f2(d.X)}`)).on("mouseleave", hideTip);
+  svg.selectAll("text.nm").data(rows.filter(d => named[d.city])).join("text").attr("class","title nm")
+    .attr("x", d => x(d.D) + (d.city === "Paris" ? -r(d.n) - 6 : r(d.n) + 6)).attr("y", d => y(d.X)).attr("dy","0.35em")
+    .attr("text-anchor", d => d.city === "Paris" ? "end" : "start").text(d => named[d.city]);
+}
+
+// ---------- City signatures ----------
+function signatures(l16) {
+  const svg = d3.select("#ssvg"), W = 800, H = 300, mg = {l:170, r:60, t:30, b:30};
+  const by = new Map(l16.signatures.map(s => [s.city, s]));
+  function draw(c) {
+    svg.selectAll("*").remove(); const s = by.get(c);
+    const y = d3.scaleBand(s.words.map(d => d.word), [mg.t, H-mg.b]).padding(.2), x = d3.scaleLinear([0, .8], [mg.l, W-mg.r]);
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(5));
+    svg.append("text").attr("x", 10).attr("y", 16).attr("class","title").text(`${c}, ${s.n_titles.toLocaleString()} Latin titles`);
+    const g = svg.selectAll("g.r").data(s.words).join("g").attr("transform", d => `translate(0,${y(d.word)})`);
+    g.append("rect").attr("x", x(0)).attr("width", d => x(d.cos)-x(0)).attr("height", y.bandwidth()).attr("fill", C.navy).attr("opacity",.8);
+    g.append("text").attr("x", mg.l-8).attr("y", y.bandwidth()/2).attr("dy","0.35em").attr("text-anchor","end").style("font-size","14px").attr("fill", C.navy).text(d => d.word);
+    g.append("text").attr("x", d => x(d.cos)+6).attr("y", y.bandwidth()/2).attr("dy","0.35em").text(d => d.cos.toFixed(2));
+  }
+  tabs("#stabs", l16.signatures.map(s => s.city), draw).set("Lyon");
+}
+
+// ---------- 5. MA map ----------
+function maMap(ma, base, paths) {
+  const svg = d3.select("#masvg"), W = 800, H = 640;
+  const fix = f => { if (d3.geoArea(f) > 2*Math.PI) { const rv = p => p.map(r => r.slice().reverse()); const g = f.geometry;
+    return { ...f, geometry: { ...g, coordinates: g.type === "Polygon" ? rv(g.coordinates) : g.coordinates.map(rv) } }; } return f; };
+  const feats = base.features.map(fix);
+  const box = { type: "MultiPoint", coordinates: [[-10, 36], [25, 36], [-10, 60], [25, 60], [7, 61], [7, 36]] };
+  const proj = d3.geoConicConformal().rotate([-8, 0]).parallels([40, 58]).fitExtent([[10,10],[W-10,H-10]], box).clipExtent([[0,0],[W,H]]);
+  const path = d3.geoPath(proj);
+  svg.append("rect").attr("width",W).attr("height",H).attr("fill","#e9eef2");
+  svg.selectAll("path.l").data(feats).join("path").attr("class","l").attr("d", path).attr("fill","#fbfaf7").attr("stroke","#c9c9c9");
+  const gP = svg.append("g").style("display","none");
+  gP.selectAll("path").data(paths.features).join("path").attr("d", path).attr("fill","none").attr("stroke", C.rust).attr("stroke-width", 2.5);
+  const gC = svg.append("g");
+  const color = d3.scaleSequential([-4, -1.6], d3.interpolateRgbBasis(["#f2e6c6", "#7fb3ad", "#2A6F77", "#0f2f34"])).clamp(true);
+  function draw(a) {
+    const rows = ma.filter(d => d.anchor === a && d.latitude != null && d.log_ma != null).sort((p,q) => p.log_ma - q.log_ma);
+    gC.selectAll("circle").data(rows, d => d.city).join("circle").attr("cx", d => proj([d.longitude, d.latitude])[0]).attr("cy", d => proj([d.longitude, d.latitude])[1])
+      .attr("r", 4).attr("fill", d => color(d.log_ma)).attr("stroke","#fff").attr("stroke-width",.5)
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${d.city}</b><br>Log market access ${d.log_ma.toFixed(2)} in ${d.anchor}<br>Printed in ${d.active_window}`)).on("mouseleave", hideTip);
+    d3.select("#malegend").html(`<b style="color:var(--navy)">${rows.length}</b> cities printed in ${rows[0].active_window.replace("-", " to ")}. Color runs from pale for low access to dark teal for high access, on a log scale common to all four maps.`);
+  }
+  d3.select("#showpaths").on("change", function(){ gP.style("display", this.checked ? null : "none"); });
+  tabs("#matabs", [1500, 1550, 1600, 1650], draw).set(1600);
+}
+
+// ---------- forest helper ----------
+function forest(svg, rows, o) {
+  svg.selectAll("*").remove();
+  const W = o.W, H = o.H, mg = {l: o.l ?? 130, r: 24, t: 10, b: 38};
+  const y = d3.scaleBand(rows.map(r => r.label), [mg.t, H-mg.b]).padding(.35);
+  const lo = Math.min(0, d3.min(rows, r => r.lo)), hi = Math.max(0, d3.max(rows, r => r.hi));
+  const x = d3.scaleLinear([lo, hi], [mg.l, W-mg.r]).nice();
+  svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(6));
+  svg.append("line").attr("x1", x(0)).attr("x2", x(0)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+  if (o.xlab) svg.append("text").attr("x", (W+mg.l)/2).attr("y", H-4).attr("text-anchor","middle").text(o.xlab);
+  const g = svg.selectAll("g.r").data(rows).join("g").attr("transform", r => `translate(0,${y(r.label) + y.bandwidth()/2})`);
+  g.append("text").attr("x", mg.l-8).attr("dy","0.35em").attr("text-anchor","end").style("font-weight", r => r.bold ? 600 : 400).text(r => r.label);
+  g.append("line").attr("x1", r => x(r.lo)).attr("x2", r => x(r.hi)).attr("stroke", r => r.color).attr("stroke-width", 2.2);
+  g.append("circle").attr("cx", r => x(r.v)).attr("r", 6).attr("fill", r => (r.lo > 0 || r.hi < 0) ? r.color : "#fff").attr("stroke", r => r.color).attr("stroke-width", 2)
+    .on("mousemove", (ev,r) => showTip(ev, r.tip)).on("mouseleave", hideTip);
+}
+const slopeTip = (label, e) => `<b>${label}</b><br>Slope ${f3(e.est)}<br>Standard error ${f3(e.se)} by city${e.se_bracket != null ? ", " + f3(e.se_bracket) + " spatial" : ""}` +
+  (e.size_in_sd != null ? `<br>${f2(e.size_in_sd)} standard deviations` : "") + `<br>${e.n.toLocaleString()} observations${e.cities ? " in " + e.cities + " cities" : ""}`;
+const bse = e => e.se_bracket ?? e.se;
+
+// ---------- 6. Results ----------
+function results(est) {
+  const prods = ["doctrine","all","news","practical"], plab = { doctrine:"Doctrine", all:"All titles", news:"News", practical:"Practical" };
+  const state = { p: "doctrine", m: "diversity", u: "slope" };
+  const svg = d3.select("#rsvg");
+  function draw() {
+    const rs = est.composition.filter(d => d.product === state.p && d.measure === state.m);
+    const order = ["pooled6","vernaculars","latin","german","italian","french","dutch","spanish"];
+    rs.sort((a,b) => order.indexOf(a.group) - order.indexOf(b.group));
+    const k = e => state.u === "slope" ? 1 : e.sd_within_x / e.sd_y;
+    const rows = rs.map(e => ({ label: e.label, v: e.est*k(e), lo: (e.est - 1.96*bse(e))*k(e), hi: (e.est + 1.96*bse(e))*k(e),
+      color: LC[e.label], bold: e.group === "pooled6" || e.group === "vernaculars", tip: slopeTip(e.label, e) }));
+    forest(svg, rows, { W: 800, H: 340, xlab: state.u === "slope" ? "Within-city slope on log market access" : "Standard deviations of the measure per within-city standard deviation of log market access" });
+    const h = rs.find(e => e.group === (state.m === "diversity" && rs.some(q => q.group === "pooled6") ? "pooled6" : "vernaculars"));
+    d3.select("#rread").html(`${plab[state.p]} ${state.m}, ${h.label.toLowerCase()} pooled. Slope <b>${f3(h.est)}</b> with a city-clustered standard error of ${f3(h.se)}, or <b>${f2(h.size_in_sd)}</b> standard deviations, on ${h.n.toLocaleString()} observations in ${h.cities} cities.` +
+      (state.p === "doctrine" && state.m === "distinctiveness" ? " The framework signs distinctiveness in the vernaculars only so there is no six-language row." : ""));
+  }
+  const tp = tabs("#ptabs", prods, v => { state.p = v; draw(); }, d => plab[d]);
+  const tm = tabs("#mtabs", ["diversity","distinctiveness"], v => { state.m = v; draw(); }, cap);
+  const tu = tabs("#utabs", ["slope","sd"], v => { state.u = v; draw(); }, d => d === "slope" ? "Slopes" : "Standard deviations");
+  tp.mark("doctrine"); tm.mark("diversity"); tu.mark("slope"); draw();
+}
+
+// ---------- Within-city scatter ----------
+function scatter(cells, est) {
+  const svg = d3.select("#scsvg"), W = 800, H = 400, mg = {l:60, r:20, t:14, b:44};
+  const state = { l: "German", m: "diversity" };
+  function draw() {
+    svg.selectAll("*").remove();
+    const kx = state.m === "diversity" ? "ma_res_div" : "ma_res_x", ky = state.m === "diversity" ? "div_res" : "x_res", kw = state.m === "diversity" ? "wt_div" : "wt_x";
+    const rows = cells.filter(d => d.language === state.l && d[kx] != null && d[ky] != null);
+    const e = est.composition.find(d => d.product === "doctrine" && d.label === state.l && d.measure === state.m);
+    const xm = d3.max(rows, d => Math.abs(d[kx])) * 1.05, ym = d3.max(rows, d => Math.abs(d[ky])) * 1.05;
+    const x = d3.scaleLinear([-xm, xm], [mg.l, W-mg.r]), y = d3.scaleLinear([-ym, ym], [H-mg.b, mg.t]);
+    const r = d3.scaleSqrt([0, d3.max(cells, d => d[kw] || 0)], [0, 13]);
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(7));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("line").attr("x1", x(0)).attr("x2", x(0)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke","#ccc");
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke","#ccc");
+    svg.append("text").attr("x", (W+mg.l)/2).attr("y", H-8).attr("text-anchor","middle").text("Log market access, net of the city's mean and the period mean");
+    svg.append("text").attr("transform",`translate(14,${H/2}) rotate(-90)`).attr("text-anchor","middle").text(`${cap(state.m)}, net of the same`);
+    svg.append("g").selectAll("circle").data(rows).join("circle").attr("cx", d => x(d[kx])).attr("cy", d => y(d[ky])).attr("r", d => r(d[kw]))
+      .attr("fill", LC[state.l]).attr("fill-opacity", .45).attr("stroke","#fff").attr("stroke-width",.6)
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${d.city}, ${d.period} to ${d.period+49}</b><br>${d.n_doctrine.toLocaleString()} doctrine titles<br>${cap(state.m)} ${f2(state.m === "diversity" ? d.diversity : d.distinctiveness)}<br>Log market access ${f2(d.log_ma)}`)).on("mouseleave", hideTip);
+    const clip = v => Math.max(-ym, Math.min(ym, v)), x1 = Math.abs(e.est*xm) > ym ? ym/Math.abs(e.est) : xm;
+    svg.append("line").attr("x1", x(-x1)).attr("y1", y(clip(-e.est*x1))).attr("x2", x(x1)).attr("y2", y(clip(e.est*x1))).attr("stroke", C.rust).attr("stroke-width", 2.5);
+    d3.select("#sread").html(`${state.l} doctrine ${state.m}. Slope <b>${f3(e.est)}</b> with a city-clustered standard error of ${f3(e.se)}, on ${e.n.toLocaleString()} observations in ${e.cities} cities.`);
+  }
+  const tl = tabs("#sltabs", LANGS, v => { state.l = v; draw(); });
+  const tm = tabs("#smtabs", ["diversity","distinctiveness"], v => { state.m = v; draw(); }, cap);
+  tl.mark("German"); tm.mark("diversity"); draw();
+}
+
+// ---------- 7. Theta ----------
+function theta(est) {
+  const ser = { diversity: [["pooled6","Pooled", "#111"], ["german","German", C.navy]], distinctiveness: [["vernaculars","Pooled", "#111"], ["german","German", C.navy]] };
+  function panel(id, m) {
+    const svg = d3.select(id), W = 400, H = 320, mg = {l:52, r:14, t:30, b:42};
+    const rows = est.theta.filter(d => d.measure === m);
+    const x = d3.scaleLinear([0, 5], [mg.l, W-mg.r]), y = d3.scaleLinear([Math.min(0, d3.min(rows, d => d.std_lo)), Math.max(0, d3.max(rows, d => d.std_hi))], [H-mg.b, mg.t]).nice();
+    svg.append("rect").attr("width", W).attr("height", H).attr("fill","#fff").attr("rx", 6);
+    svg.append("text").attr("class","title").attr("x", 12).attr("y", 18).text(cap(m));
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(6));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("line").attr("x1", mg.l).attr("x2", W-mg.r).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", C.gray).attr("stroke-dasharray","3 3");
+    svg.append("line").attr("x1", x(1)).attr("x2", x(1)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.gold).attr("stroke-dasharray","2 3");
+    svg.append("text").attr("x", (W+mg.l)/2).attr("y", H-8).attr("text-anchor","middle").text("Trade elasticity");
+    ser[m].forEach(([g, name, col]) => {
+      const r = rows.filter(d => d.group === g).sort((a,b) => a.theta - b.theta);
+      svg.append("path").datum(r).attr("fill", col).attr("opacity", .12).attr("d", d3.area().x(d => x(d.theta)).y0(d => y(d.std_lo)).y1(d => y(d.std_hi)));
+      svg.append("path").datum(r).attr("fill","none").attr("stroke", col).attr("stroke-width", 2).attr("d", d3.line().x(d => x(d.theta)).y(d => y(d.std)));
+      svg.selectAll(null).data(r).join("circle").attr("cx", d => x(d.theta)).attr("cy", d => y(d.std)).attr("r", 4.5).attr("fill", col)
+        .on("mousemove", (ev,d) => showTip(ev, `<b>${name} ${m}, elasticity ${d.theta}</b><br>${f3(d.std)} per standard deviation of access<br>95 percent interval ${f3(d.std_lo)} to ${f3(d.std_hi)}<br>Raw slope ${f3(d.est)}, ${d.n.toLocaleString()} observations`)).on("mouseleave", hideTip);
+    });
+  }
+  panel("#th1", "diversity"); panel("#th2", "distinctiveness");
+  d3.select("#thleg").html(`<span style="color:#111;font-weight:600">■ Pooled</span> &nbsp; <span style="color:${C.navy};font-weight:600">■ German</span> &nbsp; The dotted line marks the headline elasticity of 1.`);
+}
+
+// ---------- 8. Regimes ----------
+function regimes(est) {
+  const lab = { free: "German and Italian", licensing: "French and Spanish" }, sl = { doctrine: "doctrine", all: "all titles" };
+  function draw(m) {
+    const rows = est.regimes.filter(d => d.measure === m).sort((a,b) => (a.sample === b.sample ? 0 : a.sample === "doctrine" ? -1 : 1) || (a.regime === "free" ? -1 : 1))
+      .map(e => { const L = `${lab[e.regime]}, ${sl[e.sample]}`; return { label: L, v: e.est, lo: e.est - 1.96*bse(e), hi: e.est + 1.96*bse(e), color: e.regime === "free" ? C.navy : C.rust, tip: slopeTip(L, e) }; });
+    forest(d3.select("#gsvg"), rows, { W: 800, H: 230, l: 250, xlab: "Within-city slope on log market access" });
+  }
+  tabs("#gtabs", ["diversity","distinctiveness"], draw, cap).set("diversity");
+}
+function castileTiming(est) {
+  function draw(cut) {
+    const rows = [];
+    est.castile_timing.filter(d => d.cut === cut).sort((a,b) => a.sample === "doctrine" ? -1 : 1).forEach(e => {
+      const s = e.sample === "doctrine" ? "Doctrine" : "All titles";
+      rows.push({ label: `${s}, before ${cut}`, v: e.pre, lo: e.pre - 1.96*e.pre_se, hi: e.pre + 1.96*e.pre_se, color: C.navy, tip: `<b>${s}, before ${cut}</b><br>Slope ${f3(e.pre)}<br>Standard error ${f3(e.pre_se)}<br>${e.pre_n} decade cells` });
+      rows.push({ label: `${s}, from ${cut}`, v: e.post, lo: e.post - 1.96*e.post_se, hi: e.post + 1.96*e.post_se, color: C.rust, tip: `<b>${s}, from ${cut}</b><br>Slope ${f3(e.post)}<br>Standard error ${f3(e.post_se)}<br>${e.post_n} decade cells` }); });
+    forest(d3.select("#ctsvg"), rows, { W: 800, H: 200, l: 190, xlab: "Spanish diversity slope on log market access" });
+  }
+  tabs("#cttabs", [1560, 1570], draw, d => `Cut at ${d}`).set(1560);
+}
+function castileAragon(ca) {
+  const svg = d3.select("#casvg"), W = 800, H = 340, mg = {l:56, r:20, t:14, b:40}, bins = ca.bins;
+  const x = d3.scaleLinear([1540, 1600], [mg.l, W-mg.r]);
+  const series = { counts: [["castile","Castile", C.rust], ["aragon","Crown of Aragon", C.navy], ["abroad","Outside Spain", C.gray]],
+                   share: [["aragon_share","All classes", C.navy], ["aragon_share_doc","Doctrine", C.teal]] };
+  function draw(mode) {
+    svg.selectAll("*").remove(); const S = series[mode];
+    const y = d3.scaleLinear([0, d3.max(bins, b => d3.max(S, s => b[s[0]]))], [H-mg.b, mg.t]).nice();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).tickValues(d3.range(1540, 1601, 10)).tickFormat(d3.format("d")));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("text").attr("transform",`translate(14,${H/2}) rotate(-90)`).attr("text-anchor","middle").text(mode === "counts" ? "Records per five years" : "Aragon's percent of printing in Spain");
+    svg.append("line").attr("x1", x(1558.5)).attr("x2", x(1558.5)).attr("y1", mg.t).attr("y2", H-mg.b).attr("stroke", C.gray).attr("stroke-dasharray","5 4");
+    svg.append("text").attr("x", x(1558.5)+6).attr("y", mg.t+10).text("1558 and 1559");
+    S.forEach(([k, name, col]) => {
+      svg.append("path").datum(bins).attr("fill","none").attr("stroke", col).attr("stroke-width", 2.2).attr("d", d3.line().x(b => x(b.bin + 2.5)).y(b => y(b[k])));
+      svg.selectAll(null).data(bins).join("circle").attr("cx", b => x(b.bin + 2.5)).attr("cy", b => y(b[k])).attr("r", 4.5).attr("fill", col)
+        .on("mousemove", (ev,b) => showTip(ev, `<b>${b.bin} to ${b.bin+4}</b><br>Castile ${b.castile}<br>Crown of Aragon ${b.aragon}<br>Outside Spain ${b.abroad}<br>Aragon's share ${b.aragon_share.toFixed(0)} percent`)).on("mouseleave", hideTip);
+    });
+    d3.select("#caleg").html(S.map(s => `<span style="color:${s[2]};font-weight:600">■ ${s[1]}</span>`).join(" &nbsp; "));
+  }
+  tabs("#catabs", ["counts","share"], draw, d => d === "counts" ? "Records" : "Aragon's share").set("counts");
+}
+
+// ---------- 9. Variety ----------
+function variety(est) {
+  const order = ["vernaculars","german","italian","latin","french","dutch","spanish"];
+  function draw(m) {
+    const rs = est.variety.filter(d => d.measure === m && order.includes(d.group)).sort((a,b) => order.indexOf(a.group) - order.indexOf(b.group));
+    forest(d3.select("#vsvg"), rs.map(e => ({ label: e.label, v: e.est, lo: e.est - 1.96*bse(e), hi: e.est + 1.96*bse(e), color: LC[e.label], bold: e.group === "vernaculars", tip: slopeTip(e.label, e) })),
+      { W: 800, H: 300, xlab: `Within-city slope of ${m} on log market access` });
+    const h = rs[0];
+    d3.select("#vread").html(`${cap(m)}, five vernaculars pooled. Slope <b>${f3(h.est)}</b> with a city-clustered standard error of ${f3(h.se)}, or <b>${f2(h.size_in_sd)}</b> standard deviations, on ${h.n.toLocaleString()} observations in ${h.cities} cities.`);
+  }
+  tabs("#vtabs", ["novelty","bridging"], draw, cap).set("novelty");
+}
+function binscatter(vr) {
+  const svg = d3.select("#bsvg"), W = 800, H = 330, mg = {l:64, r:20, t:14, b:44};
+  function draw(m) {
+    svg.selectAll("*").remove(); const rows = vr.binscatter.filter(d => d.measure === m), b = rows[0].slope;
+    const x = d3.scaleLinear(d3.extent(rows, d => d.x), [mg.l, W-mg.r]).nice();
+    const ys = rows.map(d => d.y).concat(x.domain().map(v => b*v)), y = d3.scaleLinear(d3.extent(ys), [H-mg.b, mg.t]).nice();
+    svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-mg.b})`).call(d3.axisBottom(x).ticks(7));
+    svg.append("g").attr("class","axis").attr("transform",`translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(6));
+    svg.append("text").attr("x", (W+mg.l)/2).attr("y", H-8).attr("text-anchor","middle").text("Log market access, net of city and period means");
+    svg.append("text").attr("transform",`translate(14,${H/2}) rotate(-90)`).attr("text-anchor","middle").text(`${cap(m)}, net of the same`);
+    svg.append("line").attr("x1", x(x.domain()[0])).attr("y1", y(b*x.domain()[0])).attr("x2", x(x.domain()[1])).attr("y2", y(b*x.domain()[1])).attr("stroke", C.rust).attr("stroke-width", 2.5);
+    svg.selectAll("circle").data(rows).join("circle").attr("cx", d => x(d.x)).attr("cy", d => y(d.y)).attr("r", 6).attr("fill", C.navy)
+      .on("mousemove", (ev,d) => showTip(ev, `<b>Bin ${d.bin} of 20</b><br>${d.cells} cells<br>Access ${f3(d.x)}<br>${cap(m)} ${f3(d.y)}`)).on("mouseleave", hideTip);
+  }
+  tabs("#btabs", ["novelty","bridging"], draw, cap).set("bridging");
+}
+function bridging(vr) {
+  const svg = d3.select("#xsvg"), W = 800, H = 430, mg = 34, cl = vr.clusters, by = new Map(cl.map(c => [c.cluster, c]));
+  const x = d3.scaleLinear(d3.extent(cl, c => c.x), [mg+40, W-mg-40]), y = d3.scaleLinear(d3.extent(cl, c => c.y), [H-mg, mg]);
+  const r = d3.scaleSqrt([0, d3.max(cl, c => c.size)], [0, 26]);
+  svg.append("rect").attr("width", W).attr("height", H).attr("fill","#fff").attr("rx", 6);
+  const gl = svg.append("g");
+  const circ = svg.append("g").selectAll("circle").data(cl).join("circle").attr("cx", c => x(c.x)).attr("cy", c => y(c.y)).attr("r", c => r(c.size)).attr("stroke","#fff")
+    .on("mousemove", (ev,c) => showTip(ev, `<b>Cluster ${c.cluster}</b><br>${c.size.toLocaleString()} titles<br>${c.label}`)).on("mouseleave", hideTip);
+  const lab = svg.append("g");
+  const sel = d3.select("#exsel");
+  sel.selectAll("option").data(vr.examples).join("option").attr("value", d => d.k).text(d => `${d.title.slice(0, 70)}${d.title.length > 70 ? "…" : ""} (${d.city}, ${d.year})`);
+  function draw(k) {
+    const e = vr.examples.find(d => d.k === +k), a = by.get(e.c1), b = by.get(e.c2);
+    circ.attr("fill", c => c.cluster === e.c1 || c.cluster === e.c2 ? C.rust : C.teal).attr("fill-opacity", c => c.cluster === e.c1 || c.cluster === e.c2 ? .85 : .3);
+    const mx = (x(a.x) + x(b.x))/2, my = (y(a.y) + y(b.y))/2;
+    gl.selectAll("*").remove();
+    gl.append("line").attr("x1", x(a.x)).attr("y1", y(a.y)).attr("x2", x(b.x)).attr("y2", y(b.y)).attr("stroke", C.rust).attr("stroke-width", 2).attr("stroke-dasharray","5 4");
+    lab.selectAll("*").remove();
+    lab.append("path").attr("transform",`translate(${mx},${my})`).attr("d", d3.symbol(d3.symbolStar, 220)).attr("fill", C.gold).attr("stroke","#fff");
+    [a, b].forEach(c => lab.append("text").attr("class","title").attr("x", x(c.x)).attr("y", y(c.y) - r(c.size) - 6).attr("text-anchor","middle").text(c.short));
+    d3.select("#xleg").html(`<b style="color:var(--navy)">${e.title}</b> (${e.city}, ${e.year}). Bridging ${f2(e.bridging)}. Nearest subject <span style="color:${C.rust};font-weight:600">${a.short}</span> and second-nearest <span style="color:${C.rust};font-weight:600">${b.short}</span>. The star is drawn halfway between them for illustration.`);
+  }
+  sel.on("change", function(){ draw(this.value); }); draw(vr.examples[0].k);
+}
+
+// ---------- 10. City explorer ----------
+function explorer(cells) {
+  const cities = [...new Set(cells.map(d => d.city))].sort((a,b) => a.localeCompare(b));
+  d3.select("#citylist").selectAll("option").data(cities).join("option").attr("value", d => d);
+  const svg = d3.select("#cityvis"), W = 800, H = 440;
+  const vars = [["log_ma","Log market access"],["n_doctrine","Doctrine titles"],["diversity","Diversity"],["distinctiveness","Distinctiveness"],["novelty","Novelty"],["bridging","Bridging"]];
+  const ext = Object.fromEntries(vars.map(([k]) => [k, d3.extent(cells, d => d[k])]));
+  function draw(city) {
+    svg.selectAll("*").remove();
+    const rows = cells.filter(d => d.city === city);
+    if (!rows.length) { d3.select("#cinfo").text(city ? "No city by that name in the doctrine sample." : ""); return; }
+    const langs = LANGS.filter(l => rows.some(d => d.language === l));
+    d3.select("#cinfo").html(`<b style="color:var(--navy)">${city}</b> printed doctrine in ${langs.join(", ")}. ` + langs.map(l => `<span style="color:${LC[l]};font-weight:600">■ ${l}</span>`).join(" &nbsp; "));
+    const pw = (W - 40) / 3, ph = (H - 10) / 2;
+    vars.forEach(([k, name], i) => {
+      const g = svg.append("g").attr("transform", `translate(${(i % 3) * (pw + 20)},${Math.floor(i/3) * (ph + 10)})`);
+      const x = d3.scalePoint([1450,1500,1550,1600], [46, pw - 18]);
+      const y = k === "n_doctrine" ? d3.scaleLog([4, d3.max(cells, d => d.n_doctrine)], [ph - 26, 24]) : d3.scaleLinear(ext[k], [ph - 26, 24]).nice();
+      g.append("rect").attr("width", pw).attr("height", ph).attr("fill", "#fff").attr("rx", 6);
+      g.append("text").attr("class","title").attr("x", 10).attr("y", 16).text(name);
+      g.append("g").attr("class","axis").attr("transform",`translate(0,${ph-26})`).call(d3.axisBottom(x).tickFormat(d => d + "s"));
+      g.append("g").attr("class","axis").attr("transform",`translate(46,0)`).call(k === "n_doctrine" ? d3.axisLeft(y).ticks(4, "~s") : d3.axisLeft(y).ticks(4));
+      langs.forEach(l => {
+        const r = rows.filter(d => d.language === l && d[k] != null).sort((a,b) => a.period - b.period);
+        g.append("path").datum(r).attr("fill","none").attr("stroke", LC[l]).attr("stroke-width", 2).attr("d", d3.line().x(d => x(d.period)).y(d => y(d[k])));
+        g.selectAll(null).data(r).join("circle").attr("cx", d => x(d.period)).attr("cy", d => y(d[k])).attr("r", 4.5).attr("fill", LC[l])
+          .on("mousemove", (ev,d) => showTip(ev, `<b>${city}, ${l}, ${d.period} to ${d.period+49}</b><br>${name} ${k === "n_doctrine" ? d[k].toLocaleString() : f2(d[k])}<br>${d.n_doctrine.toLocaleString()} doctrine titles`)).on("mouseleave", hideTip);
+      });
+    });
+  }
+  d3.select("#cchips").html("Try ").selectAll("a").data(["Frankfurt am Main","Venezia","Wittenberg","Lyon","Antwerpen","Sevilla","Paris"].filter(c => cities.includes(c)))
+    .join("a").text(d => d).on("click", (e,d) => { d3.select("#city").property("value", d); draw(d); });
+  d3.select("#city").on("change", function(){ draw(this.value); });
+  const first = cities.includes("Frankfurt am Main") ? "Frankfurt am Main" : cities[0];
+  d3.select("#city").property("value", first); draw(first);
+}
+</script>
+</body>
+</html>

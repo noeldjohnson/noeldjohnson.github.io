@@ -20,6 +20,14 @@ companion_plague:
     url: /interactive/plague-print/
     btn_label: "Open the companion"
     btn_class: "btn--primary"
+companion_mfi:
+  - image_path: /assets/images/interactive/market-for-ideas.jpg
+    alt: "Map of European printing cities colored by market access in 1600"
+    title: "Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach"
+    excerpt: "With Alexander Taylor. When a city's market access rose it printed a wider range of religious, scholarly, and literary titles and moved nearer the mainstream of its language. The response appeared in German and Italian, where printers were free to enter, and not in French and Spanish, where the crown licensed the presses."
+    url: /interactive/market-for-ideas/
+    btn_label: "Open the companion"
+    btn_class: "btn--primary"
 companion_revolt:
   - image_path: /assets/images/interactive/great-revolt.jpg
     alt: "Map of North Indian districts colored by infant vaccination rate in the 1880s with Lucknow marked"
@@ -95,6 +103,8 @@ Each companion walks through one paper with figures you can move. Every number o
 {% include feature_row id="companion_school" type="left" %}
 
 ## Information, technology, and the historical record
+
+{% include feature_row id="companion_mfi" type="left" %}
 
 {% include feature_row id="companion_guilds" type="left" %}
 

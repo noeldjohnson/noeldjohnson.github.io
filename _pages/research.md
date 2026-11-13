@@ -22,7 +22,8 @@ Ten of these papers have [interactive companions](/interactive/), with figures y
 [Interactive Companion](/interactive/guilds/)
 
 **Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach**\\
-(joint with Alexander Taylor)
+(joint with Alexander Taylor)\\
+[Interactive Companion](/interactive/market-for-ideas/)
 
 **The Great Revolt and its Legacy: Understanding Vaccine Hesitancy in Colonial India**\\
 (joint with Malik Altaf Hussain)\\
