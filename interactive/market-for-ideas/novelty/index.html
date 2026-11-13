@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novelty</title>
+<meta name="description" content="How Mapping the Market for Ideas measures whether a title was new to its language. An explainer for economists.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="../explain.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="../explain.js"></script>
+</head>
+<body>
+<main>
+<header class="top">
+  <div class="kicker">Explainer 4 of 5</div>
+  <h1>Novelty</h1>
+  <div class="byline">Part of the <a href="../">interactive companion</a> to Mapping the Market for Ideas in Europe, 1450–1650, by Noel Johnson and Alexander Taylor</div>
+</header>
+
+<p>Diversity says a better-connected city printed a wider range of titles. It does not say whether the added titles were new or were reprints of what other cities already had. Novelty answers that. It gives every title a number that says how far it sits from anything printed before it in the same language.</p>
+
+<h2>Why it matters</h2>
+<p>In models of growth through new varieties the fixed cost of a variety is the cost of an idea and a larger market is what covers it (Romer 1990). A larger market for print should then bring titles that did not exist before. Text-based measures of this kind are used for patents, where a patent's novelty is its distance from the patents that came before it (Kelly et al. 2021).</p>
+
+<h2>The definition</h2>
+<p>Take a title \(i\) printed in decade \(t\). Compare it with every title printed in the same language in an earlier decade and find the one with the highest cosine similarity. Novelty is one minus that cosine.</p>
+<div class="eq">$$\mathrm{Novelty}_i \;=\; 1 - \max_{j \,:\, t_j < t_i} \cos(v_i, v_j)$$</div>
+<p>A reprint has an identical or nearly identical title to something earlier and scores near zero. A title unlike anything printed before scores high. A city's value for a period is the mean over its doctrine titles, so it does not drift with the number of titles the city printed. The vectors are explained <a href="../embeddings/">here</a>.</p>
+
+<h2>Try it</h2>
+<p>Titles are directions on a circle. Three earlier titles sit at 0, 40, and 90 degrees. Move the new title around the circle.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Direction of the new title <span id="nav"></span><input id="na" type="range" min="0" max="359" step="1" value="60"></label>
+  </div>
+  <svg id="nsvg" viewBox="0 0 800 320" role="img" aria-label="A new title and three earlier titles on a circle"></svg>
+  <div class="readout">
+    <div><b id="nnear"></b>nearest earlier title</div>
+    <div><b id="ncos"></b>cosine with it</div>
+    <div><b id="nnov"></b>novelty</div>
+  </div>
+  <div class="cap"><b>Figure 1.</b> A toy example. The new title in rust is compared with each earlier title in navy and only the nearest counts. At 60 degrees the nearest earlier title is 20 degrees away and novelty is 0.06. At 180 degrees the nearest is 90 degrees away and novelty is 1.</div>
+</div>
+
+<h2>A larger stock leaves less room</h2>
+<p>Novelty is measured against the stock of earlier titles, so the size of that stock matters. The next figure scatters earlier titles at random around the circle and asks how novel a new title is on average.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Earlier titles in the language <span id="stv"></span><input id="st" type="range" min="1" max="200" step="1" value="12"></label>
+  </div>
+  <svg id="ssvg" viewBox="0 0 800 300" role="img" aria-label="Average novelty by size of the earlier stock"></svg>
+  <div class="cap"><b>Figure 2.</b> A toy calculation in two dimensions. Left, one random stock of earlier titles. Right, the average novelty of a new title drawn at random, by the size of the stock, averaged over 300 stocks. The numbers are illustrative.</div>
+</div>
+<p>This is how we read the Latin result. The Latin reference corpus holds 273,168 titles against 87,800 in German and 57,951 in Italian. A title that a Latin city had not yet printed was far more often a title another city already had.</p>
+
+<h2>What the paper finds</h2>
+<p>Within cities a rise of one within-city standard deviation in vernacular market access went with doctrine titles further from anything printed before in their language by 0.37 standard deviations. The slope is 0.240 with a standard error of 0.081. German shows the largest response at 0.82 standard deviations. Latin novelty does not move with market access although Latin diversity rises. A better-connected Latin press added range from the continent's existing stock. A better-connected vernacular press added titles new to its language.</p>
+
+<h2>Checks</h2>
+<table class="t">
+  <tr><th>Version of the measure</th><th>Vernacular slope</th><th>What it rules out</th></tr>
+  <tr><td>Headline</td><td>0.240</td><td></td></tr>
+  <tr><td>Against earlier titles from other cities only</td><td>0.196</td><td>A city scoring low only because it reprints itself</td></tr>
+  <tr><td>Reprints dropped before averaging</td><td>0.224</td><td>A change in the share of reprints driving the mean</td></tr>
+  <tr><td>From 1480 only</td><td>0.240</td><td>The thin reference sets of the first decades</td></tr>
+  <tr><td>Poetry and academic dissertations dropped</td><td>0.251</td><td>Occasional print, which supplies many of the most novel titles</td></tr>
+</table>
+
+<h2>What to keep in mind</h2>
+<ul>
+  <li>Novelty is novelty of a title. A new title can announce an old argument and an old title can carry a new one.</li>
+  <li>The reference is the catalog. A title is new relative to the editions that survive and were recorded.</li>
+  <li>Two kinds of title are left out. Those whose vector coincides with that of an earlier title with different words, and those built from fewer than two words in the vocabulary.</li>
+  <li>The measure describes what a larger market added. Whether those titles changed what a city later produced is a question the paper does not reach.</li>
+</ul>
+<p>The companion reports the slopes in its <a href="../#variety">section on what the added variety was</a>.</p>
+
+<h2>References</h2>
+<!--REFS:Kelly2021_measuring,Romer1990_endogenous-->
+<ul class="refs">
+  <li>Bryan Kelly, Dimitris Papanikolaou, Amit Seru, and Matt Taddy (2021). Measuring Technological Innovation Over the Long Run. <i>American Economic Review: Insights</i> 3(3), 303–320.</li>
+  <li>Paul M. Romer (1990). Endogenous Technological Change. <i>Journal of Political Economy</i> 98(5), S71–S102.</li>
+</ul><!--/REFS-->
+<!--MORE:novelty-->
+<nav class="more" aria-label="Explainers">The five explainers. <a href="../embeddings/">Word and title embeddings</a> · <a href="../market-access/">Market access</a> · <a href="../measures/">Diversity and distinctiveness</a> · <b>Novelty</b> · <a href="../bridging/">Bridging</a> · <a href="../">Back to the companion</a></nav>
+</main>
+<div class="tip" id="tip"></div>
+<script>
+(function () {
+  const svg = d3.select("#nsvg"), cx = 400, cy = 165, R = 125, old = [0, 40, 90]; let ga;
+  const sep = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
+  const draw = () => { const a = ga(); svg.selectAll("*").remove(); svg.append("rect").attr("width", 800).attr("height", 320).attr("fill", "#fff").attr("rx", 6);
+    svg.append("circle").attr("cx", cx).attr("cy", cy).attr("r", R).attr("fill", "none").attr("stroke", "#ccc");
+    const pt = (d, r = R) => [cx + r * Math.cos(rad(d)), cy - r * Math.sin(rad(d))];
+    const near = old.reduce((m, o) => sep(a, o) < sep(a, m) ? o : m, old[0]);
+    old.forEach(o => { const p = pt(o); svg.append("line").attr("x1", cx).attr("y1", cy).attr("x2", p[0]).attr("y2", p[1]).attr("stroke", C.navy).attr("stroke-width", o === near ? 3.5 : 1.5).attr("opacity", o === near ? 1 : .45);
+      svg.append("circle").attr("cx", p[0]).attr("cy", p[1]).attr("r", 6).attr("fill", C.navy); const q = pt(o, R + 22); svg.append("text").attr("x", q[0]).attr("y", q[1] + 4).attr("text-anchor", "middle").text(o + "°"); });
+    const p = pt(a); svg.append("line").attr("x1", cx).attr("y1", cy).attr("x2", p[0]).attr("y2", p[1]).attr("stroke", C.rust).attr("stroke-width", 3.5);
+    svg.append("circle").attr("cx", p[0]).attr("cy", p[1]).attr("r", 8).attr("fill", C.rust);
+    const c = Math.cos(rad(sep(a, near))); d3.select("#nnear").text(`at ${near}°, ${sep(a, near)}° away`); d3.select("#ncos").text(f2(c)); d3.select("#nnov").text(f2(1 - c)); };
+  ga = slider("na", d => d + " degrees", draw); d3.select("#nav").text("60 degrees"); draw();
+})();
+(function () {
+  const svg = d3.select("#ssvg"), W = 800, H = 300; let gs;
+  const sizes = [1, 2, 3, 5, 8, 12, 20, 30, 50, 80, 120, 200];
+  const avg = k => { const r = rng(1000 + k); let s = 0, m = 0; for (let b = 0; b < 300; b++) { const st = d3.range(k).map(() => 360 * r()), a = 360 * r();
+      let best = 180; st.forEach(o => { let d = Math.abs(a - o) % 360; if (d > 180) d = 360 - d; if (d < best) best = d; }); s += 1 - Math.cos(rad(best)); m++; } return s / m; };
+  const curve = sizes.map(k => ({ k, v: avg(k) }));
+  const x = d3.scaleLog([1, 200], [470, W - 20]), y = d3.scaleLinear([0, 1.05], [H - 44, 30]);
+  const draw = () => { const k = gs(); svg.selectAll("*").remove(); svg.append("rect").attr("width", 400).attr("height", H).attr("fill", "#fff").attr("rx", 6); svg.append("rect").attr("x", 414).attr("width", 386).attr("height", H).attr("fill", "#fff").attr("rx", 6);
+    const cx = 200, cy = 158, R = 105, r = rng(42); svg.append("circle").attr("cx", cx).attr("cy", cy).attr("r", R).attr("fill", "none").attr("stroke", "#ccc");
+    svg.append("text").attr("class", "title").attr("x", 12).attr("y", 20).text(`${k} earlier ${k === 1 ? "title" : "titles"}`);
+    d3.range(k).forEach(() => { const a = rad(360 * r()); svg.append("circle").attr("cx", cx + R * Math.cos(a)).attr("cy", cy - R * Math.sin(a)).attr("r", 4).attr("fill", C.navy).attr("opacity", .6); });
+    svg.append("text").attr("class", "title").attr("x", 426).attr("y", 20).text("Average novelty of a new title");
+    svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - 44})`).call(d3.axisBottom(x).tickValues([1, 2, 5, 10, 20, 50, 100, 200]).tickFormat(d3.format("d")));
+    svg.append("g").attr("class", "axis").attr("transform", "translate(470,0)").call(d3.axisLeft(y).ticks(5));
+    svg.append("text").attr("x", (470 + W - 20) / 2).attr("y", H - 8).attr("text-anchor", "middle").text("Earlier titles in the language");
+    svg.append("path").datum(curve).attr("fill", "none").attr("stroke", C.navy).attr("stroke-width", 2.2).attr("d", d3.line().x(d => x(d.k)).y(d => y(d.v)));
+    const v = avg(k); svg.append("circle").attr("cx", x(k)).attr("cy", y(v)).attr("r", 7).attr("fill", C.rust);
+    svg.append("text").attr("class", "title").attr("x", x(k) + 10).attr("y", y(v) - 8).text(f2(v)); };
+  gs = slider("st", d => d, draw); d3.select("#stv").text("12"); draw();
+})();
+</script>
+</body>
+</html>

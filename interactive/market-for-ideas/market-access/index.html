@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market access</title>
+<meta name="description" content="How Mapping the Market for Ideas measures the readers a press could reach. An explainer for economists.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="../explain.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="../explain.js"></script>
+</head>
+<body>
+<main>
+<header class="top">
+  <div class="kicker">Explainer 2 of 5</div>
+  <h1>Market access</h1>
+  <div class="byline">Part of the <a href="../">interactive companion</a> to Mapping the Market for Ideas in Europe, 1450–1650, by Noel Johnson and Alexander Taylor</div>
+</header>
+
+<p>Market access is one number for each city and year. It measures how many people a producer in that city can reach once the cost of reaching them is counted. It is the regressor in every result in the paper.</p>
+
+<h2>The formula</h2>
+<div class="eq">$$\mathrm{MA}_{j} \;=\; \sum_{i \neq j} \frac{\mathrm{pop}_{i}}{\tau_{ij}^{\,\theta}}$$</div>
+<p>The sum runs over every other city \(i\). Each city contributes its population, divided by the cost \(\tau_{ij}\) of moving goods between it and city \(j\), raised to the power \(\theta\). A large city nearby adds a lot. A small city far away adds little.</p>
+<p>The measure comes from trade theory. In a model with love of variety and trade costs, a producer's revenue depends on the markets it can reach only through a sum of this form, so the sum is a sufficient statistic for the producer's geography. Donaldson and Hornbeck (2016) used it to measure what railroads did to American land values and Donaldson (2018) used the same approach for the railways of colonial India. Pascali (2017) applies related reasoning to the steamship.</p>
+
+<h2>Ten towns</h2>
+<p>The figure is a toy economy of ten towns. Five form a cluster in the middle and five are scattered around it. The cost of travel between two towns is one plus their distance in hundreds of kilometers. Click a town to see where its market access comes from.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Trade elasticity \(\theta\) <span id="thv"></span><input id="th" type="range" min="0.25" max="5" step="0.05" value="1"></label>
+    <label style="align-self:end"><input type="checkbox" id="grow"> The five core towns grow by half</label>
+  </div>
+  <svg id="masvg" viewBox="0 0 800 420" role="img" aria-label="Ten towns and their market access"></svg>
+  <div class="readout">
+    <div><b id="rma"></b>market access of the selected town</div>
+    <div><b id="rtop"></b>largest single contributor</div>
+    <div><b id="rdl"></b>change in its log market access when the core grows</div>
+  </div>
+  <div class="cap"><b>Figure 1.</b> A toy economy. The left panel maps the towns, with circle area proportional to population in thousands and color darker for higher market access. The right panel shows each other town's contribution to the selected town's market access. The numbers are illustrative and are not data.</div>
+</div>
+<p>Three things are worth trying.</p>
+<ul>
+  <li><b>The largest town does not have the highest market access.</b> A town's own population is left out of its own sum. Town A has 40,000 people. They count toward the access of A's neighbors and not toward A's.</li>
+  <li><b>Raise the elasticity.</b> At a high \(\theta\) only the nearest neighbors matter. At a low \(\theta\) every town counts nearly equally and the towns' market access values bunch together.</li>
+  <li><b>Let the core grow.</b> Market access rises in every town although no peripheral town changed. That is the variation the paper uses. A city's market access moves because other cities grow.</li>
+</ul>
+
+<h2>Travel costs in the paper</h2>
+<p>We lay a grid of 10 km by 10 km cells over Europe and the Mediterranean. Each cell gets the cost of its cheapest way of moving goods, following Bairoch (1988). Overland portage is the unit.</p>
+<table class="t">
+  <tr><th>Mode</th><th>Cost per cell</th></tr>
+  <tr><td>Porters</td><td>1.00</td></tr>
+  <tr><td>Roads</td><td>0.81</td></tr>
+  <tr><td>Navigable rivers</td><td>0.21</td></tr>
+  <tr><td>Seas</td><td>0.08</td></tr>
+</table>
+<p>Moving a load 100 km by river costs the same as moving it about 26 km by road or 21 km by porter. The cost \(\tau_{ij}\) between two cities is the cheapest path between them across the grid, found with Dijkstra's algorithm for every pair of about 2,330 cities. The path from Mainz to Venice follows the Rhine, crosses the Alps near the Brenner, and descends through the Po valley. The <a href="../#ma">companion's map</a> draws it.</p>
+<p>Three other cost schedules from the literature give log market access that correlates between 0.88 and 0.98 with the Bairoch version.</p>
+
+<h2>Population</h2>
+<p>City populations come from Buringh (2021), with a supplement for North Africa and the Middle East from Bosker, Buringh, and van Zanden (2013). We compute market access at 1450, 1500, 1550, 1600, and 1650. The 1450 value is interpolated between 1400 and 1500. Values for the decades in between are interpolated and averaged over the decades in which a city printed.</p>
+
+<h2>The trade elasticity</h2>
+<p>The exponent \(\theta\) sets how fast market access discounts distance. A good with high transport costs relative to its value has a high \(\theta\). Books were light and valuable and sit at the low end. Our headline value is 1. The paper reports every result for values from 0.25 to 5, and the companion plots them in its <a href="../#theta">section on how far books traveled</a>.</p>
+
+<h2>Three choices specific to the paper</h2>
+<ul>
+  <li><b>A city's own population is excluded.</b> Market access is meant to measure access to readers elsewhere. Including a city's own people would make the measure track city size.</li>
+  <li><b>The market is bounded by language.</b> A German book had few readers in Spain. For each vernacular the sum runs over the cities that printed at least one title in that language between 1450 and 1650. That is 283 cities for German, 205 for Italian, 301 for French, 131 for Dutch, and 187 for Spanish.</li>
+  <li><b>Latin has its own market.</b> Latin was read by a public trained in universities, colleges, and academies. For Latin the sum runs over the 129 cities that had one of these institutions at some time between 1450 and 1650.</li>
+</ul>
+
+<h2>How the paper uses it</h2>
+<p>Every regression has the log of market access on the right and city-and-language fixed effects. The slope compares a city with itself as its access changes. Most of the variation in market access is between cities. Within a city it is 10 to 19 percent of the total depending on the language. One within-city standard deviation is 0.16 log units, about the rise a typical city saw over half a century.</p>
+
+<h2>What to keep in mind</h2>
+<ul>
+  <li>Market access is built from population. It measures potential readers and not literacy, income, or actual sales.</li>
+  <li>The cost surface is fixed over the two centuries. All change in a city's market access comes from population change elsewhere.</li>
+  <li>A war or a regional boom can change the populations around a city and what its presses print at once. The paper reads its slopes as associations for that reason.</li>
+</ul>
+
+<h2>References</h2>
+<!--REFS:Bairoch1988_cities,Bosker2013_baghdad_london,Buringh2021_dataset,Buringh2021_paper,Donaldson2018_railways,DonaldsonHornbeck2016_railroads,Pascali2017_wind-->
+<ul class="refs">
+  <li>Paul Bairoch (1988). <i>Cities and Economic Development: From the Dawn of History to the Present</i>. Chicago, IL, University of Chicago Press.</li>
+  <li>Maarten Bosker, Eltjo Buringh, and Jan Luiten van Zanden (2013). From Baghdad to London: Unraveling Urban Development in Europe, the Middle East, and North Africa, 800–1800. <i>Review of Economics and Statistics</i> 95(4), 1418–1437.</li>
+  <li>Eltjo Buringh (2021). The Population of European Cities from 700 to 2000. <i>Research Data Journal for the Humanities and Social Sciences</i> 6(1), 1–18.</li>
+  <li>Eltjo Buringh (2021). European Urban Population, 700–2000. <i>Dataset, version 1.0</i>.</li>
+  <li>Dave Donaldson and Richard Hornbeck (2016). Railroads and American Economic Growth: A "Market Access" Approach. <i>Quarterly Journal of Economics</i> 131(2), 799–858.</li>
+  <li>Dave Donaldson (2018). Railroads of the Raj: Estimating the Impact of Transportation Infrastructure. <i>American Economic Review</i> 108(4–5), 899–934.</li>
+  <li>Luigi Pascali (2017). The Wind of Change: Maritime Technology, Trade, and Economic Development. <i>American Economic Review</i> 107(9), 2821–2854.</li>
+</ul><!--/REFS-->
+<!--MORE:market-access-->
+<nav class="more" aria-label="Explainers">The five explainers. <a href="../embeddings/">Word and title embeddings</a> · <b>Market access</b> · <a href="../measures/">Diversity and distinctiveness</a> · <a href="../novelty/">Novelty</a> · <a href="../bridging/">Bridging</a> · <a href="../">Back to the companion</a></nav>
+</main>
+<div class="tip" id="tip"></div>
+<script>
+(function () {
+  const T = [["A",0,0,40],["B",1,0,20],["C",0,1,15],["D",1,1,10],["E",2,0.5,8],["F",4,3,12],["G",5,0,6],["H",-3,2,10],["I",-4,-2,5],["J",6,4,4]]
+    .map(([name,x,y,pop], i) => ({ name, x, y, pop, core: i < 5 }));
+  const svg = d3.select("#masvg"), W = 800, H = 420;
+  const sx = d3.scaleLinear([-5, 7], [20, 450]), sy = d3.scaleLinear([-3, 5], [H - 20, 20]), r = d3.scaleSqrt([0, 60], [0, 34]);
+  let sel = "G", gth;
+  const calc = (th, grow) => { const pop = T.map(t => t.pop * (grow && t.core ? 1.5 : 1));
+    return T.map((t, j) => { const parts = T.map((s, i) => i === j ? 0 : pop[i] / Math.pow(1 + Math.hypot(t.x - s.x, t.y - s.y), th)); return { ma: d3.sum(parts), parts }; }); };
+  function draw() {
+    const th = gth(), grow = document.getElementById("grow").checked, base = calc(th, false), cur = calc(th, grow);
+    svg.selectAll("*").remove();
+    svg.append("rect").attr("width", 470).attr("height", H).attr("fill", "#fff").attr("rx", 6);
+    const col = d3.scaleSequential(d3.extent(cur, d => Math.log(d.ma)), d3.interpolateRgbBasis(["#f2e6c6", "#7fb3ad", "#2A6F77", "#0f2f34"]));
+    const g = svg.selectAll("g.t").data(T).join("g").attr("class", "t").attr("transform", t => `translate(${sx(t.x)},${sy(t.y)})`).style("cursor", "pointer").on("click", (e, t) => { sel = t.name; draw(); });
+    g.append("circle").attr("r", (t, i) => r(t.pop * (grow && t.core ? 1.5 : 1))).attr("fill", (t, i) => col(Math.log(cur[i].ma))).attr("stroke", t => t.name === sel ? C.rust : "#fff").attr("stroke-width", t => t.name === sel ? 3.5 : 1);
+    // the five core towns sit close together, so their labels fan out around the cluster
+    const LP = { A: [-1, 0.6], B: [0.3, 1], C: [-1, -0.6], D: [0.2, -1], E: [1, 0.2] };
+    g.append("text").attr("class", "title").each(function (t, i) { const rr = r(t.pop * (grow && t.core ? 1.5 : 1)), o = LP[t.name] || [0, -1];
+      d3.select(this).attr("x", o[0] * (rr + 6)).attr("y", o[1] * (rr + 8) + (o[1] > 0.5 ? 8 : o[1] < -0.5 ? 0 : 4))
+        .attr("text-anchor", o[0] < -0.5 ? "end" : o[0] > 0.5 ? "start" : "middle").text(`${t.name}  ${f2(cur[i].ma)}`); });
+    const j = T.findIndex(t => t.name === sel), rows = T.map((t, i) => ({ name: t.name, v: cur[j].parts[i] })).filter(d => d.name !== sel);
+    const x = d3.scaleLinear([0, d3.max(rows, d => d.v)], [540, W - 40]), y = d3.scaleBand(rows.map(d => d.name), [40, H - 20]).padding(.2);
+    svg.append("text").attr("class", "title").attr("x", 500).attr("y", 22).text(`What each town adds to ${sel}`);
+    const b = svg.selectAll("g.b").data(rows).join("g").attr("class", "b").attr("transform", d => `translate(0,${y(d.name)})`);
+    b.append("text").attr("x", 530).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").attr("text-anchor", "end").style("font-size", "13px").text(d => d.name);
+    b.append("rect").attr("x", 540).attr("height", y.bandwidth()).attr("width", d => x(d.v) - 540).attr("fill", C.teal).attr("opacity", .85);
+    b.append("text").attr("x", d => x(d.v) + 5).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").text(d => f2(d.v));
+    const top = rows.reduce((a, d) => d.v > a.v ? d : a);
+    d3.select("#rma").text(f2(cur[j].ma)); d3.select("#rtop").text(`${top.name}, ${Math.round(100 * top.v / cur[j].ma)} percent`);
+    d3.select("#rdl").text(grow ? f2(Math.log(cur[j].ma) - Math.log(base[j].ma)) : "0.00");
+  }
+  gth = slider("th", f2, draw); d3.select("#thv").text("1.00"); document.getElementById("grow").addEventListener("change", draw); draw();
+})();
+</script>
+</body>
+</html>

@@ -66,6 +66,9 @@ table.pred th:first-child, table.pred td:first-child { text-align: left; }
 ol.assume { font-size: 17px; padding-left: 26px; }
 ol.assume li { margin-bottom: 4px; }
 .note { font-size: 15px; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+ul.refs { font: 15px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; padding-left: 0; list-style: none; }
+ul.refs li { padding-left: 1.6em; text-indent: -1.6em; margin-bottom: 8px; }
+.note a { color: var(--teal); }
 footer { border-top: 1px solid var(--rule); margin-top: 48px; padding-top: 16px; font: 14px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
 footer a { color: var(--teal); }
 @media (max-width: 640px) {
@@ -96,25 +99,28 @@ footer a { color: var(--teal); }
     <li><a href="#variety">What the added variety was</a></li>
     <li><a href="#explorer">City explorer</a></li>
     <li><a href="#limits">Limits</a></li>
+    <li><a href="#references">References</a></li>
   </ol>
 </nav>
+
+<p class="note">Some of the constructions here will be new to economists. Five short explainers cover them, each with a worked example you can move. <a href="embeddings/">Word and title embeddings</a> · <a href="market-access/">Market access</a> · <a href="measures/">Diversity and distinctiveness</a> · <a href="novelty/">Novelty</a> · <a href="bridging/">Bridging</a></p>
 
 <section id="argument">
 <h2><span class="num">1</span>Argument</h2>
 <p>Between 1450 and 1650 European print grew from a Mainz craft producing about 3,000 Latin editions a decade into a market of nearly 800,000 editions in 1,338 cities. As the number of printing cities and the populations around them grew each press came within reach of more readers. We ask whether that integration made what a city printed broader and more like the rest of its market or narrower and more its own.</p>
-<p>Two accounts of a growing market give opposite answers. For Adam Smith the division of labor is limited by the extent of the market. A printing city with better access to readers should concentrate on a narrower range of titles and set itself further apart from other cities. Monopolistic competition says a larger market supports more producers of more varieties and that a producer with good access to its market positions near that market's center. A better-connected city should print a wider range of titles and move toward what the rest of its market printed.</p>
+<p>Two accounts of a growing market give opposite answers. For Adam Smith the division of labor is limited by the extent of the market (Smith 1776, Stigler 1951). A printing city with better access to readers should concentrate on a narrower range of titles and set itself further apart from other cities. Monopolistic competition says a larger market supports more producers of more varieties (Krugman 1980). Models of spatial product differentiation add that a producer with good access to its market positions near that market's center (Hotelling 1929, Anderson, de Palma, and Thisse 1992). A better-connected city should print a wider range of titles and move toward what the rest of its market printed.</p>
 <table class="pred">
   <tr><th>When a city's market access rises</th><th>Smith</th><th>Monopolistic competition</th></tr>
   <tr><td>Diversity, how widely its titles range</td><td>falls</td><td>rises</td></tr>
   <tr><td>Distinctiveness, how far its print sits from the rest of its language</td><td>rises</td><td>falls in a vernacular</td></tr>
 </table>
-<p>We measure both from the titles of the Universal Short Title Catalogue and relate them to a panel of market access. In doctrine, the religious, scholarly, and literary print a press could sell beyond its own city, a better-connected city printed a wider range of titles and moved nearer the mainstream of its language. The response is strongest in German and Italian. The titles a larger vernacular market added were further from anything the language had printed before and lay between established subjects.</p>
+<p>We measure both from the titles of the Universal Short Title Catalogue (USTC 2022) and relate them to a panel of market access (Donaldson and Hornbeck 2016). In doctrine, the religious, scholarly, and literary print a press could sell beyond its own city, a better-connected city printed a wider range of titles and moved nearer the mainstream of its language. The response is strongest in German and Italian. The titles a larger vernacular market added were further from anything the language had printed before and lay between established subjects.</p>
 <p>The response appeared where printers were free to enter. German and Italian were printed across hundreds of polities where no single authority licensed the trade and they carry both results. French and Spanish came under royal licensing in the 1550s and 1560s and show neither.</p>
 </section>
 
 <section id="vectors">
 <h2><span class="num">2</span>Titles as vectors</h2>
-<p>The catalog gives each edition a short title, a place and year of printing, a language, and one of about 20 subject classes. The largest class, Religious, holds 215,000 titles and puts Lutheran polemic from Wittenberg beside Catholic devotional manuals from Lyon and Calvinist catechisms from Geneva. We measure content with word embeddings trained on the titles themselves. A word is represented by the words it appears near so words used in similar titles end up close together. Each language's vectors are trained separately on its own titles.</p>
+<p>The catalog gives each edition a short title, a place and year of printing, a language, and one of about 20 subject classes. The largest class, Religious, holds 215,000 titles and puts Lutheran polemic from Wittenberg beside Catholic devotional manuals from Lyon and Calvinist catechisms from Geneva. We measure content with word embeddings trained on the titles themselves (Mikolov et al. 2013, Pennington, Socher, and Manning 2014). A word is represented by the words it appears near so words used in similar titles end up close together. Ours come from a matrix of word associations reduced to 200 dimensions (Levy and Goldberg 2014). Each language's vectors are trained separately on its own titles.</p>
 <p>Search a word to see its ten nearest neighbors. The list covers the 1,500 most common words in each language. Click a neighbor to move to it.</p>
 <div class="figure">
   <div class="controls">
@@ -126,13 +132,14 @@ footer a { color: var(--teal); }
   <svg id="nsvg" viewBox="0 0 800 330" role="img" aria-label="Nearest neighbors of the selected word"></svg>
   <div class="cap"><b>Figure 1.</b> The ten nearest words by cosine similarity in the 200-dimensional embedding of the selected language. Words are in early modern spelling as the catalog records them.</div>
 </div>
-<p>A title's vector is a weighted average of its words. The nearest titles to William Harvey's <i>De motu cordis</i> are reprints of Harvey and other works on the circulation of the blood. The catalog files them under three different classes.</p>
+<p>A title's vector is a weighted average of its words (Arora, Liang, and Ma 2017). The nearest titles to William Harvey's <i>De motu cordis</i> are reprints of Harvey and other works on the circulation of the blood. The catalog files them under three different classes.</p>
 <div class="figure">
   <div class="controls" id="ttabs"></div>
   <svg id="tsvg" viewBox="0 0 800 300" role="img" aria-label="Nearest titles to the seed"></svg>
   <div class="legend" id="tleg"></div>
   <div class="cap"><b>Figure 2.</b> The eight nearest Latin titles to each seed work, colored by the catalog's subject class. Hover for the full title.</div>
 </div>
+<p class="note">Explainer. <a href="embeddings/">How the word and title vectors are built.</a></p>
 </section>
 
 <section id="measures">
@@ -143,6 +150,7 @@ footer a { color: var(--teal); }
   <svg id="lsvg" viewBox="0 0 800 440" role="img" aria-label="Diversity and distinctiveness of Latin print by city, 1600 to 1609"></svg>
   <div class="cap"><b>Figure 3.</b> Latin print by city in 1600 to 1609, for cities with at least 60 Latin titles in the decade. Circle area is proportional to the number of titles. Hover for any city.</div>
 </div>
+<p class="note">Explainer. <a href="measures/">Diversity and distinctiveness, with the correction for small cities.</a></p>
 <p>Distinctiveness says how far a city's print sits from the rest of its language. The city's signature says in which direction. It is the set of words whose vectors point most nearly from the rest of the language toward the city's average title.</p>
 <div class="figure">
   <div class="controls" id="stabs"></div>
@@ -153,7 +161,7 @@ footer a { color: var(--teal); }
 
 <section id="framework">
 <h2><span class="num">4</span>Framework</h2>
-<p>The hypothesis is that the early modern book trade worked like a market for differentiated goods. A title is a variety and its position is its place in the embedding. A printer sells to readers in every city, and demand from each city arrives discounted by the cost of shipping. Six assumptions carry the model.</p>
+<p>The hypothesis is that the early modern book trade worked like a market for differentiated goods. The framework joins monopolistic competition (Dixit and Stiglitz 1977, Krugman 1979, 1980, Helpman and Krugman 1985) to spatial product differentiation (Hotelling 1929, Lancaster 1979, Salop 1979, Anderson, de Palma, and Thisse 1992). A title is a variety and its position is its place in the embedding. A printer sells to readers in every city, and demand from each city arrives discounted by the cost of shipping. Six assumptions carry the model.</p>
 <ol class="assume">
   <li>Readers value variety.</li>
   <li>Each title has a fixed cost of typesetting and editing that is large relative to the cost of a copy.</li>
@@ -176,7 +184,7 @@ footer a { color: var(--teal); }
 
 <section id="ma">
 <h2><span class="num">5</span>Market access</h2>
-<p>A city's market access sums the populations of other cities, each discounted by the cost of reaching it. Costs come from least-cost paths over roads, rivers, and seas, with sea travel cheapest and overland portage dearest. A city's own population is left out so its own growth does not count as access to readers. For a vernacular the sum runs over the cities that printed in that language and for Latin over the university cities.</p>
+<p>A city's market access sums the populations of other cities, each discounted by the cost of reaching it (Donaldson and Hornbeck 2016, Donaldson 2018). Populations are from Buringh (2021) and Bosker, Buringh, and van Zanden (2013). Costs come from least-cost paths over roads, rivers, and seas, with sea travel cheapest and overland portage dearest, on the cost schedule of Bairoch (1988). A city's own population is left out so its own growth does not count as access to readers. For a vernacular the sum runs over the cities that printed in that language and for Latin over the university cities.</p>
 <p>Market access changes within a city because populations elsewhere change. Paris grew from about 94,000 people in 1500 to about 387,000 in 1650 and Amsterdam from about 12,000 to about 104,000, while Bruges fell from about 35,000 to about 27,000 by 1600.</p>
 <div class="figure">
   <div class="controls" id="matabs"></div>
@@ -185,6 +193,7 @@ footer a { color: var(--teal); }
   <div class="legend" id="malegend"></div>
   <div class="cap"><b>Figure 5.</b> Log market access summed over every city, at each anchor year, for cities that printed in the preceding 50 years. The paths run from Mainz to Venice by the Rhine, the Brenner, and the Po, and from Antwerp to Madrid by sea around Iberia.</div>
 </div>
+<p class="note">Explainer. <a href="market-access/">Market access, with a toy economy of ten towns.</a></p>
 </section>
 
 <section id="results">
@@ -195,7 +204,7 @@ footer a { color: var(--teal); }
   <div class="controls"><span id="ptabs"></span><span class="sep"></span><span id="mtabs"></span><span class="sep"></span><span id="utabs"></span></div>
   <div class="readline" id="rread"></div>
   <svg id="rsvg" viewBox="0 0 800 340" role="img" aria-label="Within-city slopes by language"></svg>
-  <div class="cap"><b>Figure 6.</b> Within-city slope of each measure on log market access, pooled and by language. Weighted two-way fixed effects with city-and-language and period effects. Intervals are 95 percent and use the larger of the city-clustered standard error and a standard error that allows correlation between cities within 250 km. Filled points have intervals that exclude zero. Latin doctrine excludes academic dissertations.</div>
+  <div class="cap"><b>Figure 6.</b> Within-city slope of each measure on log market access, pooled and by language. Weighted two-way fixed effects with city-and-language and period effects. Intervals are 95 percent and use the larger of the city-clustered standard error and a standard error that allows correlation between cities within 250 km (Conley 1999). Filled points have intervals that exclude zero. Latin doctrine excludes academic dissertations.</div>
 </div>
 <p>Doctrine diversity rises. Pooled over six languages the move goes with diversity higher by 0.39 standard deviations. The response is 1.28 standard deviations in German, 0.63 in Italian, and 0.30 in Latin. Over all titles, news included, the pooled rise is a quarter of a standard deviation.</p>
 <p>Vernacular doctrine distinctiveness falls. Pooled over the five vernaculars the same move brings a city's doctrine nearer the mainstream of its language by 0.32 standard deviations, and by 1.35 in German and 0.86 in Italian. Latin doctrine shows no fall. Its interval excludes the German and Italian falls and contains zero.</p>
@@ -225,7 +234,7 @@ footer a { color: var(--teal); }
 
 <section id="entry">
 <h2><span class="num">8</span>Where printers could not enter</h2>
-<p>German and Italian were printed across hundreds of polities. Venice and the Empire had censors but no single authority licensed the trade across either language and a printer refused in one state could print in another. They are 52 percent of vernacular titles. French and Spanish are a further 36 percent. The ordinances of Mantes in 1563 and Moulins in 1566 made royal permission the condition of printing a book in France. The pragmática of 1558 required every book printed in Castile to be licensed by the Council of Castile. A license that can be refused caps entry.</p>
+<p>German and Italian were printed across hundreds of polities. Venice and the Empire had censors but no single authority licensed the trade across either language and a printer refused in one state could print in another. They are 52 percent of vernacular titles. French and Spanish are a further 36 percent. The ordinances of Mantes in 1563 and Moulins in 1566 made royal permission the condition of printing a book in France (Isambert, Decrusy, and Taillandier 1829). The pragmática of 1558 required every book printed in Castile to be licensed by the Council of Castile (Reyes Gómez 2000). A license that can be refused caps entry.</p>
 <div class="figure">
   <div class="controls" id="gtabs"></div>
   <svg id="gsvg" viewBox="0 0 800 230" role="img" aria-label="Slopes by regime"></svg>
@@ -248,7 +257,8 @@ footer a { color: var(--teal); }
 
 <section id="variety">
 <h2><span class="num">9</span>What the added variety was</h2>
-<p>A larger market added titles. Two measures ask what kind. The novelty of a title is one minus its cosine with the nearest title printed earlier in the same language. A reprint scores near zero. Bridging uses 30 subject clusters per language. It is the title's cosine with its second-nearest cluster divided by its cosine with the nearest. A title inside one subject scores low and a title between two subjects scores near one.</p>
+<p>A larger market added titles. In models of growth through new varieties a larger market is what covers the fixed cost of a new idea (Romer 1990), and new ideas are also combinations of existing ones (Weitzman 1998). Two measures ask whether the added titles were of those kinds. The novelty of a title is one minus its cosine with the nearest title printed earlier in the same language. A reprint scores near zero. Bridging uses 30 subject clusters per language. It is the title's cosine with its second-nearest cluster divided by its cosine with the nearest. A title inside one subject scores low and a title between two subjects scores near one.</p>
+<p class="note">Explainer. <a href="novelty/">Novelty.</a> · <a href="bridging/">Bridging.</a></p>
 <div class="figure">
   <div class="controls" id="vtabs"></div>
   <div class="readline" id="vread"></div>
@@ -268,7 +278,7 @@ footer a { color: var(--teal); }
   <div class="legend" id="xleg"></div>
   <div class="cap"><b>Figure 14.</b> The 30 German subject clusters, placed on a two-dimensional projection of their centers. Circle area is proportional to the number of titles. Hover a circle for its nearest vocabulary words. The English names of the subjects, the translations of the titles, and the identifications of the works are ours and are not in the catalog. The measure itself is computed in 200 dimensions.</div>
 </div>
-<p>These are the inputs that accounts of idea production take as given. A new variety is the good whose fixed cost a larger market covers and a title between subjects is a combination of existing ones. Whether a city with such titles grew or produced more ideas is a question the paper does not reach.</p>
+<p>These are the inputs that accounts of idea production take as given. A new variety is the good whose fixed cost a larger market covers and a title between subjects is a combination of existing ones. The crossing of ideas between fields is what Jacobs (1969) and Glaeser et al. (1992) put behind the growth of cities. Whether a city with such titles grew or produced more ideas is a question the paper does not reach.</p>
 </section>
 
 <section id="explorer">
@@ -291,6 +301,41 @@ footer a { color: var(--teal); }
 <p>The German fall in distinctiveness comes from the first half of the seventeenth century. Without the 1600 to 1649 period the German doctrine slope is −0.116 with a standard error of 0.779. The German diversity slope survives that cut at 0.949 with a standard error of 0.450. Without German altogether the six-language diversity slope is 0.198 and the vernacular distinctiveness slope is −0.376.</p>
 <p>The French and Spanish slopes are imprecise and Dutch is the smallest panel. The regime comparison rests on six languages and the Castilian timing is a single case. English is left out because London printed 85 percent of English titles.</p>
 <p>The catalog records what survives of what cities printed. What readers bought and read is not observed. Novelty and bridging describe the titles a larger market added and say nothing about whether those titles changed what a city later produced.</p>
+</section>
+
+<section id="references">
+<h2>References</h2>
+<!--REFS:Smith1776_wealth,Stigler1951_division,Krugman1979_increasing_returns,Krugman1980_scale_economies,HelpmanKrugman1985_market_structure,Dixit1977_monopolistic,Hotelling1929_stability,Salop1979_monopolistic,Lancaster1979_variety,Anderson1992_discrete_choice,DonaldsonHornbeck2016_railroads,Donaldson2018_railways,Mikolov2013_word2vec,Pennington2014_glove,LevyGoldberg2014_pmi_svd,Arora2017_sif,Buringh2021_dataset,Buringh2021_paper,Bosker2013_baghdad_london,Bairoch1988_cities,Romer1990_endogenous,Weitzman1998_recombinant,Jacobs1969_economy,Glaeser1992_growth,USTC_catalogue,Conley1999_gmm,ReyesGomez2000_libro,Isambert1829_recueil14-->
+<ul class="refs">
+  <li>Simon P. Anderson, André de Palma, and Jacques-François Thisse (1992). <i>Discrete Choice Theory of Product Differentiation</i>. Cambridge, MA, MIT Press.</li>
+  <li>Sanjeev Arora, Yingyu Liang, and Tengyu Ma (2017). A Simple but Tough-to-Beat Baseline for Sentence Embeddings. <i>International Conference on Learning Representations (ICLR)</i>.</li>
+  <li>Paul Bairoch (1988). <i>Cities and Economic Development: From the Dawn of History to the Present</i>. Chicago, IL, University of Chicago Press.</li>
+  <li>Maarten Bosker, Eltjo Buringh, and Jan Luiten van Zanden (2013). From Baghdad to London: Unraveling Urban Development in Europe, the Middle East, and North Africa, 800–1800. <i>Review of Economics and Statistics</i> 95(4), 1418–1437.</li>
+  <li>Eltjo Buringh (2021). The Population of European Cities from 700 to 2000. <i>Research Data Journal for the Humanities and Social Sciences</i> 6(1), 1–18.</li>
+  <li>Eltjo Buringh (2021). European Urban Population, 700–2000. <i>Dataset, version 1.0</i>.</li>
+  <li>Timothy G. Conley (1999). GMM Estimation with Cross Sectional Dependence. <i>Journal of Econometrics</i> 92(1), 1–45.</li>
+  <li>Avinash K. Dixit and Joseph E. Stiglitz (1977). Monopolistic Competition and Optimum Product Diversity. <i>American Economic Review</i> 67(3), 297–308.</li>
+  <li>Dave Donaldson and Richard Hornbeck (2016). Railroads and American Economic Growth: A "Market Access" Approach. <i>Quarterly Journal of Economics</i> 131(2), 799–858.</li>
+  <li>Dave Donaldson (2018). Railroads of the Raj: Estimating the Impact of Transportation Infrastructure. <i>American Economic Review</i> 108(4–5), 899–934.</li>
+  <li>Edward L. Glaeser, Hedi D. Kallal, José A. Scheinkman, and Andrei Shleifer (1992). Growth in Cities. <i>Journal of Political Economy</i> 100(6), 1126–1152.</li>
+  <li>Elhanan Helpman and Paul R. Krugman (1985). <i>Market Structure and Foreign Trade: Increasing Returns, Imperfect Competition, and the International Economy</i>. Cambridge, MA, MIT Press.</li>
+  <li>Harold Hotelling (1929). Stability in Competition. <i>Economic Journal</i> 39(153), 41–57.</li>
+  <li>François-André Isambert, Decrusy, and Alphonse-Honoré Taillandier (1829). <i>Recueil général des anciennes lois françaises, depuis l'an 420 jusqu'à la Révolution de 1789</i>, vol. 14. Paris, Belin-Leprieur.</li>
+  <li>Jane Jacobs (1969). <i>The Economy of Cities</i>. New York, Random House.</li>
+  <li>Paul Krugman (1979). Increasing Returns, Monopolistic Competition, and International Trade. <i>Journal of International Economics</i> 9(4), 469–479.</li>
+  <li>Paul Krugman (1980). Scale Economies, Product Differentiation, and the Pattern of Trade. <i>American Economic Review</i> 70(5), 950–959.</li>
+  <li>Kelvin Lancaster (1979). <i>Variety, Equity, and Efficiency: Product Variety in an Industrial Society</i>. New York, Columbia University Press.</li>
+  <li>Omer Levy and Yoav Goldberg (2014). Neural Word Embedding as Implicit Matrix Factorization. <i>Advances in Neural Information Processing Systems 27 (NeurIPS 2014)</i>, 2177–2185.</li>
+  <li>Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean (2013). Distributed Representations of Words and Phrases and their Compositionality. <i>Advances in Neural Information Processing Systems</i>, 3111–3119.</li>
+  <li>Jeffrey Pennington, Richard Socher, and Christopher D. Manning (2014). GloVe: Global Vectors for Word Representation. <i>Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)</i>, 1532–1543.</li>
+  <li>Fermín de los Reyes Gómez (2000). <i>El libro en España y América: legislación y censura (siglos XV–XVIII)</i>. Madrid, Arco/Libros.</li>
+  <li>Paul M. Romer (1990). Endogenous Technological Change. <i>Journal of Political Economy</i> 98(5), S71–S102.</li>
+  <li>Steven C. Salop (1979). Monopolistic Competition with Outside Goods. <i>Bell Journal of Economics</i> 10(1), 141–156.</li>
+  <li>Adam Smith (1776). <i>An Inquiry into the Nature and Causes of the Wealth of Nations</i>. London, W. Strahan and T. Cadell.</li>
+  <li>George J. Stigler (1951). The Division of Labor is Limited by the Extent of the Market. <i>Journal of Political Economy</i> 59(3), 185–193.</li>
+  <li>Universal Short Title Catalogue (2022). USTC Database. <i>University of St Andrews, https://ustc.ac.uk</i>.</li>
+  <li>Martin L. Weitzman (1998). Recombinant Growth. <i>Quarterly Journal of Economics</i> 113(2), 331–360.</li>
+</ul><!--/REFS-->
 </section>
 
 <footer>

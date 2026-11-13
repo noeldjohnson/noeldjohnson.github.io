@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridging</title>
+<meta name="description" content="How Mapping the Market for Ideas measures whether a title sat between established subjects. An explainer for economists.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="../explain.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="../explain.js"></script>
+</head>
+<body>
+<main>
+<header class="top">
+  <div class="kicker">Explainer 5 of 5</div>
+  <h1>Bridging</h1>
+  <div class="byline">Part of the <a href="../">interactive companion</a> to Mapping the Market for Ideas in Europe, 1450–1650, by Noel Johnson and Alexander Taylor</div>
+</header>
+
+<p>Bridging asks whether a title sat inside one established subject or between two. It is the second of the two measures we use to describe the titles a larger market added. The first is <a href="../novelty/">novelty</a>.</p>
+
+<h2>Why it matters</h2>
+<p>In Weitzman's (1998) account new ideas are combinations of existing ones. Jacobs (1969) put the crossing of ideas between fields behind the growth of cities, and Glaeser et al. (1992) found that industrial diversity predicted the growth of American cities. A title that joins two subjects is a combination in the plainest sense. Bridging counts how much of a city's print was of that kind.</p>
+
+<h2>Step 1. Find the subjects</h2>
+<p>We do not use the catalog's subject classes, which are too broad. We let the titles sort themselves. For each language the \(k\)-means algorithm groups the vectors of every title into 30 clusters. It starts from 30 trial centers, assigns each title to its nearest center, moves each center to the average of its titles, and repeats until the assignments settle. The clusters are fitted once per language on all titles and labeled by the vocabulary words nearest each center.</p>
+<p>The clusters are recognizable subjects. In Latin they include grammars, confessional manuals, lectures on the Code and the Decretals, polyphony, funeral orations, medical disputations, and Lutheran polemic. In German they include news, catechisms, plague remedies, funeral sermons, and almanacs. The companion maps the 30 German clusters in its <a href="../#variety">Figure 14</a>.</p>
+
+<h2>Step 2. Compare the nearest subject with the second nearest</h2>
+<p>For each title compute its cosine with every cluster center. Call the highest \(s_1\) and the second highest \(s_2\).</p>
+<div class="eq">$$\mathrm{Bridging}_i \;=\; \frac{s_2}{s_1}$$</div>
+<p>A title deep inside one subject is much closer to its own center than to any other, so the ratio is low. A title halfway between two subjects is equally close to both and the ratio is near one. A city's value for a period is the mean over its doctrine titles.</p>
+
+<h2>Try it</h2>
+<p>Titles and subject centers are directions on a circle. Three subjects sit at 0, 90, and 200 degrees. Move the title.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Direction of the title <span id="bav"></span><input id="ba" type="range" min="0" max="359" step="1" value="10"></label>
+  </div>
+  <svg id="bsvg" viewBox="0 0 800 320" role="img" aria-label="A title among three subject centers and its bridging value"></svg>
+  <div class="readout">
+    <div><b id="bs1"></b>cosine with the nearest subject</div>
+    <div><b id="bs2"></b>cosine with the second nearest</div>
+    <div><b id="bbr"></b>bridging</div>
+  </div>
+  <div class="cap"><b>Figure 1.</b> A toy example. Left, the title in rust and the three subject centers in navy, with the nearest two drawn heavier. Right, bridging at every direction around the circle. At 10 degrees the title is inside the first subject and bridging is 0.18. At 45 degrees it is halfway between two subjects and bridging is 1. Where the second-nearest cosine is negative we show zero.</div>
+</div>
+
+<h2>What the paper finds</h2>
+<p>Within cities a rise of one within-city standard deviation in vernacular market access went with doctrine titles that sat between subjects by 0.45 standard deviations. The slope is 0.310 with a standard error of 0.054. German shows the largest response. Latin bridging does not move with market access.</p>
+
+<h2>Checks</h2>
+<table class="t">
+  <tr><th>Number of clusters</th><th>Vernacular slope</th></tr>
+  <tr><td>10</td><td>0.267</td></tr>
+  <tr><td>20</td><td>0.364</td></tr>
+  <tr><td>30, the headline</td><td>0.310</td></tr>
+</table>
+<p>The number of clusters is a choice and the result does not depend on it. We use 30 because at 20 one German cluster collects the place names of Lüneburg and Brunswick and one Latin cluster collects the wording of edition statements.</p>
+
+<h2>What to keep in mind</h2>
+<ul>
+  <li>The ratio is high for a title equally close to two subjects, whether it is close to both or far from both. The peak at 280 degrees in the figure is a title far from every subject. A high value says a title has no single home.</li>
+  <li>The subjects are the catalog's own. They come from how titles group in each language and from no outside classification.</li>
+  <li>The subjects are fixed for the whole period. A title of 1520 and a title of 1640 are placed against the same 30 centers.</li>
+  <li>Most German print was religious, so the second subject of a scientific title is often a religious one. The companion's examples show this.</li>
+  <li>Bridging and novelty rise together with diversity in the data. The three come from the same titles, so that association is descriptive.</li>
+</ul>
+
+<h2>References</h2>
+<!--REFS:Glaeser1992_growth,Jacobs1969_economy,Weitzman1998_recombinant-->
+<ul class="refs">
+  <li>Edward L. Glaeser, Hedi D. Kallal, José A. Scheinkman, and Andrei Shleifer (1992). Growth in Cities. <i>Journal of Political Economy</i> 100(6), 1126–1152.</li>
+  <li>Jane Jacobs (1969). <i>The Economy of Cities</i>. New York, Random House.</li>
+  <li>Martin L. Weitzman (1998). Recombinant Growth. <i>Quarterly Journal of Economics</i> 113(2), 331–360.</li>
+</ul><!--/REFS-->
+<!--MORE:bridging-->
+<nav class="more" aria-label="Explainers">The five explainers. <a href="../embeddings/">Word and title embeddings</a> · <a href="../market-access/">Market access</a> · <a href="../measures/">Diversity and distinctiveness</a> · <a href="../novelty/">Novelty</a> · <b>Bridging</b> · <a href="../">Back to the companion</a></nav>
+</main>
+<div class="tip" id="tip"></div>
+<script>
+(function () {
+  const svg = d3.select("#bsvg"), cx = 190, cy = 165, R = 115, cen = [0, 90, 200]; let ga;
+  const sep = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
+  const br = a => { const s = cen.map(c => Math.cos(rad(sep(a, c)))).sort((p, q) => q - p); return { s1: s[0], s2: s[1], b: Math.max(0, s[1]) / s[0] }; };
+  const curve = d3.range(0, 360).map(a => ({ a, b: br(a).b }));
+  const x = d3.scaleLinear([0, 360], [450, 780]), y = d3.scaleLinear([0, 1], [270, 40]);
+  const draw = () => { const a = ga(), v = br(a); svg.selectAll("*").remove();
+    svg.append("rect").attr("width", 390).attr("height", 320).attr("fill", "#fff").attr("rx", 6); svg.append("rect").attr("x", 404).attr("width", 396).attr("height", 320).attr("fill", "#fff").attr("rx", 6);
+    svg.append("circle").attr("cx", cx).attr("cy", cy).attr("r", R).attr("fill", "none").attr("stroke", "#ccc");
+    const pt = (d, r = R) => [cx + r * Math.cos(rad(d)), cy - r * Math.sin(rad(d))];
+    const order = cen.slice().sort((p, q) => sep(a, p) - sep(a, q));
+    cen.forEach(c => { const p = pt(c), on = c === order[0] || c === order[1]; svg.append("line").attr("x1", cx).attr("y1", cy).attr("x2", p[0]).attr("y2", p[1]).attr("stroke", C.navy).attr("stroke-width", on ? 3.5 : 1.5).attr("opacity", on ? 1 : .4);
+      svg.append("circle").attr("cx", p[0]).attr("cy", p[1]).attr("r", 9).attr("fill", C.navy); const q = pt(c, R + 26); svg.append("text").attr("x", q[0]).attr("y", q[1] + 4).attr("text-anchor", "middle").text(c + "°"); });
+    const p = pt(a); svg.append("line").attr("x1", cx).attr("y1", cy).attr("x2", p[0]).attr("y2", p[1]).attr("stroke", C.rust).attr("stroke-width", 3.5); svg.append("circle").attr("cx", p[0]).attr("cy", p[1]).attr("r", 7).attr("fill", C.rust);
+    svg.append("text").attr("class", "title").attr("x", 416).attr("y", 22).text("Bridging by direction of the title");
+    svg.append("g").attr("class", "axis").attr("transform", "translate(0,270)").call(d3.axisBottom(x).tickValues([0, 90, 180, 270, 360]).tickFormat(d => d + "°"));
+    svg.append("g").attr("class", "axis").attr("transform", "translate(450,0)").call(d3.axisLeft(y).ticks(5));
+    cen.forEach(c => svg.append("line").attr("x1", x(c)).attr("x2", x(c)).attr("y1", 40).attr("y2", 270).attr("stroke", C.navy).attr("stroke-dasharray", "2 4").attr("opacity", .5));
+    svg.append("path").datum(curve).attr("fill", "none").attr("stroke", C.navy).attr("stroke-width", 2).attr("d", d3.line().x(d => x(d.a)).y(d => y(d.b)));
+    svg.append("circle").attr("cx", x(a)).attr("cy", y(v.b)).attr("r", 7).attr("fill", C.rust);
+    d3.select("#bs1").text(f2(v.s1)); d3.select("#bs2").text(f2(v.s2)); d3.select("#bbr").text(f2(v.b)); };
+  ga = slider("ba", d => d + " degrees", draw); d3.select("#bav").text("10 degrees"); draw();
+})();
+</script>
+</body>
+</html>

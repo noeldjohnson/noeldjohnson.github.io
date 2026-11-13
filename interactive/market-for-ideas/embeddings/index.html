@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word and title embeddings</title>
+<meta name="description" content="How Mapping the Market for Ideas turns the short titles of 800,000 early modern editions into vectors. An explainer for economists.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="../explain.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="../explain.js"></script>
+</head>
+<body>
+<main>
+<header class="top">
+  <div class="kicker">Explainer 1 of 5</div>
+  <h1>Word and title embeddings</h1>
+  <div class="byline">Part of the <a href="../">interactive companion</a> to Mapping the Market for Ideas in Europe, 1450–1650, by Noel Johnson and Alexander Taylor</div>
+</header>
+
+<p>An embedding turns a word into a list of numbers so that words used in similar ways get similar lists. We use embeddings to measure what a book was about from its title alone. This page explains how the vectors are built, in four steps, and why we built them this way.</p>
+
+<h2>Why a vector and not a subject class</h2>
+<p>The Universal Short Title Catalogue assigns each edition one of about 20 subject classes. A class supports counts and shares. It cannot say how far apart two books are. Erasmus on the freedom of the will and Luther's reply are both filed under Religious, and so are a Catholic devotional manual and a Calvinist catechism. A vector gives every title a position, and positions have distances. Every measure in the paper is a distance between titles or between averages of titles.</p>
+
+<h2>Step 1. Count which words appear together</h2>
+<p>The idea behind every embedding is that a word is known by the company it keeps (Mikolov et al. 2013, Pennington, Socher, and Manning 2014). In Latin titles <i>medicus</i> appears near <i>chirurgia</i> and <i>rex</i> appears near <i>imperator</i>. For each language we count how often each pair of words appears within five words of one another in a title. Words that appear fewer than 20 times are left out. The result is a large table with one row and one column for every word.</p>
+
+<h2>Step 2. Correct for how common each word is</h2>
+<p>Raw counts mostly track frequency. Two common words appear together often whether or not they are related. Pointwise mutual information compares how often a pair appears together with how often it would if the two words were unrelated (Church and Hanks 1990).</p>
+<div class="eq">$$\mathrm{PMI}(w, c) \;=\; \log \frac{p(w, c)}{p(w)\,p(c)}$$</div>
+<p>A pair that appears together exactly as often as chance predicts has a PMI of zero. Negative values are set to zero because a negative value for a rare pair rests on very few observations. The result is called positive PMI.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Times word A appears <span id="n1v"></span><input id="n1" type="range" min="50" max="5000" step="50" value="400"></label>
+    <label>Times word B appears <span id="n2v"></span><input id="n2" type="range" min="50" max="5000" step="50" value="600"></label>
+    <label>Times they appear together <span id="n12v"></span><input id="n12" type="range" min="0" max="300" step="1" value="60"></label>
+  </div>
+  <div class="readout">
+    <div><b id="pexp"></b>times together if the two words were unrelated</div>
+    <div><b id="ppmi"></b>pointwise mutual information</div>
+    <div><b id="pppmi"></b>positive PMI, the value we keep</div>
+  </div>
+  <div class="cap"><b>Figure 1.</b> A toy calculation with 100,000 word positions in total. Raise both word counts and hold the joint count fixed. The same 60 joint appearances go from strong evidence of association to none.</div>
+</div>
+
+<h2>Step 3. Compress the table to 200 dimensions</h2>
+<p>The table has thousands of columns and most cells are zero. We reduce it to 200 columns with a truncated singular value decomposition. The decomposition keeps the 200 directions that account for the most variation in the table and drops the rest, which is mostly noise. Each word now has a vector of 200 numbers. Levy and Goldberg (2014) show that the neural method word2vec implicitly factors a table of this kind, so the two approaches are close relatives. Ours has no random initialization and the same input always gives the same vectors.</p>
+<p>Two words are compared by the cosine of the angle between their vectors.</p>
+<div class="eq">$$\cos(u, v) \;=\; \frac{u \cdot v}{\lVert u \rVert\,\lVert v \rVert}, \qquad d_{\cos}(u, v) \;=\; 1 - \cos(u, v)$$</div>
+<p>The cosine is 1 when two vectors point the same way, 0 when they are at right angles, and −1 when they point in opposite directions. The cosine distance runs from 0 to 2. Length does not enter, so a long title and a short title on the same subject are close.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Angle between the two vectors <span id="angv"></span><input id="ang" type="range" min="0" max="180" step="1" value="40"></label>
+    <label>Length of the second vector <span id="lenv"></span><input id="len" type="range" min="0.3" max="1.6" step="0.05" value="1"></label>
+  </div>
+  <svg id="cossvg" viewBox="0 0 800 300" role="img" aria-label="Two vectors and the cosine between them"></svg>
+  <div class="readout">
+    <div><b id="cosv"></b>cosine similarity</div>
+    <div><b id="cosd"></b>cosine distance</div>
+    <div><b id="eucd"></b>straight-line distance between the tips</div>
+  </div>
+  <div class="cap"><b>Figure 2.</b> Two vectors in two dimensions. Changing the length of a vector changes the straight-line distance and leaves the cosine where it was. The paper's vectors have 200 dimensions and the arithmetic is the same.</div>
+</div>
+
+<h2>Step 4. Average the words of a title</h2>
+<p>A title's vector is a weighted average of its word vectors. We use the smooth inverse frequency weights of Arora, Liang, and Ma (2017). A word that makes up the share \(p(w)\) of all words in the language gets the weight</p>
+<div class="eq">$$\text{weight}(w) \;=\; \frac{a}{a + p(w)}, \qquad a = 10^{-3}.$$</div>
+<p>Common words such as <i>de</i> and <i>et</i> get little weight and rare words get nearly full weight. After averaging we remove the first principal component of all title vectors in the language. That component carries what all titles share, such as common syntax, and removing it leaves the differences in content.</p>
+<div class="figure">
+  <div class="controls">
+    <label>The word's share of all words <span id="pwv"></span><input id="pw" type="range" min="-5" max="-1" step="0.05" value="-3"></label>
+  </div>
+  <svg id="sifsvg" viewBox="0 0 800 240" role="img" aria-label="Smooth inverse frequency weight by word frequency"></svg>
+  <div class="cap"><b>Figure 3.</b> The weight a word gets in a title's average, by how common the word is. A word that is one in a thousand gets half weight. A word that is one in ten gets about one percent.</div>
+</div>
+
+<h2>What comes out</h2>
+<p>Each title has a vector of 200 numbers that can be compared with any other title in the same language. Each language is trained on its own titles so a Latin vector and a German vector lie in different spaces and are never compared. Every measure in the paper is a distance inside one language.</p>
+<table class="t">
+  <tr><th>Setting</th><th>Value</th></tr>
+  <tr><td>Context window</td><td>5 words</td></tr>
+  <tr><td>Minimum word frequency</td><td>20</td></tr>
+  <tr><td>Dimensions kept</td><td>200</td></tr>
+  <tr><td>Smoothing constant in the title average</td><td>0.001</td></tr>
+  <tr><td>Languages trained separately</td><td>Latin, German, French, Italian, English, Dutch, Spanish</td></tr>
+</table>
+
+<h2>Why not a modern language model</h2>
+<p>Pretrained neural models are trained on modern text. None exists for sixteenth-century Latin, German, or Dutch titles in their original spelling. Ganguli et al. (2026) show for patents that the choice of text representation can reverse a measured trend so a text measure has to be validated before its trend is read. We train on the catalog's own titles and check the result against things we know. The nearest titles to William Harvey's <i>De motu cordis</i> are reprints of Harvey and other works on the circulation of the blood, and the catalog files them under three different classes. You can search any word's neighbors in the <a href="../#vectors">companion</a>.</p>
+<p>Word embeddings are now a standard tool in economics. They have been used to measure the similarity of firms and of patents (Hoberg and Phillips 2010, Kelly et al. 2021) and to trace change in the meaning of words over time (Hamilton, Leskovec, and Jurafsky 2016). Gentzkow, Kelly, and Taddy (2019) survey text as data for economists.</p>
+
+<h2>What to keep in mind</h2>
+<ul>
+  <li>A title is short. The vectors capture what a title says a book is about and nothing about its contents.</li>
+  <li>Spelling is not standardized. Variant spellings of one word are separate words that usually end up as near neighbors.</li>
+  <li>The vectors record usage in the catalog. A word's neighbors are the words printers put beside it on title pages.</li>
+</ul>
+
+<h2>References</h2>
+<!--REFS:Arora2017_sif,ChurchHanks1990_word_association,Ganguli2026_idea_space,GentzkowKellyTaddy2019_jel,Hamilton2016_diachronic,Hoberg2010_textual,Kelly2021_measuring,LevyGoldberg2014_pmi_svd,Mikolov2013_word2vec,Pennington2014_glove,USTC_catalogue-->
+<ul class="refs">
+  <li>Sanjeev Arora, Yingyu Liang, and Tengyu Ma (2017). A Simple but Tough-to-Beat Baseline for Sentence Embeddings. <i>International Conference on Learning Representations (ICLR)</i>.</li>
+  <li>Kenneth W. Church and Patrick Hanks (1990). Word Association Norms, Mutual Information, and Lexicography. <i>Computational Linguistics</i> 16(1), 22–29.</li>
+  <li>Ina Ganguli, Jeffrey Lin, Vitaly Meursault, and Nicholas Reynolds (2026). Spreading Out Across Expanding Idea Space. <i>Working Paper, Federal Reserve Bank of Philadelphia</i>.</li>
+  <li>Matthew Gentzkow, Bryan Kelly, and Matt Taddy (2019). Text as Data. <i>Journal of Economic Literature</i> 57(3), 535–574.</li>
+  <li>William L. Hamilton, Jure Leskovec, and Dan Jurafsky (2016). Diachronic Word Embeddings Reveal Statistical Laws of Semantic Change. <i>Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (ACL)</i>, 1489–1501.</li>
+  <li>Gerard Hoberg and Gordon Phillips (2010). Product Market Synergies and Competition in Mergers and Acquisitions: A Text-Based Analysis. <i>Review of Financial Studies</i> 23(10), 3773–3811.</li>
+  <li>Bryan Kelly, Dimitris Papanikolaou, Amit Seru, and Matt Taddy (2021). Measuring Technological Innovation Over the Long Run. <i>American Economic Review: Insights</i> 3(3), 303–320.</li>
+  <li>Omer Levy and Yoav Goldberg (2014). Neural Word Embedding as Implicit Matrix Factorization. <i>Advances in Neural Information Processing Systems 27 (NeurIPS 2014)</i>, 2177–2185.</li>
+  <li>Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean (2013). Distributed Representations of Words and Phrases and their Compositionality. <i>Advances in Neural Information Processing Systems</i>, 3111–3119.</li>
+  <li>Jeffrey Pennington, Richard Socher, and Christopher D. Manning (2014). GloVe: Global Vectors for Word Representation. <i>Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)</i>, 1532–1543.</li>
+  <li>Universal Short Title Catalogue (2022). USTC Database. <i>University of St Andrews, https://ustc.ac.uk</i>.</li>
+</ul><!--/REFS-->
+<!--MORE:embeddings-->
+<nav class="more" aria-label="Explainers">The five explainers. <b>Word and title embeddings</b> · <a href="../market-access/">Market access</a> · <a href="../measures/">Diversity and distinctiveness</a> · <a href="../novelty/">Novelty</a> · <a href="../bridging/">Bridging</a> · <a href="../">Back to the companion</a></nav>
+</main>
+<div class="tip" id="tip"></div>
+<script>
+// Figure 1. PMI calculator
+(function () {
+  const N = 100000;
+  let g1, g2, g12;
+  const draw = () => { const n1 = g1(), n2 = g2(), n12 = g12(), exp = n1 * n2 / N;
+    const pmi = n12 > 0 ? Math.log(n12 / exp) : -Infinity;
+    d3.select("#pexp").text(exp.toFixed(1)); d3.select("#ppmi").text(isFinite(pmi) ? f2(pmi) : "−∞"); d3.select("#pppmi").text(f2(Math.max(0, isFinite(pmi) ? pmi : 0))); };
+  g1 = slider("n1", d3.format(","), draw); g2 = slider("n2", d3.format(","), draw); g12 = slider("n12", d3.format(","), draw);
+  ["n1","n2","n12"].forEach(id => d3.select("#" + id + "v").text(d3.format(",")(+document.getElementById(id).value))); draw();
+})();
+// Figure 2. cosine
+(function () {
+  const svg = d3.select("#cossvg"), cx = 300, cy = 250, R = 190; let ga, gl;
+  const draw = () => { const a = ga(), L = gl(); svg.selectAll("*").remove();
+    svg.append("path").attr("d", d3.arc()({ innerRadius: 0, outerRadius: 46, startAngle: Math.PI/2 - rad(a), endAngle: Math.PI/2 })).attr("transform", `translate(${cx},${cy})`).attr("fill", C.gold).attr("opacity", .5);
+    const u = [cx + R, cy], v = [cx + R * L * Math.cos(rad(a)), cy - R * L * Math.sin(rad(a))];
+    svg.append("line").attr("x1", u[0]).attr("y1", u[1]).attr("x2", v[0]).attr("y2", v[1]).attr("stroke", C.gray).attr("stroke-dasharray", "4 4");
+    [[u, C.navy, "u"], [v, C.rust, "v"]].forEach(([p, col, nm]) => { svg.append("line").attr("x1", cx).attr("y1", cy).attr("x2", p[0]).attr("y2", p[1]).attr("stroke", col).attr("stroke-width", 3);
+      svg.append("circle").attr("cx", p[0]).attr("cy", p[1]).attr("r", 6).attr("fill", col); svg.append("text").attr("class", "title").attr("x", p[0] + 10).attr("y", p[1] - 8).text(nm); });
+    const c = Math.cos(rad(a)); d3.select("#cosv").text(f2(c)); d3.select("#cosd").text(f2(1 - c)); d3.select("#eucd").text(f2(Math.sqrt(1 + L*L - 2*L*c))); };
+  ga = slider("ang", d => d + " degrees", draw); gl = slider("len", f2, draw);
+  d3.select("#angv").text("40 degrees"); d3.select("#lenv").text("1.00"); draw();
+})();
+// Figure 3. SIF weight
+(function () {
+  const svg = d3.select("#sifsvg"), W = 800, H = 240, mg = {l: 56, r: 20, t: 14, b: 44}, a = 1e-3;
+  const x = d3.scaleLinear([-5, -1], [mg.l, W - mg.r]), y = d3.scaleLinear([0, 1], [H - mg.b, mg.t]);
+  const pts = d3.range(-5, -0.99, 0.02).map(e => ({ e, w: a / (a + Math.pow(10, e)) })); let gp;
+  const lab = e => { const p = Math.pow(10, e); return "one word in " + d3.format(",")(Math.round(1 / p)); };
+  const draw = () => { const e = gp(); svg.selectAll("*").remove();
+    svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - mg.b})`).call(d3.axisBottom(x).tickValues([-5,-4,-3,-2,-1]).tickFormat(v => "1 in " + d3.format(",")(Math.pow(10, -v))));
+    svg.append("g").attr("class", "axis").attr("transform", `translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5));
+    svg.append("text").attr("x", (W + mg.l) / 2).attr("y", H - 8).attr("text-anchor", "middle").text("How common the word is");
+    svg.append("text").attr("transform", `translate(14,${H / 2}) rotate(-90)`).attr("text-anchor", "middle").text("Weight");
+    svg.append("path").datum(pts).attr("fill", "none").attr("stroke", C.navy).attr("stroke-width", 2.5).attr("d", d3.line().x(d => x(d.e)).y(d => y(d.w)));
+    const w = a / (a + Math.pow(10, e));
+    svg.append("circle").attr("cx", x(e)).attr("cy", y(w)).attr("r", 7).attr("fill", C.rust);
+    svg.append("text").attr("class", "title").attr("x", x(e) + (e > -2 ? -12 : 12)).attr("y", y(w) - 10).attr("text-anchor", e > -2 ? "end" : "start").text("weight " + f2(w)); };
+  gp = slider("pw", lab, draw); d3.select("#pwv").text(lab(-3)); draw();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diversity and distinctiveness</title>
+<meta name="description" content="The two measures of what a city printed in Mapping the Market for Ideas. An explainer for economists.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="../explain.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="../explain.js"></script>
+</head>
+<body>
+<main>
+<header class="top">
+  <div class="kicker">Explainer 3 of 5</div>
+  <h1>Diversity and distinctiveness</h1>
+  <div class="byline">Part of the <a href="../">interactive companion</a> to Mapping the Market for Ideas in Europe, 1450–1650, by Noel Johnson and Alexander Taylor</div>
+</header>
+
+<p>Once every title is a vector, a city's print in a language and a decade is a cloud of points. The paper summarizes each cloud with two numbers. Diversity says how spread out the cloud is. Distinctiveness says how far the middle of the cloud sits from the rest of the language. This page defines both and shows why each is built the way it is. The vectors themselves are explained <a href="../embeddings/">here</a>.</p>
+
+<h2>The two predictions they test</h2>
+<p>Adam Smith's account of the division of labor says a city with a larger market specializes, so its diversity should fall and its distinctiveness should rise (Smith 1776, Stigler 1951). Monopolistic competition says a larger market supports more varieties and that producers position near the center of demand, so diversity should rise and distinctiveness should fall (Krugman 1980, Hotelling 1929). The two measures are the two sides of that disagreement.</p>
+
+<h2>Diversity</h2>
+<p>Diversity is the average cosine distance between pairs of a city's titles. For a city \(c\), language \(\ell\), and decade \(t\) with \(n\) titles,</p>
+<div class="eq">$$D_{c,\ell,t} \;=\; \frac{1}{n(n-1)} \sum_{i \neq j} d_{\cos}(v_i, v_j).$$</div>
+<p>A city that prints across many subjects has titles far apart from one another and a high \(D\). A city that prints one kind of book has titles close together and a low \(D\). In Latin print of 1600 to 1609 Paris has a diversity of 0.97 across 1,041 titles in theology, classical authors, law, and history. Coimbra has 0.71 across 74 titles, mostly scholastic philosophy and theology.</p>
+<p>We average over pairs for a reason. The obvious alternative is the average distance from each title to the city's own centroid. That number rises mechanically with the number of titles because a centroid computed from a few titles sits close to each of them. Small cities would look narrow whatever they printed. The pairwise average has the same expected value at any number of titles.</p>
+
+<h2>Distinctiveness</h2>
+<p>Distinctiveness compares the city's centroid \(\bar{v}_{c}\) with the centroid \(\bar{v}_{-c}\) of every other city's titles in the same language and decade. Leaving the city out of its own reference matters. A large center would otherwise pull the reference toward itself and look typical by construction.</p>
+<p>The plain cosine distance between the two centroids has a second problem. A centroid averaged from few titles carries sampling noise. The noise makes the centroid longer than it should be and tilts it away from any reference, so small cities look more distinctive than they are. Within cities the number of titles rises with market access, so the bias would load onto the regressor. We replace the length of the city's centroid with an unbiased estimate that uses only products of distinct titles.</p>
+<div class="eq">$$\widehat{\lVert \mu_c \rVert^2} \;=\; \frac{\bigl\lVert \sum_i v_i \bigr\rVert^2 - \sum_i \lVert v_i \rVert^2}{n(n-1)}, \qquad
+\tilde{X}_{c} \;=\; 1 - \frac{\bar{v}_{c} \cdot \bar{v}_{-c}}{\sqrt{\widehat{\lVert \mu_c \rVert^2}}\;\lVert \bar{v}_{-c} \rVert}.$$</div>
+<p>The numerator needs no correction because the city and the reference share no titles. In very small cells the estimated length can be zero or negative and the measure is then undefined. That happens in 192 of 6,110 decade cells and those cells are dropped.</p>
+<p>In Latin print of 1600 to 1609 Venice is the most distinctive large center at 1.38. Wittenberg, the largest Latin center of the decade, sits at 0.76 and is below the median.</p>
+
+<h2>Try it</h2>
+<p>The figure draws a city's titles as points on a circle. The rest of the language points to the right. Move the city's center away from the reference to raise distinctiveness. Widen the spread to raise diversity. Then lower the number of titles. The plain distance drifts up and the corrected one stays near the truth.</p>
+<div class="figure">
+  <div class="controls">
+    <label>Where the city's print is centered <span id="muv"></span><input id="mu" type="range" min="0" max="120" step="1" value="35"></label>
+    <label>How widely its titles spread <span id="sdv"></span><input id="sd" type="range" min="5" max="90" step="1" value="45"></label>
+    <label>Number of titles <span id="nnv"></span><input id="nn" type="range" min="5" max="200" step="1" value="12"></label>
+    <label style="align-self:end"><button class="tab" id="redraw">Draw a new sample</button></label>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <svg id="circ" viewBox="0 0 400 340" role="img" aria-label="A city's titles on a circle"></svg>
+    <svg id="bias" viewBox="0 0 400 340" role="img" aria-label="Plain and corrected distinctiveness by number of titles"></svg>
+  </div>
+  <div class="readout">
+    <div><b id="rD"></b>diversity of the sample on the left</div>
+    <div><b id="rXn"></b>plain distance between centroids, averaged over samples of this size</div>
+    <div><b id="rXc"></b>corrected distinctiveness, averaged the same way, against a true value of <span id="rXt"></span></div>
+  </div>
+  <div class="cap"><b>Figure 1.</b> A toy city. Left, one sample of titles drawn in two dimensions, in navy, with the city's centroid in rust and the direction of the rest of the language in gold. Right, a simulation of the same city in 50 dimensions, where a small centroid is as noisy as it is in the paper's 200. Each point is the average over 300 samples at that number of titles and the dashed line is the true distinctiveness. Samples in which the corrected measure is undefined are dropped, as in the paper. With very few titles and a very wide spread many are dropped and the corrected average then sits above the truth.</div>
+</div>
+
+<h2>From decades to periods</h2>
+<p>Both measures are computed for every city, language, and decade with at least five titles. They are then averaged over the decades of each 50-year period with weights equal to the number of titles in each decade. Across the six-language panel diversity has a mean of 0.88 to 0.90 by language. Distinctiveness has means of 0.48 to 0.69.</p>
+
+<h2>What counts as a title</h2>
+<p>The catalog records every issue of a periodical as a separate edition. A weekly would enter a city's decade about 500 times with nearly identical titles and would drag diversity toward zero. We keep one title per periodical series in each city and decade and apply the same rule to any other title that recurs at least three times with nearly identical text. Every measure counts distinct works.</p>
+
+<h2>What to keep in mind</h2>
+<ul>
+  <li>The two measures are separate. A city can print a wide range of titles that is centered far from the mainstream, or a narrow range centered on it.</li>
+  <li>Both are distances inside one language. They are compared across languages only after language effects are removed.</li>
+  <li>They measure what was printed. What readers bought and read is not observed.</li>
+</ul>
+<p>The companion shows both measures for every large Latin center in 1600 to 1609 in its <a href="../#measures">third section</a>.</p>
+
+<h2>References</h2>
+<!--REFS:Hotelling1929_stability,Krugman1980_scale_economies,Smith1776_wealth,Stigler1951_division-->
+<ul class="refs">
+  <li>Harold Hotelling (1929). Stability in Competition. <i>Economic Journal</i> 39(153), 41–57.</li>
+  <li>Paul Krugman (1980). Scale Economies, Product Differentiation, and the Pattern of Trade. <i>American Economic Review</i> 70(5), 950–959.</li>
+  <li>Adam Smith (1776). <i>An Inquiry into the Nature and Causes of the Wealth of Nations</i>. London, W. Strahan and T. Cadell.</li>
+  <li>George J. Stigler (1951). The Division of Labor is Limited by the Extent of the Market. <i>Journal of Political Economy</i> 59(3), 185–193.</li>
+</ul><!--/REFS-->
+<!--MORE:measures-->
+<nav class="more" aria-label="Explainers">The five explainers. <a href="../embeddings/">Word and title embeddings</a> · <a href="../market-access/">Market access</a> · <b>Diversity and distinctiveness</b> · <a href="../novelty/">Novelty</a> · <a href="../bridging/">Bridging</a> · <a href="../">Back to the companion</a></nav>
+</main>
+<div class="tip" id="tip"></div>
+<script>
+(function () {
+  let gmu, gsd, gn, seed = 7;
+  const sample = (mu, sd, n, r) => d3.range(n).map(() => rad(mu + sd * normal(r)));
+  const stats = a => { const n = a.length, cs = a.map(Math.cos), sn = a.map(Math.sin), sx = d3.sum(cs), sy = d3.sum(sn);
+    // unit vectors, so each squared length is 1 and the pairwise cosines sum to |sum|^2 - n
+    const pair = (sx * sx + sy * sy - n) / (n * (n - 1)), len = Math.hypot(sx, sy) / n;
+    return { D: 1 - pair, Xn: 1 - (sx / n) / len, Xc: pair > 0 ? 1 - (sx / n) / Math.sqrt(pair) : NaN, cx: sx / n, cy: sy / n }; };
+  const left = d3.select("#circ"), right = d3.select("#bias"), R = 130, cx = 200, cy = 180;
+  function draw() {
+    const mu = gmu(), sd = gsd(), n = gn(), a = sample(mu, sd, n, rng(seed)), s = stats(a);
+    left.selectAll("*").remove(); left.append("rect").attr("width", 400).attr("height", 340).attr("fill", "#fff").attr("rx", 6);
+    left.append("circle").attr("cx", cx).attr("cy", cy).attr("r", R).attr("fill", "none").attr("stroke", "#ccc");
+    left.append("line").attr("x1", cx).attr("y1", cy).attr("x2", cx + R + 18).attr("y2", cy).attr("stroke", C.gold).attr("stroke-width", 3);
+    left.append("text").attr("class", "title").attr("x", cx + R + 22).attr("y", cy + 4).style("fill", C.gold).text("rest");
+    left.selectAll("circle.p").data(a).join("circle").attr("class", "p").attr("cx", d => cx + R * Math.cos(d)).attr("cy", d => cy - R * Math.sin(d)).attr("r", 4.5).attr("fill", C.navy).attr("opacity", .55);
+    left.append("line").attr("x1", cx).attr("y1", cy).attr("x2", cx + R * s.cx).attr("y2", cy - R * s.cy).attr("stroke", C.rust).attr("stroke-width", 3);
+    left.append("circle").attr("cx", cx + R * s.cx).attr("cy", cy - R * s.cy).attr("r", 6).attr("fill", C.rust);
+    left.append("text").attr("class", "title").attr("x", 12).attr("y", 20).text(`One sample of ${n} titles`);
+    const truth = 1 - Math.cos(rad(mu));
+    d3.select("#rD").text(f2(s.D)); d3.select("#rXt").text(f2(truth));
+    // right panel: the same city simulated in 50 dimensions, averaged over many samples
+    const DIM = 50, sig = 0.6 * sd / 90, c0 = Math.cos(rad(mu)), s0 = Math.sin(rad(mu));
+    const sim = (k, r) => { const sum = new Float64Array(DIM); let ss = 0;
+      for (let i = 0; i < k; i++) for (let d = 0; d < DIM; d++) { const v = (d === 0 ? c0 : d === 1 ? s0 : 0) + sig * normal(r); sum[d] += v; ss += v * v; }
+      let s2 = 0; for (let d = 0; d < DIM; d++) s2 += sum[d] * sum[d]; const est = (s2 - ss) / (k * (k - 1));
+      return { Xn: 1 - (sum[0] / k) / (Math.sqrt(s2) / k), Xc: est > 0 ? 1 - (sum[0] / k) / Math.sqrt(est) : NaN }; };
+    const mean = k => { const r = rng(99 + k); let xn = 0, xc = 0, m = 0; for (let b = 0; b < 300; b++) { const t = sim(k, r); xn += t.Xn; if (!isNaN(t.Xc) && t.Xc >= 0 && t.Xc <= 2) { xc += t.Xc; m++; } } return { k, xn: xn / 300, xc: m ? xc / m : NaN }; };
+    const ns = [5, 7, 10, 15, 20, 30, 50, 80, 120, 200], pts = ns.map(mean), here = mean(n);
+    d3.select("#rXn").text(f2(here.xn)); d3.select("#rXc").text(isNaN(here.xc) ? "undefined" : f2(here.xc));
+    const W = 400, H = 340, mg = {l: 46, r: 14, t: 30, b: 42};
+    const x = d3.scaleLog([5, 200], [mg.l, W - mg.r]), ymax = Math.max(truth * 1.5, d3.max(pts, d => Math.max(d.xn, d.xc || 0)) * 1.1, 0.1), y = d3.scaleLinear([0, ymax], [H - mg.b, mg.t]);
+    right.selectAll("*").remove(); right.append("rect").attr("width", W).attr("height", H).attr("fill", "#fff").attr("rx", 6);
+    right.append("text").attr("class", "title").attr("x", 12).attr("y", 20).text("Distinctiveness in 50 dimensions");
+    right.append("g").attr("class", "axis").attr("transform", `translate(0,${H - mg.b})`).call(d3.axisBottom(x).tickValues([5, 10, 20, 50, 100, 200]).tickFormat(d3.format("d")));
+    right.append("g").attr("class", "axis").attr("transform", `translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(5));
+    right.append("text").attr("x", (W + mg.l) / 2).attr("y", H - 8).attr("text-anchor", "middle").text("Number of titles");
+    right.append("line").attr("x1", mg.l).attr("x2", W - mg.r).attr("y1", y(truth)).attr("y2", y(truth)).attr("stroke", C.gray).attr("stroke-dasharray", "5 4");
+    [["xn", C.teal, "plain"], ["xc", C.rust, "corrected"]].forEach(([key, col, nm]) => { const d = pts.filter(p => !isNaN(p[key]));
+      right.append("path").datum(d).attr("fill", "none").attr("stroke", col).attr("stroke-width", 2.2).attr("d", d3.line().x(p => x(p.k)).y(p => y(p[key])));
+      right.selectAll(null).data(d).join("circle").attr("cx", p => x(p.k)).attr("cy", p => y(p[key])).attr("r", 4).attr("fill", col); });
+    right.append("text").attr("x", W - mg.r - 4).attr("y", mg.t + 4).attr("text-anchor", "end").style("fill", C.teal).style("font-weight", 600).text("■ plain");
+    right.append("text").attr("x", W - mg.r - 4).attr("y", mg.t + 20).attr("text-anchor", "end").style("fill", C.rust).style("font-weight", 600).text("■ corrected");
+    if (n >= 5) right.append("line").attr("x1", x(n)).attr("x2", x(n)).attr("y1", mg.t).attr("y2", H - mg.b).attr("stroke", "#ccc");
+  }
+  gmu = slider("mu", d => d + " degrees from the rest", draw); gsd = slider("sd", d => d + " degrees", draw); gn = slider("nn", d => d, draw);
+  d3.select("#muv").text("35 degrees from the rest"); d3.select("#sdv").text("45 degrees"); d3.select("#nnv").text("12");
+  document.getElementById("redraw").addEventListener("click", () => { seed++; draw(); }); draw();
+})();
+</script>
+</body>
+</html>
