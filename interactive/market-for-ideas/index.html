@@ -252,8 +252,8 @@ footer a { color: var(--teal); }
 <div class="figure">
   <div class="controls" id="vtabs"></div>
   <div class="readline" id="vread"></div>
-  <svg id="vsvg" viewBox="0 0 800 300" role="img" aria-label="Novelty and bridging slopes"></svg>
-  <div class="cap"><b>Figure 12.</b> Within-city slopes of novelty and bridging on log market access, on the doctrine cells of Figure 6. Each is the mean over a cell's doctrine titles. Intervals as in Figure 6.</div>
+  <svg id="vsvg" viewBox="0 0 800 220" role="img" aria-label="Novelty and bridging slopes"></svg>
+  <div class="cap"><b>Figure 12.</b> Within-city slopes of novelty and bridging on log market access, on the doctrine cells of Figure 6. Each is the mean over a cell's doctrine titles. The figure shows the vernacular pool, German, Italian, and Latin. Intervals as in Figure 6.</div>
 </div>
 <p>Within cities a rise of one within-city standard deviation in vernacular market access went with doctrine titles further from anything printed before in their language by 0.37 standard deviations and with titles that sat between subjects by 0.45. German shows the largest response on both. Latin moves on neither although Latin diversity rises with access. The Latin stock was large, 273,168 titles against 87,800 in German and 57,951 in Italian, so a title a Latin city had not yet printed was more often a title another city had.</p>
 <div class="figure">
@@ -592,11 +592,11 @@ function castileAragon(ca) {
 
 // ---------- 9. Variety ----------
 function variety(est) {
-  const order = ["vernaculars","german","italian","latin","french","dutch","spanish"];
+  const order = ["vernaculars","german","italian","latin"];
   function draw(m) {
     const rs = est.variety.filter(d => d.measure === m && order.includes(d.group)).sort((a,b) => order.indexOf(a.group) - order.indexOf(b.group));
     forest(d3.select("#vsvg"), rs.map(e => ({ label: e.label, v: e.est, lo: e.est - 1.96*bse(e), hi: e.est + 1.96*bse(e), color: LC[e.label], bold: e.group === "vernaculars", tip: slopeTip(e.label, e) })),
-      { W: 800, H: 300, xlab: `Within-city slope of ${m} on log market access` });
+      { W: 800, H: 220, xlab: `Within-city slope of ${m} on log market access` });
     const h = rs[0];
     d3.select("#vread").html(`${cap(m)}, five vernaculars pooled. Slope <b>${f3(h.est)}</b> with a city-clustered standard error of ${f3(h.se)}, or <b>${f2(h.size_in_sd)}</b> standard deviations, on ${h.n.toLocaleString()} observations in ${h.cities} cities.`);
   }
