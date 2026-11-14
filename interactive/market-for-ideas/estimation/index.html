@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estimation</title>
+<meta name="description" content="The estimating equation behind every slope in Mapping the Market for Ideas, with its weights, standard errors, and extensions. An explainer for economists.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="../explain.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="../explain.js"></script>
+</head>
+<body>
+<main>
+<header class="top">
+  <div class="kicker">Explainer 6 of 6</div>
+  <h1>Estimation</h1>
+  <div class="byline">Part of the <a href="../">interactive companion</a> to Mapping the Market for Ideas in Europe, 1450–1650, by Noel Johnson and Alexander Taylor</div>
+</header>
+
+<p>Every slope in the companion comes from one equation. This page writes it down, defines each term, and shows how the regime comparison, the trade-elasticity curve, and the Castilian timing extend it.</p>
+
+<h2>The equation</h2>
+<div class="eq">$$y_{j\ell d} \;=\; \beta \,\log \mathrm{MA}_{j\ell d} \;+\; \alpha_{j\ell} \;+\; \delta_{d} \;+\; \varepsilon_{j\ell d}$$</div>
+<ul>
+  <li>\(y_{j\ell d}\) is the diversity or the distinctiveness of the titles printed in city \(j\) in language \(\ell\) in period \(d\). The measures are defined in the <a href="../measures/">measures explainer</a>.</li>
+  <li>\(\log \mathrm{MA}_{j\ell d}\) is the log of the city's market access in that language and period, defined in the <a href="../market-access/">market access explainer</a>. The city's own population is excluded and the sum runs over the cities that printed in the language, or over the university cities for Latin.</li>
+  <li>\(\alpha_{j\ell}\) is a city-and-language fixed effect. A city that printed in three languages contributes three series.</li>
+  <li>\(\delta_d\) is a period fixed effect. Where a pool includes Latin it becomes \(\delta_{\ell d}\), one for each language and period, because Latin market access sums over a different set of cities from any vernacular's.</li>
+</ul>
+<p>The slope \(\beta\) measures how a city's print in a language changed when its market access changed relative to that city's own average in that language and to the change common to all cities in the period.</p>
+
+<h2>The unit of observation</h2>
+<p>An observation is a city, a language, and a 50-year period, 1450–1499, 1500–1549, 1550–1599, or 1600–1649. Each measure is first computed for every city, language, and decade with at least five titles. The period value is the average of the decade values weighted by their number of titles.</p>
+<p>A city-and-language series observed in only one period has no variation left after \(\alpha_{j\ell}\) is removed and does not enter the slope. The doctrine diversity sample keeps 1,209 of 1,578 observations, in 246 cities. Diversity over all titles keeps 1,458 of 1,876, in 291 cities.</p>
+
+<h2>Weights</h2>
+<p>Each observation is weighted by \(\sqrt{n}\), where \(n\) is its number of titles. A cell average built from \(n\) titles has sampling noise that scales as \(1/\sqrt{n}\), so the square root is the inverse-standard-deviation weight (Wooldridge 2010, ch. 19). Solon, Haider, and Wooldridge (2015) discuss weighting in panel regressions. The weighted six-language doctrine diversity slope is 0.250 (SE 0.050). Unweighted it is 0.219 (SE 0.066).</p>
+
+<h2>Standard errors</h2>
+<p>Standard errors are clustered by city, so the errors of one city are allowed to be correlated across its languages and periods. A second standard error, following Conley (1999), allows the errors of cities within 250 km of one another to be correlated. Figures 6, 9, and 12 of the companion draw intervals with the larger of the two. Figures 8 and 10 use the city-clustered standard error. For German doctrine diversity the slope is 0.746, with a city-clustered standard error of 0.194 and a Conley standard error of 0.255.</p>
+
+<h2>Magnitudes in standard deviations</h2>
+<p>The companion reports most slopes as the change in the outcome, in its standard deviations, when log market access rises by one within-city standard deviation.</p>
+<div class="eq">$$\text{size} \;=\; \beta \;\frac{\sigma_{w}(\log \mathrm{MA})}{\sigma(y)}$$</div>
+<p>Here \(\sigma_w(\log \mathrm{MA})\) is the standard deviation of log market access around each city-and-language mean, among series observed in more than one period, and \(\sigma(y)\) is the standard deviation of the outcome in the sample. For six-language doctrine diversity, \(0.250 \times 0.161 / 0.104 = 0.39\). For German, \(0.746 \times 0.140 / 0.081 = 1.28\). A within-city standard deviation of 0.16 log units is about the rise in market access a typical city saw over half a century.</p>
+
+<h2>Three extensions</h2>
+<h3>The trade elasticity</h3>
+<p>Market access is rebuilt at each value of the trade elasticity \(\theta\) and the equation is estimated again. Each slope is scaled by the within-city standard deviation of log market access at that \(\theta\), so slopes at different elasticities are comparable. These are the curves in <a href="../#theta">Figure 8</a>.</p>
+
+<h3>Free entry and licensing</h3>
+<p>German and Italian are pooled as the free-entry regime and French and Spanish as the licensing regime. Each pool is estimated with the equation above. The difference between the two slopes comes from one regression on both pools,</p>
+<div class="eq">$$y_{j\ell d} \;=\; \beta \,\log \mathrm{MA}_{j\ell d} \;+\; \gamma \,\log \mathrm{MA}_{j\ell d}\, L_{\ell} \;+\; \alpha_{j\ell} \;+\; \delta_{d L} \;+\; \varepsilon_{j\ell d},$$</div>
+<p>where \(L_\ell\) is one for French and Spanish. The period effects \(\delta_{dL}\) are specific to each regime, so \(\gamma\) equals the licensing slope minus the free-entry slope. For doctrine diversity the two slopes are 0.683 and 0.022 and \(\gamma\) is −0.66 (SE 0.14). For doctrine distinctiveness \(\gamma\) is 1.24 (SE 0.48). The paper reports the two slopes. The test of their difference is computed for the companion and is not in the paper.</p>
+
+<h3>The Castilian timing</h3>
+<p>For Spanish the equation is estimated on decade cells, with city and decade fixed effects, separately before and from a cut year. The doctrine diversity slope is 1.375 (SE 0.872) before 1560 and −0.221 (SE 0.082) from 1560. These are the estimates in <a href="../#entry">Figure 10</a>.</p>
+
+<h2>Novelty and bridging</h2>
+<p>The variety results use the same equation on the same doctrine cells, with \(y_{j\ell d}\) the mean novelty or the mean bridging of the cell's doctrine titles. The <a href="../novelty/">novelty</a> and <a href="../bridging/">bridging</a> explainers define the two measures.</p>
+
+<h2>What the specification does not absorb</h2>
+<p>The variation in a city's market access comes from population change in other cities, which its printers did not control. The period effects absorb shocks common to all cities in a period. Shocks specific to a region and a period remain. A war, a confessional change, or a regional boom can change the populations around a city and what its presses print at the same time. The paper reads \(\beta\) as an association for that reason.</p>
+
+<h2>References</h2>
+<!--REFS:Conley1999_gmm,SolonHaiderWooldridge2015_weighting,Wooldridge2010_panel-->
+<ul class="refs">
+  <li>Timothy G. Conley (1999). GMM Estimation with Cross Sectional Dependence. <i>Journal of Econometrics</i> 92(1), 1–45.</li>
+  <li>Gary Solon, Steven J. Haider, and Jeffrey M. Wooldridge (2015). What Are We Weighting For? <i>Journal of Human Resources</i> 50(2), 301–316.</li>
+  <li>Jeffrey M. Wooldridge (2010). <i>Econometric Analysis of Cross Section and Panel Data</i>. Cambridge, MA, MIT Press.</li>
+</ul><!--/REFS-->
+<!--MORE:estimation-->
+<nav class="more" aria-label="Explainers">The six explainers. <a href="../embeddings/">Word and title embeddings</a> · <a href="../market-access/">Market access</a> · <a href="../measures/">Diversity and distinctiveness</a> · <a href="../novelty/">Novelty</a> · <a href="../bridging/">Bridging</a> · <b>Estimation</b> · <a href="../">Back to the companion</a></nav>
+</main>
+</body>
+</html>

@@ -48,6 +48,16 @@
 "Regimes, doctrine distinctiveness, free entry and licensing","-1.304 -0.061","-1.30387 -0.0607637",5e-04,TRUE
 "Regimes, doctrine observations","371 217 349 208","371 217 349 208",0,TRUE
 "Castile, doctrine diversity before and from 1560","1.375 -0.221","1.37495 -0.220713",5e-04,TRUE
+"Estimation explainer: Castile SEs before and from 1560","0.872 0.082","0.8723 0.0817378",5e-04,TRUE
+"Estimation explainer: regime difference = licensing minus free-entry slope, diversity and distinctiveness","0","4.48308e-13",1e-06,TRUE
+"Estimation explainer: regime difference, diversity and SE","-0.66 0.14","-0.661591 0.138856",0.005,TRUE
+"Estimation explainer: regime difference, distinctiveness and SE","1.24 0.48","1.24311 0.475156",0.005,TRUE
+"Estimation explainer: six-language doctrine diversity, weighted slope and SE","0.25 0.05","0.249866 0.0495322",5e-04,TRUE
+"Estimation explainer: same slope unweighted, and SE","0.219 0.066","0.219043 0.0655438",5e-04,TRUE
+"Estimation explainer: estimation samples, doctrine and all-titles diversity, cities","246 1458 291","246 1458 291",0,TRUE
+"Estimation explainer: German doctrine diversity, slope, clustered SE, and the larger bracketed SE","0.746 0.194 0.255","0.745699 0.193766 0.254624",5e-04,TRUE
+"Estimation explainer: German within-city SD of log MA and SD of the outcome","0.14 0.081","0.139554 0.0813358",5e-04,TRUE
+"Estimation explainer: six-language within-city SD of log MA and SD of the outcome","0.161 0.104","0.161484 0.104284",5e-04,TRUE
 "Castile, doctrine diversity before and from 1570","1.057 -0.197","1.05733 -0.196631",5e-04,TRUE
 "Castile records 1550-54 and 1555-59","436 189","436 189",0,TRUE
 "Aragon share 1555-59 and 1560-64 (percent)","26 33","26.1719 32.899",0.5,TRUE

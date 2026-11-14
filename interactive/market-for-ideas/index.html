@@ -18,7 +18,10 @@
 <meta name="twitter:title" content="Mapping the Market for Ideas. An interactive companion">
 <meta name="twitter:description" content="An interactive companion to Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach by Noel Johnson and Alexander Taylor.">
 <meta name="twitter:image" content="https://noeldjohnson.github.io/assets/images/interactive/market-for-ideas.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}] })"></script>
 <style>
 :root {
   --navy: #1B2A4A; --rust: #C75B12; --teal: #2A6F77; --gold: #C9A227; --gray: #5C5C5C;
@@ -58,6 +61,7 @@ input[type=range] { accent-color: var(--rust); }
 .chips { font: 13px -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); }
 .chips a { color: var(--teal); cursor: pointer; margin-right: 8px; text-decoration: underline; }
 svg { display: block; width: 100%; height: auto; }
+.eq { overflow-x: auto; margin: 6px 0 18px; }
 svg text { font: 12px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: var(--gray); }
 svg text.title { font-weight: 600; fill: var(--navy); font-size: 14px; }
 .axis path, .axis line { stroke: #b8b8b8; }
@@ -203,6 +207,9 @@ footer a { color: var(--teal); }
 <section id="results">
 <h2><span class="num">6</span>Diversity and distinctiveness</h2>
 <p>We ask how a city's print in a language changed when its market access rose relative to that city's own average and to the change common to all cities in the period. Each slope compares a city with itself over time so a city's university, its size, and its position on the trade routes do not enter. The panel has 1,876 observations of a city, a language, and a 50-year period, across 504 cities. Doctrine has 1,578 across 441.</p>
+<div class="eq">$$y_{j\ell d} \;=\; \beta \,\log \mathrm{MA}_{j\ell d} \;+\; \alpha_{j\ell} \;+\; \delta_{d} \;+\; \varepsilon_{j\ell d}$$</div>
+<p>Here \(y_{j\ell d}\) is the diversity or the distinctiveness of city \(j\)'s titles in language \(\ell\) and period \(d\), and \(\log \mathrm{MA}_{j\ell d}\) is the log of its market access in that language. The city-and-language effect \(\alpha_{j\ell}\) removes the city's own average and the period effect \(\delta_d\) removes the change common to all cities. Each observation is weighted by the square root of its number of titles and standard errors are clustered by city.</p>
+<p class="note">Explainer. <a href="estimation/">The estimating equation, its weights and standard errors, and its extensions.</a></p>
 <p>Choose a product and a measure. Magnitudes in standard deviations are for a rise of one within-city standard deviation of log market access, 0.16 log units, about the rise a typical city saw over half a century.</p>
 <div class="figure">
   <div class="controls"><span id="ptabs"></span><span class="sep"></span><span id="mtabs"></span><span class="sep"></span><span id="utabs"></span></div>
@@ -340,8 +347,8 @@ footer a { color: var(--teal); }
   <li>Dave Donaldson and Richard Hornbeck (2016). Railroads and American Economic Growth: A "Market Access" Approach. <i>Quarterly Journal of Economics</i> 131(2), 799–858.</li>
   <li>Dave Donaldson (2018). Railroads of the Raj: Estimating the Impact of Transportation Infrastructure. <i>American Economic Review</i> 108(4–5), 899–934.</li>
   <li>Mauricio Drelichman, Jordi Vidal-Robert, and Hans-Joachim Voth (2021). The Long-Run Effects of Religious Persecution: Evidence from the Spanish Inquisition. <i>Proceedings of the National Academy of Sciences</i> 118(33), e2022881118.</li>
-  <li>Matthew Gentzkow and Jesse M. Shapiro (2011). Ideological Segregation Online and Offline. <i>Quarterly Journal of Economics</i> 126(4), 1799–1839.</li>
   <li>Matthew Gentzkow, Jesse M. Shapiro, and Michael Sinkinson (2011). The Effect of Newspaper Entry and Exit on Electoral Politics. <i>American Economic Review</i> 101(7), 2980–3018.</li>
+  <li>Matthew Gentzkow and Jesse M. Shapiro (2011). Ideological Segregation Online and Offline. <i>Quarterly Journal of Economics</i> 126(4), 1799–1839.</li>
   <li>Edward L. Glaeser, Hedi D. Kallal, José A. Scheinkman, and Andrei Shleifer (1992). Growth in Cities. <i>Journal of Political Economy</i> 100(6), 1126–1152.</li>
   <li>Danny Hayes and Jennifer L. Lawless (2021). <i>News Hole: The Demise of Local Journalism and Political Engagement</i>. Cambridge, Cambridge University Press.</li>
   <li>Elhanan Helpman and Paul R. Krugman (1985). <i>Market Structure and Foreign Trade: Increasing Returns, Imperfect Competition, and the International Economy</i>. Cambridge, MA, MIT Press.</li>
