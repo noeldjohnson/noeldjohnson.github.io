@@ -159,7 +159,7 @@ footer a { color: var(--teal); }
 <div class="figure">
   <div class="controls" id="stabs"></div>
   <svg id="ssvg" viewBox="0 0 800 300" role="img" aria-label="City signature"></svg>
-  <div class="cap"><b>Figure 4.</b> The ten words nearest each city's direction, for Latin titles of 1450 to 1649, with the city's own place names removed. Lyon's are the titles of the <i>Corpus iuris</i>, Louvain's the vocabulary of polyphony, Wittenberg's the vocabulary of academic theses, and Ingolstadt's the Jesuit colleges at Dillingen and Munich.</div>
+  <div class="cap"><b>Figure 4.</b> The ten words nearest each city's direction, for Latin titles of 1450 to 1649, with the city's own place names removed. English glosses in parentheses are ours. Lyon's are the titles of the <i>Corpus iuris</i>, Louvain's the vocabulary of polyphony, Wittenberg's the vocabulary of academic theses, and Ingolstadt's the Jesuit colleges at Dillingen and Munich.</div>
 </div>
 </section>
 
@@ -485,7 +485,7 @@ function latin(l16) {
 
 // ---------- City signatures ----------
 function signatures(l16) {
-  const svg = d3.select("#ssvg"), W = 800, H = 300, mg = {l:170, r:60, t:30, b:30};
+  const svg = d3.select("#ssvg"), W = 800, H = 300, mg = {l:330, r:60, t:30, b:30};
   const by = new Map(l16.signatures.map(s => [s.city, s]));
   function draw(c) {
     svg.selectAll("*").remove(); const s = by.get(c);
@@ -494,7 +494,7 @@ function signatures(l16) {
     svg.append("text").attr("x", 10).attr("y", 16).attr("class","title").text(`${c}, ${s.n_titles.toLocaleString()} Latin titles`);
     const g = svg.selectAll("g.r").data(s.words).join("g").attr("transform", d => `translate(0,${y(d.word)})`);
     g.append("rect").attr("x", x(0)).attr("width", d => x(d.cos)-x(0)).attr("height", y.bandwidth()).attr("fill", C.navy).attr("opacity",.8);
-    g.append("text").attr("x", mg.l-8).attr("y", y.bandwidth()/2).attr("dy","0.35em").attr("text-anchor","end").style("font-size","14px").attr("fill", C.navy).text(d => d.word);
+    g.append("text").attr("x", mg.l-8).attr("y", y.bandwidth()/2).attr("dy","0.35em").attr("text-anchor","end").style("font-size","14px").attr("fill", C.navy).text(d => `${d.word} (${d.gloss})`);
     g.append("text").attr("x", d => x(d.cos)+6).attr("y", y.bandwidth()/2).attr("dy","0.35em").text(d => d.cos.toFixed(2));
   }
   tabs("#stabs", l16.signatures.map(s => s.city), draw).set("Lyon");

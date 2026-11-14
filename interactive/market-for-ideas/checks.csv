@@ -86,6 +86,7 @@
 "Coimbra is the least diverse Latin cell with 60 titles or more","1","1",0,TRUE
 "Venice is the most distinctive Latin cell with 60 titles or more","1","1",0,TRUE
 "Signature table: six cities with ten words each","6 60","6 60",0,TRUE
+"Every signature word has an English gloss","60","60",0,TRUE
 "Corpus editions dated 1450-1650","788299","788299",0,TRUE
 "Religious titles, thousands (manuscript 215)","215","214.496",1.5,TRUE
 "Word neighbors reproduce the paper's figures for every seed","1","1",0,TRUE

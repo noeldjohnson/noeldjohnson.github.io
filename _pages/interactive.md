@@ -88,6 +88,16 @@ companion_land:
 
 Each companion walks through one paper with figures you can move. Every number on these pages is computed from data exported by the paper's replication code and checked against the manuscript, and each page notes any place where the two differ. The papers themselves are on the [Research](/research/) page.
 
+## Information, technology, and the historical record
+
+{% include feature_row id="companion_mfi" type="left" %}
+
+{% include feature_row id="companion_guilds" type="left" %}
+
+{% include feature_row id="companion_bdp" type="left" %}
+
+{% include feature_row id="companion_plague" type="left" %}
+
 ## Policy and institutions
 
 {% include feature_row id="companion_revolt" type="left" %}
@@ -101,13 +111,3 @@ Each companion walks through one paper with figures you can move. Every number o
 {% include feature_row id="companion_taxfarming" type="left" %}
 
 {% include feature_row id="companion_school" type="left" %}
-
-## Information, technology, and the historical record
-
-{% include feature_row id="companion_mfi" type="left" %}
-
-{% include feature_row id="companion_guilds" type="left" %}
-
-{% include feature_row id="companion_bdp" type="left" %}
-
-{% include feature_row id="companion_plague" type="left" %}
