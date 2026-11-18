@@ -25,7 +25,7 @@
 <h2>The formula</h2>
 <div class="eq">$$\mathrm{MA}_{j} \;=\; \sum_{i \neq j} \frac{\mathrm{pop}_{i}}{\tau_{ij}^{\,\theta}}$$</div>
 <p>The sum runs over every other city \(i\). Each city contributes its population, divided by the cost \(\tau_{ij}\) of moving goods between it and city \(j\), raised to the power \(\theta\). A large city nearby adds a lot. A small city far away adds little.</p>
-<p>The measure comes from trade theory. In a model with love of variety and trade costs, a producer's revenue depends on the markets it can reach only through a sum of this form, so the sum is a sufficient statistic for the producer's geography. Donaldson and Hornbeck (2016) used it to measure what railroads did to American land values and Donaldson (2018) used the same approach for the railways of colonial India. Pascali (2017) applies related reasoning to the steamship.</p>
+<p>The measure comes from trade theory. In a model with love of variety and trade costs a producer's revenue depends on the markets it can reach only through a sum of this form so the sum is a sufficient statistic for the producer's geography. Donaldson and Hornbeck (2016) used it to measure what railroads did to American land values and Donaldson (2018) used the same approach for the railways of colonial India. Pascali (2017) applies related reasoning to the steamship.</p>
 
 <h2>Ten towns</h2>
 <p>The figure is a toy economy of ten towns. Five form a cluster in the middle and five are scattered around it. The cost of travel between two towns is one plus their distance in hundreds of kilometers. Click a town to see where its market access comes from.</p>
@@ -42,7 +42,7 @@
   </div>
   <div class="cap"><b>Figure 1.</b> A toy economy. The left panel maps the towns, with circle area proportional to population in thousands and color darker for higher market access. The right panel shows each other town's contribution to the selected town's market access. The numbers are illustrative and are not data.</div>
 </div>
-<p>Three things are worth trying.</p>
+<p>Try three things.</p>
 <ul>
   <li><b>The largest town does not have the highest market access.</b> A town's own population is left out of its own sum. Town A has 40,000 people. They count toward the access of A's neighbors and not toward A's.</li>
   <li><b>Raise the elasticity.</b> At a high \(\theta\) only the nearest neighbors matter. At a low \(\theta\) every town counts nearly equally and the towns' market access values bunch together.</li>
@@ -53,12 +53,12 @@
 <p>We lay a grid of 10 km by 10 km cells over Europe and the Mediterranean. Each cell gets the cost of its cheapest way of moving goods, following Bairoch (1988). Overland portage is the unit.</p>
 <table class="t">
   <tr><th>Mode</th><th>Cost per cell</th></tr>
-  <tr><td>Porters</td><td>1.00</td></tr>
+  <tr><td>Portage</td><td>1.00</td></tr>
   <tr><td>Roads</td><td>0.81</td></tr>
   <tr><td>Navigable rivers</td><td>0.21</td></tr>
   <tr><td>Seas</td><td>0.08</td></tr>
 </table>
-<p>Moving a load 100 km by river costs the same as moving it about 26 km by road or 21 km by porter. The cost \(\tau_{ij}\) between two cities is the cheapest path between them across the grid, found with Dijkstra's algorithm for every pair of about 2,330 cities. The path from Mainz to Venice follows the Rhine, crosses the Alps near the Brenner, and descends through the Po valley. The <a href="../#ma">companion's map</a> draws it.</p>
+<p>Moving a load 100 km by river costs the same as moving it about 26 km by road or 21 km by portage. The cost \(\tau_{ij}\) between two cities is the cheapest path between them across the grid, found with Dijkstra's algorithm for every pair of about 2,330 cities. The path from Mainz to Venice follows the Rhine, crosses the Alps near the Brenner, and descends through the Po valley. The <a href="../#ma">companion's map</a> draws it.</p>
 <p>Three other cost schedules from the literature give log market access that correlates between 0.88 and 0.98 with the Bairoch version.</p>
 
 <h2>Population</h2>
@@ -70,7 +70,7 @@
 <h2>Three choices specific to the paper</h2>
 <ul>
   <li><b>A city's own population is excluded.</b> Market access is meant to measure access to readers elsewhere. Including a city's own people would make the measure track city size.</li>
-  <li><b>The market is bounded by language.</b> A German book had few readers in Spain. For each vernacular the sum runs over the cities that printed at least one title in that language between 1450 and 1650. That is 283 cities for German, 205 for Italian, 301 for French, 131 for Dutch, and 187 for Spanish.</li>
+  <li><b>The market is bounded by language.</b> A German book had few readers in Spain. For each vernacular the sum runs over the cities that printed at least one title in that language between 1450 and 1650. That is 283 cities for German, 205 for Italian, 301 for French, 131 for Dutch, and 187 for Spanish. Adding every city of a language's region, press or not, leaves the slopes within a few hundredths.</li>
   <li><b>Latin has its own market.</b> Latin was read by a public trained in universities, colleges, and academies. For Latin the sum runs over the 129 cities that had one of these institutions at some time between 1450 and 1650.</li>
 </ul>
 

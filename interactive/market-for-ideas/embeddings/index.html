@@ -20,13 +20,13 @@
   <div class="byline">Part of the <a href="../">interactive companion</a> to Mapping the Market for Ideas in Europe, 1450–1650, by Noel Johnson and Alexander Taylor</div>
 </header>
 
-<p>An embedding turns a word into a list of numbers so that words used in similar ways get similar lists. We use embeddings to measure what a book was about from its title alone. This page explains how the vectors are built, in four steps, and why we built them this way.</p>
+<p>An embedding turns a word into a list of numbers so that words used in similar ways get similar lists. We use embeddings to measure what a book was about from its title alone. The vectors are built in four steps.</p>
 
-<h2>Why a vector and not a subject class</h2>
-<p>The Universal Short Title Catalogue assigns each edition one of about 20 subject classes. A class supports counts and shares. It cannot say how far apart two books are. Erasmus on the freedom of the will and Luther's reply are both filed under Religious, and so are a Catholic devotional manual and a Calvinist catechism. A vector gives every title a position, and positions have distances. Every measure in the paper is a distance between titles or between averages of titles.</p>
+<h2>Why a vector</h2>
+<p>The Universal Short Title Catalogue assigns each edition one of about 20 subject classes. A class supports counts and shares. It cannot say how far apart two books are. Erasmus on the freedom of the will and Luther's reply are both filed under Religious, and so are a Catholic devotional manual and a Calvinist catechism. A vector gives every title a position and positions have distances. Every measure in the paper is a distance between titles or between averages of titles.</p>
 
 <h2>Step 1. Count which words appear together</h2>
-<p>The idea behind every embedding is that a word is known by the company it keeps (Mikolov et al. 2013, Pennington, Socher, and Manning 2014). In Latin titles <i>medicus</i> appears near <i>chirurgia</i> and <i>rex</i> appears near <i>imperator</i>. For each language we count how often each pair of words appears within five words of one another in a title. Words that appear fewer than 20 times are left out. The result is a large table with one row and one column for every word.</p>
+<p>The idea behind every embedding is that words used in similar contexts have similar meanings (Mikolov et al. 2013, Pennington, Socher, and Manning 2014). In Latin titles <i>medicus</i> appears near <i>chirurgia</i> and <i>rex</i> appears near <i>imperator</i>. For each language we count how often each pair of words appears within five words of one another in a title. Words that appear fewer than 20 times are left out. The result is a large table with one row and one column for every word.</p>
 
 <h2>Step 2. Correct for how common each word is</h2>
 <p>Raw counts mostly track frequency. Two common words appear together often whether or not they are related. Pointwise mutual information compares how often a pair appears together with how often it would if the two words were unrelated (Church and Hanks 1990).</p>
@@ -47,10 +47,10 @@
 </div>
 
 <h2>Step 3. Compress the table to 200 dimensions</h2>
-<p>The table has thousands of columns and most cells are zero. We reduce it to 200 columns with a truncated singular value decomposition. The decomposition keeps the 200 directions that account for the most variation in the table and drops the rest, which is mostly noise. Each word now has a vector of 200 numbers. Levy and Goldberg (2014) show that the neural method word2vec implicitly factors a table of this kind, so the two approaches are close relatives. Ours has no random initialization and the same input always gives the same vectors.</p>
+<p>The table has thousands of columns and most cells are zero. We reduce it to 200 columns with a truncated singular value decomposition. The decomposition keeps the 200 directions that account for the most variation in the table and drops the rest, which is mostly noise. Each word now has a vector of 200 numbers. Levy and Goldberg (2014) show that the neural method word2vec implicitly factors a table of this kind so the two approaches are close relatives. Ours has no random initialization and the same input always gives the same vectors.</p>
 <p>Two words are compared by the cosine of the angle between their vectors.</p>
 <div class="eq">$$\cos(u, v) \;=\; \frac{u \cdot v}{\lVert u \rVert\,\lVert v \rVert}, \qquad d_{\cos}(u, v) \;=\; 1 - \cos(u, v)$$</div>
-<p>The cosine is 1 when two vectors point the same way, 0 when they are at right angles, and −1 when they point in opposite directions. The cosine distance runs from 0 to 2. Length does not enter, so a long title and a short title on the same subject are close.</p>
+<p>The cosine is 1 when two vectors point the same way, 0 when they are at right angles, and −1 when they point in opposite directions. The cosine distance runs from 0 to 2. Length does not enter so a long title and a short title on the same subject are close.</p>
 <div class="figure">
   <div class="controls">
     <label>Angle between the two vectors <span id="angv"></span><input id="ang" type="range" min="0" max="180" step="1" value="40"></label>
@@ -88,8 +88,8 @@
   <tr><td>Languages trained separately</td><td>Latin, German, French, Italian, English, Dutch, Spanish</td></tr>
 </table>
 
-<h2>Why not a modern language model</h2>
-<p>Pretrained neural models are trained on modern text. None exists for sixteenth-century Latin, German, or Dutch titles in their original spelling. Ganguli et al. (2026) show for patents that the choice of text representation can reverse a measured trend so a text measure has to be validated before its trend is read. We train on the catalog's own titles and check the result against things we know. The nearest titles to William Harvey's <i>De motu cordis</i> are reprints of Harvey and other works on the circulation of the blood, and the catalog files them under three different classes. You can search any word's neighbors in the <a href="../#vectors">companion</a>.</p>
+<h2>Why the model is trained on the catalog</h2>
+<p>Pretrained neural models are trained on modern text. None exists for sixteenth-century Latin, German, or Dutch titles in their original spelling. Ganguli et al. (2026) show for patents that the choice of text representation can reverse a measured trend so a text measure has to be validated before its trend is read. We train on the catalog's own titles and check the result against things we know. The nearest titles to William Harvey's <i>De motu cordis</i> are reprints of Harvey and other works on the circulation of the blood and the catalog files them under three different classes. You can search any word's neighbors in the <a href="../#vectors">companion</a>.</p>
 <p>Word embeddings are now a standard tool in economics. They have been used to map the words of job advertisements to tasks (Atalay et al. 2020), to measure the gender slant of judges' opinions (Ash, Chen, and Ornaghi 2024), and to trace change in the meaning of words over time (Hamilton, Leskovec, and Jurafsky 2016). Gentzkow, Kelly, and Taddy (2019) survey text as data for economists.</p>
 
 <h2>What to keep in mind</h2>

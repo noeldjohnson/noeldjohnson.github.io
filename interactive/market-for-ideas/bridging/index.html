@@ -23,16 +23,16 @@
 <p>Bridging asks whether a title sat inside one established subject or between two. It is the second of the two measures we use to describe the titles a larger market added. The first is <a href="../novelty/">novelty</a>.</p>
 
 <h2>Why it matters</h2>
-<p>In Weitzman's (1998) account new ideas are combinations of existing ones. Jacobs (1969) put the crossing of ideas between fields behind the growth of cities, and Glaeser et al. (1992) found that industrial diversity predicted the growth of American cities. A title that joins two subjects is a combination in the plainest sense. Bridging counts how much of a city's print was of that kind.</p>
+<p>In Weitzman's (1998) account new ideas are combinations of existing ones. Jacobs (1969) put the crossing of ideas between fields behind the growth of cities. Glaeser et al. (1992) found that industrial diversity predicted the growth of American cities. A title that joins two subjects is a combination in the plainest sense. Bridging counts how much of a city's print was of that kind.</p>
 
 <h2>Step 1. Find the subjects</h2>
-<p>We do not use the catalog's subject classes, which are too broad. We let the titles sort themselves. For each language the \(k\)-means algorithm groups the vectors of every title into 30 clusters. It starts from 30 trial centers, assigns each title to its nearest center, moves each center to the average of its titles, and repeats until the assignments settle. The clusters are fitted once per language on all titles and labeled by the vocabulary words nearest each center.</p>
+<p>The subjects come from the titles themselves because the catalog's classes are too broad. For each language the \(k\)-means algorithm groups the vectors of every title into 30 clusters. It starts from 30 trial centers, assigns each title to its nearest center, moves each center to the average of its titles, and repeats until the assignments settle. The clusters are fitted once per language on all titles and labeled by the vocabulary words nearest each center.</p>
 <p>The clusters are recognizable subjects. In Latin they include grammars, confessional manuals, lectures on the Code and the Decretals, polyphony, funeral orations, medical disputations, and Lutheran polemic. In German they include news, catechisms, plague remedies, funeral sermons, and almanacs. The companion maps the 30 German clusters in its <a href="../#variety">Figure 16</a>.</p>
 
 <h2>Step 2. Compare the nearest subject with the second nearest</h2>
 <p>For each title compute its cosine with every cluster center. Call the highest \(s_1\) and the second highest \(s_2\).</p>
 <div class="eq">$$\mathrm{Bridging}_i \;=\; \frac{s_2}{s_1}$$</div>
-<p>A title deep inside one subject is much closer to its own center than to any other, so the ratio is low. A title halfway between two subjects is equally close to both and the ratio is near one. A city's value for a period is the mean over its doctrine titles.</p>
+<p>A title deep inside one subject is much closer to its own center than to any other so the ratio is low. A title halfway between two subjects is equally close to both and the ratio is near one. A city's value for a period is the mean over its doctrine titles.</p>
 
 <h2>Try it</h2>
 <p>Titles and subject centers are directions on a circle. Three subjects sit at 0, 90, and 200 degrees. Move the title.</p>
@@ -64,10 +64,10 @@
 <h2>What to keep in mind</h2>
 <ul>
   <li>The ratio is high for a title equally close to two subjects, whether it is close to both or far from both. The peak at 280 degrees in the figure is a title far from every subject. A high value says a title has no single home.</li>
-  <li>The subjects are the catalog's own. They come from how titles group in each language and from no outside classification.</li>
+  <li>The subjects come from how titles group in each language. No outside classification enters.</li>
   <li>The subjects are fixed for the whole period. A title of 1520 and a title of 1640 are placed against the same 30 centers.</li>
   <li>A title can reach its second subject through one shared word or through its form. A list of Latinized names with academic honorifics, for example, sits between Latin occasional verse and funeral sermons because those two subjects share that vocabulary.</li>
-  <li>Bridging and novelty rise together with diversity in the data. The three come from the same titles, so that association is descriptive.</li>
+  <li>Bridging and novelty rise together with diversity in the data. The three come from the same titles. With market access as the instrument for diversity the slopes are close to the direct ones.</li>
 </ul>
 
 <h2>References</h2>

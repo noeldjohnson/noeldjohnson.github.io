@@ -20,7 +20,7 @@
   <div class="byline">Part of the <a href="../">interactive companion</a> to Mapping the Market for Ideas in Europe, 1450–1650, by Noel Johnson and Alexander Taylor</div>
 </header>
 
-<p>Every slope in the companion comes from one equation. This page writes it down, defines each term, and shows how the comparison of licensing authorities, the trade-elasticity curve, and the Castilian timing extend it.</p>
+<p>Every slope in the companion comes from one equation. The comparison of licensing authorities, the trade-elasticity curve, and the Castilian timing extend it.</p>
 
 <h2>The equation</h2>
 <div class="eq">$$y_{j\ell d} \;=\; \beta \,\log \mathrm{MA}_{j\ell d} \;+\; \alpha_{j\ell} \;+\; \delta_{\ell d} \;+\; \varepsilon_{j\ell d}$$</div>
@@ -37,10 +37,10 @@
 <p>A city-and-language series observed in only one period has no variation left after \(\alpha_{j\ell}\) is removed and does not enter the slope. The doctrine diversity sample keeps 1,209 of 1,578 observations, in 246 cities. Diversity over all titles keeps 1,458 of 1,876, in 291 cities.</p>
 
 <h2>Weights</h2>
-<p>Each observation is weighted by \(\sqrt{n}\), where \(n\) is its number of titles. A cell average built from \(n\) titles has sampling noise that scales as \(1/\sqrt{n}\), so the square root is the inverse-standard-deviation weight (Wooldridge 2010, ch. 19). Solon, Haider, and Wooldridge (2015) discuss weighting in panel regressions. The weighted six-language doctrine diversity slope is 0.250 (SE 0.050). Unweighted it is 0.219 (SE 0.066).</p>
+<p>Each observation is weighted by \(\sqrt{n}\), where \(n\) is its number of titles. A cell average built from \(n\) titles has sampling noise that scales as \(1/\sqrt{n}\) so the square root is the inverse-standard-deviation weight (Wooldridge 2010, ch. 19). Solon, Haider, and Wooldridge (2015) discuss weighting in panel regressions. The weighted six-language doctrine diversity slope is 0.250 (SE 0.050). Unweighted it is 0.219 (SE 0.066).</p>
 
 <h2>Standard errors</h2>
-<p>Standard errors are clustered by city, so the errors of one city are allowed to be correlated across its languages and periods. A second standard error, following Conley (1999), allows the errors of cities within 250 km of one another to be correlated. Figures 6, 9, 10, 11, and 13 of the companion draw intervals with the larger of the two. Figure 8 uses the city-clustered standard error. For German doctrine diversity the slope is 0.746, with a city-clustered standard error of 0.194 and a Conley standard error of 0.255.</p>
+<p>Standard errors are clustered by city so the errors of one city are allowed to be correlated across its languages and periods. A second standard error, following Conley (1999), allows the errors of cities within 250 km of one another to be correlated. Figures 6, 9, 10, 11, and 13 of the companion draw intervals with the larger of the two. Figure 8 uses the city-clustered standard error. For German doctrine diversity the slope is 0.746, with a city-clustered standard error of 0.194 and a Conley standard error of 0.255.</p>
 
 <h2>Magnitudes in standard deviations</h2>
 <p>The companion reports most slopes as the change in the outcome, in its standard deviations, when log market access rises by one within-city standard deviation.</p>
@@ -49,7 +49,7 @@
 
 <h2>Three extensions</h2>
 <h3>The trade elasticity</h3>
-<p>Market access is rebuilt at each value of the trade elasticity \(\theta\) and the equation is estimated again. Each slope is scaled by the within-city standard deviation of log market access at that \(\theta\), so slopes at different elasticities are comparable. These are the curves in <a href="../#theta">Figure 8</a>.</p>
+<p>Market access is rebuilt at each value of the trade elasticity \(\theta\) and the equation is estimated again. Each slope is scaled by the within-city standard deviation of log market access at that \(\theta\) so slopes at different elasticities are comparable. These are the curves in <a href="../#theta">Figure 8</a>.</p>
 
 <h3>Many authorities and one crown</h3>
 <p>German, Italian, and Dutch are pooled as the vernaculars printed under many licensing authorities and French and Spanish as those printed under one crown. Each pool is estimated with the equation above. The difference between the two slopes comes from one regression on both pools,</p>
@@ -62,7 +62,7 @@
 <h2>Novelty and bridging</h2>
 <p>The variety results use the same equation on the same doctrine cells, with \(y_{j\ell d}\) the mean novelty or the mean bridging of the cell's doctrine titles. The <a href="../novelty/">novelty</a> and <a href="../bridging/">bridging</a> explainers define the two measures.</p>
 
-<h2>What the specification does not absorb</h2>
+<h2>Shocks the specification leaves in</h2>
 <p>The variation in a city's market access comes from population change in other cities, which its printers did not control. The period effects absorb shocks common to all cities in a period. Shocks specific to a region and a period remain. A war, a confessional change, or a regional boom can change the populations around a city and what its presses print at the same time. The paper reads \(\beta\) as an association for that reason.</p>
 
 <h2>References</h2>

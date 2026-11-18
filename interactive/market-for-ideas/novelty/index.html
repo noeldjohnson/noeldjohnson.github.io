@@ -28,7 +28,7 @@
 <h2>The definition</h2>
 <p>Take a title \(i\) printed in decade \(t\). Compare it with every title printed in the same language in an earlier decade and find the one with the highest cosine similarity. Novelty is one minus that cosine.</p>
 <div class="eq">$$\mathrm{Novelty}_i \;=\; 1 - \max_{j \,:\, t_j < t_i} \cos(v_i, v_j)$$</div>
-<p>A reprint has an identical or nearly identical title to something earlier and scores near zero. A title unlike anything printed before scores high. A city's value for a period is the mean over its doctrine titles, so it does not drift with the number of titles the city printed. The vectors are explained <a href="../embeddings/">here</a>.</p>
+<p>A reprint has an identical or nearly identical title to something earlier and scores near zero. A title unlike anything printed before scores high. A city's value for a period is the mean over its doctrine titles so it does not drift with the number of titles the city printed. The vectors are explained <a href="../embeddings/">here</a>.</p>
 
 <h2>Try it</h2>
 <p>Titles are directions on a circle. Three earlier titles sit at 0, 40, and 90 degrees. Move the new title around the circle.</p>
@@ -46,7 +46,7 @@
 </div>
 
 <h2>A larger stock leaves less room</h2>
-<p>Novelty is measured against the stock of earlier titles, so the size of that stock matters. The next figure scatters earlier titles at random around the circle and asks how novel a new title is on average.</p>
+<p>Novelty is measured against the stock of earlier titles so the size of that stock matters. The next figure scatters earlier titles at random around the circle and asks how novel a new title is on average.</p>
 <div class="figure">
   <div class="controls">
     <label>Earlier titles in the language <span id="stv"></span><input id="st" type="range" min="1" max="200" step="1" value="12"></label>
@@ -57,7 +57,7 @@
 <p>This is how we read the Latin result. The Latin reference corpus holds 273,168 titles against 87,800 in German and 57,951 in Italian. A title that a Latin city had not yet printed was far more often a title another city already had.</p>
 
 <h2>What the paper finds</h2>
-<p>The paper pools German, Italian, and Dutch as the vernaculars printed under many licensing authorities and French and Spanish as those printed under one crown. Under many authorities a rise of one within-city standard deviation in market access went with doctrine titles further from anything printed before in their language by 0.43 standard deviations. The slope is 0.242 with a standard error of 0.091. German shows the largest response at 0.82 standard deviations. Under one crown, where market access did not raise diversity, the slope is 0.018 with a standard error of 0.202. Latin novelty does not move with market access although Latin diversity rises. A better-connected Latin press added range from the continent's existing stock. A better-connected press under many authorities added titles new to its language.</p>
+<p>The paper pools German, Italian, and Dutch as the vernaculars printed under many licensing authorities and French and Spanish as those printed under one crown. Under many authorities a rise of one within-city standard deviation in market access went with doctrine titles farther from anything printed before in their language by 0.43 standard deviations. The slope is 0.242 with a standard error of 0.091. German shows the largest response at 0.82 standard deviations. Under one crown, where market access did not raise diversity, the slope is 0.018 with a standard error of 0.202. Latin novelty does not move with market access although Latin diversity rises. A better-connected Latin press added range from the continent's existing stock. A better-connected press under many authorities added titles new to its language.</p>
 
 <h2>Checks</h2>
 <table class="t">
@@ -71,7 +71,7 @@
 
 <h2>What to keep in mind</h2>
 <ul>
-  <li>Novelty is novelty of a title. A new title can announce an old argument and an old title can carry a new one.</li>
+  <li>Novelty measures the title. A new title can announce an old argument and an old title can carry a new one.</li>
   <li>The reference is the catalog. A title is new relative to the editions that survive and were recorded.</li>
   <li>Two kinds of title are left out. Those whose vector coincides with that of an earlier title with different words, and those built from fewer than two words in the vocabulary.</li>
   <li>The measure describes what a larger market added. Whether those titles changed what a city later produced is a question the paper does not reach.</li>
