@@ -24,7 +24,7 @@ companion_mfi:
   - image_path: /assets/images/interactive/market-for-ideas.jpg
     alt: "Map of European printing cities colored by market access in 1600"
     title: "Mapping the Market for Ideas in Europe, 1450–1650: A Title-Embeddings Approach"
-    excerpt: "With Alexander Taylor. When a city's market access rose it printed a wider range of religious, scholarly, and literary titles and moved nearer the mainstream of its language. The response appeared in German and Italian, where printers were free to enter, and not in French and Spanish, where the crown licensed the presses."
+    excerpt: "With Alexander Taylor. When a city's market access rose it printed a wider range of religious, scholarly, and literary titles and moved nearer the mainstream of its language. The added titles were new to the language and lay between established subjects. The response appeared in German, Italian, and Dutch, which were printed under many licensing authorities, and not in French and Spanish, each licensed by one crown."
     url: /interactive/market-for-ideas/
     btn_label: "Open the companion"
     btn_class: "btn--primary"

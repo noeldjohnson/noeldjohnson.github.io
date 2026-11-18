@@ -23,7 +23,7 @@
 <p>Diversity says a better-connected city printed a wider range of titles. It does not say whether the added titles were new or were reprints of what other cities already had. Novelty answers that. It gives every title a number that says how far it sits from anything printed before it in the same language.</p>
 
 <h2>Why it matters</h2>
-<p>In models of growth through new varieties the fixed cost of a variety is the cost of an idea and a larger market is what covers it (Romer 1990). A larger market for print should then bring titles that did not exist before. Text-based measures of this kind are used for patents, where a patent's novelty is its distance from the patents that came before it (Kelly et al. 2021).</p>
+<p>In models of growth through new varieties the fixed cost of a variety is the cost of an idea and a larger market is what covers it (Romer 1990). A larger market for print should then bring titles that did not exist before.</p>
 
 <h2>The definition</h2>
 <p>Take a title \(i\) printed in decade \(t\). Compare it with every title printed in the same language in an earlier decade and find the one with the highest cosine similarity. Novelty is one minus that cosine.</p>
@@ -57,16 +57,16 @@
 <p>This is how we read the Latin result. The Latin reference corpus holds 273,168 titles against 87,800 in German and 57,951 in Italian. A title that a Latin city had not yet printed was far more often a title another city already had.</p>
 
 <h2>What the paper finds</h2>
-<p>Within cities a rise of one within-city standard deviation in vernacular market access went with doctrine titles further from anything printed before in their language by 0.37 standard deviations. The slope is 0.240 with a standard error of 0.081. German shows the largest response at 0.82 standard deviations. Latin novelty does not move with market access although Latin diversity rises. A better-connected Latin press added range from the continent's existing stock. A better-connected vernacular press added titles new to its language.</p>
+<p>The paper pools German, Italian, and Dutch as the vernaculars printed under many licensing authorities and French and Spanish as those printed under one crown. Under many authorities a rise of one within-city standard deviation in market access went with doctrine titles further from anything printed before in their language by 0.43 standard deviations. The slope is 0.242 with a standard error of 0.091. German shows the largest response at 0.82 standard deviations. Under one crown, where market access did not raise diversity, the slope is 0.018 with a standard error of 0.202. Latin novelty does not move with market access although Latin diversity rises. A better-connected Latin press added range from the continent's existing stock. A better-connected press under many authorities added titles new to its language.</p>
 
 <h2>Checks</h2>
 <table class="t">
-  <tr><th>Version of the measure</th><th>Vernacular slope</th><th>What it rules out</th></tr>
-  <tr><td>Headline</td><td>0.240</td><td></td></tr>
-  <tr><td>Against earlier titles from other cities only</td><td>0.196</td><td>A city scoring low only because it reprints itself</td></tr>
-  <tr><td>Reprints dropped before averaging</td><td>0.224</td><td>A change in the share of reprints driving the mean</td></tr>
-  <tr><td>From 1480 only</td><td>0.240</td><td>The thin reference sets of the first decades</td></tr>
-  <tr><td>Poetry and academic dissertations dropped</td><td>0.251</td><td>Occasional print, which supplies many of the most novel titles</td></tr>
+  <tr><th>Version of the measure</th><th>Five vernaculars</th><th>German</th><th>What it rules out</th></tr>
+  <tr><td>Headline</td><td>0.167</td><td>0.427</td><td></td></tr>
+  <tr><td>Against earlier titles from other cities only</td><td>0.106</td><td>0.376</td><td>A city scoring low only because it reprints itself</td></tr>
+  <tr><td>Reprints dropped before averaging</td><td>0.161</td><td>0.399</td><td>A change in the share of reprints driving the mean</td></tr>
+  <tr><td>From 1480 only</td><td>0.217</td><td>0.443</td><td>The thin reference sets of the first decades</td></tr>
+  <tr><td>Poetry and academic dissertations dropped</td><td>0.176</td><td>0.451</td><td>Occasional print, which supplies many of the most novel titles</td></tr>
 </table>
 
 <h2>What to keep in mind</h2>
@@ -79,9 +79,8 @@
 <p>The companion reports the slopes in its <a href="../#variety">section on what the added variety was</a>.</p>
 
 <h2>References</h2>
-<!--REFS:Kelly2021_measuring,Romer1990_endogenous-->
+<!--REFS:Romer1990_endogenous-->
 <ul class="refs">
-  <li>Bryan Kelly, Dimitris Papanikolaou, Amit Seru, and Matt Taddy (2021). Measuring Technological Innovation Over the Long Run. <i>American Economic Review: Insights</i> 3(3), 303–320.</li>
   <li>Paul M. Romer (1990). Endogenous Technological Change. <i>Journal of Political Economy</i> 98(5), S71–S102.</li>
 </ul><!--/REFS-->
 <!--MORE:novelty-->
