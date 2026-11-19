@@ -22,8 +22,8 @@
 
 <p>An embedding turns a word into a list of numbers so that words used in similar ways get similar lists. We use embeddings to measure what a book was about from its title alone. The vectors are built in four steps.</p>
 
-<h2>Why a vector</h2>
-<p>The Universal Short Title Catalogue assigns each edition one of about 20 subject classes. A class supports counts and shares. It cannot say how far apart two books are. Erasmus on the freedom of the will and Luther's reply are both filed under Religious, and so are a Catholic devotional manual and a Calvinist catechism. A vector gives every title a position and positions have distances. Every measure in the paper is a distance between titles or between averages of titles.</p>
+<h2>Why use a vector?</h2>
+<p>The Universal Short Title Catalogue assigns each edition one of about 20 subject classes. A class supports counts and shares. It cannot say how far apart two books are. Erasmus on the freedom of the will and Luther's reply are both filed under Religious and so are a Catholic devotional manual and a Calvinist catechism. A vector gives every title a position and positions have distances. Every measure in the paper is a distance between titles or between averages of titles.</p>
 
 <h2>Step 1. Count which words appear together</h2>
 <p>The idea behind every embedding is that words used in similar contexts have similar meanings (Mikolov et al. 2013, Pennington, Socher, and Manning 2014). In Latin titles <i>medicus</i> appears near <i>chirurgia</i> and <i>rex</i> appears near <i>imperator</i>. For each language we count how often each pair of words appears within five words of one another in a title. Words that appear fewer than 20 times are left out. The result is a large table with one row and one column for every word.</p>
@@ -74,7 +74,7 @@
     <label>The word's share of all words <span id="pwv"></span><input id="pw" type="range" min="-5" max="-1" step="0.05" value="-3"></label>
   </div>
   <svg id="sifsvg" viewBox="0 0 800 240" role="img" aria-label="Smooth inverse frequency weight by word frequency"></svg>
-  <div class="cap"><b>Figure 3.</b> The weight a word gets in a title's average, by how common the word is. A word that is one in a thousand gets half weight. A word that is one in ten gets about one percent.</div>
+  <div class="cap"><b>Figure 3.</b> The weight a word gets in a title's average, by how common the word is. A word that is one in a thousand gets half weight. A word that is one in ten gets about 1 percent.</div>
 </div>
 
 <h2>What comes out</h2>
@@ -85,7 +85,7 @@
   <tr><td>Minimum word frequency</td><td>20</td></tr>
   <tr><td>Dimensions kept</td><td>200</td></tr>
   <tr><td>Smoothing constant in the title average</td><td>0.001</td></tr>
-  <tr><td>Languages trained separately</td><td>Latin, German, French, Italian, English, Dutch, Spanish</td></tr>
+  <tr><td>Languages trained separately</td><td>Latin, German, French, Italian, Dutch, Spanish</td></tr>
 </table>
 
 <h2>Why the model is trained on the catalog</h2>

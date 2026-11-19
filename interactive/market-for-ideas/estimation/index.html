@@ -34,7 +34,7 @@
 
 <h2>The unit of observation</h2>
 <p>An observation is a city, a language, and a 50-year period, 1450–1499, 1500–1549, 1550–1599, or 1600–1649. Each measure is first computed for every city, language, and decade with at least five titles. The period value is the average of the decade values weighted by their number of titles.</p>
-<p>A city-and-language series observed in only one period has no variation left after \(\alpha_{j\ell}\) is removed and does not enter the slope. The doctrine diversity sample keeps 1,209 of 1,578 observations, in 246 cities. Diversity over all titles keeps 1,458 of 1,876, in 291 cities.</p>
+<p>A city-and-language series observed in only one period has no variation left after \(\alpha_{j\ell}\) is removed and does not enter the slope. The doctrine diversity sample keeps 1,209 of 1,578 observations in 246 cities. Diversity over all titles keeps 1,458 of 1,876 in 291 cities.</p>
 
 <h2>Weights</h2>
 <p>Each observation is weighted by \(\sqrt{n}\), where \(n\) is its number of titles. A cell average built from \(n\) titles has sampling noise that scales as \(1/\sqrt{n}\) so the square root is the inverse-standard-deviation weight (Wooldridge 2010, ch. 19). Solon, Haider, and Wooldridge (2015) discuss weighting in panel regressions. The weighted six-language doctrine diversity slope is 0.250 (SE 0.050). Unweighted it is 0.219 (SE 0.066).</p>
@@ -45,7 +45,7 @@
 <h2>Magnitudes in standard deviations</h2>
 <p>The companion reports most slopes as the change in the outcome, in its standard deviations, when log market access rises by one within-city standard deviation.</p>
 <div class="eq">$$\text{size} \;=\; \beta \;\frac{\sigma_{w}(\log \mathrm{MA})}{\sigma(y)}$$</div>
-<p>Here \(\sigma_w(\log \mathrm{MA})\) is the standard deviation of log market access around each city-and-language mean, among series observed in more than one period, and \(\sigma(y)\) is the standard deviation of the outcome in the sample. For six-language doctrine diversity, \(0.250 \times 0.161 / 0.104 = 0.39\). For German, \(0.746 \times 0.140 / 0.081 = 1.28\). A within-city standard deviation of 0.16 log units is about the rise in market access a typical city saw over half a century.</p>
+<p>Here \(\sigma_w(\log \mathrm{MA})\) is the standard deviation of log market access around each city-and-language mean among series observed in more than one period. \(\sigma(y)\) is the standard deviation of the outcome in the sample. For six-language doctrine diversity, \(0.250 \times 0.161 / 0.104 = 0.39\). For German, \(0.746 \times 0.140 / 0.081 = 1.28\). A within-city standard deviation of 0.16 log units is about the rise in market access a typical city saw over half a century.</p>
 
 <h2>Three extensions</h2>
 <h3>The trade elasticity</h3>
@@ -54,7 +54,7 @@
 <h3>Many authorities and one crown</h3>
 <p>German, Italian, and Dutch are pooled as the vernaculars printed under many licensing authorities and French and Spanish as those printed under one crown. Each pool is estimated with the equation above. The difference between the two slopes comes from one regression on both pools,</p>
 <div class="eq">$$y_{j\ell d} \;=\; \beta \,\log \mathrm{MA}_{j\ell d} \;+\; \gamma \,\log \mathrm{MA}_{j\ell d}\, M_{\ell} \;+\; \alpha_{j\ell} \;+\; \delta_{\ell d} \;+\; \varepsilon_{j\ell d},$$</div>
-<p>where \(M_\ell\) is one for German, Italian, and Dutch, so \(\gamma\) equals the slope under many authorities minus the slope under one crown. For doctrine diversity the two slopes are 0.503 and −0.009 and \(\gamma\) is 0.512 (SE 0.143). For doctrine distinctiveness \(\gamma\) is −1.665 (SE 0.389).</p>
+<p>where \(M_\ell\) is one for German, Italian, and Dutch and \(\gamma\) therefore equals the slope under many authorities minus the slope under one crown. For doctrine diversity the two slopes are 0.503 and −0.009 and \(\gamma\) is 0.512 (SE 0.143). For doctrine distinctiveness \(\gamma\) is −1.665 (SE 0.389).</p>
 
 <h3>The Castilian timing</h3>
 <p>For Spanish the equation is estimated on decade cells, with city and decade fixed effects, separately before and from a cut year. The doctrine diversity slope is 1.375 (SE 0.872) before 1560 and −0.221 (SE 0.082) from 1560. The same is done for Italian and German. The change at the cut is the estimate in <a href="../#entry">Figure 11</a>.</p>

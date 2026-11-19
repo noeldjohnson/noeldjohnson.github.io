@@ -20,10 +20,10 @@
   <div class="byline">Part of the <a href="../">interactive companion</a> to Mapping the Market for Ideas in Europe, 1450–1650, by Noel Johnson and Alexander Taylor</div>
 </header>
 
-<p>Once every title is a vector a city's print in a language and a decade is a cloud of points. The paper summarizes each cloud with two numbers. Diversity says how spread out the cloud is. Distinctiveness says how far the middle of the cloud sits from the rest of the language. The vectors themselves are explained <a href="../embeddings/">here</a>.</p>
+<p>Once every title is a vector, a city's print in a language and a decade is a cloud of points. The paper summarizes each cloud with two numbers. Diversity says how spread out the cloud is. Distinctiveness says how far the middle of the cloud sits from the rest of the language. The vectors themselves are explained <a href="../embeddings/">here</a>.</p>
 
 <h2>The two predictions they test</h2>
-<p>Adam Smith's account of the division of labor says a city with a larger market specializes so its diversity should fall and its distinctiveness should rise (Smith 1776, Stigler 1951). Monopolistic competition says a larger market supports more varieties and that producers position near the center of demand so diversity should rise and distinctiveness should fall (Krugman 1980, Hotelling 1929). The two measures are the two sides of that disagreement.</p>
+<p>Adam Smith's account of the division of labor says a city with a larger market specializes so its diversity should fall and its distinctiveness should rise (Smith 1776, Stigler 1951). Monopolistic competition says a larger market supports more varieties and that producers position near the center of demand so diversity should rise and, in a vernacular, distinctiveness should fall (Hotelling 1929, Krugman 1980). The two measures are the two sides of that disagreement.</p>
 
 <h2>Diversity</h2>
 <p>Diversity is the average cosine distance between pairs of a city's titles. For a city \(c\), language \(\ell\), and decade \(t\) with \(n\) titles,</p>
@@ -61,14 +61,14 @@
 </div>
 
 <h2>From decades to periods</h2>
-<p>Both measures are computed for every city, language, and decade with at least five titles. They are then averaged over the decades of each 50-year period with weights equal to the number of titles in each decade. Across the six-language panel diversity has a mean of 0.88 to 0.90 by language. Distinctiveness has means of 0.48 to 0.69.</p>
+<p>Both measures are computed for every city, language, and decade with at least five titles. They are then averaged over the decades of each 50-year period with weights equal to the number of titles in each decade. Across the six-language panel, diversity has a mean of 0.88 to 0.90 by language. Distinctiveness has means of 0.48 to 0.69.</p>
 
 <h2>What counts as a title</h2>
 <p>The catalog records every issue of a periodical as a separate edition. A weekly would enter a city's decade about 500 times with nearly identical titles and would drag diversity toward zero. We keep one title per periodical series in each city and decade and apply the same rule to any other title that recurs at least three times with nearly identical text. Every measure counts distinct works.</p>
 
 <h2>What to keep in mind</h2>
 <ul>
-  <li>The two measures are separate. A city can print a wide range of titles that is centered far from the mainstream, or a narrow range centered on it.</li>
+  <li>The two measures are separate. A city can print a wide range of titles that is centered far from the mainstream or a narrow range centered on it.</li>
   <li>Both are distances inside one language. They are compared across languages only after language effects are removed.</li>
   <li>They measure what was printed. What readers bought and read is not observed.</li>
 </ul>

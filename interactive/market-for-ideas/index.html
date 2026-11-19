@@ -102,17 +102,17 @@ footer a { color: var(--teal); }
     <li><a href="#framework">Framework</a></li>
     <li><a href="#ma">Market access</a></li>
     <li><a href="#results">Diversity and distinctiveness</a></li>
-    <li><a href="#theta">How far books traveled</a></li>
+    <li><a href="#theta">The trade elasticity</a></li>
     <li><a href="#entry">Markets under one crown</a></li>
     <li><a href="#variety">What the added variety was</a></li>
-    <li><a href="#size">How large the response was</a></li>
+    <li><a href="#size">Magnitudes in titles</a></li>
     <li><a href="#policy">What the results say about policy</a></li>
     <li><a href="#explorer">City explorer</a></li>
     <li><a href="#references">References</a></li>
   </ol>
 </nav>
 
-<p class="note">Some of the constructions here will be new to economists. Six short explainers cover them, each with a worked example you can move. <a href="embeddings/">Word and title embeddings</a> · <a href="market-access/">Market access</a> · <a href="measures/">Diversity and distinctiveness</a> · <a href="novelty/">Novelty</a> · <a href="bridging/">Bridging</a></p>
+<p class="note">Some of the constructions here will be new to economists. Six short explainers cover them, each with a worked example you can move. <a href="embeddings/">Word and title embeddings</a> · <a href="market-access/">Market access</a> · <a href="measures/">Diversity and distinctiveness</a> · <a href="novelty/">Novelty</a> · <a href="bridging/">Bridging</a> · <a href="estimation/">Estimation</a></p>
 
 <section id="argument">
 <h2><span class="num">1</span>Argument</h2>
@@ -123,7 +123,7 @@ footer a { color: var(--teal); }
   <tr><td>Diversity, how widely its titles range</td><td>falls</td><td>rises</td></tr>
   <tr><td>Distinctiveness, how far its print sits from the rest of its language</td><td>rises</td><td>falls in a vernacular</td></tr>
 </table>
-<p>We measure both from the titles of the Universal Short Title Catalogue (USTC 2022) and relate them to a panel of market access (Donaldson and Hornbeck 2016). In doctrine, the religious, scholarly, and literary print a press could sell beyond its own city, a better-connected city printed a wider range of titles and moved nearer the mainstream of its language. The titles it added were farther from anything the language had printed before and lay between established subjects. Most were sermons, catechisms, and controversy. A small share were instrument books, natural histories, and mechanical treatises, what Mokyr (2017) calls useful knowledge.</p>
+<p>We measure both from the titles of the Universal Short Title Catalogue (USTC 2022) and relate them to a panel of market access (Donaldson and Hornbeck 2016). In doctrine, the religious, scholarly, and literary print a press could sell beyond its own city, a better-connected city printed a wider range of titles and moved nearer the mainstream of its language. The titles it added were farther from anything the language had printed before and lay between established subjects. Most were sermons, catechisms, and controversy. A small share were instrument books, natural histories, and mechanical treatises. Mokyr (2017) calls such works useful knowledge.</p>
 <p>These results appear where no single authority licensed a language's presses. German, Italian, and Dutch were printed under many licensing authorities and are nearly two-thirds of vernacular print. French and Spanish were each licensed by one crown. There a larger market brought no wider range and no rise in new titles.</p>
 </section>
 
@@ -179,9 +179,9 @@ footer a { color: var(--teal); }
   <li>Printers are free to enter so a title is printed wherever its sales cover its fixed cost.</li>
   <li>Printers choose what to print in light of the demand they face.</li>
 </ol>
-<p>The first prediction is that diversity rises with market access. A title for tastes far from the center of a market covers its fixed cost only when enough readers are within reach so a larger market adds titles farther from the center. The second prediction is that distinctiveness falls with market access where the market is bounded by language. A vernacular market has a center, the cities where most of its readers live, and a printer whose access to those cities rises moves toward them. Latin was sold to the whole continent through the fairs so a Latin printer's market had no nearer center and the prediction is no fall.</p>
+<p>The first prediction is that diversity rises with market access. A title for tastes far from the center of a market covers its fixed cost only when enough readers are within reach. A larger market therefore adds titles farther from the center. The second prediction is that distinctiveness falls with market access where the market is bounded by language. A vernacular market has a center, the cities where most of its readers live, and a printer whose access to those cities rises moves toward them. Latin was sold to the whole continent through the fairs so a Latin printer's market had no nearer center and the prediction is no fall.</p>
 <p>Both predictions concern a product a printer can ship. Doctrine kept its value for years and traveled through the fairs. News lost its value within weeks and sold where it was printed so the framework predicts that neither measure of news moves with market access. News is the comparison.</p>
-<p>The third prediction concerns what the added titles were. Diversity alone does not say. A press can widen its range by reprinting what other cities already sell. In models of growth through new varieties the fixed cost of a variety is the cost of an idea and a larger market is what covers it (Romer 1990). New ideas are also combinations of existing ones (Weitzman 1998). Where market access raises diversity the added titles should be new to the language and lie between established subjects. Where it does not there is no added variety and neither should move. Latin readers shared one body of learning across cities and the Latin market was the largest of the six. The titles a better-connected Latin press adds are then titles other cities already print and neither measure should rise.</p>
+<p>The third prediction concerns what the added titles were. Diversity alone does not say. A press can widen its range by reprinting what other cities already sell. In models of growth through new varieties the fixed cost of a variety is the cost of an idea and a larger market is what covers it (Romer 1990). New ideas are also combinations of existing ones (Weitzman 1998). Where market access raises diversity the added titles should be new to the language and lie between established subjects. Where it does not, there is no added variety and neither should move. Latin readers shared one body of learning across cities and the Latin market was the largest of the six. The titles a better-connected Latin press adds are then titles other cities already print and neither measure should rise.</p>
 <table class="pred">
   <tr><th>Within-city slope on market access</th><th>Diversity</th><th>Distinctiveness</th><th>Novelty</th><th>Bridging</th></tr>
   <tr><td>Doctrine under many authorities</td><td>positive</td><td>negative</td><td>positive</td><td>positive</td></tr>
@@ -197,7 +197,7 @@ footer a { color: var(--teal); }
 
 <section id="ma">
 <h2><span class="num">5</span>Market access</h2>
-<p>A city's market access sums the populations of other cities, each discounted by the cost of reaching it (Donaldson and Hornbeck 2016, Donaldson 2018). Populations are from Buringh (2021) and Bosker, Buringh, and van Zanden (2013). Costs come from least-cost paths over roads, rivers, and seas, with sea travel cheapest and overland portage dearest, on the cost schedule of Bairoch (1988). A city's own population is left out so its own growth does not count as access to readers. For a vernacular the sum runs over the cities that printed in that language and for Latin over the university cities.</p>
+<p>A city's market access sums the populations of other cities, each discounted by the cost of reaching it (Donaldson and Hornbeck 2016, Donaldson 2018). Populations are from Buringh (2021) and Bosker, Buringh, and van Zanden (2013). Costs come from least-cost paths over roads, rivers, and seas on the cost schedule of Bairoch (1988). Sea travel is cheapest and overland portage dearest. A city's own population is left out so its own growth does not count as access to readers. For a vernacular the sum runs over the cities that printed in that language and for Latin over the university cities.</p>
 <p>Market access changes within a city because populations elsewhere change. Paris grew from about 94,000 people in 1500 to about 387,000 in 1650 and Amsterdam from about 12,000 to about 104,000 while Bruges fell from about 35,000 to about 27,000 by 1600.</p>
 <div class="figure">
   <div class="controls" id="matabs"></div>
@@ -222,7 +222,7 @@ footer a { color: var(--teal); }
   <svg id="rsvg" viewBox="0 0 800 340" role="img" aria-label="Within-city slopes by language"></svg>
   <div class="cap"><b>Figure 6.</b> Within-city slope of each measure on log market access by licensing authority and by language. Many authorities pools German, Italian, and Dutch and one crown pools French and Spanish. Latin was sold across the continent and belongs to neither group. Weighted two-way fixed effects with city-and-language and language-by-period effects. Intervals are 95 percent and use the larger of the city-clustered standard error and a standard error that allows correlation between cities within 250 km (Conley 1999). Filled points have intervals that exclude zero. Latin doctrine excludes academic dissertations.</div>
 </div>
-<p>Doctrine diversity rises under many authorities. Pooled over German, Italian, and Dutch a rise of one within-city standard deviation in market access goes with diversity higher by 0.78 standard deviations. The response is 1.28 standard deviations in German, 0.63 in Italian, 0.53 in Dutch, and 0.30 in Latin. Pooled over all six languages it is 0.39.</p>
+<p>Doctrine diversity rises under many authorities. Pooled over German, Italian, and Dutch, a rise of one within-city standard deviation in market access goes with diversity higher by 0.78 standard deviations. The response is 1.28 standard deviations in German, 0.63 in Italian, 0.53 in Dutch, and 0.30 in Latin. Pooled over all six languages it is 0.39.</p>
 <p>Doctrine distinctiveness falls under many authorities. The same move brings a city's doctrine nearer the mainstream of its language by 0.78 standard deviations, and by 1.35 in German and 0.86 in Italian. Latin doctrine shows no fall. Its interval excludes the German and Italian falls and contains zero.</p>
 <p>News is the comparison and its range does not widen. Under many authorities the news diversity slope is 0.104, a fifth of the doctrine slope of 0.503, and the doctrine slope lies outside its interval. Latin news diversity does not rise where Latin doctrine diversity does. The framework does not sign practical print, the medical, agricultural, military, and technical handbooks. French and Spanish show neither pattern in doctrine and Section 8 takes them up.</p>
 <p>The next figure shows the variation behind each language's doctrine slope. Each point is one city in one period after its own average and the period average are removed.</p>
@@ -235,7 +235,7 @@ footer a { color: var(--teal); }
 </section>
 
 <section id="theta">
-<h2><span class="num">7</span>How far books traveled</h2>
+<h2><span class="num">7</span>The trade elasticity</h2>
 <p>Market access depends on how fast it discounts distant cities. The trade elasticity sets that rate. A low value counts readers far away nearly as much as readers nearby and a high value counts mainly the neighbors. The framework puts the diversity response at a low elasticity, where distant readers count, and the pull toward the center at an intermediate one. Our headline value is 1.</p>
 <div class="figure">
   <div class="two">
@@ -245,7 +245,7 @@ footer a { color: var(--teal); }
   <div class="legend" id="thleg"></div>
   <div class="cap"><b>Figure 8.</b> Doctrine slopes per within-city standard deviation of log market access, by trade elasticity, with 95 percent intervals clustered by city. Pooled is six languages for diversity and the five vernaculars for distinctiveness.</div>
 </div>
-<p>Doctrine diversity is largest at an elasticity of 0.5 to 0.75 and distinctiveness is most negative between 0.5 and 1. Both are near zero from 3. Books were a good with low trade costs and the data place the response where such a good should have it.</p>
+<p>Doctrine diversity is largest at an elasticity of 0.5 to 0.75 and distinctiveness is most negative between 0.5 and 1. Both are near zero at elasticities of 3 and above. Books were a good with low trade costs and the data place the response where such a good should have it.</p>
 </section>
 
 <section id="entry">
@@ -270,7 +270,7 @@ footer a { color: var(--teal); }
   <svg id="ctsvg" viewBox="0 0 800 190" role="img" aria-label="Change in the diversity slope at the cut, by language"></svg>
   <div class="cap"><b>Figure 11.</b> Change in the within-city slope of doctrine diversity on log market access at the cut, in decade cells. Each point is the slope from the cut minus the slope before it. Hover for the two slopes. No comparable change reached the German presses in these years. Intervals as in Figure 6.</div>
 </div>
-<p>The Valdés Index of 1559 coincided with the license in Castile. The license stopped at a border the Index did not. The Council of Castile licensed books printed in Castile. The Inquisition covered the Crown of Aragon and Navarre as well. Their share of the Spanish-language printing inside Spain was 15 to 18 percent in every five-year bin from 1540 to 1554 and 29 to 39 percent in every bin from 1555 to 1599. Castilian output fell from 436 records in 1550 to 1554 to 181 in 1555 to 1559. The Castilian fall began in 1555, before the law, and the share printed outside Castile stayed high for 40 years.</p>
+<p>The Valdés Index of 1559 coincided with the license in Castile. The license stopped at a border the Index did not. The Council of Castile licensed books printed in Castile. The Inquisition covered the Crown of Aragon and Navarre as well. Their share of the Spanish-language printing inside Spain was 15 to 18 percent in every five-year bin from 1540 to 1554 and 29 to 39 percent in every bin from 1555 to 1599. Castilian output fell from 436 records in 1550–1554 to 181 in 1555–1559. The Castilian fall began in 1555, before the law, and the share printed outside Castile stayed high for 40 years.</p>
 <div class="figure">
   <div class="controls" id="catabs"></div>
   <svg id="casvg" viewBox="0 0 800 340" role="img" aria-label="Spanish-language printing in Castile and in Aragon and Navarre"></svg>
@@ -302,12 +302,12 @@ footer a { color: var(--teal); }
   <div class="cap"><b>Figure 15.</b> Slopes of novelty and bridging on doctrine diversity within cities. The first two rows regress the measure on diversity alone. The third uses log market access as the instrument for diversity. The fourth is the slope on log market access with diversity held fixed. Intervals are 95 percent from the larger of the two standard errors.</div>
 </div>
 <p>Latin diversity rises with market access and neither measure does. The Latin stock was large, 273,168 titles against 87,800 in German and 57,951 in Italian, so a title a Latin city had not yet printed was far more often a title another city had. A larger Latin market brought a city more of what the continent already printed. A larger German market brought titles new to the language.</p>
-<p>The most novel titles were of every kind. Of the 4,802 German doctrine titles in the top tenth of novelty 3,824 are religious works and 98 fall in the catalog's classes for science, mathematics, astrology, and botany. The table gives five titles that were unlike anything printed in German before them.</p>
+<p>The most novel titles were of every kind. Of the 4,802 German doctrine titles in the top tenth of novelty, 3,824 are religious works and 98 fall in the catalog's classes for science, mathematics, astrology, and botany. The table gives five titles that were unlike anything printed in German before them.</p>
 <div class="figure">
   <table class="pred" id="nxtab" style="margin:0"></table>
   <div class="cap"><b>Table.</b> Five German doctrine titles from the top tenth of novelty. Novelty is one minus the cosine with the nearest earlier German title. The descriptions and translations are ours and are not in the catalog.</div>
 </div>
-<p>Most of the titles between subjects are religious. Of the 4,802 German doctrine titles in the top tenth of bridging 3,705 are religious works and 97 fall in the same four classes. A Catholic catechism printed at Mainz in 1555 lies between catechisms and confessional controversy. A wedding sermon on Hebrews 13 printed at Nuremberg in 1531 lies between funeral sermons on a Bible verse and sermons on Gospel chapters. Under many authorities half of all bridging joins one cluster of doctrine to another and 7 percent joins doctrine to practical print, the medicine, agriculture, and technical arts of the catalog. Neither novelty nor bridging was directed toward the study of nature. A larger market brought more new titles and more combinations of every kind and a small share of them carried what Mokyr (2017) calls useful knowledge.</p>
+<p>Most of the titles between subjects are religious. Of the 4,802 German doctrine titles in the top tenth of bridging, 3,705 are religious works and 97 fall in the same four classes. A Catholic catechism printed at Mainz in 1555 lies between catechisms and confessional controversy. A wedding sermon on Hebrews 13 printed at Nuremberg in 1531 lies between funeral sermons on a Bible verse and sermons on Gospel chapters. Under many authorities half of all bridging joins one cluster of doctrine to another and 7 percent joins doctrine to practical print, the medicine, agriculture, and technical arts of the catalog. Neither novelty nor bridging was directed toward the study of nature. A larger market brought more new titles and more combinations of every kind and a small share of them carried what Mokyr (2017) calls useful knowledge.</p>
 <p>The last figure places three such titles among the 30 German subject clusters. They are books of astronomy and natural history from the top tenth of German bridging. Peter Apian's book of astronomical instruments joins astronomy to the making of instruments. Conrad Gessner's book on snakes joins the chronicles to the cluster with the most practical print. A dialogue between an astronomer and a theologian on whether the Earth moves joins astronomy to confessional controversy. Choose one to see the two subjects it sits between.</p>
 <div class="figure">
   <div class="controls"><select id="exsel" aria-label="Example title" style="max-width:100%"></select></div>
@@ -319,8 +319,8 @@ footer a { color: var(--teal); }
 </section>
 
 <section id="size">
-<h2><span class="num">10</span>How large the response was</h2>
-<p>The slopes above are in standard deviations. This section restates them as titles. The calculations are ours, made from the paper's estimates for this page, and they are not in the paper.</p>
+<h2><span class="num">10</span>Magnitudes in titles</h2>
+<p>The slopes above are in standard deviations. The numbers below restate them as titles. We calculated them from the paper's estimates and they are not in the paper.</p>
 <p>Call a doctrine title novel if it is in the top quarter of novelty in its language and bridging if it is in the top quarter of bridging. In the average city 41 percent of doctrine titles are one or the other. Under many authorities a rise of one within-city standard deviation in market access takes that share from 41 to 50 percent. Under one crown it stays at 41 percent. In a city that printed 255 doctrine titles in half a century the rise under many authorities is about 21 more titles that are novel or bridging. Under one crown it is none.</p>
 <p>Choose a cutoff, a size of city, and a rise in market access.</p>
 <div class="figure">
@@ -348,7 +348,7 @@ footer a { color: var(--teal); }
 
 <section id="policy">
 <h2><span class="num">11</span>What the results say about policy</h2>
-<p>A license to print is a rule about who may enter a market. The results of Section 8 give its cost in the unit that matters to readers, the variety a larger market would otherwise have produced. The literature on occupational licensing measures the cost of entry rules in wages and employment (Kleiner and Krueger 2013). In a market for ideas the cost is the range of titles that were never printed and it can be read from the text of what was printed.</p>
+<p>A license to print is a rule about who may enter a market. The results of Section 8 give its cost in variety, the range of titles a larger market would otherwise have produced. The literature on occupational licensing measures the cost of entry rules in wages and employment (Kleiner and Krueger 2013). In a market for ideas the cost is the range of titles that were never printed and it can be read from the text of what was printed.</p>
 <p>The calculator applies the two slopes of Section 8 to a rise in market access you choose. The default is one within-city standard deviation of market access under many authorities, 0.15 log units, about the rise a typical city saw over half a century. At the default the readouts match the magnitudes above.</p>
 <div class="figure">
   <div class="controls"><label>Rise in market access <input id="pol" type="range" min="0" max="0.5" step="0.001" value="0.152" style="width:260px"></label><span id="polv" style="font-weight:600;color:var(--rust)"></span></div>
@@ -358,7 +358,7 @@ footer a { color: var(--teal); }
     <div><b id="polg"></b>the variety a single licensing authority forwent, in standard deviations</div>
   </div>
   <div class="readline" id="polci" style="min-height:22px"></div>
-  <div class="cap"><b>Figure 19.</b> Implied change in doctrine diversity from the pooled slopes of Figure 9, in standard deviations of each group's diversity. Intervals use the bracketed standard errors of Figure 9. The calculation applies an association and assumes the slope is the same at every size of rise.</div>
+  <div class="cap"><b>Figure 19.</b> Implied change in doctrine diversity from the pooled slopes of Figure 9, in standard deviations of each group's diversity. Intervals use the larger of the two standard errors, as in Figure 9. The calculation applies an association and assumes the slope is the same at every size of rise.</div>
 </div>
 <p>Readers bore that cost. In German, Italian, and Dutch a reader's gain from a larger market came as a wider range of titles printed nearby. In France and Castile the same growth in reach brought no such range. Readers there lost the variety a larger market would have brought, less what they could buy from presses outside the license's reach. The Crown of Aragon and Navarre were such places. Their share of the Spanish-language printing in Spain went from under a fifth to about a third as Castilian output fell.</p>
 <p>Political fragmentation kept most of the European market open to entry (Jones 1981, Mokyr 2017). The state that could license every press was the state that could enforce conformity (Johnson and Koyama 2019). The costs of that enforcement are measurable in Spanish municipalities centuries later (Drelichman, Vidal-Robert, and Voth 2021).</p>
@@ -393,8 +393,8 @@ footer a { color: var(--teal); }
   <li>Paul Bairoch (1988). <i>Cities and Economic Development: From the Dawn of History to the Present</i>. Chicago, IL, University of Chicago Press.</li>
   <li>Maarten Bosker, Eltjo Buringh, and Jan Luiten van Zanden (2013). From Baghdad to London: Unraveling Urban Development in Europe, the Middle East, and North Africa, 800–1800. <i>Review of Economics and Statistics</i> 95(4), 1418–1437.</li>
   <li>Marius Buning (2024). Controlling the Flow of Information: The Soft Power Dimensions of Printing Privileges in the Seventeenth-Century Dutch Republic. <i>Early Modern Low Countries</i> 8(2), 250–275.</li>
-  <li>Eltjo Buringh (2021). The Population of European Cities from 700 to 2000. <i>Research Data Journal for the Humanities and Social Sciences</i> 6(1), 1–18.</li>
   <li>Eltjo Buringh (2021). European Urban Population, 700–2000. <i>Dataset, version 1.0</i>.</li>
+  <li>Eltjo Buringh (2021). The Population of European Cities from 700 to 2000. <i>Research Data Journal for the Humanities and Social Sciences</i> 6(1), 1–18.</li>
   <li>Timothy G. Conley (1999). GMM Estimation with Cross Sectional Dependence. <i>Journal of Econometrics</i> 92(1), 1–45.</li>
   <li>Avinash K. Dixit and Joseph E. Stiglitz (1977). Monopolistic Competition and Optimum Product Diversity. <i>American Economic Review</i> 67(3), 297–308.</li>
   <li>Dave Donaldson and Richard Hornbeck (2016). Railroads and American Economic Growth: A "Market Access" Approach. <i>Quarterly Journal of Economics</i> 131(2), 799–858.</li>
@@ -438,7 +438,7 @@ footer a { color: var(--teal); }
 
 <footer>
   <p>More interactive companions. <a href="/interactive/guilds/">Craft guilds and city growth</a> · <a href="/interactive/great-revolt/">The Great Revolt and vaccine hesitancy</a> · <a href="/interactive/black-death-press/">The Black Death and the printing press</a> · <a href="/interactive/plague-print/">How Do Information Markets Respond to a Crisis?</a> · <a href="/interactive/tax-farming/">Tax farming and state capacity</a> · <a href="/interactive/pandemics-cities/">Pandemics and cities</a> · <a href="/interactive/school-choice-religiosity/">School choice and religiosity in France</a> · <a href="/interactive/land-redistribution/">Land redistribution and the Coase theorem</a> · <a href="/interactive/jewish-persecutions/">Jewish persecutions and weather shocks</a> · <a href="/interactive/">All companions</a></p>
-  <p>Every number on this page comes from data exported by our replication code, which checks <span id="nchecks">124</span> values against the manuscript. They match the draft of 17 November 2026. The calculations of Section 10 are checked against their own saved output. Print data come from the Universal Short Title Catalogue and population data from Buringh's European urban population dataset.</p>
+  <p>Every number on this page comes from data exported by our replication code, which checks <span id="nchecks">124</span> values against the manuscript. They match the draft of 19 November 2026. The calculations of Section 10 are checked against their own saved output. Print data come from the Universal Short Title Catalogue and population data from Buringh's European urban population dataset.</p>
 </footer>
 </main>
 <div class="tip" id="tip"></div>
@@ -587,7 +587,7 @@ function maMap(ma, base, paths) {
     const rows = ma.filter(d => d.anchor === a && d.latitude != null && d.log_ma != null).sort((p,q) => p.log_ma - q.log_ma);
     gC.selectAll("circle").data(rows, d => d.city).join("circle").attr("cx", d => proj([d.longitude, d.latitude])[0]).attr("cy", d => proj([d.longitude, d.latitude])[1])
       .attr("r", 4).attr("fill", d => color(d.log_ma)).attr("stroke","#fff").attr("stroke-width",.5)
-      .on("mousemove", (ev,d) => showTip(ev, `<b>${d.city}</b><br>Log market access ${d.log_ma.toFixed(2)} in ${d.anchor}<br>Printed in ${d.active_window}`)).on("mouseleave", hideTip);
+      .on("mousemove", (ev,d) => showTip(ev, `<b>${d.city}</b><br>Log market access ${d.log_ma.toFixed(2)} in ${d.anchor}<br>Printed in ${d.active_window.replace("-", "–")}`)).on("mouseleave", hideTip);
     d3.select("#malegend").html(`<b style="color:var(--navy)">${rows.length}</b> cities printed in ${rows[0].active_window.replace("-", " to ")}. Color runs from pale for low access to dark teal for high access, on a log scale common to all four maps.`);
   }
   d3.select("#showpaths").on("change", function(){ gP.style("display", this.checked ? null : "none"); });
@@ -626,7 +626,7 @@ function results(est) {
       color: LC[e.label], bold: e.group === "many" || e.group === "one", tip: slopeTip(e.label, e) }));
     forest(svg, rows, { W: 800, H: 340, l: 150, xlab: state.u === "slope" ? "Within-city slope on log market access" : "Standard deviations of the measure per within-city standard deviation of log market access" });
     const h = rs.find(e => e.group === "many"), o = rs.find(e => e.group === "one");
-    d3.select("#rread").html(`${plab[state.p]} ${state.m} under many authorities. Slope <b>${f3(h.est)}</b> with a city-clustered standard error of ${f3(h.se)}, or <b>${f2(h.size_in_sd)}</b> standard deviations, on ${h.n.toLocaleString()} observations. Under one crown the slope is <b>${f3(o.est)}</b> with a standard error of ${f3(o.se)}.`);
+    d3.select("#rread").html(`${cap(state.m)} of ${plab[state.p].toLowerCase()} under many authorities. Slope <b>${f3(h.est)}</b> with a city-clustered standard error of ${f3(h.se)}, or <b>${f2(h.size_in_sd)}</b> standard deviations, on ${h.n.toLocaleString()} observations. Under one crown the slope is <b>${f3(o.est)}</b> with a standard error of ${f3(o.se)}.`);
   }
   const tp = tabs("#ptabs", prods, v => { state.p = v; draw(); }, d => plab[d]);
   const tm = tabs("#mtabs", ["diversity","distinctiveness"], v => { state.m = v; draw(); }, cap);
@@ -735,11 +735,11 @@ function castileAragon(ca) {
     S.forEach(([k, name, col]) => {
       svg.append("path").datum(bins).attr("fill","none").attr("stroke", col).attr("stroke-width", 2.2).attr("d", d3.line().x(b => x(b.bin + 2.5)).y(b => y(b[k])));
       svg.selectAll(null).data(bins).join("circle").attr("cx", b => x(b.bin + 2.5)).attr("cy", b => y(b[k])).attr("r", 4.5).attr("fill", col)
-        .on("mousemove", (ev,b) => showTip(ev, `<b>${b.bin} to ${b.bin+4}</b><br>Castile ${b.castile}<br>Crown of Aragon and Navarre ${b.aragon}<br>Outside Spain ${b.abroad}<br>Share of Aragon and Navarre ${b.aragon_share.toFixed(0)} percent`)).on("mouseleave", hideTip);
+        .on("mousemove", (ev,b) => showTip(ev, `<b>${b.bin} to ${b.bin+4}</b><br>Castile ${b.castile}<br>Crown of Aragon and Navarre ${b.aragon}<br>Outside Spain ${b.abroad}<br>Share of the Crown of Aragon and Navarre ${b.aragon_share.toFixed(0)} percent`)).on("mouseleave", hideTip);
     });
     d3.select("#caleg").html(S.map(s => `<span style="color:${s[2]};font-weight:600">■ ${s[1]}</span>`).join(" &nbsp; "));
   }
-  tabs("#catabs", ["counts","share"], draw, d => d === "counts" ? "Records" : "Share of Aragon and Navarre").set("counts");
+  tabs("#catabs", ["counts","share"], draw, d => d === "counts" ? "Records" : "Share of the Crown of Aragon and Navarre").set("counts");
 }
 
 // ---------- 9. Variety ----------
@@ -839,7 +839,7 @@ function shares(est) {
     gr.append("circle").attr("cx", r => x(r.end)).attr("r", 7).attr("fill", r => GC[r.grp]);
     gr.append("text").attr("x", r => x(Math.max(r.end, r.start)) + 12).attr("dy","-0.7em").style("font-size","13px").attr("fill", C.ink || "#1d1d1f").text(r => `${r.start.toFixed(0)} to ${r.end.toFixed(0)} percent`);
     const t = d3.select("#shtab"); t.selectAll("*").remove();
-    t.append("tr").selectAll("th").data([`Titles added in a city of ${N.toLocaleString()}`].concat(kinds.map(d => d[1]))).join("th").text(d => d);
+    t.append("tr").selectAll("th").data([`Titles added in a city printing ${N.toLocaleString()} doctrine titles`].concat(kinds.map(d => d[1]))).join("th").text(d => d);
     ["many","one"].forEach(grp => { const tr = t.append("tr"); tr.append("td").text(GL[grp]);
       kinds.forEach(([kk]) => { const e = g(kk, grp), v = N * k * (e.end - e.start) / 100; tr.append("td").text(String(Math.round(v)).replace("-", "−")); }); });
   }
@@ -884,7 +884,7 @@ function explorer(cells) {
     const rows = cells.filter(d => d.city === city);
     if (!rows.length) { d3.select("#cinfo").text(city ? "No city by that name in the doctrine sample." : ""); return; }
     const langs = LANGS.filter(l => rows.some(d => d.language === l));
-    d3.select("#cinfo").html(`<b style="color:var(--navy)">${city}</b> printed doctrine in ${langs.join(", ")}. ` + langs.map(l => `<span style="color:${LC[l]};font-weight:600">■ ${l}</span>`).join(" &nbsp; "));
+    d3.select("#cinfo").html(`<b style="color:var(--navy)">${city}</b> printed doctrine in ${langs.length < 3 ? langs.join(" and ") : langs.slice(0, -1).join(", ") + ", and " + langs[langs.length - 1]}. ` + langs.map(l => `<span style="color:${LC[l]};font-weight:600">■ ${l}</span>`).join(" &nbsp; "));
     const pw = (W - 40) / 3, ph = (H - 10) / 2;
     vars.forEach(([k, name], i) => {
       const g = svg.append("g").attr("transform", `translate(${(i % 3) * (pw + 20)},${Math.floor(i/3) * (ph + 10)})`);
@@ -892,7 +892,7 @@ function explorer(cells) {
       const y = k === "n_doctrine" ? d3.scaleLog([4, d3.max(cells, d => d.n_doctrine)], [ph - 26, 24]) : d3.scaleLinear(ext[k], [ph - 26, 24]).nice();
       g.append("rect").attr("width", pw).attr("height", ph).attr("fill", "#fff").attr("rx", 6);
       g.append("text").attr("class","title").attr("x", 10).attr("y", 16).text(name);
-      g.append("g").attr("class","axis").attr("transform",`translate(0,${ph-26})`).call(d3.axisBottom(x).tickFormat(d => d + "s"));
+      g.append("g").attr("class","axis").attr("transform",`translate(0,${ph-26})`).call(d3.axisBottom(x).tickFormat(d => `${d}–${d + 49}`));
       g.append("g").attr("class","axis").attr("transform",`translate(46,0)`).call(k === "n_doctrine" ? d3.axisLeft(y).ticks(4, "~s") : d3.axisLeft(y).ticks(4));
       langs.forEach(l => {
         const r = rows.filter(d => d.language === l && d[k] != null).sort((a,b) => a.period - b.period);

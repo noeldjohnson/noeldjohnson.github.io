@@ -25,7 +25,7 @@
 <h2>The formula</h2>
 <div class="eq">$$\mathrm{MA}_{j} \;=\; \sum_{i \neq j} \frac{\mathrm{pop}_{i}}{\tau_{ij}^{\,\theta}}$$</div>
 <p>The sum runs over every other city \(i\). Each city contributes its population, divided by the cost \(\tau_{ij}\) of moving goods between it and city \(j\), raised to the power \(\theta\). A large city nearby adds a lot. A small city far away adds little.</p>
-<p>The measure comes from trade theory. In a model with love of variety and trade costs a producer's revenue depends on the markets it can reach only through a sum of this form so the sum is a sufficient statistic for the producer's geography. Donaldson and Hornbeck (2016) used it to measure what railroads did to American land values and Donaldson (2018) used the same approach for the railways of colonial India. Pascali (2017) applies related reasoning to the steamship.</p>
+<p>The measure comes from trade theory. In a model with love of variety and trade costs a producer's revenue depends on the markets it can reach only through a sum of this form. The sum is therefore a sufficient statistic for the producer's geography. Donaldson and Hornbeck (2016) used it to measure what railroads did to American land values and Donaldson (2018) used the same approach for the railways of colonial India. Pascali (2017) applies related reasoning to the steamship.</p>
 
 <h2>Ten towns</h2>
 <p>The figure is a toy economy of ten towns. Five form a cluster in the middle and five are scattered around it. The cost of travel between two towns is one plus their distance in hundreds of kilometers. Click a town to see where its market access comes from.</p>
@@ -44,7 +44,7 @@
 </div>
 <p>Try three things.</p>
 <ul>
-  <li><b>The largest town does not have the highest market access.</b> A town's own population is left out of its own sum. Town A has 40,000 people. They count toward the access of A's neighbors and not toward A's.</li>
+  <li><b>Compare town A with its neighbors.</b> The largest town does not have the highest market access. A town's own population is left out of its own sum. Town A has 40,000 people. They count toward the access of A's neighbors and not toward A's.</li>
   <li><b>Raise the elasticity.</b> At a high \(\theta\) only the nearest neighbors matter. At a low \(\theta\) every town counts nearly equally and the towns' market access values bunch together.</li>
   <li><b>Let the core grow.</b> Market access rises in every town although no peripheral town changed. That is the variation the paper uses. A city's market access moves because other cities grow.</li>
 </ul>
@@ -65,7 +65,7 @@
 <p>City populations come from Buringh (2021), with a supplement for North Africa and the Middle East from Bosker, Buringh, and van Zanden (2013). We compute market access at 1450, 1500, 1550, 1600, and 1650. The 1450 value is interpolated between 1400 and 1500. Values for the decades in between are interpolated and averaged over the decades in which a city printed.</p>
 
 <h2>The trade elasticity</h2>
-<p>The exponent \(\theta\) sets how fast market access discounts distance. A good with high transport costs relative to its value has a high \(\theta\). Books were light and valuable and sit at the low end. Our headline value is 1. The paper reports every result for values from 0.25 to 5, and the companion plots them in its <a href="../#theta">section on how far books traveled</a>.</p>
+<p>The exponent \(\theta\) sets how fast market access discounts distance. A good with high transport costs relative to its value has a high \(\theta\). Books were light and valuable and sit at the low end. Our headline value is 1. The paper reports every result for values from 0.25 to 5 and the companion plots them in its <a href="../#theta">section on the trade elasticity</a>.</p>
 
 <h2>Three choices specific to the paper</h2>
 <ul>
