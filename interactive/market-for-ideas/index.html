@@ -41,6 +41,8 @@ nav.toc a { color: var(--navy); text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
 h2 { font-size: 28.6px; color: var(--navy); margin: 48px 0 12px; scroll-margin-top: 16px; }
 h2 .num { color: var(--rust); margin-right: 8px; }
+h3 { font-size: 22px; color: var(--navy); margin: 32px 0 8px; }
+.figure img { max-width: 100%; height: auto; background: #fff; border-radius: 4px; }
 p { margin: 0 0 16px; }
 .figure { background: var(--panel); border-radius: 8px; padding: 18px; margin: 20px 0 28px; }
 .figure .cap { font: 15.4px/1.5 -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--muted); margin-top: 10px; }
@@ -103,7 +105,7 @@ footer a { color: var(--teal); }
     <li><a href="#ma">Market access</a></li>
     <li><a href="#results">Diversity and distinctiveness</a></li>
     <li><a href="#theta">The trade elasticity</a></li>
-    <li><a href="#entry">Markets under one crown</a></li>
+    <li><a href="#entry">Markets under unitary authority</a></li>
     <li><a href="#variety">What the added variety was</a></li>
     <li><a href="#size">Magnitudes in titles</a></li>
     <li><a href="#policy">What the results say about policy</a></li>
@@ -117,14 +119,14 @@ footer a { color: var(--teal); }
 <section id="argument">
 <h2><span class="num">1</span>Argument</h2>
 <p>Between 1450 and 1650 European print grew from a Mainz craft producing about 3,000 Latin editions a decade into a market of nearly 800,000 editions in 1,338 cities. As the number of printing cities and the populations around them grew each press came within reach of more readers. We ask whether that integration made what a city printed broader and more like the rest of its market or narrower and more its own.</p>
-<p>Two accounts of a growing market give opposite answers. For Adam Smith the division of labor is limited by the extent of the market (Smith 1776, Stigler 1951). A printing city with better access to readers should concentrate on a narrower range of titles and set itself farther apart from other cities. Monopolistic competition says a larger market supports more producers of more varieties (Krugman 1980). Models of spatial product differentiation add that a producer with good access to its market positions near that market's center (Hotelling 1929, Anderson, de Palma, and Thisse 1992). A better-connected city should print a wider range of titles and move toward what the rest of its market printed.</p>
+<p>Two accounts of a growing market give opposite answers. For Adam Smith the division of labor is limited by the extent of the market (Smith 1776, Stigler 1951). A printing city with better access to readers should concentrate on a narrower range of titles and set itself farther apart from other cities. New trade theory says a larger market supports more producers of more varieties (Krugman 1980). Models of spatial product differentiation add that a producer with good access to its market positions near that market's center (Hotelling 1929, Anderson, de Palma, and Thisse 1992). A better-connected city should print a wider range of titles and move toward what the rest of its market printed.</p>
 <table class="pred">
-  <tr><th>When a city's market access rises</th><th>Smith</th><th>Monopolistic competition</th></tr>
+  <tr><th>When a city's market access rises</th><th>Smith</th><th>New trade theory</th></tr>
   <tr><td>Diversity, how widely its titles range</td><td>falls</td><td>rises</td></tr>
   <tr><td>Distinctiveness, how far its print sits from the rest of its language</td><td>rises</td><td>falls in a vernacular</td></tr>
 </table>
-<p>We measure both from the titles of the Universal Short Title Catalogue (USTC 2022) and relate them to a panel of market access (Donaldson and Hornbeck 2016). In doctrine, the religious, scholarly, and literary print a press could sell beyond its own city, a better-connected city printed a wider range of titles and moved nearer the mainstream of its language. The titles it added were farther from anything the language had printed before and lay between established subjects. Most were sermons, catechisms, and controversy. A small share were instrument books, natural histories, and mechanical treatises. Mokyr (2017) calls such works useful knowledge.</p>
-<p>These results appear where no single authority licensed a language's presses. German, Italian, and Dutch were printed under many licensing authorities and are nearly two-thirds of vernacular print. French and Spanish were each licensed by one crown. There a larger market brought no wider range and no rise in new titles.</p>
+<p>We measure both from the titles of the Universal Short Title Catalogue (USTC 2022) and relate them to a panel of market access (Donaldson and Hornbeck 2016). In doctrine, the religious, scholarly, and literary print a press could sell beyond its own city, a better-connected city printed a wider range of titles and moved nearer the mainstream of its language. The titles it added were farther from anything the language had printed before and lay between established subjects. Most were sermons, catechisms, and religious polemic. A small share were instrument books, natural histories, and mechanical treatises. Mokyr (2017) calls such works useful knowledge.</p>
+<p>These results appear where authority over the press was fragmented. German, Italian, and Dutch were printed under fragmented authority and are nearly two-thirds of vernacular print. French and Spanish were each licensed by a unitary authority, the crown. There a larger market brought no wider range and no rise in new titles.</p>
 </section>
 
 <section id="vectors">
@@ -170,29 +172,68 @@ footer a { color: var(--teal); }
 
 <section id="framework">
 <h2><span class="num">4</span>Framework</h2>
-<p>The hypothesis is that the early modern book trade worked like a market for differentiated goods. The framework joins monopolistic competition (Dixit and Stiglitz 1977, Krugman 1979, 1980, Helpman and Krugman 1985) to spatial product differentiation (Hotelling 1929, Lancaster 1979, Salop 1979, Anderson, de Palma, and Thisse 1992). A title is a variety and its position is its place in the embedding. A printer sells to readers in every city and demand from each city arrives discounted by the cost of shipping. Six assumptions carry the model.</p>
-<ol class="assume">
-  <li>Readers value variety.</li>
-  <li>Each title has a fixed cost of typesetting and editing that is large relative to the cost of a copy.</li>
-  <li>Readers in different cities want different titles.</li>
-  <li>Shipping costs rise with distance and books still move between cities. Part of the demand for a title stays with the city that printed it.</li>
-  <li>Printers are free to enter so a title is printed wherever its sales cover its fixed cost.</li>
-  <li>Printers choose what to print in light of the demand they face.</li>
-</ol>
-<p>The first prediction is that diversity rises with market access. A title for tastes far from the center of a market covers its fixed cost only when enough readers are within reach. A larger market therefore adds titles farther from the center. The second prediction is that distinctiveness falls with market access where the market is bounded by language. A vernacular market has a center, the cities where most of its readers live, and a printer whose access to those cities rises moves toward them. Latin was sold to the whole continent through the fairs so a Latin printer's market had no nearer center and the prediction is no fall.</p>
-<p>Both predictions concern a product a printer can ship. Doctrine kept its value for years and traveled through the fairs. News lost its value within weeks and sold where it was printed so the framework predicts that neither measure of news moves with market access. News is the comparison.</p>
-<p>The third prediction concerns what the added titles were. Diversity alone does not say. A press can widen its range by reprinting what other cities already sell. In models of growth through new varieties the fixed cost of a variety is the cost of an idea and a larger market is what covers it (Romer 1990). New ideas are also combinations of existing ones (Weitzman 1998). Where market access raises diversity the added titles should be new to the language and lie between established subjects. Where it does not, there is no added variety and neither should move. Latin readers shared one body of learning across cities and the Latin market was the largest of the six. The titles a better-connected Latin press adds are then titles other cities already print and neither measure should rise.</p>
+<p>The hypothesis is that the early modern book trade worked like a market for differentiated goods. The framework is the monopolistic competition of new trade theory set in a space of products (Dixit and Stiglitz 1977, Krugman 1980, Helpman and Krugman 1985, Hotelling 1929, Lancaster 1979, Salop 1979, Anderson, de Palma, and Thisse 1992). Readers who value variety and printers with fixed costs determine how many titles a market supports. Trade costs determine which readers a press can reach. The position of a title in the space of ideas determines which titles are printed and where a city's print lies relative to the print of other cities. The book trade adds one question. Could a press print its own edition of a title that a neighboring city sold? Who licensed the presses decided the answer and the answer decides the sign of every prediction.</p>
+
+<h3>Readers, printers, and entry</h3>
+<p>Readers value variety. A reader who spreads a budget \(E\) evenly over \(n\) titles priced at \(p\) has utility \(n^{1/(\sigma-1)}\,E/p\), where \(\sigma > 1\) is the elasticity of substitution between titles. The first factor is the gain from variety and it is how a reader benefits from a larger market. A title has a fixed cost \(F\), which is obtaining and editing the text, setting the type, and correcting the proofs, and a cost \(c\) for each copy. A press charges \(p = \sigma c/(\sigma-1)\). Any printer may enter and entry stops when a title's margin covers its fixed cost, at which point every title sells \(q^* = (\sigma-1)F/c\) copies and earns \(\sigma F\). A market in which readers together spend \(E\) on books supports \(E/(\sigma F)\) titles.</p>
+
+<h3>Market access</h3>
+<p>A title printed in city \(j\) reaches the readers of every other city at a cost that rises with distance. Its revenue depends on the whole map of readers, rivals, and trade costs through one number, the market access of a producer in \(j\) (Donaldson and Hornbeck 2016). The measure taken to the data is</p>
+$$\mathrm{MA}_j = \sum_{i \neq j} \frac{L_i}{\tau_{ij}^{\theta}},$$
+<p>with \(L_i\) the readers of city \(i\), \(\tau_{ij}\) the cost of shipping from \(j\) to \(i\), and \(\theta = \sigma - 1\) the trade elasticity. Section 5 builds it.</p>
+
+<h3>Where titles are printed</h3>
+<p>Entry holds the revenue of a title at \(\sigma F\) in every city that prints. What differs across cities is the number of titles. Whether a city with more readers within reach prints more of them depends on how a reader treats an edition printed elsewhere. Two regions show the two possibilities. Region 1 has \(L_1\) readers, region 2 has \(L_2\), a title needs revenue \(k\), and \(\phi\) is the freeness of trade, from zero when no books are shipped to one when shipping is free.</p>
+<p>If every edition competes with every other, region 1 prints</p>
+$$n_1 = \frac{L_1 - \phi L_2}{(1-\phi)\,k}.$$
+<p>This is the home-market effect (Krugman 1980). More readers in region 2 support more titles there and those titles compete in region 1's own market. If instead the demand for a title stays with the city that printed it, region 1 prints</p>
+$$n_1 = \frac{L_1 + \phi L_2}{(1+\phi)\,k}$$
+<p>and the readers of region 2 become customers for region 1's titles. Market access is built from the readers of other cities, which are \(L_2\) here. It lowers a city's titles in the first case and raises them in the second.</p>
+<div class="figure">
+  <img src="framework-figures/two_cases.svg" alt="Titles printed in region 1 against the readers of region 2. The dashed line, every edition competes, falls from 90 to 40. The solid line, demand stays with the city of printing, rises from 50 to 67." style="width:72%;display:block;margin:0 auto">
+  <div class="cap"><b>Figure 5.</b> Titles printed in region 1 as the readers of region 2 grow, with \(L_1 = 60\), \(\phi = 0.5\), and \(k = 1\). A rise in \(L_2\) from 40 to 50 lowers region 1's titles from 80 to 70 when every edition competes and raises them from 53 to 57 when demand stays with the city of printing.</div>
+</div>
+<p>The book trade lay between the two cases and the licensing regime decided which case a market was nearer. Under fragmented authority a press could print its own edition of a title a neighboring city sold and the demand stayed with the city that printed it. Under unitary authority one edition served a whole kingdom and every edition competed. The predictions below take the first of these and the section on licensing returns to the second.</p>
+
+<h3>Diversity</h3>
+<p>A title is a position in the space of ideas and readers' tastes are bunched around a center. A title is printed when the copies its press could sell reach \(q^*\). A title near the center of a market's tastes meets that bar with few readers within reach. A commentary on an obscure author or a devotional work for a small sect meets it only with many. A rise in market access raises the sales a title could reach at every position, positions farther from the center then pay, and the range of the city's titles widens. Diversity, the average distance between pairs of a city's titles, does not rise when more titles are drawn from an unchanged mix, so a rise in it records titles placed farther out.</p>
+<div class="figure">
+  <img src="framework-figures/niche.svg" alt="Two panels of copies a title would sell by position. With 2,000 readers three titles are printed, average distance 1.33. With 8,000 readers five titles are printed, average distance 2.00." style="width:100%">
+  <div class="cap"><b>Figure 6.</b> Copies a title would sell at each position, with tastes bunched around position 5. Titles are printed where sales reach \(q^* = 400\). With 2,000 readers within reach the titles at positions 4 to 6 are printed and the average distance between pairs is 1.33. With 8,000 readers the titles at positions 3 to 7 are printed and the average distance is 2.00.</div>
+</div>
+<p>The first prediction is that diversity rises with market access. Smith's account predicts that it falls because a larger market lets a city's printers specialize.</p>
+
+<h3>Distinctiveness</h3>
+<p>Each city has an ideal point \(x_i^*\), the center of its readers' tastes. A press in city \(j\) serves the readers of many cities and the center of the tastes it serves is their average weighted by what each city adds to the demand within reach,</p>
+$$\bar{x}_j = \frac{\sum_i (L_i/\tau_{ij}^{\theta})\,x_i^*}{\sum_i L_i/\tau_{ij}^{\theta}},$$
+<p>where the sums include the city's own readers. Printers place their titles where that demand lies. A poorly connected press prints for local tastes. The center of a vernacular market is the cities where most of its readers live. As a city's access to them rises their tastes gain weight and its print moves toward the rest of its language. Latin readers shared one body of learning so their ideal points were close together and a rise in access does not move a Latin press. The second prediction is that distinctiveness falls with market access in a vernacular and does not fall in Latin. Smith's account predicts a rise in every language.</p>
+
+<h3>Novelty and bridging</h3>
+<p>Diversity does not say what the added titles were. A press can widen its range by reprinting what other cities already sell. In growth through new varieties the fixed cost of a variety is the cost of an idea and a larger market is what covers it (Romer 1990). New ideas are also combinations of existing ones (Weitzman 1998). A rise in market access adds the titles whose sales were just short of \(q^*\). Where tastes bunch around established subjects demand is thinner between them and the positions between two subjects are printed once the market is large enough.</p>
+<div class="figure">
+  <img src="framework-figures/subjects.svg" alt="Three panels with two subjects at positions 3 and 7. With 4,000 readers six titles and none between the subjects, with 6,000 readers seven titles and one between them, with 12,000 readers nine titles and one between them." style="width:100%">
+  <div class="cap"><b>Figure 7.</b> Copies a title would sell at each position when tastes bunch around two subjects, A at 3 and B at 7. A title at position 5 sells 348 copies with 4,000 readers within reach and is not printed. It sells 522 with 6,000 and is printed. A larger market adds titles only at the outer edges.</div>
+</div>
+<p>A title is new to the language when no city has printed anything near it, which requires cities whose readers want different things. With common tastes the range of a small city lies inside the range of a large one and every title it adds is one the large city already prints. With different tastes the outer edge of its range lies beyond every other city's and the titles added there are printed nowhere else. The third prediction is that where market access raises diversity in a vernacular the added titles are new to the language and lie between established subjects. Latin was the largest market and its readers shared one body of learning so neither measure should rise there.</p>
+
+<h3>Tradable print</h3>
+<p>The predictions concern a product a printer can ship. Doctrine, the religious, scholarly, and literary print that stayed in demand for years, traveled through the fairs to every city a press could reach. News lost its value within weeks and sold where it was printed so for news a press sells to its own city alone and neither measure should move with market access. News is the comparison.</p>
+
+<h3>Licensing authorities</h3>
+<p>Every government in Europe tried to control the press. Censorship decided what could be read. Licensing decided who could print and the right to print a title reached as far as the authority that granted it. German, Italian, and Dutch were printed under fragmented authority. In the Empire the enforcement of censorship lay with the territorial rulers and they applied imperial law unevenly (Wilke 2013). The Italian states licensed separately and a printer refused in one could print in another (Grendler 1977). The civil authorities of the Dutch Republic required no license before publication (van Eijnatten 2003) and a privilege granted by a Dutch city held only within that city (Buning 2024).</p>
+<p>French and Spanish were each printed under unitary authority. One authority, the crown, decided who printed a title and its grant ran across the kingdom. In France a royal privilege gave one publisher the sole right to print and sell a new book for five to ten years and the crown favored the leading Paris firms (Martin 1993). In Castile the license of the royal council for a new book carried the sole right to publish and sell it (Kamen 2014). From 1558 every new book printed in Castile needed that license (Reyes Gómez 2000). In France the ordinances of Mantes in 1563 and Moulins in 1566 made royal permission the condition of printing a book (Isambert, Decrusy, and Taillandier 1829). The rights were limited. A French privilege lapsed after its term and in Castile reprints often went ahead without a new license so the restriction fell on recent titles.</p>
+<p>Under unitary authority the case in which every edition competes applies to recent titles. More readers in a neighboring city support more titles at the presses that serve them and those titles also sell in the city's own market. A city loses the most titles where its neighbor's tastes are densest. Its presses are left with what their own readers want and other presses do not print so its range does not widen and its print moves away from that of other cities. These are the signs of Smith's account. In the framework Smith's specialization is the case in which one edition serves the whole market and the gain from variety is the case in which each city's presses keep the demand for what they print. Section 8 takes this up.</p>
+<div class="figure">
+  <img src="framework-figures/regimes.svg" alt="Two panels of the titles a city prints at each position when its neighbor has few and many readers. Under fragmented authority the city gains titles near the neighbor's tastes. Under unitary authority it loses them." style="width:100%">
+  <div class="cap"><b>Figure 8.</b> The titles a city prints at each position when its neighbor has few readers (gray) and many (orange). The bars give the range printed and the open circles its center. Under fragmented authority the city gains titles near the neighbor's tastes and under unitary authority it loses them.</div>
+</div>
 <table class="pred">
   <tr><th>Within-city slope on market access</th><th>Diversity</th><th>Distinctiveness</th><th>Novelty</th><th>Bridging</th></tr>
-  <tr><td>Doctrine under many authorities</td><td>positive</td><td>negative</td><td>positive</td><td>positive</td></tr>
+  <tr><td>Doctrine under fragmented authority</td><td>positive</td><td>negative</td><td>positive</td><td>positive</td></tr>
   <tr><td>Doctrine in Latin</td><td>positive</td><td>zero or positive</td><td>zero</td><td>zero</td></tr>
-  <tr><td>Doctrine under one crown</td><td>zero or negative</td><td>zero or positive</td><td>zero</td><td>zero</td></tr>
+  <tr><td>Doctrine under unitary authority</td><td>zero or negative</td><td>zero or positive</td><td>zero</td><td>zero</td></tr>
   <tr><td>News</td><td>zero</td><td>zero</td><td></td><td></td></tr>
 </table>
-<p>Every government in Europe tried to control the press and the controls were of two kinds. Censorship decided what could be read. Licensing decided who could print. Licensing bears on assumptions 4 and 5. The right to print a title reached as far as the authority that granted it. Where a language was printed under many authorities a press could bring out its own edition of a title a neighboring city sold. No one authority could refuse a printer across the whole of the market.</p>
-<p>German, Italian, and Dutch were printed under many authorities. In the Empire the enforcement of censorship lay with the territorial rulers and they applied imperial law unevenly (Wilke 2013). The Italian states licensed separately and a printer refused in one could print in another (Grendler 1977). The civil authorities of the Dutch Republic required no license before publication (van Eijnatten 2003). A privilege granted by a Dutch city held only within that city (Buning 2024).</p>
-<p>French and Spanish were each printed under one crown. The crown decided who printed a title and its grant ran across the kingdom. A press could not bring out its own edition of a recent title that another press of the kingdom held. In France a royal privilege gave one publisher the sole right to print and sell a new book for five to ten years and the crown favored the leading Paris firms (Martin 1993). In Castile the license of the royal council for a new book carried the sole right to publish and sell it (Kamen 2014). The rights were limited. A French privilege lapsed after its term and in Castile reprints often went ahead without a new license. The restriction fell on recent titles. From 1558 every new book printed in Castile needed a license from the Council of Castile (Reyes Gómez 2000). In France the ordinances of Mantes in 1563 and Moulins in 1566 made royal permission the condition of printing a book (Isambert, Decrusy, and Taillandier 1829).</p>
-<p>Under one crown the first two predictions change sign. A recent title is printed by the press that holds it and sold across the kingdom. More readers in a neighboring city then support more titles at the presses that serve them and those titles also sell in the city's own market. A rise in the city's market access adds more to the competition its presses face than to their sales. They are left with what their own readers want and other presses do not print. Their range does not widen and their print moves away from that of other cities. These are the signs of Smith's account, which is the framework's case when one edition serves the whole market. With no added variety the third prediction implies no rise in novelty or bridging. Section 8 takes this up.</p>
 </section>
 
 <section id="ma">
@@ -204,7 +245,7 @@ footer a { color: var(--teal); }
   <div class="controls"><label><input type="checkbox" id="showpaths"> Two least-cost paths</label></div>
   <svg id="masvg" viewBox="0 0 800 640" role="img" aria-label="Map of market access"></svg>
   <div class="legend" id="malegend"></div>
-  <div class="cap"><b>Figure 5.</b> Log market access summed over every city, at each anchor year, for cities that printed in the preceding 50 years. The paths run from Mainz to Venice by the Rhine, the Brenner, and the Po, and from Antwerp to Madrid by sea around Iberia.</div>
+  <div class="cap"><b>Figure 9.</b> Log market access summed over every city, at each anchor year, for cities that printed in the preceding 50 years. The paths run from Mainz to Venice by the Rhine, the Brenner, and the Po, and from Antwerp to Madrid by sea around Iberia.</div>
 </div>
 <p class="note">Explainer. <a href="market-access/">Market access, with a toy economy of ten towns.</a></p>
 </section>
@@ -213,24 +254,24 @@ footer a { color: var(--teal); }
 <h2><span class="num">6</span>Diversity and distinctiveness</h2>
 <p>We ask how a city's print in a language changed when its market access rose relative to that city's own average and to the change common to the cities of its language in the period. Each slope compares a city with itself over time so a city's university, its size, and its position on the trade routes do not enter. The panel has 1,876 observations of a city, a language, and a 50-year period, across 504 cities. Doctrine has 1,578 across 441.</p>
 <div class="eq">$$y_{j\ell d} \;=\; \beta \,\log \mathrm{MA}_{j\ell d} \;+\; \alpha_{j\ell} \;+\; \delta_{\ell d} \;+\; \varepsilon_{j\ell d}$$</div>
-<p>Here \(y_{j\ell d}\) is the diversity or the distinctiveness of city \(j\)'s titles in language \(\ell\) and period \(d\), and \(\log \mathrm{MA}_{j\ell d}\) is the log of its market access in that language. The city-and-language effect \(\alpha_{j\ell}\) removes the city's own average and the period effect \(\delta_{\ell d}\) removes the change common to the cities of a language. There are three pools. The first holds the six languages. The second holds German, Italian, and Dutch, the vernaculars printed under many licensing authorities. The third holds French and Spanish, each printed under one crown. Each observation is weighted by the square root of its number of titles and standard errors are clustered by city.</p>
+<p>Here \(y_{j\ell d}\) is the diversity or the distinctiveness of city \(j\)'s titles in language \(\ell\) and period \(d\), and \(\log \mathrm{MA}_{j\ell d}\) is the log of its market access in that language. The city-and-language effect \(\alpha_{j\ell}\) removes the city's own average and the period effect \(\delta_{\ell d}\) removes the change common to the cities of a language. There are three pools. The first holds the six languages. The second holds German, Italian, and Dutch, the vernaculars printed under many licensing authorities. The third holds French and Spanish, each printed under unitary authority. Each observation is weighted by the square root of its number of titles and standard errors are clustered by city.</p>
 <p class="note">Explainer. <a href="estimation/">The estimating equation, its weights and standard errors, and its extensions.</a></p>
 <p>Choose a product and a measure. Magnitudes in standard deviations are for a rise of one within-city standard deviation of log market access, 0.16 log units, about the rise a typical city saw over half a century.</p>
 <div class="figure">
   <div class="controls"><span id="ptabs"></span><span class="sep"></span><span id="mtabs"></span><span class="sep"></span><span id="utabs"></span></div>
   <div class="readline" id="rread"></div>
   <svg id="rsvg" viewBox="0 0 800 340" role="img" aria-label="Within-city slopes by language"></svg>
-  <div class="cap"><b>Figure 6.</b> Within-city slope of each measure on log market access by licensing authority and by language. Many authorities pools German, Italian, and Dutch and one crown pools French and Spanish. Latin was sold across the continent and belongs to neither group. Weighted two-way fixed effects with city-and-language and language-by-period effects. Intervals are 95 percent and use the larger of the city-clustered standard error and a standard error that allows correlation between cities within 250 km (Conley 1999). Filled points have intervals that exclude zero. Latin doctrine excludes academic dissertations.</div>
+  <div class="cap"><b>Figure 10.</b> Within-city slope of each measure on log market access by licensing authority and by language. Fragmented authority pools German, Italian, and Dutch and unitary authority pools French and Spanish. Latin was sold across the continent and belongs to neither group. Weighted two-way fixed effects with city-and-language and language-by-period effects. Intervals are 95 percent and use the larger of the city-clustered standard error and a standard error that allows correlation between cities within 250 km (Conley 1999). Filled points have intervals that exclude zero. Latin doctrine excludes academic dissertations.</div>
 </div>
-<p>Doctrine diversity rises under many authorities. Pooled over German, Italian, and Dutch, a rise of one within-city standard deviation in market access goes with diversity higher by 0.78 standard deviations. The response is 1.28 standard deviations in German, 0.63 in Italian, 0.53 in Dutch, and 0.30 in Latin. Pooled over all six languages it is 0.39.</p>
-<p>Doctrine distinctiveness falls under many authorities. The same move brings a city's doctrine nearer the mainstream of its language by 0.78 standard deviations, and by 1.35 in German and 0.86 in Italian. Latin doctrine shows no fall. Its interval excludes the German and Italian falls and contains zero.</p>
-<p>News is the comparison and its range does not widen. Under many authorities the news diversity slope is 0.104, a fifth of the doctrine slope of 0.503, and the doctrine slope lies outside its interval. Latin news diversity does not rise where Latin doctrine diversity does. The framework does not sign practical print, the medical, agricultural, military, and technical handbooks. French and Spanish show neither pattern in doctrine and Section 8 takes them up.</p>
+<p>Doctrine diversity rises under fragmented authority. Pooled over German, Italian, and Dutch, a rise of one within-city standard deviation in market access goes with diversity higher by 0.78 standard deviations. The response is 1.28 standard deviations in German, 0.63 in Italian, 0.53 in Dutch, and 0.30 in Latin. Pooled over all six languages it is 0.39.</p>
+<p>Doctrine distinctiveness falls under fragmented authority. The same move brings a city's doctrine nearer the mainstream of its language by 0.78 standard deviations, and by 1.35 in German and 0.86 in Italian. Latin doctrine shows no fall. Its interval excludes the German and Italian falls and contains zero.</p>
+<p>News is the comparison and its range does not widen. Under fragmented authority the news diversity slope is 0.104, a fifth of the doctrine slope of 0.503, and the doctrine slope lies outside its interval. Latin news diversity does not rise where Latin doctrine diversity does. The framework does not sign practical print, the medical, agricultural, military, and technical handbooks. French and Spanish show neither pattern in doctrine and Section 8 takes them up.</p>
 <p>The next figure shows the variation behind each language's doctrine slope. Each point is one city in one period after its own average and the period average are removed.</p>
 <div class="figure">
   <div class="controls"><span id="sltabs"></span><span class="sep"></span><span id="smtabs"></span></div>
   <div class="readline" id="sread" style="min-height:22px"></div>
   <svg id="scsvg" viewBox="0 0 800 400" role="img" aria-label="Within-city scatter"></svg>
-  <div class="cap"><b>Figure 7.</b> Doctrine cells with the city's mean and the period mean removed, weighted as in the regression. Circle area is proportional to the regression weight, the square root of the number of doctrine titles. The line is the language's slope from Figure 6. Cities observed in one period carry no within-city variation and are not shown.</div>
+  <div class="cap"><b>Figure 11.</b> Doctrine cells with the city's mean and the period mean removed, weighted as in the regression. Circle area is proportional to the regression weight, the square root of the number of doctrine titles. The line is the language's slope from Figure 10. Cities observed in one period carry no within-city variation and are not shown.</div>
 </div>
 </section>
 
@@ -243,63 +284,63 @@ footer a { color: var(--teal); }
     <svg id="th2" viewBox="0 0 400 320" role="img" aria-label="Distinctiveness slope by trade elasticity"></svg>
   </div>
   <div class="legend" id="thleg"></div>
-  <div class="cap"><b>Figure 8.</b> Doctrine slopes per within-city standard deviation of log market access, by trade elasticity, with 95 percent intervals clustered by city. Pooled is six languages for diversity and the five vernaculars for distinctiveness.</div>
+  <div class="cap"><b>Figure 12.</b> Doctrine slopes per within-city standard deviation of log market access, by trade elasticity, with 95 percent intervals clustered by city. Pooled is six languages for diversity and the five vernaculars for distinctiveness.</div>
 </div>
 <p>Doctrine diversity is largest at an elasticity of 0.5 to 0.75 and distinctiveness is most negative between 0.5 and 1. Both are near zero at elasticities of 3 and above. Books were a good with low trade costs and the data place the response where such a good should have it.</p>
 </section>
 
 <section id="entry">
-<h2><span class="num">8</span>Markets under one crown</h2>
-<p>French and Spanish were each licensed by one crown and neither shows the patterns of the first two predictions. They are 36 percent of vernacular titles. German, Italian, and Dutch are the other 64 percent.</p>
+<h2><span class="num">8</span>Markets under unitary authority</h2>
+<p>French and Spanish were each licensed by a unitary authority and neither shows the patterns of the first two predictions. They are 36 percent of vernacular titles. German, Italian, and Dutch are the other 64 percent.</p>
 <div class="figure">
   <div class="controls" id="gtabs"></div>
   <svg id="gsvg" viewBox="0 0 800 230" role="img" aria-label="Slopes by licensing authority"></svg>
-  <div class="cap"><b>Figure 9.</b> Within-city slopes on log market access with German, Italian, and Dutch pooled and with French and Spanish pooled, for doctrine and for all titles. Intervals as in Figure 6.</div>
+  <div class="cap"><b>Figure 13.</b> Within-city slopes on log market access with German, Italian, and Dutch pooled and with French and Spanish pooled, for doctrine and for all titles. Intervals as in Figure 10.</div>
 </div>
-<p>Under many authorities a rise of one within-city standard deviation in market access went with doctrine diversity higher by 0.78 standard deviations. The slope is 0.503 with a standard error of 0.094. Under one crown the slope is −0.009 with a standard error of 0.105. The two differ by 0.512 with a standard error of 0.143. Distinctiveness fell by 0.78 standard deviations under many authorities. Under one crown it rose by 0.38 with an interval that contains zero. The two slopes differ by 1.665 with a standard error of 0.389. Over all titles the rise under one crown is 0.65 standard deviations against a fall of 0.63 under many authorities. Under one crown a larger market brought differentiation without added variety.</p>
+<p>Under fragmented authority a rise of one within-city standard deviation in market access went with doctrine diversity higher by 0.78 standard deviations. The slope is 0.503 with a standard error of 0.094. Under unitary authority the slope is −0.009 with a standard error of 0.105. The two differ by 0.512 with a standard error of 0.143. Distinctiveness fell by 0.78 standard deviations under fragmented authority. Under unitary authority it rose by 0.38 with an interval that contains zero. The two slopes differ by 1.665 with a standard error of 0.389. Over all titles the rise under unitary authority is 0.65 standard deviations against a fall of 0.63 under fragmented authority. Under unitary authority a larger market brought differentiation without added variety.</p>
 <p>The contrast holds without the principal printing center of each language. The next figure drops Leipzig, Venice, Antwerp, Paris, and Madrid and gives the doctrine slopes for the presses that remain.</p>
 <div class="figure">
   <div class="controls" id="pvtabs"></div>
   <svg id="pvsvg" viewBox="0 0 800 170" role="img" aria-label="Distinctiveness slopes of provincial presses"></svg>
-  <div class="cap"><b>Figure 10.</b> Within-city slopes of the distinctiveness of provincial doctrine on log market access, without the principal printing center of each language. The tabs choose what a provincial city is measured against. Intervals as in Figure 6.</div>
+  <div class="cap"><b>Figure 14.</b> Within-city slopes of the distinctiveness of provincial doctrine on log market access, without the principal printing center of each language. The tabs choose what a provincial city is measured against. Intervals as in Figure 10.</div>
 </div>
-<p>Under many authorities the distinctiveness of the provincial presses falls by 0.76 standard deviations. Under one crown it rises by 0.34 with an interval that contains zero. The two slopes differ by 1.582 with a standard error of 0.421. Measured against one another the French and Spanish provincial presses move apart by 0.55 standard deviations and the provincial presses under many authorities move together by 0.53. Measured against Paris and Madrid alone the provinces under one crown do not move away.</p>
+<p>Under fragmented authority the distinctiveness of the provincial presses falls by 0.76 standard deviations. Under unitary authority it rises by 0.34 with an interval that contains zero. The two slopes differ by 1.582 with a standard error of 0.421. Measured against one another the French and Spanish provincial presses move apart by 0.55 standard deviations and the provincial presses under fragmented authority move together by 0.53. Measured against Paris and Madrid alone the provinces under unitary authority do not move away.</p>
 <p>Within a single language the evidence comes from Castile. From 1558 every new book printed in Castile needed a license from the Council of Castile. In decade cells the Spanish doctrine diversity slope is 1.375 before 1560 and −0.221 from 1560, a change of −1.596 with a standard error of 0.872. With the cut at 1570 the change is −1.254 with a standard error of 0.593. The Roman Indexes of 1559 and 1564 fall at the same cuts. The Italian slope rises across them from −0.318 to 1.071. Censorship of what could be read reached Italy in the years the license reached Castile. The Italian response to market access strengthened and the Spanish response reversed.</p>
 <div class="figure">
   <div class="controls" id="cttabs"></div>
   <svg id="ctsvg" viewBox="0 0 800 190" role="img" aria-label="Change in the diversity slope at the cut, by language"></svg>
-  <div class="cap"><b>Figure 11.</b> Change in the within-city slope of doctrine diversity on log market access at the cut, in decade cells. Each point is the slope from the cut minus the slope before it. Hover for the two slopes. No comparable change reached the German presses in these years. Intervals as in Figure 6.</div>
+  <div class="cap"><b>Figure 15.</b> Change in the within-city slope of doctrine diversity on log market access at the cut, in decade cells. Each point is the slope from the cut minus the slope before it. Hover for the two slopes. No comparable change reached the German presses in these years. Intervals as in Figure 10.</div>
 </div>
 <p>The Valdés Index of 1559 coincided with the license in Castile. The license stopped at a border the Index did not. The Council of Castile licensed books printed in Castile. The Inquisition covered the Crown of Aragon and Navarre as well. Their share of the Spanish-language printing inside Spain was 15 to 18 percent in every five-year bin from 1540 to 1554 and 29 to 39 percent in every bin from 1555 to 1599. Castilian output fell from 436 records in 1550–1554 to 181 in 1555–1559. The Castilian fall began in 1555, before the law, and the share printed outside Castile stayed high for 40 years.</p>
 <div class="figure">
   <div class="controls" id="catabs"></div>
   <svg id="casvg" viewBox="0 0 800 340" role="img" aria-label="Spanish-language printing in Castile and in Aragon and Navarre"></svg>
   <div class="legend" id="caleg"></div>
-  <div class="cap"><b>Figure 12.</b> Spanish-language catalog records with a recorded place and year, in five-year bins from 1540 to 1599. The dashed line marks the Castilian licensing law of 1558 and the Index of 1559.</div>
+  <div class="cap"><b>Figure 16.</b> Spanish-language catalog records with a recorded place and year, in five-year bins from 1540 to 1599. The dashed line marks the Castilian licensing law of 1558 and the Index of 1559.</div>
 </div>
 </section>
 
 <section id="variety">
 <h2><span class="num">9</span>What the added variety was</h2>
-<p>Under many authorities a city's doctrine is more diverse where its market access is higher. The third prediction says the added titles are new to the language and lie between established subjects. Two measures of a doctrine title test it. The novelty of a title is one minus its cosine with the nearest title printed earlier in the same language. A reprint scores near zero. Bridging uses 30 subject clusters per language. It is the title's cosine with its second-nearest cluster divided by its cosine with the nearest. A title inside one subject scores low and a title between two subjects scores near one.</p>
+<p>Under fragmented authority a city's doctrine is more diverse where its market access is higher. The third prediction says the added titles are new to the language and lie between established subjects. Two measures of a doctrine title test it. The novelty of a title is one minus its cosine with the nearest title printed earlier in the same language. A reprint scores near zero. Bridging uses 30 subject clusters per language. It is the title's cosine with its second-nearest cluster divided by its cosine with the nearest. A title inside one subject scores low and a title between two subjects scores near one.</p>
 <p class="note">Explainer. <a href="novelty/">Novelty.</a> · <a href="bridging/">Bridging.</a></p>
 <div class="figure">
   <div class="controls" id="vtabs"></div>
   <div class="readline" id="vread"></div>
   <svg id="vsvg" viewBox="0 0 800 340" role="img" aria-label="Novelty and bridging slopes"></svg>
-  <div class="cap"><b>Figure 13.</b> Within-city slopes of novelty and bridging on log market access, on the doctrine cells of Figure 6, by licensing authority and by language. Each is the mean over a cell's doctrine titles. Intervals as in Figure 6.</div>
+  <div class="cap"><b>Figure 17.</b> Within-city slopes of novelty and bridging on log market access, on the doctrine cells of Figure 10, by licensing authority and by language. Each is the mean over a cell's doctrine titles. Intervals as in Figure 10.</div>
 </div>
-<p>Under many authorities both measures rise with market access. A rise of one within-city standard deviation in access goes with doctrine titles that score 0.61 standard deviations higher on bridging and 0.43 higher on novelty. Bridging rises in each of the three languages. Novelty rises in German and Dutch and not in Italian. Under one crown market access does not raise diversity and it does not raise novelty either. The novelty slope is 0.018 with a standard error of 0.202 and the bridging slope 0.196 with a standard error of 0.123.</p>
+<p>Under fragmented authority both measures rise with market access. A rise of one within-city standard deviation in access goes with doctrine titles that score 0.61 standard deviations higher on bridging and 0.43 higher on novelty. Bridging rises in each of the three languages. Novelty rises in German and Dutch and not in Italian. Under unitary authority market access does not raise diversity and it does not raise novelty either. The novelty slope is 0.018 with a standard error of 0.202 and the bridging slope 0.196 with a standard error of 0.123.</p>
 <div class="figure">
   <div class="controls"><span id="btabs"></span><span class="sep"></span><span id="bgtabs"></span></div>
   <svg id="bsvg" viewBox="0 0 800 330" role="img" aria-label="Binned scatter of novelty or bridging against market access"></svg>
-  <div class="cap"><b>Figure 14.</b> Doctrine cells with city-and-language and language-by-period means removed, sorted into 20 equal bins of log market access within each group. Points are weighted bin means and the line is the group's slope.</div>
+  <div class="cap"><b>Figure 18.</b> Doctrine cells with city-and-language and language-by-period means removed, sorted into 20 equal bins of log market access within each group. Points are weighted bin means and the line is the group's slope.</div>
 </div>
-<p>Novelty and bridging came with the diversity. Under many authorities a cell whose doctrine diversity is one within-city standard deviation higher scores 0.40 standard deviations higher on bridging and 0.26 higher on novelty. With diversity held fixed market access adds little to either. The three measures come from the same titles and a shock to the city itself can move all of them. Market access leaves out the city's own population and does not carry such a shock. With access as the instrument for diversity the slopes are 0.799 and 0.453, close to the direct ones. Under one crown diversity varies for reasons other than market access and it comes with less novelty and bridging.</p>
+<p>Novelty and bridging came with the diversity. Under fragmented authority a cell whose doctrine diversity is one within-city standard deviation higher scores 0.40 standard deviations higher on bridging and 0.26 higher on novelty. With diversity held fixed market access adds little to either. The three measures come from the same titles and a shock to the city itself can move all of them. Market access leaves out the city's own population and does not carry such a shock. With access as the instrument for diversity the slopes are 0.799 and 0.453, close to the direct ones. Under unitary authority diversity varies for reasons other than market access and it comes with less novelty and bridging.</p>
 <div class="figure">
   <div class="controls" id="tdtabs"></div>
   <svg id="tdsvg" viewBox="0 0 800 230" role="img" aria-label="Novelty and bridging on diversity"></svg>
-  <div class="cap"><b>Figure 15.</b> Slopes of novelty and bridging on doctrine diversity within cities. The first two rows regress the measure on diversity alone. The third uses log market access as the instrument for diversity. The fourth is the slope on log market access with diversity held fixed. Intervals are 95 percent from the larger of the two standard errors.</div>
+  <div class="cap"><b>Figure 19.</b> Slopes of novelty and bridging on doctrine diversity within cities. The first two rows regress the measure on diversity alone. The third uses log market access as the instrument for diversity. The fourth is the slope on log market access with diversity held fixed. Intervals are 95 percent from the larger of the two standard errors.</div>
 </div>
 <p>Latin diversity rises with market access and neither measure does. The Latin stock was large, 273,168 titles against 87,800 in German and 57,951 in Italian, so a title a Latin city had not yet printed was far more often a title another city had. A larger Latin market brought a city more of what the continent already printed. A larger German market brought titles new to the language.</p>
 <p>The most novel titles were of every kind. Of the 4,802 German doctrine titles in the top tenth of novelty, 3,824 are religious works and 98 fall in the catalog's classes for science, mathematics, astrology, and botany. The table gives five titles that were unlike anything printed in German before them.</p>
@@ -307,21 +348,21 @@ footer a { color: var(--teal); }
   <table class="pred" id="nxtab" style="margin:0"></table>
   <div class="cap"><b>Table.</b> Five German doctrine titles from the top tenth of novelty. Novelty is one minus the cosine with the nearest earlier German title. The descriptions and translations are ours and are not in the catalog.</div>
 </div>
-<p>Most of the titles between subjects are religious. Of the 4,802 German doctrine titles in the top tenth of bridging, 3,705 are religious works and 97 fall in the same four classes. A Catholic catechism printed at Mainz in 1555 lies between catechisms and confessional controversy. A wedding sermon on Hebrews 13 printed at Nuremberg in 1531 lies between funeral sermons on a Bible verse and sermons on Gospel chapters. Under many authorities half of all bridging joins one cluster of doctrine to another and 7 percent joins doctrine to practical print, the medicine, agriculture, and technical arts of the catalog. Neither novelty nor bridging was directed toward the study of nature. A larger market brought more new titles and more combinations of every kind and a small share of them carried what Mokyr (2017) calls useful knowledge.</p>
+<p>Most of the titles between subjects are religious. Of the 4,802 German doctrine titles in the top tenth of bridging, 3,705 are religious works and 97 fall in the same four classes. A Catholic catechism printed at Mainz in 1555 lies between catechisms and confessional controversy. A wedding sermon on Hebrews 13 printed at Nuremberg in 1531 lies between funeral sermons on a Bible verse and sermons on Gospel chapters. Under fragmented authority half of all bridging joins one cluster of doctrine to another and 7 percent joins doctrine to practical print, the medicine, agriculture, and technical arts of the catalog. Neither novelty nor bridging was directed toward the study of nature. A larger market brought more new titles and more combinations of every kind and a small share of them carried what Mokyr (2017) calls useful knowledge.</p>
 <p>The last figure places three such titles among the 30 German subject clusters. They are books of astronomy and natural history from the top tenth of German bridging. Peter Apian's book of astronomical instruments joins astronomy to the making of instruments. Conrad Gessner's book on snakes joins the chronicles to the cluster with the most practical print. A dialogue between an astronomer and a theologian on whether the Earth moves joins astronomy to confessional controversy. Choose one to see the two subjects it sits between.</p>
 <div class="figure">
   <div class="controls"><select id="exsel" aria-label="Example title" style="max-width:100%"></select></div>
   <svg id="xsvg" viewBox="0 0 800 430" role="img" aria-label="German subject clusters and a bridging title"></svg>
   <div class="legend" id="xleg"></div>
-  <div class="cap"><b>Figure 16.</b> The 30 German subject clusters, placed on a two-dimensional projection of their centers. Circle area is proportional to the number of titles. Hover a circle for its nearest vocabulary words. The English names of the subjects, the translations of the titles, and the identifications of the works are ours and are not in the catalog. The measure itself is computed in 200 dimensions.</div>
+  <div class="cap"><b>Figure 20.</b> The 30 German subject clusters, placed on a two-dimensional projection of their centers. Circle area is proportional to the number of titles. Hover a circle for its nearest vocabulary words. The English names of the subjects, the translations of the titles, and the identifications of the works are ours and are not in the catalog. The measure itself is computed in 200 dimensions.</div>
 </div>
-<p>New varieties and combinations are the inputs that accounts of idea production take as given. A new variety is the good whose fixed cost a larger market covers and a title between subjects is a combination of existing ones. The crossing of ideas between fields is what Jacobs (1969) and Glaeser et al. (1992) put behind the growth of cities. Most of the combinations were sermons, catechisms, and controversy. A few were instrument books and natural histories. Whether a city with such titles grew or produced more ideas is a question the paper does not reach.</p>
+<p>New varieties and combinations are the inputs that accounts of idea production take as given. A new variety is the good whose fixed cost a larger market covers and a title between subjects is a combination of existing ones. The crossing of ideas between fields is what Jacobs (1969) and Glaeser et al. (1992) put behind the growth of cities. Most of the combinations were sermons, catechisms, and religious polemic. A few were instrument books and natural histories. Whether a city with such titles grew or produced more ideas is a question the paper does not reach.</p>
 </section>
 
 <section id="size">
 <h2><span class="num">10</span>Magnitudes in titles</h2>
 <p>The slopes above are in standard deviations. The numbers below restate them as titles. We calculated them from the paper's estimates and they are not in the paper.</p>
-<p>Call a doctrine title novel if it is in the top quarter of novelty in its language and bridging if it is in the top quarter of bridging. In the average city 41 percent of doctrine titles are one or the other. Under many authorities a rise of one within-city standard deviation in market access takes that share from 41 to 50 percent. Under one crown it stays at 41 percent. In a city that printed 255 doctrine titles in half a century the rise under many authorities is about 21 more titles that are novel or bridging. Under one crown it is none.</p>
+<p>Call a doctrine title novel if it is in the top quarter of novelty in its language and bridging if it is in the top quarter of bridging. In the average city 41 percent of doctrine titles are one or the other. Under fragmented authority a rise of one within-city standard deviation in market access takes that share from 41 to 50 percent. Under unitary authority it stays at 41 percent. In a city that printed 255 doctrine titles in half a century the rise under fragmented authority is about 21 more titles that are novel or bridging. Under unitary authority it is none.</p>
 <p>Choose a cutoff, a size of city, and a rise in market access.</p>
 <div class="figure">
   <div class="controls" id="shtabs"></div>
@@ -333,32 +374,32 @@ footer a { color: var(--teal); }
   </div>
   <svg id="shsvg" viewBox="0 0 800 170" role="img" aria-label="Share of doctrine titles that are novel or bridging before and after a rise in market access"></svg>
   <table class="pred" id="shtab" style="margin:10px 0 0"></table>
-  <div class="cap"><b>Figure 17.</b> Share of a city's doctrine titles that are novel or bridging before and after a rise in market access. The open point is the share before, the filled point the share after, and the line a 95 percent interval for the share after. The table gives the titles added in a city of the chosen size. Novel and bridging overlap so the last column counts a title once. The calculation assumes the share moves in proportion to the rise. At the top 5 percent the two groups do not differ.</div>
+  <div class="cap"><b>Figure 21.</b> Share of a city's doctrine titles that are novel or bridging before and after a rise in market access. The open point is the share before, the filled point the share after, and the line a 95 percent interval for the share after. The table gives the titles added in a city of the chosen size. Novel and bridging overlap so the last column counts a title once. The calculation assumes the share moves in proportion to the rise. At the top 5 percent the two groups do not differ.</div>
 </div>
 <p>These numbers compare cities with one another net of what changed in every city of a language in a period. They do not say how much of the growth of new print over two centuries market access explains.</p>
 <p class="note">The next calculation is illustrative. It rests on two assumptions the estimates do not test. The first is that science titles were added in proportion to their share of novel and bridging titles. The second is that the within-city slope applies to the whole rise in each city's market access over the period.</p>
-<p>Under those assumptions the rise in market access accounts for 13 percent of the science, mathematics, astrology, and botany titles printed under many authorities, about 316 of 2,497. Under one crown it accounts for none of 1,161. The interval under many authorities runs from 1 to 24 percent.</p>
+<p>Under those assumptions the rise in market access accounts for 13 percent of the science, mathematics, astrology, and botany titles printed under fragmented authority, about 316 of 2,497. Under unitary authority it accounts for none of 1,161. The interval under fragmented authority runs from 1 to 24 percent.</p>
 <div class="figure">
   <div class="controls"><span id="sctabs"></span><span class="sep"></span><span id="scktabs"></span></div>
   <div class="readline" id="scread" style="min-height:22px"></div>
   <svg id="scisvg" viewBox="0 0 800 150" role="img" aria-label="Share of science titles accounted for by the rise in market access"></svg>
-  <div class="cap"><b>Figure 18.</b> Percent of the science, mathematics, astrology, and botany titles in the doctrine sample that the rise in market access accounts for, under the two assumptions above. Intervals are 95 percent. The figure illustrates a magnitude and the paper does not report it.</div>
+  <div class="cap"><b>Figure 22.</b> Percent of the science, mathematics, astrology, and botany titles in the doctrine sample that the rise in market access accounts for, under the two assumptions above. Intervals are 95 percent. The figure illustrates a magnitude and the paper does not report it.</div>
 </div>
 </section>
 
 <section id="policy">
 <h2><span class="num">11</span>What the results say about policy</h2>
 <p>A license to print is a rule about who may enter a market. The results of Section 8 give its cost in variety, the range of titles a larger market would otherwise have produced. The literature on occupational licensing measures the cost of entry rules in wages and employment (Kleiner and Krueger 2013). In a market for ideas the cost is the range of titles that were never printed and it can be read from the text of what was printed.</p>
-<p>The calculator applies the two slopes of Section 8 to a rise in market access you choose. The default is one within-city standard deviation of market access under many authorities, 0.15 log units, about the rise a typical city saw over half a century. At the default the readouts match the magnitudes above.</p>
+<p>The calculator applies the two slopes of Section 8 to a rise in market access you choose. The default is one within-city standard deviation of market access under fragmented authority, 0.15 log units, about the rise a typical city saw over half a century. At the default the readouts match the magnitudes above.</p>
 <div class="figure">
   <div class="controls"><label>Rise in market access <input id="pol" type="range" min="0" max="0.5" step="0.001" value="0.152" style="width:260px"></label><span id="polv" style="font-weight:600;color:var(--rust)"></span></div>
   <div class="readout">
-    <div><b id="polf"></b>change in doctrine diversity under many authorities, in standard deviations</div>
-    <div><b id="poll"></b>change under one crown</div>
+    <div><b id="polf"></b>change in doctrine diversity under fragmented authority, in standard deviations</div>
+    <div><b id="poll"></b>change under unitary authority</div>
     <div><b id="polg"></b>the variety a single licensing authority forwent, in standard deviations</div>
   </div>
   <div class="readline" id="polci" style="min-height:22px"></div>
-  <div class="cap"><b>Figure 19.</b> Implied change in doctrine diversity from the pooled slopes of Figure 9, in standard deviations of each group's diversity. Intervals use the larger of the two standard errors, as in Figure 9. The calculation applies an association and assumes the slope is the same at every size of rise.</div>
+  <div class="cap"><b>Figure 23.</b> Implied change in doctrine diversity from the pooled slopes of Figure 13, in standard deviations of each group's diversity. Intervals use the larger of the two standard errors, as in Figure 13. The calculation applies an association and assumes the slope is the same at every size of rise.</div>
 </div>
 <p>Readers bore that cost. In German, Italian, and Dutch a reader's gain from a larger market came as a wider range of titles printed nearby. In France and Castile the same growth in reach brought no such range. Readers there lost the variety a larger market would have brought, less what they could buy from presses outside the license's reach. The Crown of Aragon and Navarre were such places. Their share of the Spanish-language printing in Spain went from under a fifth to about a third as Castilian output fell.</p>
 <p>Political fragmentation kept most of the European market open to entry (Jones 1981, Mokyr 2017). The state that could license every press was the state that could enforce conformity (Johnson and Koyama 2019). The costs of that enforcement are measurable in Spanish municipalities centuries later (Drelichman, Vidal-Robert, and Voth 2021).</p>
@@ -380,7 +421,7 @@ footer a { color: var(--teal); }
   </div>
   <div id="cinfo" class="legend"></div>
   <svg id="cityvis" viewBox="0 0 800 440" role="img" aria-label="City panel"></svg>
-  <div class="cap"><b>Figure 20.</b> One line per language the city printed in, at the four 50-year periods. A measure appears only where the city had enough doctrine titles in the period to compute it.</div>
+  <div class="cap"><b>Figure 24.</b> One line per language the city printed in, at the four 50-year periods. A measure appears only where the city had enough doctrine titles in the period to compute it.</div>
 </div>
 </section>
 
@@ -400,8 +441,8 @@ footer a { color: var(--teal); }
   <li>Dave Donaldson and Richard Hornbeck (2016). Railroads and American Economic Growth: A "Market Access" Approach. <i>Quarterly Journal of Economics</i> 131(2), 799–858.</li>
   <li>Dave Donaldson (2018). Railroads of the Raj: Estimating the Impact of Transportation Infrastructure. <i>American Economic Review</i> 108(4–5), 899–934.</li>
   <li>Mauricio Drelichman, Jordi Vidal-Robert, and Hans-Joachim Voth (2021). The Long-Run Effects of Religious Persecution: Evidence from the Spanish Inquisition. <i>Proceedings of the National Academy of Sciences</i> 118(33), e2022881118.</li>
-  <li>Matthew Gentzkow and Jesse M. Shapiro (2011). Ideological Segregation Online and Offline. <i>Quarterly Journal of Economics</i> 126(4), 1799–1839.</li>
   <li>Matthew Gentzkow, Jesse M. Shapiro, and Michael Sinkinson (2011). The Effect of Newspaper Entry and Exit on Electoral Politics. <i>American Economic Review</i> 101(7), 2980–3018.</li>
+  <li>Matthew Gentzkow and Jesse M. Shapiro (2011). Ideological Segregation Online and Offline. <i>Quarterly Journal of Economics</i> 126(4), 1799–1839.</li>
   <li>Edward L. Glaeser, Hedi D. Kallal, José A. Scheinkman, and Andrei Shleifer (1992). Growth in Cities. <i>Journal of Political Economy</i> 100(6), 1126–1152.</li>
   <li>Paul F. Grendler (1977). <i>The Roman Inquisition and the Venetian Press, 1540–1605</i>. Princeton, NJ, Princeton University Press.</li>
   <li>Danny Hayes and Jennifer L. Lawless (2021). <i>News Hole: The Demise of Local Journalism and Political Engagement</i>. Cambridge, Cambridge University Press.</li>
@@ -446,10 +487,10 @@ footer a { color: var(--teal); }
 <script>
 const C = { navy:"#1B2A4A", rust:"#C75B12", teal:"#2A6F77", gold:"#C9A227", gray:"#5C5C5C" };
 const LANGS = ["Latin","German","Italian","French","Dutch","Spanish"];
-const LC = { Latin:C.gold, German:C.navy, Italian:C.teal, French:C.rust, Dutch:"#7a5195", Spanish:"#6b8e23", "Six languages":"#111", "Five vernaculars":"#111", "Many authorities":"#111", "One crown":"#111" };
+const LC = { Latin:C.gold, German:C.navy, Italian:C.teal, French:C.rust, Dutch:"#7a5195", Spanish:"#6b8e23", "Six languages":"#111", "Five vernaculars":"#111", "Fragmented authority":"#111", "Unitary authority":"#111" };
 const GORD = ["many","german","italian","dutch","one","french","spanish","latin"];
 const GC = { many: C.navy, one: C.rust };
-const GL = { many: "Many authorities", one: "One crown" };
+const GL = { many: "Fragmented authority", one: "Unitary authority" };
 const SEEDGLOSS = { anatomia:"anatomy", geometria:"geometry", ius:"law", kirche:"church", krieg:"war", recht:"law", chiesa:"church", guerra:"war", legge:"law", eglise:"church", guerre:"war", loy:"law", kercke:"church", oorloghen:"wars", iglesia:"church", ley:"law" };
 const SANS = '-apple-system, "Helvetica Neue", Arial, sans-serif';
 const tip = d3.select("#tip");
@@ -626,7 +667,7 @@ function results(est) {
       color: LC[e.label], bold: e.group === "many" || e.group === "one", tip: slopeTip(e.label, e) }));
     forest(svg, rows, { W: 800, H: 340, l: 150, xlab: state.u === "slope" ? "Within-city slope on log market access" : "Standard deviations of the measure per within-city standard deviation of log market access" });
     const h = rs.find(e => e.group === "many"), o = rs.find(e => e.group === "one");
-    d3.select("#rread").html(`${cap(state.m)} of ${plab[state.p].toLowerCase()} under many authorities. Slope <b>${f3(h.est)}</b> with a city-clustered standard error of ${f3(h.se)}, or <b>${f2(h.size_in_sd)}</b> standard deviations, on ${h.n.toLocaleString()} observations. Under one crown the slope is <b>${f3(o.est)}</b> with a standard error of ${f3(o.se)}.`);
+    d3.select("#rread").html(`${cap(state.m)} of ${plab[state.p].toLowerCase()} under fragmented authority. Slope <b>${f3(h.est)}</b> with a city-clustered standard error of ${f3(h.se)}, or <b>${f2(h.size_in_sd)}</b> standard deviations, on ${h.n.toLocaleString()} observations. Under unitary authority the slope is <b>${f3(o.est)}</b> with a standard error of ${f3(o.se)}.`);
   }
   const tp = tabs("#ptabs", prods, v => { state.p = v; draw(); }, d => plab[d]);
   const tm = tabs("#mtabs", ["diversity","distinctiveness"], v => { state.m = v; draw(); }, cap);
@@ -749,7 +790,7 @@ function variety(est) {
     forest(d3.select("#vsvg"), rs.map(e => ({ label: e.label, v: e.est, lo: e.est - 1.96*bse(e), hi: e.est + 1.96*bse(e), color: LC[e.label], bold: e.group === "many" || e.group === "one", tip: slopeTip(e.label, e) })),
       { W: 800, H: 340, l: 150, xlab: `Within-city slope of ${m} on log market access` });
     const h = rs.find(e => e.group === "many"), o = rs.find(e => e.group === "one");
-    d3.select("#vread").html(`${cap(m)} under many authorities. Slope <b>${f3(h.est)}</b> with a city-clustered standard error of ${f3(h.se)}, or <b>${f2(h.size_in_sd)}</b> standard deviations, on ${h.n.toLocaleString()} observations. Under one crown the slope is <b>${f3(o.est)}</b> with a standard error of ${f3(o.se)}.`);
+    d3.select("#vread").html(`${cap(m)} under fragmented authority. Slope <b>${f3(h.est)}</b> with a city-clustered standard error of ${f3(h.se)}, or <b>${f2(h.size_in_sd)}</b> standard deviations, on ${h.n.toLocaleString()} observations. Under unitary authority the slope is <b>${f3(o.est)}</b> with a standard error of ${f3(o.se)}.`);
   }
   tabs("#vtabs", ["bridging","novelty"], draw, cap).set("bridging");
 }
@@ -777,8 +818,8 @@ function binscatter(vr) {
 function throughDiversity(est) {
   const R = est.through_diversity.rows, g = (grp, m, sp, t) => R.find(d => d.group === grp && d.measure === m && d.spec === sp && d.term === t);
   function draw(m) {
-    const spec = [["Many authorities, on diversity", g("many", m, "direct", "diversity"), C.navy], ["One crown, on diversity", g("one", m, "direct", "diversity"), C.rust],
-      ["Many authorities, access as instrument", g("many", m, "iv", "diversity"), C.navy], ["Many authorities, access with diversity fixed", g("many", m, "joint", "log_ma"), C.teal]];
+    const spec = [["Fragmented authority, on diversity", g("many", m, "direct", "diversity"), C.navy], ["Unitary authority, on diversity", g("one", m, "direct", "diversity"), C.rust],
+      ["Fragmented authority, access as instrument", g("many", m, "iv", "diversity"), C.navy], ["Fragmented authority, access with diversity fixed", g("many", m, "joint", "log_ma"), C.teal]];
     forest(d3.select("#tdsvg"), spec.map(([L, e, col]) => ({ label: L, v: e.est, lo: e.est - 1.96*e.se_bracket, hi: e.est + 1.96*e.se_bracket, color: col,
       tip: `<b>${L}</b><br>Slope ${f3(e.est)}<br>Standard error ${f3(e.se_bracket)}<br>${e.n} observations` })), { W: 800, H: 230, l: 300, xlab: `Slope of ${m}` });
   }
@@ -854,7 +895,7 @@ function science(est) {
       tip: `<b>${GL[e.group]}</b><br>${e.pct.toFixed(1)} percent<br>About ${Math.round(e.science_added)} of ${e.science_total.toLocaleString()} science titles<br>95 percent interval ${e.lo.toFixed(1)} to ${e.hi.toFixed(1)}` })),
       { W: 800, H: 150, l: 150, xlab: "Percent of science titles accounted for by the rise in market access" });
     const m = rs[0], o = rs[1];
-    d3.select("#scread").html(`Many authorities <b>${m.pct.toFixed(1)} percent</b>, about ${Math.round(m.science_added)} of ${m.science_total.toLocaleString()} titles. One crown <b>${o.pct.toFixed(1)} percent</b>, about ${Math.round(o.science_added)} of ${o.science_total.toLocaleString()}.`);
+    d3.select("#scread").html(`Fragmented authority <b>${m.pct.toFixed(1)} percent</b>, about ${Math.round(m.science_added)} of ${m.science_total.toLocaleString()} titles. Unitary authority <b>${o.pct.toFixed(1)} percent</b>, about ${Math.round(o.science_added)} of ${o.science_total.toLocaleString()}.`);
   }
   const tc = tabs("#sctabs", [25, 15], v => { state.c = v; draw(); }, d => d === 25 ? "Top quarter" : "Top 15 percent");
   const tk = tabs("#scktabs", ["either","novel","bridging"], v => { state.k = v; draw(); }, d => klab[d]);
@@ -869,7 +910,7 @@ function policy(est) {
     const k = e => dx / e.sd_y, sw = F.sd_within_x;
     d3.select("#polv").text(`${Math.round(100 * (Math.exp(dx) - 1))} percent, ${f2(dx / sw)} within-city standard deviations`);
     d3.select("#polf").text(f2(F.est * k(F))); d3.select("#poll").text(f2(L.est * k(L))); d3.select("#polg").text(f2(F.est * k(F) - L.est * k(L)));
-    d3.select("#polci").html(`95 percent intervals. Many authorities ${f2((F.est - 1.96 * F.se_bracket) * k(F))} to ${f2((F.est + 1.96 * F.se_bracket) * k(F))}. One crown ${f2((L.est - 1.96 * L.se_bracket) * k(L))} to ${f2((L.est + 1.96 * L.se_bracket) * k(L))}. The difference between the slopes is ${f3(D.diff)} with a standard error of ${f3(D.diff_se)}.`); };
+    d3.select("#polci").html(`95 percent intervals. Fragmented authority ${f2((F.est - 1.96 * F.se_bracket) * k(F))} to ${f2((F.est + 1.96 * F.se_bracket) * k(F))}. Unitary authority ${f2((L.est - 1.96 * L.se_bracket) * k(L))} to ${f2((L.est + 1.96 * L.se_bracket) * k(L))}. The difference between the slopes is ${f3(D.diff)} with a standard error of ${f3(D.diff_se)}.`); };
   d3.select("#pol").property("value", F.sd_within_x).on("input", upd); upd();
 }
 // ---------- 12. City explorer ----------
